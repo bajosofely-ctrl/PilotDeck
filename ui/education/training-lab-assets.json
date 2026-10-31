@@ -1,0 +1,68 @@
+[
+  {
+    "path": "Imagenet/imagenet_dataset.json",
+    "url": "https://store.gen-ai.fi/tm/Imagenet/imagenet_dataset.json",
+    "sha256": "397b9f461c5c232d8c6264631d6ca28a820c2e196792074da76a95494ba159c1",
+    "bytes": 1162334
+  },
+  {
+    "path": "models/mobilenet_v2/group1-shard1of2.bin",
+    "url": "https://store.gen-ai.fi/tm/models/mobilenet_v2/group1-shard1of2.bin",
+    "sha256": "51b2d0642f475d0a221c20d21ab3664060aa7b5b2d83f1263f9a5b3472e9257e",
+    "bytes": 4194304
+  },
+  {
+    "path": "models/mobilenet_v2/group1-shard2of2.bin",
+    "url": "https://store.gen-ai.fi/tm/models/mobilenet_v2/group1-shard2of2.bin",
+    "sha256": "e414db98e8fa50293f636c616906ebaed3af6c1aa1f0290e50266eb366a21258",
+    "bytes": 2570528
+  },
+  {
+    "path": "models/mobilenet_v2/model.json",
+    "url": "https://store.gen-ai.fi/tm/models/mobilenet_v2/model.json",
+    "sha256": "9f429ad58d08de66a3e541ce7bca426e3b8df427d2afb96e9dd5d71b00b5cca2",
+    "bytes": 200620
+  },
+  {
+    "path": "models/posenet_075/group1-shard1of2.bin",
+    "url": "https://tmstore.blob.core.windows.net/models/posenet_075/group1-shard1of2.bin",
+    "sha256": "ce6afc62f89782d43139fab76c641b281a82dee2cd2759aa036c4b28aea16439",
+    "bytes": 4194304
+  },
+  {
+    "path": "models/posenet_075/group1-shard2of2.bin",
+    "url": "https://tmstore.blob.core.windows.net/models/posenet_075/group1-shard2of2.bin",
+    "sha256": "2a35b8cfb86eb50928931e03dc30c0972fdd375f148b177ee40676b81a17692d",
+    "bytes": 838476
+  },
+  {
+    "path": "models/posenet_075/model-stride16.json",
+    "url": "https://tmstore.blob.core.windows.net/models/posenet_075/model-stride16.json",
+    "sha256": "dd63bf2d3b983e8c80020749f135164beda00a33374c8a7be230b9598f24f798",
+    "bytes": 49720
+  },
+  {
+    "path": "models/speech-commands/18w/group1-shard1of2",
+    "url": "https://store.gen-ai.fi/tm/models/speech-commands/18w/group1-shard1of2",
+    "sha256": "79b7ef9d7577b333ee39b0d6e8dfebdb03be559a645bc389307ef84da414a30b",
+    "bytes": 4194304
+  },
+  {
+    "path": "models/speech-commands/18w/group1-shard2of2",
+    "url": "https://store.gen-ai.fi/tm/models/speech-commands/18w/group1-shard2of2",
+    "sha256": "129b9a7d501f81e62710d494efcba67ed98b3f3032dd28d7fe20cbc8cd5bee1f",
+    "bytes": 1680432
+  },
+  {
+    "path": "models/speech-commands/18w/metadata.json",
+    "url": "https://store.gen-ai.fi/tm/models/speech-commands/18w/metadata.json",
+    "sha256": "06f92997a0f6b3e5f11d70251222350f1e0f6717280f7edd151d4001482665ac",
+    "bytes": 203
+  },
+  {
+    "path": "models/speech-commands/18w/model.json",
+    "url": "https://store.gen-ai.fi/tm/models/speech-commands/18w/model.json",
+    "sha256": "be053f904fe26d1fab2be824d943e936d9f04c9ea3d238d3c58fa2a6225b1ef7",
+    "bytes": 5466
+  }
+]

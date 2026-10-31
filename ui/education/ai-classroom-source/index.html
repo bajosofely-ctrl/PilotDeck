@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthropic's Prompt Engineering Interactive Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1>Anthropic's Prompt Engineering Interactive Tutorial</h1>
+                        <span class="subtitle">Learn effective prompt engineering techniques</span>
+                    </div>
+                    <div class="header-actions">
+                        <div class="header-links">
+                            <a href="https://docs.google.com/spreadsheets/d/19jzLgRruG9kjUQNKtCg1ZjdD6l6weA6qRXG5zLIAhC8" target="_blank" rel="noopener" class="header-link">
+                                📊 Original Tutorial
+                            </a>
+                            <a href="https://github.com/idsulik/apeit" target="_blank" rel="noopener" class="header-link">
+                                🐙 GitHub
+                            </a>
+                        </div>
+                        <button class="btn btn-outline" id="progressBtn">
+                            <span class="progress-text">Progress: 0/18</span>
+                        </button>
+                        <button class="btn btn-primary" id="apiKeyBtn">
+                            <span>🔑 API Key</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="nav-section">
+                    <h3>Getting Started</h3>
+                    <ul class="nav-list">
+                        <li><a href="#tutorial-how-to" class="nav-link active">Tutorial How-To</a></li>
+                        <li><a href="#intro" class="nav-link">Intro & Table of Contents</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Core Lessons</h3>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#lesson-1" class="nav-link">1. Basic Prompt Structure</a>
+                            <a href="#exercises-1" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-2" class="nav-link">2. Being Clear and Direct</a>
+                            <a href="#exercises-2" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-3" class="nav-link">3. Assigning Roles</a>
+                            <a href="#exercises-3" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-4" class="nav-link">4. Separating Data and Instructions</a>
+                            <a href="#exercises-4" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-5" class="nav-link">5. Formatting Output</a>
+                            <a href="#exercises-5" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-6" class="nav-link">6. Precognition (Thinking Step by Step)</a>
+                            <a href="#exercises-6" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-7" class="nav-link">7. Using Examples (Few-Shot)</a>
+                            <a href="#exercises-7" class="nav-link sub-link">Exercises</a>
+                        </li>
+                        <li>
+                            <a href="#lesson-8" class="nav-link">8. Avoiding Hallucinations</a>
+                            <a href="#exercises-8" class="nav-link sub-link">Exercises</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Advanced Topics</h3>
+                    <ul class="nav-list">
+                        <li><a href="#complex-chatbot" class="nav-link">9. Complex Prompts - Chatbot</a></li>
+                        <li><a href="#complex-legal" class="nav-link">9. Complex Prompts - Legal</a></li>
+                        <li><a href="#complex-financial" class="nav-link">9. Complex Prompts - Financial</a></li>
+                        <li><a href="#exercises-9" class="nav-link">9. Exercises - Coding</a></li>
+                        <li><a href="#congratulations" class="nav-link">9. Congratulations & Next Steps</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Appendix</h3>
+                    <ul class="nav-list">
+                        <li><a href="#appendix-chaining" class="nav-link">Chaining Prompts</a></li>
+                        <li><a href="#appendix-function" class="nav-link">Function Calling</a></li>
+                        <li><a href="#appendix-search" class="nav-link">Search & Retrieval</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="content">
+                <div id="content-area">
+                    <!-- Content will be dynamically loaded here -->
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="content-navigation">
+                    <button class="btn btn-outline" id="prevBtn" disabled>
+                        ← Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn">
+                        Next →
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div class="modal" id="apiKeyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enter Your Anthropic API Key</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>To use the interactive exercises, you'll need an Anthropic API key.</p>
+                <p><a href="https://console.anthropic.com/" target="_blank" rel="noopener">Get your API key from the Anthropic Console →</a></p>
+                <div class="input-group">
+                    <label for="apiKeyInput">API Key:</label>
+                    <input type="password" id="apiKeyInput" placeholder="sk-ant-...">
+                </div>
+                <div class="modal-note">
+                    <p><strong>Note:</strong> Your API key is stored locally in your browser and never sent to our servers. It's only used to make direct requests to Anthropic's API from your browser.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancelApiKey">Cancel</button>
+                <button class="btn btn-primary" id="saveApiKey">Save API Key</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise Modal -->
+    <div class="modal" id="exerciseModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="exerciseTitle">Exercise</h2>
+                <button class="modal-close" id="closeExerciseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="exerciseContent">
+                    <!-- Exercise content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script type="module" src="content.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

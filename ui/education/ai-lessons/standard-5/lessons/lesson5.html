@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第5课：AI 的未来与责任 | Lesson 5: The Future & Ethics of AI — AI 探索之旅 | AI Explorer">
+  <title>AI 的未来与责任 | The Future &amp; Ethics of AI — AI 探索之旅</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html" class="active"><span class="zh">第5课</span><span class="en">L5</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 5 课</span>
+        <span class="en">Lesson 5</span>
+      </span>
+      <h1>
+        <span class="zh">AI 的未来与责任</span>
+        <span class="en">The Future &amp; Ethics of AI</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">思考AI的影响、偏见与安全</span>
+        <span class="en">Reflect on AI's impact, bias, and safety</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <main class="content">
+
+    <!-- ======== 5.1 What Can AI Do? What Can't It Do? ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.1 AI 能做什么？不能做什么？</span>
+        <span class="en">5.1 What Can AI Do? What Can't It Do?</span>
+      </h2>
+
+      <div class="compare">
+        <div class="compare-col highlight-good">
+          <h4>
+            <span class="zh">AI 擅长的</span>
+            <span class="en">What AI Excels At</span>
+          </h4>
+          <ul>
+            <li>
+              <span class="zh">模式识别（图像、语音、文字）</span>
+              <span class="en">Pattern recognition (images, speech, text)</span>
+            </li>
+            <li>
+              <span class="zh">快速处理海量数据</span>
+              <span class="en">Processing massive data quickly</span>
+            </li>
+            <li>
+              <span class="zh">重复性任务自动化</span>
+              <span class="en">Automating repetitive tasks</span>
+            </li>
+            <li>
+              <span class="zh">7×24小时不间断工作</span>
+              <span class="en">Working 24/7 without breaks</span>
+            </li>
+            <li>
+              <span class="zh">在特定领域超越人类（围棋、蛋白质折叠）</span>
+              <span class="en">Surpassing humans in specific domains (Go, protein folding)</span>
+            </li>
+          </ul>
+        </div>
+        <div class="compare-col highlight-bad">
+          <h4>
+            <span class="zh">AI 不擅长的</span>
+            <span class="en">What AI Struggles With</span>
+          </h4>
+          <ul>
+            <li>
+              <span class="zh">真正的创造力和原创性</span>
+              <span class="en">True creativity and originality</span>
+            </li>
+            <li>
+              <span class="zh">常识推理和因果理解</span>
+              <span class="en">Common sense reasoning and causal understanding</span>
+            </li>
+            <li>
+              <span class="zh">情感理解和同理心</span>
+              <span class="en">Emotional understanding and empathy</span>
+            </li>
+            <li>
+              <span class="zh">道德判断和价值观</span>
+              <span class="en">Moral judgment and values</span>
+            </li>
+            <li>
+              <span class="zh">处理全新的、从未见过的情况</span>
+              <span class="en">Handling completely novel situations</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box info">
+        <span class="box-icon">ℹ️</span>
+        <div>
+          <p>
+            <span class="zh"><strong>记住：</strong>现在的AI都是"弱AI"（专用AI），在特定任务上很强，但没有真正的理解和意识。</span>
+            <span class="en"><strong>Remember:</strong> all current AI is "narrow AI"—strong at specific tasks but lacking true understanding or consciousness.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 5.2 AI Bias & Fairness ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.2 AI 偏见与公平</span>
+        <span class="en">5.2 AI Bias &amp; Fairness</span>
+      </h2>
+
+      <p>
+        <span class="zh">AI不会自己产生偏见，但它会从训练数据中"学到"偏见。如果数据有问题，AI的决策也会有问题。</span>
+        <span class="en">AI doesn't create bias on its own, but it "learns" bias from training data. If data is flawed, AI decisions will be too.</span>
+      </p>
+
+      <!-- Case Study 1 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">招聘AI歧视女性</span>
+            <span class="en">Hiring AI Discriminated Against Women</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">亚马逊曾开发AI招聘工具，但发现它系统性地给女性候选人更低的分数。原因：训练数据主要来自过去10年以男性为主的简历。</span>
+              <span class="en">Amazon developed an AI hiring tool that systematically scored female candidates lower. Reason: training data came from 10 years of mostly male resumes.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">人脸识别的种族偏见</span>
+            <span class="en">Racial Bias in Face Recognition</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">研究发现，一些人脸识别系统对深色皮肤人群的准确率显著低于浅色皮肤人群（错误率相差30%以上）。原因：训练数据中浅色皮肤的照片占多数。</span>
+              <span class="en">Studies found some face recognition systems had significantly lower accuracy for darker-skinned people (30%+ error rate difference). Reason: training data had mostly lighter-skinned photos.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">搜索引擎的刻板印象</span>
+            <span class="en">Search Engine Stereotypes</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">搜索"CEO"图片时，结果以白人男性为主；搜索"护士"则以女性为主。AI反映并强化了社会中已存在的偏见。</span>
+              <span class="en">Searching "CEO" images shows mostly white men; "nurse" shows mostly women. AI reflects and reinforces existing social biases.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-lg">
+        <span class="zh"><strong>解决AI偏见需要：</strong>多样化的训练数据、公平性审计、人类监督。</span>
+        <span class="en"><strong>Addressing AI bias requires:</strong> diverse training data, fairness audits, human oversight.</span>
+      </p>
+    </section>
+
+    <!-- ======== 5.3 Deepfakes & Information Security ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.3 深度伪造与信息安全</span>
+        <span class="en">5.3 Deepfakes &amp; Information Security</span>
+      </h2>
+
+      <p>
+        <span class="zh">Deepfake技术可以生成逼真的假视频、假音频。虽然有娱乐用途，但也被用于欺诈、造谣和冒充他人。</span>
+        <span class="en">Deepfake technology can generate realistic fake videos and audio. While fun, it's also used for fraud, misinformation, and impersonation.</span>
+      </p>
+
+      <div class="card">
+        <h3>
+          <span class="zh">如何辨别虚假信息</span>
+          <span class="en">How to Identify Fake Information</span>
+        </h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: var(--sp-xs) 0; display: flex; align-items: flex-start; gap: var(--sp-xs);">
+            <span style="flex-shrink: 0;">✅</span>
+            <span>
+              <span class="zh">核实来源：信息来自可信的媒体或官方渠道吗？</span>
+              <span class="en">Verify source: Is the info from a trusted media outlet or official channel?</span>
+            </span>
+          </li>
+          <li style="padding: var(--sp-xs) 0; display: flex; align-items: flex-start; gap: var(--sp-xs);">
+            <span style="flex-shrink: 0;">✅</span>
+            <span>
+              <span class="zh">检查细节：画面中有没有不自然的闪烁、模糊或变形？</span>
+              <span class="en">Check details: Are there unnatural flickering, blurring, or distortions?</span>
+            </span>
+          </li>
+          <li style="padding: var(--sp-xs) 0; display: flex; align-items: flex-start; gap: var(--sp-xs);">
+            <span style="flex-shrink: 0;">✅</span>
+            <span>
+              <span class="zh">交叉验证：其他可靠来源有没有报道同样的事？</span>
+              <span class="en">Cross-reference: Have other reliable sources reported the same thing?</span>
+            </span>
+          </li>
+          <li style="padding: var(--sp-xs) 0; display: flex; align-items: flex-start; gap: var(--sp-xs);">
+            <span style="flex-shrink: 0;">✅</span>
+            <span>
+              <span class="zh">使用工具：可以用AI检测工具（如Deepware Scanner）来辨别。</span>
+              <span class="en">Use tools: AI detection tools (e.g., Deepware Scanner) can help identify fakes.</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-box warning">
+        <span class="box-icon">⚠️</span>
+        <div>
+          <p>
+            <span class="zh">在分享任何令人震惊的内容之前，先想30秒：这是真的吗？</span>
+            <span class="en">Before sharing any shocking content, think for 30 seconds: Is this real?</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 5.4 Privacy & Data Protection ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.4 隐私与数据保护</span>
+        <span class="en">5.4 Privacy &amp; Data Protection</span>
+      </h2>
+
+      <p>
+        <span class="zh">每次你使用AI服务，你的数据可能被收集和使用。了解数据隐私很重要。</span>
+        <span class="en">Every time you use an AI service, your data may be collected and used. Understanding data privacy matters.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">人脸数据</span>
+            <span class="en">Face Data</span>
+          </h3>
+          <p>
+            <span class="zh">人脸解锁、美颜相机、社交媒体照片</span>
+            <span class="en">Face unlock, beauty cameras, social media photos</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">对话数据</span>
+            <span class="en">Conversation Data</span>
+          </h3>
+          <p>
+            <span class="zh">和AI助手的聊天记录、搜索历史</span>
+            <span class="en">Chat logs with AI assistants, search history</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">行为数据</span>
+            <span class="en">Behavioral Data</span>
+          </h3>
+          <p>
+            <span class="zh">浏览记录、购买习惯、位置信息</span>
+            <span class="en">Browsing history, purchase habits, location data</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-lg" style="border-left: 4px solid var(--c-accent); background: rgba(245,158,11,0.04);">
+        <h3>
+          <span class="zh">思考题</span>
+          <span class="en">Think About It</span>
+        </h3>
+        <p>
+          <span class="zh">你愿意用多少隐私换取多少便利？在使用AI产品时，你会阅读隐私政策吗？</span>
+          <span class="en">How much privacy are you willing to trade for convenience? Do you read privacy policies when using AI products?</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======== 5.5 What Skills Do We Need in the AI Era? ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.5 AI 时代需要什么能力？</span>
+        <span class="en">5.5 What Skills Do We Need in the AI Era?</span>
+      </h2>
+
+      <p>
+        <span class="zh">AI不会取代人，但会用AI的人会取代不会用AI的人。</span>
+        <span class="en">AI won't replace people, but people who use AI will replace those who don't.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">批判性思维</span>
+            <span class="en">Critical Thinking</span>
+          </h3>
+          <p>
+            <span class="zh">不盲信AI的输出，能判断信息的真假和质量</span>
+            <span class="en">Don't blindly trust AI output; judge the truthfulness and quality of information</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">创造力</span>
+            <span class="en">Creativity</span>
+          </h3>
+          <p>
+            <span class="zh">AI可以辅助创造，但真正的创新灵感来自人类</span>
+            <span class="en">AI can assist creation, but true innovative inspiration comes from humans</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">协作能力</span>
+            <span class="en">Collaboration</span>
+          </h3>
+          <p>
+            <span class="zh">学会与AI协作，让AI成为你的得力助手</span>
+            <span class="en">Learn to collaborate with AI, making it your powerful assistant</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">终身学习</span>
+            <span class="en">Lifelong Learning</span>
+          </h3>
+          <p>
+            <span class="zh">AI领域发展飞快，持续学习新技能至关重要</span>
+            <span class="en">AI evolves rapidly; continuously learning new skills is crucial</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">AI 素养</span>
+            <span class="en">AI Literacy</span>
+          </h3>
+          <p>
+            <span class="zh">理解AI的原理、能力和局限，做负责任的AI使用者</span>
+            <span class="en">Understand AI's principles, capabilities, and limitations; be a responsible AI user</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 5.6 Interactive: Design Your AI Product ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.6 互动：设计你的 AI 产品</span>
+        <span class="en">5.6 Interactive: Design Your AI Product</span>
+      </h2>
+
+      <p>
+        <span class="zh">如果你可以设计一个AI产品来解决生活中的一个问题，你会做什么？</span>
+        <span class="en">If you could design an AI product to solve a real-life problem, what would you create?</span>
+      </p>
+
+      <!-- Task 1 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">任务 1：发现问题</span>
+          <span class="en">Task 1: Identify the Problem</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你想解决什么问题？（描述一个你或你身边人遇到的实际问题）</span>
+            <span class="en">What problem do you want to solve? (Describe a real problem you or people around you face)</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder=""></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看示例</span>
+          <span class="en">Show Example</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考示例</span>
+            <span class="en">Example Answer</span>
+          </p>
+          <div class="pc-ref-prompt">
+            <span class="zh">老人容易忘记吃药</span>
+            <span class="en">Elderly people often forget to take medicine</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">任务 2：设计产品</span>
+          <span class="en">Task 2: Design the Product</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你的AI产品叫什么？它怎么工作？（描述核心功能和用户如何使用）</span>
+            <span class="en">What's your AI product called? How does it work? (Describe core features and user experience)</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder=""></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看示例</span>
+          <span class="en">Show Example</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考示例</span>
+            <span class="en">Example Answer</span>
+          </p>
+          <div class="pc-ref-prompt">
+            <span class="zh">"药小助" — 一个AI药物管理助手，通过摄像头识别药物，语音提醒按时吃药，记录用药历史并通知家人。</span>
+            <span class="en">"MedBuddy"—an AI medicine management assistant that uses camera to identify pills, voice reminders, records medication history and notifies family.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">任务 3：思考风险</span>
+          <span class="en">Task 3: Consider Risks</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">它需要什么数据来训练？可能有什么风险或偏见需要注意？</span>
+            <span class="en">What data does it need for training? What risks or biases should you consider?</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder=""></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看示例</span>
+          <span class="en">Show Example</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考示例</span>
+            <span class="en">Example Answer</span>
+          </p>
+          <div class="pc-ref-prompt">
+            <span class="zh">需要药物图像数据和用药时间数据。风险：隐私问题（健康数据很敏感）、药物识别错误可能有危险。</span>
+            <span class="en">Needs pill image data and medication schedule data. Risks: privacy (health data is sensitive), wrong pill identification could be dangerous.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 5.7 Course Summary ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.7 课程总结</span>
+        <span class="en">5.7 Course Summary</span>
+      </h2>
+
+      <p>
+        <span class="zh">恭喜你完成了全部5课！让我们回顾一下学到的核心知识：</span>
+        <span class="en">Congratulations on completing all 5 lessons! Let's review the core knowledge:</span>
+      </p>
+
+      <!-- Lesson 1 Summary -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">第1课 走进AI的世界</span>
+            <span class="en">L1 Welcome to AI</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">AI是让机器模拟人类智能的技术。现在所有AI都是弱AI（专用AI）。AI已经深入我们生活的方方面面。</span>
+              <span class="en">AI is technology that enables machines to simulate human intelligence. All current AI is narrow AI. AI is deeply integrated in our daily lives.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 2 Summary -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">第2课 机器学习</span>
+            <span class="en">L2 Machine Learning</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">机器学习从数据中学习规律。三种方式：监督学习、无监督学习、强化学习。数据质量决定AI质量。</span>
+              <span class="en">ML learns patterns from data. Three types: supervised, unsupervised, reinforcement. Data quality determines AI quality.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 3 Summary -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">第3课 深度学习</span>
+            <span class="en">L3 Deep Learning</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">神经网络受大脑启发。深度学习=多层神经网络。CNN专门处理图像。训练过程：前向传播→计算误差→反向传播→更新权重。</span>
+              <span class="en">Neural networks are brain-inspired. Deep learning = multi-layer networks. CNNs specialize in images. Training: forward prop→error→backprop→update weights.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 4 Summary -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">第4课 大语言模型</span>
+            <span class="en">L4 LLMs</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">大语言模型通过预测下一个词来生成文本。Transformer和注意力机制是核心。好的Prompt能获得更好的AI输出。</span>
+              <span class="en">LLMs generate text by predicting the next word. Transformer and attention are core. Good prompts get better AI output.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson 5 Summary -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">第5课 AI伦理</span>
+            <span class="en">L5 AI Ethics</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">AI有偏见问题，来源于训练数据。深度伪造威胁信息安全。保护隐私、批判性思维、AI素养是AI时代的必备能力。</span>
+              <span class="en">AI has bias issues from training data. Deepfakes threaten information security. Privacy protection, critical thinking, and AI literacy are essential AI-era skills.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Resources -->
+      <div class="card mt-lg">
+        <h3>
+          <span class="zh">推荐资源</span>
+          <span class="en">Recommended Resources</span>
+        </h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: var(--sp-xs) 0;">
+            <a href="https://teachablemachine.withgoogle.com" target="_blank" rel="noopener noreferrer">Google Teachable Machine</a>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <a href="https://playground.tensorflow.org" target="_blank" rel="noopener noreferrer">TensorFlow Playground</a>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Scratch (<span class="zh">学编程</span><span class="en">Learn programming</span>)</a>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <a href="https://docs.python.org/zh-cn/3/tutorial/" target="_blank" rel="noopener noreferrer"><span class="zh">Python官方教程</span><span class="en">Python Official Tutorial</span></a>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" rel="noopener noreferrer">AI For Everyone (Coursera)</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======== 5.8 Final Quiz ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">5.8 结业测验</span>
+        <span class="en">5.8 Final Quiz</span>
+      </h2>
+
+      <div class="quiz" data-quiz-id="lesson5">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1:</strong> AI的核心目标是什么？</span>
+            <span class="en"><strong>Q1:</strong> What is the core goal of AI?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 取代人类</span>
+              <span class="en">A. Replace humans</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 让机器模拟人类智能</span>
+              <span class="en">B. Enable machines to simulate human intelligence</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 制造机器人</span>
+              <span class="en">C. Build robots</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 加速计算</span>
+              <span class="en">D. Speed up computation</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">AI的核心是让机器模拟人类的感知、推理和学习能力，而不是取代人类。</span>
+              <span class="en">AI's core is simulating human perception, reasoning, and learning, not replacing humans.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2:</strong> 监督学习和非监督学习的主要区别是什么？</span>
+            <span class="en"><strong>Q2:</strong> What's the main difference between supervised and unsupervised learning?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 监督学习更快</span>
+              <span class="en">A. Supervised is faster</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 监督学习的数据有标签，非监督学习没有</span>
+              <span class="en">B. Supervised data has labels, unsupervised doesn't</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 非监督学习更准确</span>
+              <span class="en">C. Unsupervised is more accurate</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 监督学习不需要数据</span>
+              <span class="en">D. Supervised doesn't need data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">监督学习使用带有"正确答案"标签的数据训练，而非监督学习让AI自己从数据中发现规律。</span>
+              <span class="en">Supervised learning uses data with "correct answer" labels; unsupervised learning lets AI discover patterns on its own.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3:</strong> CNN（卷积神经网络）最擅长处理什么？</span>
+            <span class="en"><strong>Q3:</strong> What is CNN best at processing?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 文本</span>
+              <span class="en">A. Text</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 数字表格</span>
+              <span class="en">B. Numerical tables</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 图像</span>
+              <span class="en">C. Images</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 声音</span>
+              <span class="en">D. Audio</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">CNN通过卷积操作提取图像的空间特征，是图像处理的首选架构。</span>
+              <span class="en">CNNs extract spatial features from images through convolution, making them the go-to architecture for image processing.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4:</strong> 大语言模型生成文本的基本原理是？</span>
+            <span class="en"><strong>Q4:</strong> What is the basic principle of LLM text generation?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 从数据库中复制文本</span>
+              <span class="en">A. Copying text from a database</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 逐词预测最可能的下一个词</span>
+              <span class="en">B. Predicting the most likely next word one at a time</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 翻译多种语言的文本</span>
+              <span class="en">C. Translating text from multiple languages</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 按模板填空</span>
+              <span class="en">D. Filling in templates</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">LLM通过不断预测下一个最可能的词来生成连贯的文本，本质是一个超强的概率预测模型。</span>
+              <span class="en">LLMs generate coherent text by continuously predicting the most likely next word—essentially a super-powered probability model.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5:</strong> 以下哪个不是好的Prompt技巧？</span>
+            <span class="en"><strong>Q5:</strong> Which is NOT a good prompt technique?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 给AI一个明确的角色</span>
+              <span class="en">A. Give AI a clear role</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 提供具体的示例</span>
+              <span class="en">B. Provide specific examples</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 写得越模糊越好，让AI自由发挥</span>
+              <span class="en">C. Be as vague as possible to let AI be creative</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 限定输出格式</span>
+              <span class="en">D. Specify output format</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">好的Prompt应该清晰、具体。越模糊的指令越容易得到不符合期望的结果。</span>
+              <span class="en">Good prompts should be clear and specific. Vague instructions are more likely to produce unexpected results.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q6:</strong> AI偏见的主要来源是什么？</span>
+            <span class="en"><strong>Q6:</strong> What is the main source of AI bias?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. AI自己的想法</span>
+              <span class="en">A. AI's own thoughts</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 训练数据中的偏见</span>
+              <span class="en">B. Bias in training data</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 程序员故意设定的</span>
+              <span class="en">C. Intentionally set by programmers</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 计算机硬件限制</span>
+              <span class="en">D. Computer hardware limitations</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">AI从数据中学习。如果训练数据反映了社会中存在的偏见，AI就会"学到"并放大这些偏见。</span>
+              <span class="en">AI learns from data. If training data reflects societal biases, AI will "learn" and amplify them.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q7:</strong> 什么是Deepfake？</span>
+            <span class="en"><strong>Q7:</strong> What is a Deepfake?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 一种深度学习算法</span>
+              <span class="en">A. A deep learning algorithm</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 用AI生成的逼真假视频或音频</span>
+              <span class="en">B. Realistic fake video or audio generated by AI</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 一种网络安全防护工具</span>
+              <span class="en">C. A cybersecurity protection tool</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. AI的一种训练方法</span>
+              <span class="en">D. An AI training method</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Deepfake利用深度学习技术生成或篡改视频、音频，使其看起来/听起来非常真实。</span>
+              <span class="en">Deepfakes use deep learning to generate or manipulate video/audio to look/sound very realistic.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q8:</strong> 神经网络中"反向传播"的作用是？</span>
+            <span class="en"><strong>Q8:</strong> What is the role of "backpropagation" in neural networks?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 输入数据到网络</span>
+              <span class="en">A. Input data into the network</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 根据误差调整权重</span>
+              <span class="en">B. Adjust weights based on error</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 产生最终输出</span>
+              <span class="en">C. Produce final output</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 删除不需要的数据</span>
+              <span class="en">D. Delete unnecessary data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">反向传播计算每个权重对误差的贡献，并据此调整权重，让模型逐步变得更准确。</span>
+              <span class="en">Backpropagation calculates each weight's contribution to error and adjusts accordingly, making the model progressively more accurate.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q9:</strong> Transformer架构中的"注意力机制"的作用是？</span>
+            <span class="en"><strong>Q9:</strong> What does "attention" in Transformer do?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 让AI保持清醒</span>
+              <span class="en">A. Keep AI alert</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 让AI在处理每个词时关注最相关的其他词</span>
+              <span class="en">B. Let AI focus on the most relevant words when processing each word</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 过滤掉不重要的数据</span>
+              <span class="en">C. Filter out unimportant data</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 加速模型训练</span>
+              <span class="en">D. Speed up model training</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">注意力机制允许模型在处理序列中的每个元素时，动态地确定应该关注哪些其他元素。</span>
+              <span class="en">Attention allows the model to dynamically determine which other elements to focus on when processing each element in a sequence.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q10:</strong> 在AI时代，以下哪种能力最不重要？</span>
+            <span class="en"><strong>Q10:</strong> In the AI era, which ability is least important?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 批判性思维</span>
+              <span class="en">A. Critical thinking</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 死记硬背大量知识</span>
+              <span class="en">B. Memorizing large amounts of knowledge</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 创造力</span>
+              <span class="en">C. Creativity</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 与AI协作的能力</span>
+              <span class="en">D. Ability to collaborate with AI</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">AI可以帮我们存储和检索知识，所以死记硬背变得不那么重要。批判性思维、创造力和AI协作能力才是AI时代的核心竞争力。</span>
+              <span class="en">AI can store and retrieve knowledge for us, making memorization less important. Critical thinking, creativity, and AI collaboration are the core competencies of the AI era.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">10</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">10</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======== Lesson Navigation Footer ======== -->
+    <div class="lesson-nav-footer">
+      <a href="lesson4.html">
+        <span class="zh">← 上一课：大语言模型与AIGC</span>
+        <span class="en">← Previous: LLMs &amp; AI-Generated Content</span>
+      </a>
+      <a href="../index.html">
+        <span class="zh">回到首页 →</span>
+        <span class="en">Back to Home →</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">恭喜完成课程！🎓</span>
+      <span class="en">Congratulations on completing the course! 🎓</span>
+    </p>
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

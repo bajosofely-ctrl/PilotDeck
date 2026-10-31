@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="实验5：AI绘画实验 | Lab 5: AI Art Lab">
+  <title>实验5：AI绘画实验 | Lab 5: AI Art Lab</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 实验室</span>
+      <span class="en">AI Lab</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">实验1</span><span class="en">Lab1</span></a>
+      <a href="lesson2.html"><span class="zh">实验2</span><span class="en">Lab2</span></a>
+      <a href="lesson3.html"><span class="zh">实验3</span><span class="en">Lab3</span></a>
+      <a href="lesson4.html"><span class="zh">实验4</span><span class="en">Lab4</span></a>
+      <a href="lesson5.html" class="active"><span class="zh">实验5</span><span class="en">Lab5</span></a>
+      <a href="lesson6.html"><span class="zh">实验6</span><span class="en">Lab6</span></a>
+      <a href="lesson7.html"><span class="zh">实验7</span><span class="en">Lab7</span></a>
+      <a href="lesson8.html"><span class="zh">实验8</span><span class="en">Lab8</span></a>
+      <a href="lesson9.html"><span class="zh">实验9</span><span class="en">Lab9</span></a>
+      <a href="lesson10.html"><span class="zh">实验10</span><span class="en">Lab10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">实验 5</span>
+        <span class="en">Lab 5</span>
+      </span>
+      <h1>
+        <span class="zh">AI绘画实验</span>
+        <span class="en">AI Art Lab</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">用文字描述生成独一无二的AI艺术作品</span>
+        <span class="en">Generate unique AI artwork from text descriptions</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 5.1 Lab Goal -->
+    <section class="section reveal" id="section-5-1">
+      <h2><span class="zh">5.1 实验目标</span><span class="en">5.1 Lab Goal</span></h2>
+      <p>
+        <span class="zh">在这个实验中，你将学习如何用文字描述（提示词）来指导 AI 创作图片。你会使用免费的 AI 绘画工具和 Python 代码来生成各种风格的艺术作品，从写实到抽象，从油画到动漫。</span>
+        <span class="en">In this lab, you'll learn to guide AI in creating images using text descriptions (prompts). You'll use free AI art tools and Python code to generate artwork in various styles — from realistic to abstract, oil paintings to anime.</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">提示词技巧</span><span class="en">Prompt Skills</span></h3>
+          <p><span class="zh">学会写出精准的AI绘画提示词</span><span class="en">Learn to write effective AI art prompts</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">风格探索</span><span class="en">Style Exploration</span></h3>
+          <p><span class="zh">尝试不同艺术风格的创作</span><span class="en">Try creating in different art styles</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">代码生成</span><span class="en">Code Generation</span></h3>
+          <p><span class="zh">用Python调用AI绘画模型</span><span class="en">Call AI art models with Python</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5.2 Background -->
+    <section class="section reveal" id="section-5-2">
+      <h2><span class="zh">5.2 背景知识</span><span class="en">5.2 Background</span></h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>AI 是怎么画画的？</strong>AI 绘画模型（如 Stable Diffusion、DALL-E）通过学习数十亿张图片来理解"什么样的描述对应什么样的画面"。当你输入文字提示，AI 从随机噪点开始，一步步去噪，最终生成一张与你描述匹配的图片。这个过程叫做"扩散模型"（Diffusion Model）。</span>
+          <span class="en"><strong>How does AI draw?</strong> AI art models (like Stable Diffusion, DALL-E) learn from billions of images to understand "what descriptions match what visuals." When you type a text prompt, AI starts from random noise and gradually removes it step by step until an image matching your description appears. This is called a "Diffusion Model."</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh"><strong>提示词工程（Prompt Engineering）</strong>是与 AI 绘画交互的关键技能。好的提示词能让 AI 生成令人惊叹的作品，而模糊的提示词可能得到奇怪的结果。一个好的提示词通常包含：主题、风格、颜色、光线和细节。</span>
+        <span class="en"><strong>Prompt Engineering</strong> is the key skill for AI art. Good prompts produce stunning artwork, while vague prompts may give odd results. A good prompt typically includes: subject, style, colors, lighting, and details.</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col highlight-bad">
+          <h3><span class="zh">模糊提示词</span><span class="en">Vague Prompt</span></h3>
+          <p><span class="zh">"画一只猫"</span><span class="en">"Draw a cat"</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">精准提示词</span><span class="en">Detailed Prompt</span></h3>
+          <p><span class="zh">"一只橘色小猫坐在窗台上，阳光透过窗帘照进来，水彩画风格，温暖色调"</span><span class="en">"An orange kitten sitting on a windowsill, sunlight streaming through curtains, watercolor style, warm tones"</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5.3 Hands-On -->
+    <section class="section reveal" id="section-5-3">
+      <h2><span class="zh">5.3 动手实验</span><span class="en">5.3 Hands-On</span></h2>
+
+      <h3><span class="zh">Part A：使用在线 AI 绘画工具</span><span class="en">Part A: Using Online AI Art Tools</span></h3>
+
+      <p>
+        <span class="zh">首先，让我们用一些免费的在线工具来体验 AI 绘画：</span>
+        <span class="en">First, let's experience AI art with some free online tools:</span>
+      </p>
+      <p>
+        <span class="zh">1. 打开 <strong>craiyon.com</strong>（免费，无需注册）</span>
+        <span class="en">1. Open <strong>craiyon.com</strong> (free, no sign-up needed)</span>
+      </p>
+      <p>
+        <span class="zh">2. 在输入框中尝试以下提示词，观察不同效果：</span>
+        <span class="en">2. Try these prompts in the input box and observe the different results:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Prompts</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code>Prompt 1: &quot;A robot reading a book in a cozy library, digital art&quot;
+Prompt 2: &quot;A futuristic city with flying cars at sunset, cyberpunk style&quot;
+Prompt 3: &quot;A cat wearing a space helmet floating among stars, cartoon style&quot;
+Prompt 4: &quot;A magical forest with glowing mushrooms, fantasy art, detailed&quot;</code></pre>
+      </div>
+
+      <h3><span class="zh">Part B：用 Python 生成 AI 艺术</span><span class="en">Part B: Generate AI Art with Python</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 安装所需库 / Install required libraries</span>
+<span class="op">!</span><span class="var">pip</span> <span class="var">install</span> <span class="var">diffusers</span> <span class="var">transformers</span> <span class="var">accelerate</span> <span class="var">torch</span>
+
+<span class="kw">from</span> <span class="var">diffusers</span> <span class="kw">import</span> <span class="var">DiffusionPipeline</span>
+<span class="kw">import</span> <span class="var">torch</span>
+<span class="kw">from</span> <span class="var">IPython</span>.<span class="fn">display</span> <span class="kw">import</span> <span class="fn">display</span>
+
+<span class="cm"># 加载轻量级 AI 绘画模型</span>
+<span class="cm"># Load a lightweight AI art model</span>
+<span class="var">pipe</span> <span class="op">=</span> <span class="var">DiffusionPipeline</span>.<span class="fn">from_pretrained</span>(
+    <span class="str">&quot;stabilityai/sdxl-turbo&quot;</span>,
+    <span class="var">torch_dtype</span><span class="op">=</span><span class="var">torch</span>.<span class="var">float16</span>,
+    <span class="var">variant</span><span class="op">=</span><span class="str">&quot;fp16&quot;</span>
+)
+<span class="var">pipe</span>.<span class="fn">to</span>(<span class="str">&quot;cuda&quot;</span>)  <span class="cm"># Use GPU for faster generation</span>
+
+<span class="cm"># 用文字生成图片 / Generate image from text</span>
+<span class="var">prompt</span> <span class="op">=</span> <span class="str">&quot;A friendly robot teaching a class of kids about AI, colorful cartoon style&quot;</span>
+<span class="var">image</span> <span class="op">=</span> <span class="fn">pipe</span>(<span class="var">prompt</span>, <span class="var">num_inference_steps</span><span class="op">=</span><span class="num">4</span>, <span class="var">guidance_scale</span><span class="op">=</span><span class="num">0.0</span>).<span class="var">images</span>[<span class="num">0</span>]
+
+<span class="cm"># 显示生成的图片 / Display the generated image</span>
+<span class="fn">display</span>(<span class="var">image</span>)</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>提示：</strong>如果你的电脑有 NVIDIA GPU，代码会自动使用 GPU 加速生成。如果没有 GPU，可以将 <code>pipe.to("cuda")</code> 改为 <code>pipe.to("cpu")</code>，生成速度会慢一些。</span>
+          <span class="en"><strong>Tip:</strong> If your computer has an NVIDIA GPU, the code will automatically use it for faster generation. If you don't have a GPU, change <code>pipe.to("cuda")</code> to <code>pipe.to("cpu")</code> — generation will be slower.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 3：批量生成不同风格</span><span class="en">Step 3: Batch Generate Different Styles</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 同一个主题，不同风格 / Same subject, different styles</span>
+<span class="var">subject</span> <span class="op">=</span> <span class="str">&quot;a magical treehouse&quot;</span>
+<span class="var">styles</span> <span class="op">=</span> [
+    <span class="str">&quot;watercolor painting, soft colors&quot;</span>,
+    <span class="str">&quot;pixel art, retro 8-bit game style&quot;</span>,
+    <span class="str">&quot;Japanese anime style, studio ghibli&quot;</span>,
+    <span class="str">&quot;realistic photograph, golden hour lighting&quot;</span>
+]
+
+<span class="kw">for</span> <span class="var">i</span>, <span class="var">style</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">styles</span>):
+    <span class="var">full_prompt</span> <span class="op">=</span> <span class="str">f&quot;{subject}, {style}&quot;</span>
+    <span class="fn">print</span>(<span class="str">f&quot;\nGenerating style {i+1}: {style}&quot;</span>)
+    <span class="var">image</span> <span class="op">=</span> <span class="fn">pipe</span>(<span class="var">full_prompt</span>, <span class="var">num_inference_steps</span><span class="op">=</span><span class="num">4</span>, <span class="var">guidance_scale</span><span class="op">=</span><span class="num">0.0</span>).<span class="var">images</span>[<span class="num">0</span>]
+    <span class="fn">display</span>(<span class="var">image</span>)
+    <span class="var">image</span>.<span class="fn">save</span>(<span class="str">f&quot;treehouse_style_{i+1}.png&quot;</span>)
+    <span class="fn">print</span>(<span class="str">f&quot;Saved as treehouse_style_{i+1}.png&quot;</span>)</code></pre>
+      </div>
+
+      <h3><span class="zh">步骤 4：提示词模板</span><span class="en">Step 4: Prompt Templates</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 创建提示词模板来系统地探索</span>
+<span class="cm"># Create prompt templates for systematic exploration</span>
+<span class="kw">def</span> <span class="fn">build_prompt</span>(<span class="var">subject</span>, <span class="var">style</span>, <span class="var">mood</span>, <span class="var">details</span>):
+    <span class="str">&quot;&quot;&quot;Build a structured prompt from components&quot;&quot;&quot;</span>
+    <span class="kw">return</span> <span class="str">f&quot;{subject}, {style}, {mood} atmosphere, {details}&quot;</span>
+
+<span class="cm"># 使用模板生成 / Generate using the template</span>
+<span class="var">my_prompt</span> <span class="op">=</span> <span class="fn">build_prompt</span>(
+    <span class="var">subject</span><span class="op">=</span><span class="str">&quot;a young explorer discovering an ancient AI temple&quot;</span>,
+    <span class="var">style</span><span class="op">=</span><span class="str">&quot;digital concept art&quot;</span>,
+    <span class="var">mood</span><span class="op">=</span><span class="str">&quot;mysterious and awe-inspiring&quot;</span>,
+    <span class="var">details</span><span class="op">=</span><span class="str">&quot;dramatic lighting, highly detailed, 4k&quot;</span>
+)
+
+<span class="fn">print</span>(<span class="str">f&quot;Prompt: {my_prompt}&quot;</span>)
+<span class="var">image</span> <span class="op">=</span> <span class="fn">pipe</span>(<span class="var">my_prompt</span>, <span class="var">num_inference_steps</span><span class="op">=</span><span class="num">4</span>, <span class="var">guidance_scale</span><span class="op">=</span><span class="num">0.0</span>).<span class="var">images</span>[<span class="num">0</span>]
+<span class="fn">display</span>(<span class="var">image</span>)</code></pre>
+      </div>
+    </section>
+
+    <!-- Section 5.4 Challenge -->
+    <section class="section reveal" id="section-5-4">
+      <h2><span class="zh">5.4 挑战任务</span><span class="en">5.4 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：AI 画廊</span><span class="en">Challenge A: AI Gallery</span></h3>
+          <p><span class="zh">创建一个包含 6 张图片的"AI 画廊"——选择一个主题（如"未来校园"），用 6 种不同的艺术风格生成图片，然后给每张图片写一段中英文说明。</span><span class="en">Create an "AI Gallery" with 6 images — choose a theme (like "Future School"), generate images in 6 different art styles, and write a bilingual caption for each.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：提示词实验</span><span class="en">Challenge B: Prompt Experiment</span></h3>
+          <p><span class="zh">对比实验：保持主题不变，每次只改变一个元素（风格/颜色/光线/视角）。记录哪个元素对结果影响最大。</span><span class="en">Comparison experiment: Keep the subject the same, change only one element each time (style/color/lighting/angle). Record which element has the biggest impact.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-5">
+      <h2><span class="zh">实验检查</span><span class="en">Lab Check</span></h2>
+      <div class="quiz" data-quiz-id="lab5">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. AI 绘画模型生成图片的起点是什么？</span><span class="en">1. What does an AI art model start with when generating an image?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">一张白纸</span>
+              <span class="en">A blank canvas</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">一张现有的照片</span>
+              <span class="en">An existing photo</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">随机噪点</span>
+              <span class="en">Random noise</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">手绘草图</span>
+              <span class="en">A hand-drawn sketch</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">扩散模型从随机噪点开始，逐步去噪来生成与提示词匹配的图片。</span><span class="en">Diffusion models start from random noise and gradually remove it to generate images matching the prompt.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">2. 什么是"提示词工程"？</span><span class="en">2. What is "Prompt Engineering"?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">修复 AI 代码中的错误</span>
+              <span class="en">Fixing bugs in AI code</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">编写精确的文字描述来引导 AI 生成想要的结果</span>
+              <span class="en">Writing precise text descriptions to guide AI to produce desired results</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">训练 AI 模型</span>
+              <span class="en">Training AI models</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">安装 AI 软件</span>
+              <span class="en">Installing AI software</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">提示词工程是精心设计文字提示来引导 AI 输出理想结果的技能。</span><span class="en">Prompt Engineering is the skill of carefully crafting text prompts to guide AI toward producing ideal results.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 一个好的 AI 绘画提示词应该包含什么？</span><span class="en">3. What should a good AI art prompt include?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">主题、风格、颜色、光线和细节</span>
+              <span class="en">Subject, style, colors, lighting, and details</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">只需要一个简单的词语</span>
+              <span class="en">Just a single simple word</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">代码和数字</span>
+              <span class="en">Code and numbers</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">另一张图片的链接</span>
+              <span class="en">A link to another image</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">详细的提示词包含主题、艺术风格、颜色、光线和细节描述，能帮助 AI 生成更好的结果。</span><span class="en">Detailed prompts with subject, art style, colors, lighting, and details help AI generate better results.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. DALL-E 和 Stable Diffusion 都属于哪种类型的 AI 模型？</span><span class="en">4. What type of AI model are DALL-E and Stable Diffusion?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">语音识别模型</span>
+              <span class="en">Speech recognition models</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">聊天机器人模型</span>
+              <span class="en">Chatbot models</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">翻译模型</span>
+              <span class="en">Translation models</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">图像生成（扩散）模型</span>
+              <span class="en">Image generation (diffusion) models</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">DALL-E 和 Stable Diffusion 都是基于扩散原理的图像生成 AI 模型。</span><span class="en">DALL-E and Stable Diffusion are both image generation AI models based on the diffusion principle.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">5. 为什么 AI 绘画在 GPU 上运行更快？</span><span class="en">5. Why does AI art generation run faster on a GPU?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">GPU 有更多存储空间</span>
+              <span class="en">GPUs have more storage</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">GPU 连接了更快的网络</span>
+              <span class="en">GPUs have faster internet</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">GPU 擅长同时处理大量数学运算</span>
+              <span class="en">GPUs excel at performing many math operations simultaneously</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">GPU 有更好的散热</span>
+              <span class="en">GPUs have better cooling</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">GPU（图形处理器）有数千个核心，擅长并行计算，非常适合 AI 需要的大量矩阵运算。</span><span class="en">GPUs have thousands of cores that excel at parallel computing, making them ideal for the massive matrix operations AI requires.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson4.html"><span class="zh">← 上一个实验</span><span class="en">← Previous Lab</span></a>
+      <a href="lesson6.html"><span class="zh">下一个实验 →</span><span class="en">Next Lab →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+    "deploy": {
+        "actions": {
+            "copy": "Kopiiruiče",
+            "close": "Salbua"
+        },
+        "labels": {
+            "notFound": "Luokittelijua ei löydynyh.",
+            "dropHere": "Pakuta kuva tänne",
+            "errorInfo": "Tämä sivu on olemas vaiku sit, konzu sinun luajittu luokittelii on avvoi livaimen ikkunas libo välilehtel. Erähis tilandehis turvuazetukset verkos libo iččes laittehel estetäh sobivutuksen juandan.",
+            "share": "Jua toizile laittehile",
+            "qrExpand": "Suurenda QR-koudu plikaten sidä.",
+            "noWebcam": "Luokittimen juandah pidäy kameran käyttöoigevus.",
+            "switch": " Ota webkameru käyttöh"
+        }
+    },
+    "testInput": {
+        "title": "Syöteh"
+    },
+    "collect": {
+        "samplePrompt": "Ota kuvua libo lad'd'ua kuvua täs.",
+        "actions": {
+            "upload": "Lad'd'ua"
+        },
+        "sampleCount": "{{count}} kuvua",
+        "connecting": "Yhtistäy...",
+        "disconnected": "Yhtevys katkattu",
+        "failed": "Ei ozitunnuh",
+        "failedMessage": "Täh luokittelijah ei sua yhtevytty sinun laittehespäi",
+        "dropError": "Täh voibi pakuttua vaiku kuvua",
+        "relayWarning": "Tiedo laittehien välil kulgou juuri nygöi meijän palvelimeči. Voit oppie vaihtua Wifi-yhtevytty toizeh, ku laittehet voidas olla kontaktas kohti välikäzilöittäh."
+    },
+    "about": {
+        "back": "Järilleh",
+        "title": "Generation AI",
+        "privacyTitle": "Tiedoturvusellitändy"
+    },
+    "settings": {
+        "title": "Azetukset",
+        "actions": {
+            "save": "Tallenda",
+            "reset": "Tyhjendä",
+            "cancel": "Perävytä"
+        },
+        "labels": {
+            "language": "Kieli",
+            "model": "Luokittimen tiippu",
+            "variant": "Käyttöliittymyvariantu",
+            "advanced": "Ližäazetukset"
+        },
+        "values": {
+            "models": ["Kuva (MobileNet)", "Asento (PoseNet)", "Käsi (MediaPipe)", "Puhuminen (SpeechCommands)"],
+            "variants": ["Kaikkeh käyttöh", "Kluassupertih"]
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "kohendele oččikkuo",
+            "editTitleInput": "{{value}} kohendele kodastu"
+        },
+        "labels": {
+            "titlePlaceholder": "Nimi"
+        }
+    },
+    "feedback": {
+        "button": "Anna palautettu",
+        "title": "Anna meile palautettu!",
+        "ratingTitle": "Kuin hyvä oli sinun kokemus täs sobivutukses kaiken kaikkijah?",
+        "ratingVeryDissatisfied": "Hyvin tyytymätöi",
+        "ratingVerySatisfied": "Hyvin tyytyväi",
+        "recommendTitle": "Kuin todennäköi on, gu suosittelizit tädä sobivutustu toizile?",
+        "recommendVeryUnlikely": "Hyvin epätodennäköi",
+        "recommendVeryLikely": "Hyvin todennäköi",
+        "experienceTitle": "Kerro meile sinun kokemus.",
+        "close": "Salbua",
+        "send": "Lähetä palauteh",
+        "error": "Ups!",
+        "errorMessage": "Emmo voinnuh lähettyä sinun palautettu. Kokeile uvvessah myöhembi.",
+        "thankYou": "Kiitokseh sinun palauttehes!"
+    },
+    "clock": {
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
+    },
+    "aria": {
+        "close": "Salbua",
+        "stop": "Azeta",
+        "play": "Zavedi"
+    }
+}

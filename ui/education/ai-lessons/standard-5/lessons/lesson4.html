@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第4课：大语言模型与 AIGC — 揭秘ChatGPT和AI创作的原理 | Lesson 4: LLMs & AI-Generated Content — Demystify ChatGPT and AI content generation">
+  <title>第4课：大语言模型与 AIGC | Lesson 4: LLMs & AI-Generated Content</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html" class="active"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 4 课</span>
+        <span class="en">Lesson 4</span>
+      </span>
+      <h1>
+        <span class="zh">大语言模型与 AIGC</span>
+        <span class="en">LLMs &amp; AI-Generated Content</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">揭秘ChatGPT和AI创作的原理</span>
+        <span class="en">Demystify ChatGPT and AI content generation</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <main class="content">
+
+    <!-- ===== Section 4.1: From Text to Numbers: Tokens ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.1 从文字到数字：Token</span>
+        <span class="en">4.1 From Text to Numbers: Tokens</span>
+      </h2>
+
+      <p>
+        <span class="zh">计算机不认识文字，只认识数字。所以第一步是把文字切成小块（Token），再转成数字。</span>
+        <span class="en">Computers don't understand text, only numbers. So the first step is to split text into small pieces (tokens), then convert to numbers.</span>
+      </p>
+
+      <div class="info-box info">
+        <span class="box-icon">📝</span>
+        <div>
+          <p>
+            <span class="zh"><strong>中文示例：</strong></span>
+            <span class="en"><strong>Chinese example:</strong></span>
+          </p>
+          <p>
+            <span class="zh"><code>"我喜欢人工智能"</code> → <strong>我</strong> | <strong>喜欢</strong> | <strong>人工</strong> | <strong>智能</strong> → <code>[1024, 3856, 7721, 5539]</code></span>
+            <span class="en"><code>"我喜欢人工智能"</code> → <strong>我</strong> | <strong>喜欢</strong> | <strong>人工</strong> | <strong>智能</strong> → <code>[1024, 3856, 7721, 5539]</code></span>
+          </p>
+          <p>
+            <span class="zh"><strong>英文示例：</strong></span>
+            <span class="en"><strong>English example:</strong></span>
+          </p>
+          <p>
+            <span class="zh"><code>"I love artificial intelligence"</code> → <strong>I</strong> | <strong>love</strong> | <strong>artificial</strong> | <strong>intelligence</strong> → <code>[40, 1567, 22388, 11478]</code></span>
+            <span class="en"><code>"I love artificial intelligence"</code> → <strong>I</strong> | <strong>love</strong> | <strong>artificial</strong> | <strong>intelligence</strong> → <code>[40, 1567, 22388, 11478]</code></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <span class="box-icon">💡</span>
+        <div>
+          <p>
+            <span class="zh">一个Token不一定是一个字或一个词。中文通常1-2个字为一个Token，英文通常3-4个字母为一个Token。GPT-4大约能处理128,000个Token的上下文。</span>
+            <span class="en">A token isn't necessarily a word. Chinese: usually 1-2 characters per token. English: usually 3-4 letters per token. GPT-4 can handle ~128,000 tokens of context.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.2: Language Models: Predicting the Next Word ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.2 语言模型：预测下一个词</span>
+        <span class="en">4.2 Language Models: Predicting the Next Word</span>
+      </h2>
+
+      <p>
+        <span class="zh">大语言模型的核心原理其实很简单：给定前面的文字，预测下一个最可能的词。就像手机输入法的联想功能，但强大了亿倍。</span>
+        <span class="en">The core principle of LLMs is actually simple: given previous text, predict the most likely next word. Like your phone's predictive text, but a billion times more powerful.</span>
+      </p>
+
+      <div class="card">
+        <h3>
+          <span class="zh">预测示例</span>
+          <span class="en">Prediction Example</span>
+        </h3>
+        <p>
+          <span class="zh"><strong>"今天天气"</strong> → 下一个词的概率：</span>
+          <span class="en"><strong>"The weather today is"</strong> → Next word probability:</span>
+        </p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: var(--sp-xs) 0;">
+            <span class="zh">🟩🟩🟩🟩🟩🟩 <strong>真好</strong> — 60%</span>
+            <span class="en">🟩🟩🟩🟩🟩🟩 <strong>really nice</strong> — 60%</span>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <span class="zh">🟩🟩🟩 <strong>不错</strong> — 25%</span>
+            <span class="en">🟩🟩🟩 <strong>great</strong> — 25%</span>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <span class="zh">🟩 <strong>很冷</strong> — 10%</span>
+            <span class="en">🟩 <strong>cold</strong> — 10%</span>
+          </li>
+          <li style="padding: var(--sp-xs) 0;">
+            <span class="zh">🟨 <strong>晴朗</strong> — 5%</span>
+            <span class="en">🟨 <strong>sunny</strong> — 5%</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="mt-lg">
+        <span class="zh">通过不断预测下一个词，一个词接一个词，就能生成完整的文章、代码、诗歌……</span>
+        <span class="en">By continuously predicting the next word, one after another, it can generate complete articles, code, poems…</span>
+      </p>
+    </section>
+
+    <!-- ===== Section 4.3: Introduction to Transformer ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.3 Transformer 简介</span>
+        <span class="en">4.3 Introduction to Transformer</span>
+      </h2>
+
+      <p>
+        <span class="zh">2017年Google发表了"Attention is All You Need"论文，提出了Transformer架构，这是现代AI的基石。</span>
+        <span class="en">In 2017, Google published "Attention is All You Need," proposing the Transformer architecture—the cornerstone of modern AI.</span>
+      </p>
+
+      <div class="card">
+        <h3>
+          <span class="zh">注意力机制</span>
+          <span class="en">Attention Mechanism</span>
+        </h3>
+        <p>
+          <span class="zh">想象你在读一段话时，眼睛不会均匀地看每个字，而是会跳到最关键的词。注意力机制让AI也能做到这一点：处理一个词时，它会"关注"句子中最相关的其他词。</span>
+          <span class="en">When reading a passage, your eyes don't look at every word equally—they jump to the most important ones. Attention lets AI do the same: when processing a word, it "attends to" the most relevant other words.</span>
+        </p>
+      </div>
+
+      <div class="info-box info mt-lg">
+        <span class="box-icon">🔍</span>
+        <div>
+          <p>
+            <span class="zh"><strong>例子：</strong>在句子"小猫坐在垫子上，<strong>它</strong>很舒服"中，AI在处理"它"时会特别关注"小猫"，从而理解"它"指的是"小猫"。</span>
+            <span class="en"><strong>Example:</strong> In "The cat sat on the mat, <strong>it</strong> was comfortable," when processing "it," AI pays special attention to "cat," understanding that "it" refers to "cat."</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-box tip mt-lg">
+        <span class="box-icon">💡</span>
+        <div>
+          <p>
+            <span class="zh">Transformer的名字来源于它能"变换"输入序列的表示方式。GPT中的T就是Transformer！</span>
+            <span class="en">The name Transformer comes from its ability to "transform" input representations. The T in GPT stands for Transformer!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.4: How ChatGPT is Made ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.4 ChatGPT 是怎么炼成的</span>
+        <span class="en">4.4 How ChatGPT is Made</span>
+      </h2>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">预训练</span>
+              <span class="en">Pre-training</span>
+            </h4>
+            <p>
+              <span class="zh">阅读互联网上的海量文本（书籍、网页、论文……），学会语言的基本规律。就像上了12年学。</span>
+              <span class="en">Read massive amounts of internet text (books, websites, papers…), learning basic language patterns. Like 12 years of school.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">微调</span>
+              <span class="en">Fine-tuning</span>
+            </h4>
+            <p>
+              <span class="zh">用人类精心准备的对话数据进一步训练，学会以对话的方式回答问题。就像参加了职业培训。</span>
+              <span class="en">Further trained with human-curated dialogue data, learning to answer in conversational format. Like vocational training.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">RLHF（人类反馈强化学习）</span>
+              <span class="en">RLHF (Reinforcement Learning from Human Feedback)</span>
+            </h4>
+            <p>
+              <span class="zh">人类评估AI的回答质量，AI根据反馈不断优化，变得更有用、更安全。就像有了一个导师指导。</span>
+              <span class="en">Humans evaluate AI response quality, AI continuously optimizes based on feedback, becoming more useful and safe. Like having a mentor.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.5: Prompt Engineering Tips ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.5 Prompt 工程技巧</span>
+        <span class="en">4.5 Prompt Engineering Tips</span>
+      </h2>
+
+      <p>
+        <span class="zh">好的Prompt能让AI给出更好的回答。这里有5个实用技巧：</span>
+        <span class="en">A good prompt gets better AI responses. Here are 5 practical tips:</span>
+      </p>
+
+      <!-- Expandable Card 1 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">1. 明确角色</span>
+            <span class="en">1. Assign a Role</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">告诉AI它是谁。例如："你是一个资深Python程序员" vs "帮我写代码"。前者会让AI给出更专业、更规范的代码。</span>
+              <span class="en">Tell AI who it is. E.g., "You are a senior Python programmer" vs "Help me write code." The former gets more professional, well-structured code.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 2 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">2. 给出示例</span>
+            <span class="en">2. Provide Examples</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">用示例展示你想要的格式。例如："把下面的句子翻译成英文，格式如下：原文: … 翻译: …"</span>
+              <span class="en">Show the format you want with examples. E.g., "Translate sentences like this: Original: … Translation: …"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 3 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">3. 分步指令</span>
+            <span class="en">3. Step-by-step Instructions</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">把复杂任务拆成步骤。例如："第一步分析数据，第二步画图表，第三步写总结"。</span>
+              <span class="en">Break complex tasks into steps. E.g., "Step 1: analyze data, Step 2: create chart, Step 3: write summary."</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 4 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">4. 限定格式</span>
+            <span class="en">4. Specify Format</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">明确输出格式。例如："用JSON格式输出"、"用表格形式列出"、"控制在200字以内"。</span>
+              <span class="en">Define output format. E.g., "Output in JSON format," "List in a table," "Keep under 200 words."</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 5 -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">5. 迭代优化</span>
+            <span class="en">5. Iterate and Refine</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">如果第一次回答不满意，继续追问和修正。AI对话是多轮的，不断优化才能得到最佳结果。</span>
+              <span class="en">If the first answer isn't satisfactory, keep asking and refining. AI conversation is multi-turn—iterate to get the best results.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.6: The AIGC Landscape ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.6 AIGC 全景</span>
+        <span class="en">4.6 The AIGC Landscape</span>
+      </h2>
+
+      <p>
+        <span class="zh">AIGC（AI Generated Content）正在改变所有创意领域。</span>
+        <span class="en">AIGC (AI Generated Content) is transforming all creative fields.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">✍️ AI 写作</span>
+            <span class="en">✍️ AI Writing</span>
+          </h3>
+          <p>
+            <span class="zh">ChatGPT、Claude等可以写文章、翻译、总结</span>
+            <span class="en">ChatGPT, Claude, etc. for articles, translation, summaries</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="zh">🎨 AI 绘画</span>
+            <span class="en">🎨 AI Art</span>
+          </h3>
+          <p>
+            <span class="zh">Midjourney、Stable Diffusion、DALL·E 从文字生成图片</span>
+            <span class="en">Midjourney, Stable Diffusion, DALL·E generate images from text</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="zh">🎵 AI 音乐</span>
+            <span class="en">🎵 AI Music</span>
+          </h3>
+          <p>
+            <span class="zh">Suno、Udio 可以生成原创音乐</span>
+            <span class="en">Suno, Udio can generate original music</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="zh">🎬 AI 视频</span>
+            <span class="en">🎬 AI Video</span>
+          </h3>
+          <p>
+            <span class="zh">Sora、Runway 可以从文字生成视频</span>
+            <span class="en">Sora, Runway generate video from text</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="zh">💻 AI 编程</span>
+            <span class="en">💻 AI Coding</span>
+          </h3>
+          <p>
+            <span class="zh">GitHub Copilot、Cursor 帮助写代码</span>
+            <span class="en">GitHub Copilot, Cursor help write code</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span class="zh">🎯 AI 设计</span>
+            <span class="en">🎯 AI Design</span>
+          </h3>
+          <p>
+            <span class="zh">Canva AI、Figma AI 辅助设计工作</span>
+            <span class="en">Canva AI, Figma AI assist design work</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.7: Interactive: Prompt Challenge ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.7 互动：Prompt 挑战</span>
+        <span class="en">4.7 Interactive: Prompt Challenge</span>
+      </h2>
+
+      <!-- Challenge 1 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">挑战 1</span>
+          <span class="en">Challenge 1</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你想让AI帮你写一封感谢老师的信。写一个好的Prompt。</span>
+            <span class="en">You want AI to write a thank-you letter to your teacher. Write a good prompt.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here…"></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"请以一个初二学生的身份，给我的数学老师写一封200字左右的感谢信。要真诚、具体地提到老师的耐心辅导和对我成绩提升的帮助。用正式但不过于生硬的语气。"</span>
+            <span class="en">"As an 8th-grade student, write a ~200-word thank-you letter to my math teacher. Be sincere, specifically mention the teacher's patient tutoring and how it helped improve my grades. Use a formal but not stiff tone."</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>明确了角色、字数、内容要求和语气。</span>
+            <span class="en"><strong>Why better:</strong> Specifies role, length, content requirements, and tone.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Challenge 2 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">挑战 2</span>
+          <span class="en">Challenge 2</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你想让AI解释量子计算给你的10岁弟弟听。</span>
+            <span class="en">You want AI to explain quantum computing to your 10-year-old brother.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here…"></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"请用一个10岁小朋友能理解的语言解释量子计算。使用日常生活中的类比，避免专业术语。每个概念用1-2句话，总共不超过150字。"</span>
+            <span class="en">"Explain quantum computing in language a 10-year-old can understand. Use everyday analogies, avoid jargon. 1-2 sentences per concept, under 150 words total."</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>明确了目标受众、表达方式、长度限制。</span>
+            <span class="en"><strong>Why better:</strong> Specifies target audience, expression style, length limit.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Challenge 3 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">挑战 3</span>
+          <span class="en">Challenge 3</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你想让AI帮你制定一个寒假学习计划。</span>
+            <span class="en">You want AI to help you create a winter break study plan.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here…"></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"我是一个初三学生，寒假有30天。我需要复习数学、英语和物理，同时每天保持运动。请帮我制定一个详细的每日学习计划，用表格形式呈现，包括时间段、科目和具体任务。每天学习不超过6小时。"</span>
+            <span class="en">"I'm a 9th grader with 30 days of winter break. I need to review math, English, and physics while exercising daily. Create a detailed daily study plan in table format, including time slots, subjects, and specific tasks. Max 6 hours of study per day."</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>提供了完整背景、明确需求、限定格式和约束条件。</span>
+            <span class="en"><strong>Why better:</strong> Provides complete context, clear requirements, specified format, and constraints.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4.8: Quiz ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">4.8 小测验</span>
+        <span class="en">4.8 Quiz</span>
+      </h2>
+
+      <div class="quiz" data-quiz-id="lesson4">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 什么是Token？</span>
+            <span class="en"><strong>Q1.</strong> What is a Token?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 一种加密货币</span>
+              <span class="en">A. A cryptocurrency</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 文本被切分后的小单元</span>
+              <span class="en">B. A small unit after text is split</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. AI的一种命令</span>
+              <span class="en">C. A type of AI command</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 一种编程语言</span>
+              <span class="en">D. A programming language</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Token是语言模型处理文本的基本单位。文本先被切分成Token，再转换成数字供模型处理。</span>
+              <span class="en">Tokens are the basic units LLMs use to process text. Text is first split into tokens, then converted to numbers.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 大语言模型的核心工作原理是什么？</span>
+            <span class="en"><strong>Q2.</strong> What is the core working principle of LLMs?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 理解语言的含义</span>
+              <span class="en">A. Understanding the meaning of language</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 在数据库中搜索答案</span>
+              <span class="en">B. Searching for answers in a database</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 给定前文，预测下一个最可能的词</span>
+              <span class="en">C. Given previous text, predict the most likely next word</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 模拟人类大脑的思考过程</span>
+              <span class="en">D. Simulating human brain thinking process</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">LLM本质上是一个超强的"下一个词预测器"。通过不断预测下一个词，它能生成连贯的文本。</span>
+              <span class="en">LLMs are essentially super-powered "next word predictors." By continuously predicting the next word, they generate coherent text.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> ChatGPT训练的三个阶段不包括以下哪个？</span>
+            <span class="en"><strong>Q3.</strong> Which is NOT one of ChatGPT's three training stages?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 预训练</span>
+              <span class="en">A. Pre-training</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 微调</span>
+              <span class="en">B. Fine-tuning</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 数据清洗</span>
+              <span class="en">C. Data cleaning</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. RLHF</span>
+              <span class="en">D. RLHF</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">ChatGPT的三阶段是：预训练→微调→RLHF。虽然数据清洗很重要，但它不是ChatGPT独特训练流程中的一个阶段。</span>
+              <span class="en">The three stages are: pre-training→fine-tuning→RLHF. While data cleaning is important, it's not a specific stage of ChatGPT's unique training pipeline.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4.</strong> 以下哪个是好的Prompt技巧？</span>
+            <span class="en"><strong>Q4.</strong> Which is a good prompt technique?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 写得越短越好</span>
+              <span class="en">A. The shorter the better</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 给AI明确的角色、格式和要求</span>
+              <span class="en">B. Give AI a clear role, format, and requirements</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 用专业术语让AI更容易理解</span>
+              <span class="en">C. Use jargon to help AI understand better</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 一次问完所有问题</span>
+              <span class="en">D. Ask all questions at once</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">好的Prompt应该包含明确的角色设定、具体的要求、期望的格式等。这样AI才能给出最符合需求的回答。</span>
+              <span class="en">Good prompts include clear role-setting, specific requirements, expected format, etc.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5.</strong> Transformer中的"注意力机制"让AI能做什么？</span>
+            <span class="en"><strong>Q5.</strong> What does the "Attention mechanism" in Transformers enable AI to do?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 更快地处理数据</span>
+              <span class="en">A. Process data faster</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 处理一个词时关注句子中最相关的其他词</span>
+              <span class="en">B. When processing a word, focus on the most relevant other words in the sentence</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 自动翻译所有语言</span>
+              <span class="en">C. Automatically translate all languages</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 记住所有训练数据</span>
+              <span class="en">D. Remember all training data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">注意力机制让模型在处理每个词时能"关注"上下文中最相关的词，理解词与词之间的关系。</span>
+              <span class="en">Attention lets the model "focus on" the most relevant words in context when processing each word, understanding relationships between words.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ Lesson Nav Footer ============ -->
+    <div class="lesson-nav-footer">
+      <a href="lesson3.html">
+        <span class="zh">← 上一课：神经网络与深度学习</span>
+        <span class="en">← Previous: Neural Networks &amp; Deep Learning</span>
+      </a>
+      <a href="lesson5.html">
+        <span class="zh">下一课：AI的未来与责任 →</span>
+        <span class="en">Next: The Future &amp; Ethics of AI →</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

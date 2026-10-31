@@ -1,0 +1,52 @@
+.container {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.container h1 {
+    color: #444;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 6px;
+    padding: 2rem;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonBar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+}
+
+.advancedTitle {
+    font-weight: bold;
+    color: #008297;
+}
+
+.settingsTitle {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #444;
+}

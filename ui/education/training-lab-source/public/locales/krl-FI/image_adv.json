@@ -1,0 +1,477 @@
+{
+    "app": {
+        "title": "Opastettavu koneh",
+        "about": "Tieduo sobivutukseh näh",
+        "save": "Tallenda",
+        "load": "Avua",
+        "language": "Kieli",
+        "reminder": "Musta tallendua luokittelii.",
+        "models": {
+            "image": "Kuvua",
+            "pose": "Azennot",
+            "hand": "Eleet",
+            "speech": "Puheh"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "Opastusmaterjalat",
+        "selectModel": "Midä sie tahtot luokitella?",
+        "enableUSB": "Käytä USB-laitettu",
+        "subtitle": "Lua luokittelijat omil tiedoloil, ei koodandoa pidä"
+    },
+    "save": {
+        "title": "Tallenda luokittelii",
+        "noModel": "Opasta luokittelii ezmäi.",
+        "message": "Tallenda luokittelii iččes laittehele.",
+        "saveSamples": "Tallenda ezimerkit",
+        "saveClassifier": "Tallenda luokittelii",
+        "saveBehaviours": "Tallenda toimindot",
+        "name": "Nimi",
+        "actions": {
+            "save": "Tallenda",
+            "cancel": "Perävytä"
+        }
+    },
+    "load": {
+        "title": "Avua",
+        "code": "Anna juattu koudu",
+        "actions": {
+            "openFile": "Avua tiijosto",
+            "openCode": "Käytä koudua",
+            "cancel": "Perävytä"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "tazua huruah",
+            "center": "tazua keskeh",
+            "right": "tazua oigieh",
+            "align": "tekstan tazuandu"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "vaihta tekstan suuruttu",
+            "increase": "suurenda",
+            "decrease": "pienendä"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "Ližiä luokku",
+            "webcam": "Webkameru",
+            "audio": "Mikrofoni",
+            "upload": "Lad'd'ua",
+            "datasets": "Datasetit",
+            "cancel": "Perävytä",
+            "deleteClass": "Iärestä luokku",
+            "disableClass": "Poista luokka käytöstä",
+            "enableClass": "Ota luokka käyttöön",
+            "removeAll": "Iärestä kai tiijot",
+            "capture": "Pie nybläine painetunnu",
+            "fileCapture": "Pura",
+            "record": "Nauhoita",
+            "collaborate": "Rua yhtes",
+            "use": "Käytä ({{count}})",
+            "displayMore": "Näytä {{count}} kuvua"
+        },
+        "labels": {
+            "title": "Opastusdata",
+            "addSamples": "Ližiä kuvua",
+            "imageSamples": "{{count}} kuvua",
+            "addAudioSamples": "Ližiä iäninäyttehii",
+            "audioSamples": "{{count}} iäninäytettä",
+            "class": "Luokku",
+            "noiseClass": "Taustamelu",
+            "wait": "Otetah kuvua...",
+            "stop": "Pysäytä",
+            "dropFiles": "libo vie kuvua täh nettusaitoilpäi libo tiijostoloispäi",
+            "dropAudioFiles": "libo vie iänitiedostoloi täh nettusaitoilpäi libo tiijostoloispäi",
+            "needsMore": "Ližiä opastusdatua pidäy",
+            "dropError": "Täh voibi pakuttua vaiku kuvua",
+            "dropAudioError": "Täh voibi pakuttua vaiku iänitiedostoloi",
+            "emptyClass": "This class is empty.",
+            "qrMessage": "Voit ližätä kuvua telefonači libo tabletači. Suurenda QR-koudu plikaten sidä.",
+            "disabled": "POISTETTU KÄYTÖSTÄ",
+            "selectDataset": "Valitte datasetti",
+            "selectTestData": "Valitte kuva",
+            "searchDataset": "Etsi datasetti",
+            "images": "kuvua",
+            "selected": "valittu",
+            "loading": "Lad'd'atah...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again."
+        },
+        "aria": {
+            "sample": "lad'd'attu opastusdata",
+            "delete": "iärestä opastusdata",
+            "more": "Ližiä azetustu",
+            "close": "Salbua",
+            "classCard": "Opastusdata luokale {{name}}"
+        }
+    },
+    "heatmap": {
+        "title": "Sellitändy",
+        "colorScaleHelp": "Väri-asteikko näyttäy, mih kuvah osih malli keškittyy. Punie = korkei tärkevys, Sinie = matala tärkevys.",
+        "noPoseDetected": "Ei azenduo",
+        "high": "Korkei",
+        "low": "Matala"
+    },
+    "underTheHood": {
+        "title": "Konepellin alla",
+        "visualization": "Visualisointi",
+        "statistics": "Mallin tilastot",
+        "transferLearning": "Siirto-oppiminen",
+        "on": "Päällä",
+        "off": "Pois päältä"
+    },
+    "charts": {
+        "accuracyPerClass": "Tarkkuš luokittain",
+        "accuracyPerClassHelp": "Näyttäy, kui ušein malli ennustau kunkin luokan oikein testinäyttehillä. 1,00 tarkoittau, jotta kaikki tämän luokan testinäyttehet mänö oikein.",
+        "confusionMatrix": "Šekaannušmatriisi",
+        "confusionMatrixHelp": "Rivit ollah oikeita luokkia ta sarakkehet mallin ennušteita. Vinorivin arvot ollah oikein, muut arvot näyttäy šekaannušia.",
+        "accuracyPerEpoch": "Tarkkuš per epookki",
+        "accuracyPerEpochHelp": "Näyttäy, miten ennuštetarkkuš muuttuu opastuksen aikana. Tarkkuš on välillä 0-1, missä 1 on paras. Testitarkkuš käyttäy testijoukon näyttehi, ei opastusjoukon näyttehi, joilla mallia päivitettiin.",
+        "lossPerEpoch": "Häviö per epookki",
+        "lossPerEpochHelp": "Näyttäy mallin virheen opastuksen aikana. Häviö alkau arvosta 0 ta voi kašvua, ta pienempi on parempi. Testihäviö käyttäy testijoukon näyttehi, ei opastusjoukon näyttehi, joilla mallia päivitettiin.",
+        "class": "Luokka",
+        "accuracy": "Tarkkuš",
+        "testSamples": "# Testinäyttehet",
+        "prediction": "Ennušte",
+        "actual": "Todellisuš",
+        "predicted": "Ennuštettu",
+        "count": "Määrä",
+        "acc": "tark.",
+        "testAcc": "tešti tark.",
+        "loss": "Häviö",
+        "testLoss": "tešti häviö",
+        "epochs": "Epookit",
+        "epoch": "Epookki",
+        "transferLearningMatrix": "Siirto-oppimismatriisi",
+        "transferLearningMatrixHelp": "Luokkakohtaiset ImageNet-käsiteprofiilit (luokittelijasta) ja miten nykyinen syöte vastaa niitä.",
+        "transferLearningGraph": "Siirto-oppimiskaavio",
+        "transferLearningGraphHelp": "Tämä kaavio näyttää, miten malli yhdistää nykyisen kuvasi aiemmin opittuihin luokkiin. Vasen puoli: nykyinen syöte ja ehdokasluokat. Oikea puoli: esikoulutetun mallin luokat. Paksummat viivat tarkoittavat vahvempaa osumaa.",
+        "transferLearningFlow": "Siirto-oppimisvirta",
+        "transferLearningUserClass": "Käyttäjäluokka",
+        "transferLearningCurrentInput": "Nykyinen syöte",
+        "transferLearningSimilarity": "Samankaltaisuus",
+        "transferLearningSimilarityHelp": "Kosinisamankaltaisuus vertaa nykyistä syötettä jokaiseen käyttäjäluokkaan käyttäen kaikkia 1000 ImageNet-todennäköisyyttä. Arvot ovat välillä 0-1, jossa 1 tarkoittaa samankaltaisinta.",
+        "transferLearningSamples": "{{count}} näytettä",
+        "transferLearningStages": "Siirto-opastuksen vaiheet",
+        "transferLearningStageConcepts": "Käsittehet",
+        "transferLearningStageConnections": "Yhtevyöt",
+        "transferLearningStageAdvanced": "Edistynyt",
+        "pretrainedConceptsTitle": "Mitä esikoulutettu malli tunnistau",
+        "pretrainedConceptsHelp": "Nämä ollah tuttuja ImageNet-käsittehi, joita esikoulutettu malli yhdistäy nykyiseh syötteheseh. Suurempi % tarkoittau vahvempua vastaavuutta.",
+        "pretrainedModelLayers": "Esiopetettu malli",
+        "pretrainedModelSubtitle": "Tunnistau ImageNet-käsittehi",
+        "pretrainedSampleAlt": "{{label}} näyte {{index}}",
+        "transferLearningBarChart": "Testisyötteen samankaltaisuus",
+        "transferLearningBarChartHelp": "Esikoulutettu malli kuvaa nykyisen syötteen ja jokaisen opetetun luokan pitkänä ImageNet-käsitteiden pistelistana. Kosinisamankaltaisuus vertaa näiden kahden listan muotoa. Jos korkeat ja matalat pisteet osuvat samaan kohtaan, samankaltaisuus on suuri. Arvot ovat 0%-100%. Korkeampi pylväs tarkoittaa, että syöte näyttää enemmän kyseiseltä luokalta."
+    },
+    "training": {
+        "actions": {
+            "train": "Opasta luokittelii"
+        },
+        "labels": {
+            "title": "Opastandu",
+            "addMore": "Ližiä opastusdatua libo uuttu luokkua",
+            "needsTraining": "Luokittelii pidäy opastua ezmäi",
+            "advanced": "Ližäazetukset",
+            "epochs": "Epochs",
+            "learningRate": "Learning Rate",
+            "batchSize": "Batch Size",
+            "loading": "Luokittelijua lad'd'atah",
+            "prepairing": "Varustetah ezimerkilöi...",
+            "training": "Opastetah luokittelijua",
+            "complete": "Luokittelii opastettu"
+        },
+        "tooltips": {
+            "epochs": "Äijängo kerdua midägi koitehtu käytetäh opastandah..",
+            "learningRate": "Azu täh vaiku piendy muutostu, tämä pidäy olla vähem 0,1.",
+            "batchSize": "Vaikuttau opastandah vaiku pikoivähäzel. Tämä on jogahizes iteracies käytettylöin koittehien miäry."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "Syöteh",
+            "webcam": "Webkameru",
+            "audio": "Mikrofoni",
+            "file": "Tiijosto",
+            "device": "Laiteh",
+            "dataset": "Ainehisto",
+            "switchOn": "Käytä",
+            "switchOff": "Älä käytä",
+            "upload": "lad'd'ua libo pakuta tiijosto täh"
+        },
+        "aria": {
+            "switch": " Avua webkameru"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "Vie ulkoiseen työkaluun",
+            "clone": "Jua koupii"
+        },
+        "labels": {
+            "title": "Luokittelii",
+            "mustTrain": "Sinul pidäy opastua luokittelii ezmäi",
+            "mustInput": "Luokittelijua käytykseh pidäy andua syöte"
+        },
+        "aria": {
+            "more": "Ližiä azetustu"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "Tulos",
+            "deploy": "Ozuta"
+        },
+        "aria": {
+            "volume": "Iänen lujus",
+            "image": "luokan {{index}} tulos",
+            "display": "tulos luokale {{index}}",
+            "expand": "suurenda"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "Lad'd'ua",
+            "dataset": "Ainehisto",
+            "delete": "Iärestä",
+            "record": "Iänitä",
+            "stop": "Lope"
+        },
+        "labels": {
+            "title": "Toimindu:",
+            "message": "Tekstu",
+            "link": "Linku",
+            "linkError": "Linkua ei tugieta",
+            "embedInfo": "Ozuta videjot da kuvat linkaspäi. Vain erähät linkit toimitah, ku YouTube, Vimeo, SoundCloud, videotiedostot, äänitiedostot libo kuvat.<br/><br/>Kačo lisätieduo <l>react-player</l>-dokumentacijas.",
+            "voiceRecording": "Iänitallendeh",
+            "dropError": "Täh voit pakuttua vaiku kuvua libo iändy",
+            "loop": "Toista"
+        },
+        "aria": {
+            "message": "tuloksen tekstu",
+            "image": "kuvan toimindo",
+            "sound": "iänen toimindo",
+            "text": "tekstan toimindo",
+            "embed": "upotetun linkin toimindo",
+            "imageOutput": "Lad'd'attu kuva",
+            "noImage": "kuvan kohtumerki",
+            "stop": "azeta",
+            "play": "zavedi",
+            "behaviourCard": "toimindo luokale {{name}}le",
+            "loop": "Toista"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "Ielleh"
+        },
+        "aria": {
+            "step": "tulii vaihe"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "webkameran syöteh",
+            "flip": "Vaihta kamerua"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "kohendele oččikkuo",
+            "editTitleInput": "{{value}} kohendele kodastu"
+        },
+        "labels": {
+            "titlePlaceholder": "Nimi"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "valliče fontan väri"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "Salbua",
+            "share": "Jua",
+            "stopShare": "Lopeta juaaminen"
+        },
+        "labels": {
+            "title": "Jua",
+            "includeSamples": "Liitä opastuskuvat keräle",
+            "codeInstructions": "Anna toizien avata koupii iččes luokittelijas al olijan koudan vuoh.",
+            "linkInstructions": "Kopiruimal linkan, luokittelijua voit käyttiä toizis moizis sobivutuksis, kui <scratchLink>Scratchas</scratchLink>. Linku ruadau sini, kuni tämä välilehti on avvoi, libo ku tallendanet projektan da avuat sen myöhembä uvvessah."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "Eläjimet",
+            "nature": "Luonto",
+            "colors": "Värit",
+            "fruits": "Hedelmät",
+            "human": "Ihmini",
+            "studyTools": "Opastusväliniehet",
+            "recyclingMaterials": "Kierrätysmateriaalat",
+            "transportation": "Liikenneh"
+        },
+        "cats": {
+            "name": "Kižat",
+            "description": "Kižakuvien kokoelma"
+        },
+        "dogs": {
+            "name": "Koirat",
+            "description": "Koirakuvien kokoelma"
+        },
+        "birds": {
+            "name": "Linnut",
+            "description": "Lintukuvien kokoelma"
+        },
+        "flowers": {
+            "name": "Kukat",
+            "description": "Kukkakuvien kokoelma"
+        },
+        "trees": {
+            "name": "Puut",
+            "description": "Puukuvien kokoelma"
+        },
+        "white": {
+            "name": "Valgei",
+            "description": "Valgeitten kuvien kokoelma"
+        },
+        "black": {
+            "name": "Mustu",
+            "description": "Mustien kuvien kokoelma"
+        },
+        "gray": {
+            "name": "Harmua",
+            "description": "Harmuatten kuvien kokoelma"
+        },
+        "blue": {
+            "name": "Sinine",
+            "description": "Sinisten kuvien kokoelma"
+        },
+        "green": {
+            "name": "Vihannu",
+            "description": "Vihannujen kuvien kokoelma"
+        },
+        "red": {
+            "name": "Punaini",
+            "description": "Punainien kuvien kokoelma"
+        },
+        "pink": {
+            "name": "Vaalenpunaini",
+            "description": "Vaalenpunainien kuvien kokoelma"
+        },
+        "orange": {
+            "name": "Oranžu",
+            "description": "Oranžujen kuvien kokoelma"
+        },
+        "purple": {
+            "name": "Violetti",
+            "description": "Violettien kuvien kokoelma"
+        },
+        "yellow": {
+            "name": "Keltaini",
+            "description": "Keltainien kuvien kokoelma"
+        },
+        "apple": {
+            "name": "Omena",
+            "description": "Omenakuvien kokoelma"
+        },
+        "pear": {
+            "name": "Päärynä",
+            "description": "Päärynäkuvien kokoelma"
+        },
+        "orangeFruit": {
+            "name": "Appelsiini",
+            "description": "Appelsiininkuvien kokoelma"
+        },
+        "men": {
+            "name": "Miehet",
+            "description": "Mieskuvien kokoelma"
+        },
+        "women": {
+            "name": "Naižet",
+            "description": "Naiskuvien kokoelma"
+        },
+        "handPalm": {
+            "name": "Kämmenkämmen",
+            "description": "Kämmenkuvien kokoelma"
+        },
+        "pencils": {
+            "name": "Kynät",
+            "description": "Kynäkuvien kokoelma"
+        },
+        "pens": {
+            "name": "Kynät",
+            "description": "Kynäkuvien kokoelma"
+        },
+        "humanPose": {
+            "name": "Ihmizen asento",
+            "description": "Ihmizen asentokuvien kokoelma"
+        },
+        "erasers": {
+            "name": "Pyyhekumit",
+            "description": "Pyyhekumikuvien kokoelma"
+        },
+        "batteries": {
+            "name": "Paristot",
+            "description": "Paristokuvien kokoelma"
+        },
+        "cardboard": {
+            "name": "Pahvi",
+            "description": "Pahvikuvien kokoelma"
+        },
+        "glass": {
+            "name": "Lazi",
+            "description": "Lazikuvien kokoelma"
+        },
+        "paper": {
+            "name": "Papieri",
+            "description": "Papierikuvien kokoelma"
+        },
+        "plastics": {
+            "name": "Muovimateriaalat",
+            "description": "Muovimateriaalakuvien kokoelma"
+        },
+        "airplanes": {
+            "name": "Lentokoneh",
+            "description": "Lentokonetkuvien kokoelma"
+        },
+        "buses": {
+            "name": "Avtobusat",
+            "description": "Avtobusatkuvien kokoelma"
+        },
+        "bicycles": {
+            "name": "Polkupyörät",
+            "description": "Polkupyöräkuvien kokoelma"
+        },
+        "cars": {
+            "name": "Avtomat",
+            "description": "Avtomatkuvien kokoelma"
+        },
+        "mopeds": {
+            "name": "Mopiedat",
+            "description": "Mopiedatkuvien kokoelma"
+        },
+        "motorcycles": {
+            "name": "Moottoripyörät",
+            "description": "Moottoripyöräkuvien kokoelma"
+        },
+        "pedestrians": {
+            "name": "Jalakkulkijat",
+            "description": "Jalakkulkijakuvien kokoelma"
+        },
+        "ships": {
+            "name": "Laivat",
+            "description": "Laivakuvien kokoelma"
+        },
+        "trains": {
+            "name": "Junat",
+            "description": "Junatkuvien kokoelma"
+        }
+    }
+}

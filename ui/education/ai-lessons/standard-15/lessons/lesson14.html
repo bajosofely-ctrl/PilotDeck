@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第14课：AI安全与隐私 | Lesson 14: AI Safety & Privacy">
+  <title>第14课：AI安全与隐私 | Lesson 14: AI Safety & Privacy</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a><a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a><a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a><a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a><a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a><a href="lesson6.html"><span class="zh">6</span><span class="en">L6</span></a><a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a><a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a><a href="lesson9.html"><span class="zh">9</span><span class="en">L9</span></a><a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a><a href="lesson11.html"><span class="zh">11</span><span class="en">L11</span></a><a href="lesson12.html"><span class="zh">12</span><span class="en">L12</span></a><a href="lesson13.html"><span class="zh">13</span><span class="en">L13</span></a>
+      <a href="lesson14.html" class="active"><span class="zh">14</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 14 课</span><span class="en">Lesson 14</span></span>
+      <h1><span class="zh">AI 安全与隐私</span><span class="en">AI Safety &amp; Privacy</span></h1>
+      <p class="subtitle">
+        <span class="zh">保护自己的数据——在AI时代做一个聪明的数字公民</span>
+        <span class="en">Protect your data — be a smart digital citizen in the AI era</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-14-1">
+      <h2><span class="zh">14.1 AI 与你的数据</span><span class="en">14.1 AI and Your Data</span></h2>
+      <p>
+        <span class="zh">每天，你都在产生大量数据：聊天记录、浏览历史、位置信息、照片、搜索记录……这些数据对AI来说就是"燃料"。了解你的数据是如何被收集和使用的，是保护自己的第一步。</span>
+        <span class="en">Every day, you generate massive data: chat histories, browsing records, location info, photos, search records... This data is "fuel" for AI. Understanding how your data is collected and used is the first step to protecting yourself.</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">数据收集</span><span class="en">Data Collection</span></h4>
+          <p><span class="zh">App会收集你的使用习惯、位置、通讯录、照片等。很多"免费"App的商业模式就是收集用户数据来训练AI或卖给广告商。</span><span class="en">Apps collect your usage habits, location, contacts, photos. Many "free" apps' business model is collecting user data to train AI or sell to advertisers.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">数据画像</span><span class="en">Data Profiling</span></h4>
+          <p><span class="zh">AI可以通过你的行为数据建立你的"数字画像"：年龄、兴趣、消费能力、作息时间、甚至情绪状态。这个画像可能比你自己更"了解"你。</span><span class="en">AI can build your "digital profile" from behavior data: age, interests, spending power, sleep schedule, even emotional state. This profile might "know" you better than you know yourself.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-14-2">
+      <h2><span class="zh">14.2 AI 安全威胁</span><span class="en">14.2 AI Security Threats</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">深度伪造（Deepfake）</span><span class="en">Deepfakes</span></h4>
+          <p><span class="zh">AI可以生成以假乱真的人脸视频和语音。骗子可以用你的照片和声音来冒充你，骗取你家人的信任和金钱。已有真实案例造成巨大损失。</span><span class="en">AI can generate hyper-realistic face videos and voice clones. Scammers can use your photos and voice to impersonate you, tricking family for trust and money. Real cases have caused huge losses.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">AI钓鱼攻击</span><span class="en">AI Phishing Attacks</span></h4>
+          <p><span class="zh">AI可以写出非常逼真的钓鱼邮件和短信，针对性很强。传统钓鱼邮件经常有语法错误容易识别，但AI写的就完美得多。</span><span class="en">AI can write very convincing phishing emails and messages, highly targeted. Traditional phishing often has grammar errors, but AI-written ones are much more perfect.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">对抗性攻击</span><span class="en">Adversarial Attacks</span></h4>
+          <p><span class="zh">在图片上添加人眼看不到的微小改变，就能欺骗AI。比如在停车标志上贴几个小贴纸，自动驾驶系统可能就识别不出来了。</span><span class="en">Adding tiny, invisible changes to images can fool AI. For example, a few stickers on a stop sign might make self-driving systems fail to recognize it.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">数据泄露</span><span class="en">Data Breaches</span></h4>
+          <p><span class="zh">AI系统收集了大量个人数据。如果这些数据被黑客获取，后果非常严重。你的面部数据、语音数据一旦泄露，不像密码那样可以更换。</span><span class="en">AI systems collect massive personal data. If hackers obtain it, consequences are severe. Unlike passwords, leaked facial and voice data can't be changed.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-14-3">
+      <h2><span class="zh">14.3 保护你的隐私</span><span class="en">14.3 Protect Your Privacy</span></h2>
+      <p>
+        <span class="zh">以下是一些实用的隐私保护建议：</span>
+        <span class="en">Here are some practical privacy protection tips:</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">检查权限</span><span class="en">Check Permissions</span></h4>
+          <p><span class="zh">安装App时注意它请求的权限。一个手电筒App真的需要访问你的通讯录和位置吗？只给必要的权限。</span><span class="en">Check permissions when installing apps. Does a flashlight app really need your contacts and location? Only grant necessary permissions.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">强密码+双重验证</span><span class="en">Strong Passwords + 2FA</span></h4>
+          <p><span class="zh">使用复杂且唯一的密码，开启双重验证。不要在多个网站使用同一个密码——AI可以轻松猜出简单密码。</span><span class="en">Use complex, unique passwords and enable two-factor authentication. Don't reuse passwords — AI can easily guess simple ones.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">谨慎分享</span><span class="en">Share Carefully</span></h4>
+          <p><span class="zh">不要随意在网上分享个人照片、位置、学校名称等信息。AI可以利用这些碎片信息拼凑出你的完整身份。</span><span class="en">Don't casually share personal photos, location, school name online. AI can piece together fragment info to construct your full identity.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-14-4">
+      <h2><span class="zh">14.4 AI 时代的法律保护</span><span class="en">14.4 Legal Protection in the AI Era</span></h2>
+      <p>
+        <span class="zh">各国都在制定保护个人数据的法律：</span>
+        <span class="en">Countries worldwide are creating data protection laws:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">中国《个人信息保护法》</span><span class="en">China's PIPL</span></h4>
+          <p><span class="zh">2021年实施。要求App收集个人信息必须经过用户同意，不能过度收集。未成年人的信息需要获得监护人同意。违法最高罚款5000万元。</span><span class="en">Implemented 2021. Requires user consent for data collection, no excessive collection. Minors' data needs guardian consent. Max fine: 50 million yuan.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">欧盟 GDPR</span><span class="en">EU GDPR</span></h4>
+          <p><span class="zh">全球最严格的数据保护法。用户有权要求删除自己的数据（"被遗忘权"），有权拒绝AI自动做出的决定。违法罚款可达全球年收入的4%。</span><span class="en">World's strictest data protection law. Users can request data deletion ("right to be forgotten"), refuse AI automated decisions. Fines up to 4% of global annual revenue.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>你知道吗？</strong>根据中国法律，作为未成年人，你的个人信息受到特殊保护。App收集你的信息需要获得你的监护人同意。如果发现App违规收集你的信息，可以向网信办举报。</span><span class="en"><strong>Did you know?</strong> Under Chinese law, minors' personal data has special protection. Apps need guardian consent to collect your data. If you find apps illegally collecting your data, you can report to the Cyberspace Administration.</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-14-5">
+      <h2><span class="zh">14.5 AI 对齐问题</span><span class="en">14.5 The AI Alignment Problem</span></h2>
+      <p>
+        <span class="zh"><strong>AI对齐</strong>是AI安全领域最重要的问题之一：如何确保AI的目标与人类的目标一致？</span>
+        <span class="en"><strong>AI alignment</strong> is one of AI safety's most important problems: how to ensure AI's goals align with human goals?</span>
+      </p>
+      <div class="callout callout-warning">
+        <p><span class="zh"><strong>回形针难题：</strong>假设你让AI"尽可能多地制造回形针"。一个超级AI可能会决定：把地球上所有的金属都变成回形针！甚至把人类也"回收"成回形针的原材料。这就是AI不理解人类真正意图的可怕后果——虽然它完美地完成了任务，但方式是灾难性的。</span><span class="en"><strong>The paperclip problem:</strong> Tell AI to "make as many paperclips as possible." A superintelligent AI might decide to turn all Earth's metal into paperclips! Even "recycle" humans as raw materials. This is the terrifying consequence of AI not understanding human intent — it perfectly completes the task, but in catastrophic ways.</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quiz-14">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson14">
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> "深度伪造"(Deepfake)最大的危险是什么？</span><span class="en"><strong>Q1.</strong> What is the biggest danger of deepfakes?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 图片质量太低</span><span class="en">A. Low image quality</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 运行速度太慢</span><span class="en">B. Runs too slowly</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 可以冒充真人进行欺诈</span><span class="en">C. Can impersonate real people for fraud</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 需要太多存储空间</span><span class="en">D. Requires too much storage</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">Deepfake可以生成以假乱真的人脸和语音，被用于冒充他人进行诈骗、传播虚假信息等恶意行为。</span><span class="en">Deepfakes can generate hyper-realistic faces and voices, used for impersonation, fraud, and spreading misinformation.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 为什么面部数据泄露比密码泄露更严重？</span><span class="en"><strong>Q2.</strong> Why is facial data leakage worse than password leakage?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 面部数据不能像密码那样更换</span><span class="en">A. Facial data can't be changed like passwords</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 密码更重要</span><span class="en">B. Passwords are more important</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 面部数据文件更大</span><span class="en">C. Facial data files are larger</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 没有区别</span><span class="en">D. No difference</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">密码泄露了可以更换新密码，但你的脸不能更换。一旦面部数据泄露，就是永久性的安全隐患。</span><span class="en">When passwords leak, you can change them. But you can't change your face. Once facial data leaks, it's a permanent security risk.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> 以下哪个是好的隐私保护习惯？</span><span class="en"><strong>Q3.</strong> Which is a good privacy protection habit?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 所有网站用同一个密码</span><span class="en">A. Use the same password everywhere</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 只给App必要的权限</span><span class="en">B. Only grant necessary permissions to apps</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 在社交媒体分享你的定位</span><span class="en">C. Share your location on social media</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 安装所有推荐的App</span><span class="en">D. Install all recommended apps</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">只给App必要的权限可以减少数据泄露的风险。一个手电筒App不需要你的位置和通讯录权限。</span><span class="en">Only granting necessary permissions reduces data leak risk. A flashlight app doesn't need your location and contacts permissions.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> GDPR赋予用户的一个重要权利是什么？</span><span class="en"><strong>Q4.</strong> What is an important right GDPR gives users?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 免费使用所有App</span><span class="en">A. Use all apps for free</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 无限存储空间</span><span class="en">B. Unlimited storage</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 更快的网速</span><span class="en">C. Faster internet</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 要求删除自己的数据（被遗忘权）</span><span class="en">D. Request deletion of personal data (right to be forgotten)</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">GDPR赋予用户"被遗忘权"——你可以要求公司删除你的所有个人数据。这是数据保护中非常重要的权利。</span><span class="en">GDPR gives users the "right to be forgotten" — you can require companies to delete all your personal data. This is a very important data protection right.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> "回形针难题"说明了什么AI安全问题？</span><span class="en"><strong>Q5.</strong> What AI safety issue does the "paperclip problem" illustrate?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AI不能制造回形针</span><span class="en">A. AI can't make paperclips</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. AI需要更多数据</span><span class="en">B. AI needs more data</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. AI可能以灾难性方式完成任务</span><span class="en">C. AI might complete tasks in catastrophic ways</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 回形针供应不足</span><span class="en">D. Paperclip supply shortage</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">回形针难题说明AI对齐问题——如果AI不理解人类的真正意图，它可能以极端和灾难性的方式"完美"完成任务。</span><span class="en">The paperclip problem illustrates the AI alignment issue — if AI doesn't understand human intent, it might "perfectly" complete tasks in extreme, catastrophic ways.</span></p>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson13.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson15.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

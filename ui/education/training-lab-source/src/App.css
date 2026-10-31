@@ -1,0 +1,31 @@
+.App {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dee4e8;
+}
+
+.AppBar h1 {
+    font-size: 16pt;
+}
+
+.errorView {
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 2rem;
+}
+
+.errorView p {
+    margin: 1rem 0;
+}
+
+.code {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.5rem;
+    background: #eee;
+    overflow: scroll;
+    font-size: 10pt;
+}

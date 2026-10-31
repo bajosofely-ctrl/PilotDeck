@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第2课：什么是人工智能 — AI的定义、弱AI vs 强AI | Lesson 2: What Is AI?">
+  <title>第2课：什么是人工智能 | Lesson 2: What Is AI?</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html" class="active"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 2 课</span>
+        <span class="en">Lesson 2</span>
+      </span>
+      <h1>
+        <span class="zh">什么是人工智能</span>
+        <span class="en">What Is AI?</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">AI的定义、弱AI vs 强AI、AI vs 传统软件</span>
+        <span class="en">Definition of AI, Narrow AI vs General AI, AI vs Traditional Software</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ── Section 2.1 ── -->
+    <section class="section reveal" id="section-2-1">
+      <h2>
+        <span class="zh">2.1 AI 的定义</span>
+        <span class="en">2.1 Defining AI</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>人工智能（Artificial Intelligence，AI）</strong>是计算机科学的一个分支，致力于创建能够模拟人类智能行为的系统。这包括<strong>学习</strong>（从数据中获取知识）、<strong>推理</strong>（根据已知信息得出结论）、<strong>感知</strong>（理解图像、声音等）和<strong>决策</strong>（在多种选择中做出判断）。</span>
+        <span class="en"><strong>Artificial Intelligence (AI)</strong> is a branch of computer science dedicated to creating systems that can simulate human intelligent behavior. This includes <strong>learning</strong> (acquiring knowledge from data), <strong>reasoning</strong> (drawing conclusions from known information), <strong>perception</strong> (understanding images, sounds, etc.), and <strong>decision-making</strong> (making judgments among multiple choices).</span>
+      </p>
+      <p>
+        <span class="zh">不同的专家对 AI 有不同的定义。计算机科学之父<strong>阿兰·图灵</strong>在1950年提出了著名的"图灵测试"：如果一台机器能在对话中让人无法区分它与真人的区别，那么它就可以被认为具有"智能"。</span>
+        <span class="en">Different experts define AI differently. <strong>Alan Turing</strong>, the father of computer science, proposed the famous "Turing Test" in 1950: if a machine can carry on a conversation where humans can't distinguish it from a real person, then it can be considered "intelligent."</span>
+      </p>
+      <p>
+        <span class="zh">简单来说，AI 就是让计算机像人一样<strong>"看"、"听"、"想"和"做"</strong>的技术。</span>
+        <span class="en">Simply put, AI is the technology that makes computers <strong>"see," "hear," "think," and "act"</strong> like humans.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 2.2 ── -->
+    <section class="section reveal" id="section-2-2">
+      <h2>
+        <span class="zh">2.2 弱 AI vs 强 AI</span>
+        <span class="en">2.2 Narrow AI vs General AI</span>
+      </h2>
+      <p>
+        <span class="zh">AI 按照能力可以分为两大类。理解这个区别非常重要，因为它直接影响我们对 AI 的期望和使用方式。</span>
+        <span class="en">AI can be divided into two major categories based on capability. Understanding this distinction is crucial, as it directly affects our expectations and how we use AI.</span>
+      </p>
+
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4>
+            <span class="zh">🤖 弱 AI（专用 AI / Narrow AI）</span>
+            <span class="en">🤖 Narrow AI (Specialized AI)</span>
+          </h4>
+          <p>
+            <span class="zh">只擅长完成<strong>一项特定任务</strong>的 AI。这是今天我们实际使用的所有 AI。</span>
+            <span class="en">AI that excels at <strong>one specific task</strong> only. This is all the AI we actually use today.</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">✅ 已广泛应用：Siri、推荐系统、AlphaGo</span>
+              <span class="en">✅ Widely used: Siri, recommendations, AlphaGo</span>
+            </li>
+            <li>
+              <span class="zh">✅ 在特定领域能超越人类</span>
+              <span class="en">✅ Can surpass humans in specific domains</span>
+            </li>
+            <li>
+              <span class="zh">⚠️ 下棋的 AI 不会开车，翻译的 AI 不会画画</span>
+              <span class="en">⚠️ Chess AI can't drive; translation AI can't paint</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="compare-col highlight-bad">
+          <h4>
+            <span class="zh">🧠 强 AI（通用 AI / AGI）</span>
+            <span class="en">🧠 General AI (AGI)</span>
+          </h4>
+          <p>
+            <span class="zh">能像人类一样思考、学习并解决<strong>任何类型问题</strong>的 AI。目前还不存在！</span>
+            <span class="en">AI that can think, learn, and solve <strong>any type of problem</strong> like humans. Doesn't exist yet!</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">❌ 目前仍是研究目标</span>
+              <span class="en">❌ Still a research goal</span>
+            </li>
+            <li>
+              <span class="zh">🔮 何时实现仍有巨大争议</span>
+              <span class="en">🔮 When it will be achieved is highly debated</span>
+            </li>
+            <li>
+              <span class="zh">🎬 电影中的 AI（如钢铁侠的 JARVIS）</span>
+              <span class="en">🎬 AI in movies (like Iron Man's JARVIS)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh"><strong>关键要点：</strong>不要被科幻电影误导！ChatGPT 虽然很强大，但它仍然是弱 AI——它很擅长处理语言任务，但不能真正"理解"世界，也没有自我意识。</span>
+        <span class="en"><strong>Key takeaway:</strong> Don't be misled by sci-fi movies! ChatGPT is powerful, but it's still narrow AI — it's great at language tasks but doesn't truly "understand" the world and has no self-awareness.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 2.3 ── -->
+    <section class="section reveal" id="section-2-3">
+      <h2>
+        <span class="zh">2.3 AI vs 传统软件</span>
+        <span class="en">2.3 AI vs Traditional Software</span>
+      </h2>
+      <p>
+        <span class="zh">AI 和普通软件到底有什么不同？最大的区别在于<strong>规则从哪里来</strong>。</span>
+        <span class="en">What's really different between AI and regular software? The biggest difference is <strong>where the rules come from</strong>.</span>
+      </p>
+
+      <div class="compare reveal">
+        <div class="compare-col">
+          <h4>
+            <span class="zh">📏 传统软件</span>
+            <span class="en">📏 Traditional Software</span>
+          </h4>
+          <p>
+            <span class="zh">程序员<strong>手动编写</strong>所有规则。计算机严格按照规则执行。</span>
+            <span class="en">Programmers <strong>manually write</strong> all the rules. The computer follows them exactly.</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">输入 → 固定规则 → 输出</span>
+              <span class="en">Input → Fixed Rules → Output</span>
+            </li>
+            <li>
+              <span class="zh">例如：计算器（输入 2+3，永远输出 5）</span>
+              <span class="en">Example: Calculator (input 2+3, always outputs 5)</span>
+            </li>
+            <li>
+              <span class="zh">规则越多，代码越复杂</span>
+              <span class="en">More rules = more complex code</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="compare-col highlight-good">
+          <h4>
+            <span class="zh">🧠 AI 软件</span>
+            <span class="en">🧠 AI Software</span>
+          </h4>
+          <p>
+            <span class="zh">AI 从<strong>数据中自己学习</strong>规则。给它大量例子，它自己总结规律。</span>
+            <span class="en">AI <strong>learns rules from data</strong> itself. Give it many examples, and it discovers patterns.</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">数据 + 答案 → AI学习 → 预测新数据</span>
+              <span class="en">Data + Answers → AI Learning → Predict new data</span>
+            </li>
+            <li>
+              <span class="zh">例如：看1000张猫的图片后，能识别新的猫</span>
+              <span class="en">Example: After seeing 1000 cat photos, it can recognize new cats</span>
+            </li>
+            <li>
+              <span class="zh">数据越多，表现越好</span>
+              <span class="en">More data = better performance</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">打个比方：传统软件像是一本<strong>食谱</strong>——按照步骤做菜，一步都不能错。AI 更像一个<strong>学徒</strong>——看师傅做了很多次后，自己也能做出像样的菜，甚至能创造新菜式。</span>
+        <span class="en">Here's an analogy: Traditional software is like a <strong>recipe</strong> — follow the steps exactly, no room for error. AI is more like an <strong>apprentice</strong> — after watching the chef many times, it can cook decent dishes on its own, and even create new ones.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 2.4 ── -->
+    <section class="section reveal" id="section-2-4">
+      <h2>
+        <span class="zh">2.4 AI 的主要分支</span>
+        <span class="en">2.4 Main Branches of AI</span>
+      </h2>
+      <p>
+        <span class="zh">人工智能是一个庞大的领域，包含许多子分支。以下是最重要的几个：</span>
+        <span class="en">AI is a vast field with many sub-branches. Here are the most important ones:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+          </div>
+          <h4>
+            <span class="zh">机器学习 (ML)</span>
+            <span class="en">Machine Learning (ML)</span>
+          </h4>
+          <p>
+            <span class="zh">让计算机从数据中自动学习和改进，不需要明确编程。是当前 AI 最核心的技术。</span>
+            <span class="en">Enables computers to learn and improve from data automatically without explicit programming. The most core AI technology today.</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">计算机视觉 (CV)</span>
+            <span class="en">Computer Vision (CV)</span>
+          </h4>
+          <p>
+            <span class="zh">让计算机"看懂"图片和视频——人脸识别、物体检测、医学影像分析都属于这个领域。</span>
+            <span class="en">Enables computers to "understand" images and videos — face recognition, object detection, and medical imaging all belong here.</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg>
+          </div>
+          <h4>
+            <span class="zh">自然语言处理 (NLP)</span>
+            <span class="en">Natural Language Processing (NLP)</span>
+          </h4>
+          <p>
+            <span class="zh">让计算机理解和生成人类语言——翻译、聊天机器人、文本摘要都是 NLP 的应用。</span>
+            <span class="en">Enables computers to understand and generate human language — translation, chatbots, and text summarization are all NLP applications.</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">语音识别</span>
+            <span class="en">Speech Recognition</span>
+          </h4>
+          <p>
+            <span class="zh">让计算机"听懂"人说的话——语音助手、语音转文字、声纹识别都依赖这项技术。</span>
+            <span class="en">Enables computers to "understand" human speech — voice assistants, speech-to-text, and voiceprint recognition all rely on this.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section 2.5: Quiz ── -->
+    <section class="section reveal" id="section-2-5">
+      <h2>
+        <span class="zh">2.5 小测验</span>
+        <span class="en">2.5 Quiz</span>
+      </h2>
+      <p>
+        <span class="zh">让我们来检验一下你在本课中学到的知识！</span>
+        <span class="en">Let's test what you've learned in this lesson!</span>
+      </p>
+
+      <div class="quiz" data-quiz-id="lesson2">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> AI 和传统软件的最大区别是什么？</span>
+            <span class="en"><strong>Q1.</strong> What is the biggest difference between AI and traditional software?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. AI 运行速度更快</span>
+              <span class="en">A. AI runs faster</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. AI 从数据中学习规则，传统软件由人手动编写规则</span>
+              <span class="en">B. AI learns rules from data; traditional software has manually written rules</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. AI 不需要代码</span>
+              <span class="en">C. AI doesn't need code</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. AI 只能在手机上运行</span>
+              <span class="en">D. AI can only run on phones</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">传统软件遵循程序员编写的固定规则，而 AI 通过数据自动学习规律——这是两者最根本的区别。</span>
+            <span class="en">Traditional software follows fixed rules written by programmers, while AI automatically learns patterns from data — this is the most fundamental difference.</span>
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 以下哪个是"弱 AI"的例子？</span>
+            <span class="en"><strong>Q2.</strong> Which of the following is an example of "Narrow AI"?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 能下围棋但不会做其他事的 AlphaGo</span>
+              <span class="en">A. AlphaGo, which plays Go but can't do anything else</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 钢铁侠电影中的 JARVIS</span>
+              <span class="en">B. JARVIS from the Iron Man movies</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 能像人类一样思考的机器人</span>
+              <span class="en">C. A robot that can think like a human</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 有自我意识的超级计算机</span>
+              <span class="en">D. A self-aware supercomputer</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">AlphaGo 只能下围棋，不能做其他任务，是典型的弱 AI。JARVIS 和有自我意识的 AI 都属于强 AI（AGI），目前还不存在。</span>
+            <span class="en">AlphaGo can only play Go and can't do other tasks — a typical narrow AI. JARVIS and self-aware AI are general AI (AGI), which doesn't exist yet.</span>
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 以下哪个<strong>不是</strong> AI 的主要分支？</span>
+            <span class="en"><strong>Q3.</strong> Which of the following is <strong>NOT</strong> a main branch of AI?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 自然语言处理 (NLP)</span>
+              <span class="en">A. Natural Language Processing (NLP)</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 计算机视觉 (CV)</span>
+              <span class="en">B. Computer Vision (CV)</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 网页设计 (Web Design)</span>
+              <span class="en">C. Web Design</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 机器学习 (ML)</span>
+              <span class="en">D. Machine Learning (ML)</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">网页设计是前端开发领域，不属于 AI 的分支。机器学习、计算机视觉和自然语言处理都是 AI 的核心分支。</span>
+            <span class="en">Web design belongs to front-end development, not AI. Machine learning, computer vision, and NLP are all core branches of AI.</span>
+          </p>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p class="score">
+            <span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span>
+            <span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span>
+          </p>
+          <p>
+            <span class="zh">完成测验！继续学习下一课吧。</span>
+            <span class="en">Quiz complete! Continue to the next lesson.</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Lesson Navigation Footer ── -->
+    <div class="lesson-nav-footer">
+      <a href="lesson1.html">
+        <span class="zh">← 上一课：AI 就在你身边</span>
+        <span class="en">← Previous: AI Is All Around You</span>
+      </a>
+      <a href="lesson3.html">
+        <span class="zh">下一课：AI 发展简史 →</span>
+        <span class="en">Next: History of AI →</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

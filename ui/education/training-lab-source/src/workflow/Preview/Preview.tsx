@@ -1,0 +1,82 @@
+import style from './Preview.module.css';
+import { useTranslation } from 'react-i18next';
+import { useVariant } from '../../util/variant';
+import Alert from '@mui/material/Alert';
+import { useAtomValue } from 'jotai';
+import { prediction, predictionError } from '../../state';
+import PreviewMenu from './PreviewMenu';
+import { PercentageBar, Widget } from '@genai-fi/base';
+import { Colours } from '@genai-fi/base/main/components/PercentageBar/PercentageBar';
+import { useHasModel } from '@genaitm/util/TeachableModel';
+interface Props {
+    onExport?: () => void;
+    onClone?: () => void;
+}
+
+const colourWheel: Colours[] = ['orange', 'purple', 'blue', 'green', 'red'];
+
+export default function Preview({ onExport, onClone }: Props) {
+    const { namespace } = useVariant();
+    const { t } = useTranslation(namespace);
+    const preds = useAtomValue(prediction);
+    const hasError = useAtomValue(predictionError);
+    const hasModel = useHasModel();
+
+    const model = preds.length > 0;
+
+    return (
+        <Widget
+            noPadding
+            dataWidget="model"
+            title={t('model.labels.title')}
+            className={style.widget}
+            activated={model}
+            menu={
+                <PreviewMenu
+                    disabled={!model}
+                    onExport={onExport}
+                    onClone={onClone}
+                />
+            }
+        >
+            {model && !hasError && (
+                <div className={style.previewContainer}>
+                    <table className={style.table}>
+                        <tbody>
+                            {preds.map((p, ix) => (
+                                <tr
+                                    key={ix}
+                                    data-testid={`prediction-${ix}`}
+                                >
+                                    <td className={style.labelCell}>{p.className}</td>
+                                    <td className={style.valueCell}>
+                                        <PercentageBar
+                                            colour={colourWheel[ix % colourWheel.length]}
+                                            value={p.probability * 100}
+                                            style={{ fontSize: '0.8rem', minHeight: '1.4rem' }}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+            {!hasModel && (
+                <div className={style.buttonContainer}>
+                    <Alert severity="info">{t('model.labels.mustTrain')}</Alert>
+                </div>
+            )}
+            {hasModel && !model && (
+                <div className={style.buttonContainer}>
+                    <Alert severity="info">{t('model.labels.mustInput')}</Alert>
+                </div>
+            )}
+            {model && hasError && (
+                <div className={style.buttonContainer}>
+                    <Alert severity="error">{t('model.labels.failedTensorflow')}</Alert>
+                </div>
+            )}
+        </Widget>
+    );
+}

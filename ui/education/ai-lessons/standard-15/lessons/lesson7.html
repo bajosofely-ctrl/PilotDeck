@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第7课：自然语言处理 | Lesson 7: Natural Language Processing">
+  <title>第7课：自然语言处理 | Lesson 7: Natural Language Processing</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html" class="active"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 7 课</span><span class="en">Lesson 7</span></span>
+      <h1><span class="zh">自然语言处理</span><span class="en">Natural Language Processing</span></h1>
+      <p class="subtitle">
+        <span class="zh">教机器读懂人类的语言——NLP 是如何工作的？</span>
+        <span class="en">Teaching machines to understand human language — how does NLP work?</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-7-1">
+      <h2><span class="zh">7.1 为什么语言这么难？</span><span class="en">7.1 Why is Language So Hard?</span></h2>
+      <p>
+        <span class="zh">你可能觉得理解语言很简单——毕竟你每天都在用。但对计算机来说，语言是世界上最复杂的东西之一。为什么？</span>
+        <span class="en">You might think understanding language is easy — after all, you use it every day. But for computers, language is one of the most complex things in the world. Why?</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">歧义性</span><span class="en">Ambiguity</span></h4>
+          <p><span class="zh">"苹果"是水果还是手机品牌？"他在银行工作"中的"银行"是河岸还是金融机构？同一个词在不同语境中含义完全不同。</span><span class="en">"Apple" — a fruit or a phone brand? "He sat on the bank" — a river bank or a financial institution? The same word means completely different things in different contexts.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">隐含意义</span><span class="en">Implied Meaning</span></h4>
+          <p><span class="zh">"今天天气真好啊"——说这话的人可能真的在夸天气，也可能是在讽刺（比如暴雨天说的）。人类靠语境理解，但机器很难判断。</span><span class="en">"Nice weather today" — could be genuine or sarcastic (said during a storm). Humans use context to understand, but machines struggle with this.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">语法灵活性</span><span class="en">Grammar Flexibility</span></h4>
+          <p><span class="zh">"我吃了饭"和"饭被我吃了"意思一样，但结构完全不同。中文还没有时态变化，全靠语境判断时间。</span><span class="en">"I ate food" and "food was eaten by me" mean the same but have completely different structures. Chinese also lacks tense markers, relying entirely on context for time.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">网络用语</span><span class="en">Internet Slang</span></h4>
+          <p><span class="zh">"yyds"、"绝绝子"、"duck不必"——网络用语变化极快，AI需要不断学习新词新用法。这对机器来说是个巨大挑战。</span><span class="en">"GOAT," "slay," "no cap" — internet slang evolves rapidly. AI needs to constantly learn new words and usages, a huge challenge for machines.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-7-2">
+      <h2><span class="zh">7.2 分词与词向量</span><span class="en">7.2 Tokenization & Word Vectors</span></h2>
+      <p>
+        <span class="zh">计算机不认识文字，只认识数字。所以NLP的第一步是把文字转换成数字。</span>
+        <span class="en">Computers don't understand text, only numbers. So the first step in NLP is converting text to numbers.</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">分词（Tokenization）</span><span class="en">Tokenization</span></h4>
+          <p><span class="zh">把句子拆成一个个词语。英语很简单（用空格分开），但中文"我喜欢机器学习"需要AI来判断应该分成"我/喜欢/机器/学习"还是"我/喜欢/机器学习"。</span><span class="en">Breaking sentences into individual words. English is simple (split by spaces), but Chinese "我喜欢机器学习" requires AI to decide the right split — is it "machine learning" or "machine" + "learning"?</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">词向量（Word Embedding）</span><span class="en">Word Embedding</span></h4>
+          <p><span class="zh">把每个词变成一组数字（向量）。神奇的是，意思相近的词在数字空间中"距离"也近。"国王-男人+女人≈女王"这个等式在词向量中是成立的！</span><span class="en">Turn each word into a set of numbers (vector). Amazingly, similar meanings are "close" in number space. The equation "king - man + woman ≈ queen" actually works in word vectors!</span></p>
+        </div>
+      </div>
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>想象一下：</strong>词向量就像给每个词在一个高维空间中分配了一个"座位"。意思相近的词坐在一起，相反的词隔得远。这让机器能"感受"到词语之间的关系。</span><span class="en"><strong>Imagine:</strong> Word vectors are like assigning each word a "seat" in a high-dimensional space. Similar words sit together; opposite words are far apart. This lets machines "feel" relationships between words.</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-7-3">
+      <h2><span class="zh">7.3 情感分析</span><span class="en">7.3 Sentiment Analysis</span></h2>
+      <p>
+        <span class="zh"><strong>情感分析</strong>是NLP最常见的应用之一——让AI判断一段文字表达的是正面还是负面情感。电商平台用它来分析用户评价，社交媒体用它来检测网络暴力。</span>
+        <span class="en"><strong>Sentiment analysis</strong> is one of NLP's most common applications — letting AI judge whether text expresses positive or negative feelings. E-commerce uses it for reviews; social media uses it to detect cyberbullying.</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">正面情感</span><span class="en">Positive Sentiment</span></h4>
+          <ul>
+            <li><span class="zh">"这部电影太精彩了，强烈推荐！"</span><span class="en">"This movie is amazing, highly recommend!"</span></li>
+            <li><span class="zh">"服务态度超好，下次还来！"</span><span class="en">"Great service, will come back!"</span></li>
+            <li><span class="zh">"食物很好吃，分量也足"</span><span class="en">"Food is delicious and portions are generous"</span></li>
+          </ul>
+        </div>
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">负面情感</span><span class="en">Negative Sentiment</span></h4>
+          <ul>
+            <li><span class="zh">"等了两小时才上菜，太差了"</span><span class="en">"Waited 2 hours for food, terrible"</span></li>
+            <li><span class="zh">"质量很差，完全不值这个价"</span><span class="en">"Poor quality, not worth the price at all"</span></li>
+            <li><span class="zh">"客服态度极其恶劣"</span><span class="en">"Customer service attitude was awful"</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-7-4">
+      <h2><span class="zh">7.4 机器翻译的进化</span><span class="en">7.4 Evolution of Machine Translation</span></h2>
+      <p>
+        <span class="zh">机器翻译是NLP最经典的应用之一。从最早的逐词翻译到今天的AI翻译，经历了巨大的进化。</span>
+        <span class="en">Machine translation is one of NLP's most classic applications. From early word-by-word translation to today's AI translation, it has undergone huge evolution.</span>
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1950s</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">规则翻译</span><span class="en">Rule-Based</span></h3>
+            <p><span class="zh">人工编写语法规则和词典，逐词翻译。质量很差，经常闹笑话。</span><span class="en">Manually written grammar rules and dictionaries, word-by-word translation. Very poor quality, often laughable.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2000s</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">统计翻译</span><span class="en">Statistical MT</span></h3>
+            <p><span class="zh">从大量已翻译的文本中学习翻译规律。质量提升明显，但仍然经常不通顺。</span><span class="en">Learn translation patterns from large amounts of translated text. Notable quality improvement, but still often unnatural.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2017+</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">神经网络翻译</span><span class="en">Neural MT</span></h3>
+            <p><span class="zh">基于Transformer架构的神经网络翻译，质量接近人类水平。Google翻译、DeepL都使用这种技术。</span><span class="en">Transformer-based neural network translation, approaching human-level quality. Google Translate and DeepL both use this technology.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-7-5">
+      <h2><span class="zh">7.5 NLP 的更多应用</span><span class="en">7.5 More NLP Applications</span></h2>
+      <p>
+        <span class="zh">NLP 的应用远不止翻译和情感分析。看看你可能每天都在使用的 NLP 技术：</span>
+        <span class="en">NLP applications go far beyond translation and sentiment analysis. Check out NLP tech you probably use daily:</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">搜索引擎</span><span class="en">Search Engines</span></h4>
+          <p><span class="zh">百度、Google 理解你搜索的意图，即使你打错字或表达不清楚，也能给出相关结果。</span><span class="en">Baidu, Google understand your search intent, giving relevant results even with typos or unclear phrasing.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">智能客服</span><span class="en">Smart Customer Service</span></h4>
+          <p><span class="zh">网站和App里的AI客服机器人，能理解你的问题并自动回答，处理退货、查物流等常见问题。</span><span class="en">AI chatbots in websites and apps understand your questions and auto-respond, handling returns, tracking, and common issues.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">语音转文字</span><span class="en">Speech-to-Text</span></h4>
+          <p><span class="zh">讯飞输入法、微信语音转文字——把你说的话准确地转换成文字，准确率已超过97%。</span><span class="en">Speech-to-text tools convert your speech to text with over 97% accuracy — making notes, subtitles, and accessibility possible.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-7">
+      <h2><span class="zh">7.6 小测验</span><span class="en">7.6 Quiz</span></h2>
+      <p><span class="zh">让我们来检验一下你在本课中学到的知识！</span><span class="en">Let's test what you've learned in this lesson!</span></p>
+      <div class="quiz" data-quiz-id="lesson7">
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 对计算机来说，理解语言最大的困难之一是什么？</span><span class="en"><strong>Q1.</strong> What is one of the biggest challenges for computers in understanding language?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 文字太小看不清</span><span class="en">A. Text is too small to see</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 同一个词在不同语境中含义不同</span><span class="en">B. Same word means different things in different contexts</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 键盘输入太慢</span><span class="en">C. Keyboard input is too slow</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 语言数量太少</span><span class="en">D. Too few languages exist</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">语言的歧义性是NLP最大的挑战之一。同一个词（如"苹果"）在不同语境中可能有完全不同的含义。</span><span class="en">Language ambiguity is one of NLP's biggest challenges. The same word (like "apple") can have completely different meanings in different contexts.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 词向量的神奇之处是什么？</span><span class="en"><strong>Q2.</strong> What's magical about word vectors?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 可以把数字变成文字</span><span class="en">A. Can turn numbers into words</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 可以自动翻译</span><span class="en">B. Can auto-translate</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 含义相近的词在数字空间中距离也近</span><span class="en">C. Similar meanings are close in numerical space</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 可以读取手写文字</span><span class="en">D. Can read handwritten text</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">词向量把语义关系转化为空间关系——同义词距离近，反义词距离远。"国王-男人+女人≈女王"就是一个经典例子。</span><span class="en">Word vectors convert semantic relationships to spatial ones — synonyms are close, antonyms are far. "King - man + woman ≈ queen" is a classic example.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> 情感分析的主要功能是什么？</span><span class="en"><strong>Q3.</strong> What is the main function of sentiment analysis?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 判断文字表达的是正面还是负面情感</span><span class="en">A. Determine if text expresses positive or negative sentiment</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 翻译不同语言</span><span class="en">B. Translate between languages</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 生成新的文章</span><span class="en">C. Generate new articles</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 识别人脸</span><span class="en">D. Recognize faces</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">情感分析让AI判断文本中表达的情绪是正面、负面还是中性，广泛用于评价分析和社交媒体监控。</span><span class="en">Sentiment analysis lets AI judge whether text emotion is positive, negative, or neutral, widely used in review analysis and social media monitoring.</span></p>
+        </div>
+        <div class="quiz-result hidden">
+          <p class="score"><span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span><span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span></p>
+          <p><span class="zh">完成测验！继续学习下一课吧。</span><span class="en">Quiz complete! Continue to the next lesson.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson6.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson8.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

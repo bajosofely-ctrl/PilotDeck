@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第4课：接入 AI：ChatGPT 聊天助手（上）| Lesson 4: Connect AI: ChatGPT Chat Assistant (Part 1)">
+  <title>第4课：接入 AI：ChatGPT 聊天助手（上）| Lesson 4: Connect AI: ChatGPT Chat Assistant (Part 1)</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html" class="active"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 4 课</span>
+        <span class="en">Lesson 4</span>
+      </span>
+      <h1>
+        <span class="zh">接入 AI：ChatGPT 聊天助手（上）</span>
+        <span class="en">Connect AI: ChatGPT Chat Assistant (Part 1)</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">获取 API Key，搭建 App 界面，发送第一条消息给 AI</span>
+        <span class="en">Get your API Key, design the App UI, send your first message to AI</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 4.1 Course Objectives -->
+    <section class="section reveal" id="section-4-1">
+      <h2><span class="zh">4.1 课程目标</span><span class="en">4.1 Course Objectives</span></h2>
+      <p>
+        <span class="zh">在这节课中，你将学会如何让你的 App 与真正的 AI 对话！我们会使用 ChatGPT（或 Gemini）的 API，让你的手机 App 能够和 AI 聊天，就像使用 ChatGPT 网站一样——但这次是你自己做的 App！</span>
+        <span class="en">In this lesson, you'll learn how to make your App talk to real AI! We'll use the ChatGPT (or Gemini) API so your mobile App can chat with AI, just like using the ChatGPT website — but this time it's YOUR own App!</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">认识 AI API</span><span class="en">Know AI APIs</span></h3>
+          <p><span class="zh">了解 ChatGPT / Gemini API 的原理</span><span class="en">Understand how ChatGPT / Gemini APIs work</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">获取 API Key</span><span class="en">Get an API Key</span></h3>
+          <p><span class="zh">注册并获取你自己的 AI 钥匙</span><span class="en">Sign up and get your own AI key</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">发送第一条消息</span><span class="en">Send First Message</span></h3>
+          <p><span class="zh">从 App Inventor 向 AI 发送消息</span><span class="en">Send a message to AI from App Inventor</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4.2 AI API Basics -->
+    <section class="section reveal" id="section-4-2">
+      <h2><span class="zh">4.2 AI API 入门</span><span class="en">4.2 AI API Basics</span></h2>
+
+      <h3><span class="zh">ChatGPT API 是什么？</span><span class="en">What is the ChatGPT API?</span></h3>
+
+      <p>
+        <span class="zh">你可能已经在网页上用过 ChatGPT 聊天了。<strong>ChatGPT API</strong> 就是让<strong>程序和 App</strong>也能和 ChatGPT 对话的通道。网页版 ChatGPT 是给人用的界面，而 API 是给程序用的接口——它们背后使用的是同一个 AI 大脑！</span>
+        <span class="en">You may have already chatted with ChatGPT on the website. The <strong>ChatGPT API</strong> is a channel that lets <strong>programs and Apps</strong> talk to ChatGPT too. The ChatGPT website is a human-facing interface, while the API is a program-facing interface — they both use the same AI brain!</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">ChatGPT 网站</span><span class="en">ChatGPT Website</span></h3>
+          <p><span class="zh">你在浏览器里打字聊天，看到 AI 的回复。操作简单，适合个人使用。</span><span class="en">You type and chat in the browser and see AI's replies. Simple to use, great for personal use.</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">ChatGPT API</span><span class="en">ChatGPT API</span></h3>
+          <p><span class="zh">你的 App 向 API 发送消息，AI 返回回复数据。你可以控制 AI 的"性格"、回复风格，嵌入到任何 App 中！</span><span class="en">Your App sends messages to the API and AI returns reply data. You can control AI's "personality", reply style, and embed it in any App!</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">什么是 API Key？</span><span class="en">What is an API Key?</span></h3>
+
+      <p>
+        <span class="zh"><strong>API Key</strong> 就像一张"入场券"或"通行密码"。就像进入游乐园需要门票一样，你的 App 要调用 ChatGPT API 也需要一把专属的"钥匙"。这个 Key 是一串长长的字符，看起来像这样：</span>
+        <span class="en">An <strong>API Key</strong> is like an "entry ticket" or "access password." Just as you need a ticket to enter an amusement park, your App needs a special "key" to use the ChatGPT API. The Key is a long string of characters, looking something like this:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">API Key</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code>sk-proj-YOUR_API_KEY...</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <p>
+          <span class="zh"><strong>重要安全提示！</strong>API Key 就像你的银行密码一样重要！<strong>绝对不要</strong>把它分享给别人、发到聊天群里、或者上传到网上。如果别人拿到了你的 Key，他们可以用你的账号调用 API，花掉你的钱！如果你怀疑 Key 泄露了，立刻去 OpenAI 网站重新生成一个新的 Key。</span>
+          <span class="en"><strong>Important Security Warning!</strong> An API Key is as important as your bank password! <strong>Never</strong> share it with others, post it in chat groups, or upload it online. If someone gets your Key, they can use your account to call the API and spend your money! If you suspect your Key is leaked, immediately go to the OpenAI website and generate a new one.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">费用说明</span><span class="en">Pricing</span></h3>
+
+      <p>
+        <span class="zh">OpenAI 提供免费的试用额度，新注册账号通常会有几美元的免费额度。ChatGPT API 按使用量收费——每次对话消耗一点点"token"（可以理解为文字量）。对于我们的课程练习来说，免费额度完全够用！如果老师提供了共用的 API Key，直接使用老师的 Key 即可。</span>
+        <span class="en">OpenAI offers free trial credits — new accounts usually get a few dollars of free credits. The ChatGPT API charges by usage — each conversation consumes a few "tokens" (think of them as word counts). For our class exercises, the free credits are more than enough! If your teacher provides a shared API Key, just use the teacher's Key.</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>什么是 Token？</strong>Token 是 AI 处理文字的最小单位。一个英文单词大约是 1 个 token，一个中文汉字大约是 1-2 个 token。发送 "Hello, how are you?" 大约消耗 6 个 token。GPT-4o-mini 模型每 100 万个 token 只需大约 0.15 美元，非常便宜！</span>
+          <span class="en"><strong>What is a Token?</strong> A token is the smallest unit AI uses to process text. One English word is roughly 1 token, and one Chinese character is roughly 1-2 tokens. Sending "Hello, how are you?" costs about 6 tokens. The GPT-4o-mini model costs only about $0.15 per million tokens — super affordable!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4.3 Hands-On -->
+    <section class="section reveal" id="section-4-3">
+      <h2><span class="zh">4.3 动手实践：AI 聊天 App（上）</span><span class="en">4.3 Hands-On: AI Chat App (Part 1)</span></h2>
+
+      <p>
+        <span class="zh">现在我们开始动手做一个能跟 AI 聊天的 App！在这节课中，我们先完成基本的界面和第一次 AI 对话。下节课会继续完善聊天功能。</span>
+        <span class="en">Let's start building an App that can chat with AI! In this lesson, we'll complete the basic UI and make our first AI conversation. The next lesson will polish the chat experience.</span>
+      </p>
+
+      <h3><span class="zh">步骤 1：获取 API Key</span><span class="en">Step 1: Get Your API Key</span></h3>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">注册 OpenAI 账号</span><span class="en">Sign Up for an OpenAI Account</span></h3>
+          <p>
+            <span class="zh">
+              <strong>a)</strong> 访问 <strong>platform.openai.com</strong>，点击 "Sign Up" 注册账号（需要邮箱地址）。<br>
+              <strong>b)</strong> 登录后，点击左侧菜单的 <strong>"API keys"</strong>。<br>
+              <strong>c)</strong> 点击 <strong>"Create new secret key"</strong>，给它起个名字（比如 "My App Inventor Key"）。<br>
+              <strong>d)</strong> 系统会显示一串长长的密钥——<strong>立刻复制并保存到安全的地方</strong>！关闭窗口后就再也看不到了。<br>
+              <strong>e)</strong> 如果老师提供了共用 Key，可以跳过此步骤，直接使用老师给的 Key。
+            </span>
+            <span class="en">
+              <strong>a)</strong> Visit <strong>platform.openai.com</strong> and click "Sign Up" to create an account (email required).<br>
+              <strong>b)</strong> After logging in, click <strong>"API keys"</strong> in the left menu.<br>
+              <strong>c)</strong> Click <strong>"Create new secret key"</strong> and give it a name (e.g. "My App Inventor Key").<br>
+              <strong>d)</strong> The system will show a long secret key — <strong>copy it and save it somewhere safe immediately</strong>! You won't be able to see it again after closing the window.<br>
+              <strong>e)</strong> If your teacher provides a shared Key, skip this step and use the teacher's Key.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 2：设计聊天界面</span><span class="en">Step 2: Design the Chat UI</span></h3>
+
+      <p>
+        <span class="zh">在 App Inventor 中创建新项目，命名为 <strong>AIChatApp</strong>。在 Designer 视图中搭建聊天界面：</span>
+        <span class="en">Create a new project in App Inventor named <strong>AIChatApp</strong>. Build the chat interface in the Designer view:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">聊天显示区域</span><span class="en">Chat Display Area</span></h3>
+          <p>
+            <span class="zh">
+              <strong>1. VerticalScrollArrangement</strong> — 可滚动的垂直布局容器，占据屏幕大部分空间。设置 Height 为 <code>Fill parent</code>，Width 为 <code>Fill parent</code>。<br><br>
+              在里面放一个 <strong>Label</strong>（命名为 <code>lblChatHistory</code>）——用来显示对话记录。设置它的 Text 为空字符串，Width 为 <code>Fill parent</code>。<br><br>
+              这样用户和 AI 的所有消息都会显示在这个 Label 里，并且可以上下滚动。
+            </span>
+            <span class="en">
+              <strong>1. VerticalScrollArrangement</strong> — A scrollable vertical layout, taking up most of the screen. Set Height to <code>Fill parent</code> and Width to <code>Fill parent</code>.<br><br>
+              Inside it, place a <strong>Label</strong> (named <code>lblChatHistory</code>) — to display the conversation. Set its Text to an empty string and Width to <code>Fill parent</code>.<br><br>
+              All messages from the user and AI will show in this Label, and the user can scroll up and down.
+            </span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">输入区域</span><span class="en">Input Area</span></h3>
+          <p>
+            <span class="zh">
+              <strong>2. HorizontalArrangement</strong> — 放在屏幕底部的水平布局。<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>TextBox</strong>（命名为 <code>txtUserMessage</code>）— 用户输入消息的文本框。设置 Hint 为"输入你的消息… / Type your message…"，Width 为 <code>Fill parent</code>。<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>Button</strong>（命名为 <code>btnSend</code>）— 发送按钮。Text 设为"发送"，背景颜色设置为蓝色让它显眼。
+            </span>
+            <span class="en">
+              <strong>2. HorizontalArrangement</strong> — Placed at the bottom of the screen, horizontal layout.<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>TextBox</strong> (named <code>txtUserMessage</code>) — For the user to type their message. Set Hint to "Type your message…" and Width to <code>Fill parent</code>.<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>Button</strong> (named <code>btnSend</code>) — Send button. Set Text to "Send" and use a blue background color to make it stand out.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">不可见组件</span><span class="en">Non-Visible Components</span></h3>
+          <p>
+            <span class="zh">
+              <strong>Web</strong> 组件（命名为 <code>Web1</code>）— 和上节课一样，从 Connectivity 分类中拖入。这次它负责向 ChatGPT API 发送消息。
+            </span>
+            <span class="en">
+              <strong>Web</strong> component (named <code>Web1</code>) — Same as last lesson, drag it from the Connectivity category. This time it sends messages to the ChatGPT API.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 3：在 Blocks 中发送 POST 请求给 ChatGPT</span><span class="en">Step 3: Send a POST Request to ChatGPT in Blocks</span></h3>
+
+      <p>
+        <span class="zh">上节课我们用 <strong>GET</strong> 请求获取天气数据。这次我们需要用 <strong>POST</strong> 请求——因为我们要<strong>发送数据</strong>（消息）给 ChatGPT，而不仅仅是获取数据。切换到 Blocks 视图，按以下步骤拼接积木：</span>
+        <span class="en">Last lesson we used a <strong>GET</strong> request to fetch weather data. This time we need a <strong>POST</strong> request — because we're <strong>sending data</strong> (our message) to ChatGPT, not just fetching data. Switch to Blocks view and build these blocks:</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>GET vs POST：</strong>GET 就像去图书馆借书——你只是"拿"数据回来。POST 就像寄一封信——你把数据"送"到服务器，服务器处理后再给你回信。跟 AI 聊天需要 POST，因为你要把你的消息"送"给 AI。</span>
+          <span class="en"><strong>GET vs POST:</strong> GET is like borrowing a book from the library — you just "take" data. POST is like mailing a letter — you "send" data to the server, and the server processes it and replies. Chatting with AI needs POST because you're "sending" your message to AI.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 4：设置请求头（Headers）</span><span class="en">Step 4: Set Request Headers</span></h3>
+
+      <p>
+        <span class="zh">ChatGPT API 需要两个特殊的请求头信息，就像寄信时要在信封上写清楚寄件人和信的格式：</span>
+        <span class="en">The ChatGPT API requires two special request headers, like writing the sender info and letter format on an envelope:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">Authorization（身份验证）</span><span class="en">Authorization</span></h3>
+          <p>
+            <span class="zh">
+              告诉 API "我是谁"。格式为：<br>
+              <code>Bearer YOUR_API_KEY</code><br><br>
+              在 Blocks 中，使用 <strong>set Web1.RequestHeaders to</strong> 块，构建一个列表（list），其中包含一对键值：<code>["Authorization", "Bearer sk-proj-你的Key..."]</code>
+            </span>
+            <span class="en">
+              Tells the API "who I am." Format:<br>
+              <code>Bearer YOUR_API_KEY</code><br><br>
+              In Blocks, use the <strong>set Web1.RequestHeaders to</strong> block and build a list containing a key-value pair: <code>["Authorization", "Bearer sk-proj-yourKey..."]</code>
+            </span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">Content-Type（内容类型）</span><span class="en">Content-Type</span></h3>
+          <p>
+            <span class="zh">
+              告诉 API "我发送的数据是什么格式"。我们发送的是 JSON，所以设置为：<br>
+              <code>application/json</code><br><br>
+              在同一个列表中添加第二对键值：<code>["Content-Type", "application/json"]</code>
+            </span>
+            <span class="en">
+              Tells the API "what format my data is in." Since we're sending JSON:<br>
+              <code>application/json</code><br><br>
+              Add a second key-value pair in the same list: <code>["Content-Type", "application/json"]</code>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>提示：</strong>在 App Inventor 中，RequestHeaders 需要设置成一个"列表的列表"格式。最外层是一个 list，里面每一项也是一个包含两个元素的 list（key 和 value）。用 <strong>make a list</strong> 块嵌套构建：<code>make a list → [make a list("Authorization", "Bearer …"), make a list("Content-Type", "application/json")]</code></span>
+          <span class="en"><strong>Tip:</strong> In App Inventor, RequestHeaders need to be a "list of lists." The outer layer is a list, and each item is also a list with two elements (key and value). Build it using nested <strong>make a list</strong> blocks: <code>make a list → [make a list("Authorization", "Bearer …"), make a list("Content-Type", "application/json")]</code></span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 5：构建 JSON 请求体（Request Body）</span><span class="en">Step 5: Build the JSON Request Body</span></h3>
+
+      <p>
+        <span class="zh">ChatGPT API 需要你发送一个 JSON 格式的"信件内容"，告诉 AI 使用哪个模型，以及你要说什么。格式如下：</span>
+        <span class="en">The ChatGPT API needs you to send a JSON-formatted "letter body" telling AI which model to use and what you want to say. The format looks like this:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JSON</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code>{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a friendly assistant for kids. Reply in short, simple sentences."
+    },
+    {
+      "role": "user",
+      "content": "What is the tallest mountain in the world?"
+    }
+  ]
+}</code></pre>
+      </div>
+
+      <p>
+        <span class="zh">让我们理解每个部分：</span>
+        <span class="en">Let's understand each part:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">model（模型）</span><span class="en">model</span></h3>
+          <p><span class="zh"><code>"gpt-4o-mini"</code> 是我们使用的 AI 模型。它既聪明又便宜，非常适合学习使用。</span><span class="en"><code>"gpt-4o-mini"</code> is the AI model we're using. It's smart and affordable — perfect for learning.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">system（系统角色）</span><span class="en">system role</span></h3>
+          <p><span class="zh">这是给 AI 的"人设"指令。你可以告诉 AI 它应该扮演什么角色、用什么风格说话。AI 会按照这个指令回复。</span><span class="en">This is the AI's "persona" instruction. Tell AI what role to play and what style to use. AI will follow this instruction in its replies.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">user（用户消息）</span><span class="en">user message</span></h3>
+          <p><span class="zh">这是用户说的话。在我们的 App 中，这就是 <code>txtUserMessage.Text</code> 的内容——用户在文本框里输入的消息。</span><span class="en">This is what the user says. In our App, this is the content of <code>txtUserMessage.Text</code> — whatever the user types in the text box.</span></p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">在 App Inventor Blocks 中，我们用 <strong>join</strong> 块把这个 JSON 文本拼起来。在 <strong>when btnSend.Click do</strong> 事件块中：</span>
+        <span class="en">In App Inventor Blocks, we use a <strong>join</strong> block to piece this JSON text together. Inside the <strong>when btnSend.Click do</strong> event block:</span>
+      </p>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">完整的按钮点击逻辑</span><span class="en">Complete Button Click Logic</span></h3>
+          <p>
+            <span class="zh">
+              <strong>when btnSend.Click do</strong>：<br><br>
+              <strong>1.</strong> 先更新聊天记录：<code>set lblChatHistory.Text to join(lblChatHistory.Text, "\n你: ", txtUserMessage.Text)</code><br><br>
+              <strong>2.</strong> 设置 API 地址：<code>set Web1.Url to "https://api.openai.com/v1/chat/completions"</code><br><br>
+              <strong>3.</strong> 设置请求头（上一步已讲）。<br><br>
+              <strong>4.</strong> 拼接 JSON 请求体：使用 <strong>join</strong> 块拼出完整的 JSON 字符串，把 <code>txtUserMessage.Text</code> 的内容嵌入到 <code>"user"</code> 的 <code>"content"</code> 中。<br><br>
+              <strong>5.</strong> 发送请求：<code>call Web1.PostText(requestBody)</code>，其中 requestBody 是你拼好的 JSON 文本。<br><br>
+              <strong>6.</strong> 清空输入框：<code>set txtUserMessage.Text to ""</code>
+            </span>
+            <span class="en">
+              <strong>when btnSend.Click do</strong>:<br><br>
+              <strong>1.</strong> Update chat history: <code>set lblChatHistory.Text to join(lblChatHistory.Text, "\nYou: ", txtUserMessage.Text)</code><br><br>
+              <strong>2.</strong> Set API URL: <code>set Web1.Url to "https://api.openai.com/v1/chat/completions"</code><br><br>
+              <strong>3.</strong> Set request headers (as covered in the previous step).<br><br>
+              <strong>4.</strong> Build JSON request body: Use a <strong>join</strong> block to create the full JSON string, embedding <code>txtUserMessage.Text</code> into the <code>"user"</code> message's <code>"content"</code> field.<br><br>
+              <strong>5.</strong> Send request: <code>call Web1.PostText(requestBody)</code>, where requestBody is your assembled JSON text.<br><br>
+              <strong>6.</strong> Clear input: <code>set txtUserMessage.Text to ""</code>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 6：解析 AI 的回复</span><span class="en">Step 6: Parse the AI's Reply</span></h3>
+
+      <p>
+        <span class="zh">当 ChatGPT API 返回响应时，数据格式如下：</span>
+        <span class="en">When the ChatGPT API returns a response, the data format looks like this:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JSON</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code>{
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "The tallest mountain in the world is Mount Everest! It is 8,849 meters tall."
+      }
+    }
+  ]
+}</code></pre>
+      </div>
+
+      <p>
+        <span class="zh">我们需要从这个 JSON 中挖出 AI 的回复文字。在 <strong>when Web1.GotText</strong> 事件块中：</span>
+        <span class="en">We need to dig out the AI's reply text from this JSON. Inside the <strong>when Web1.GotText</strong> event block:</span>
+      </p>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">解析回复的积木步骤</span><span class="en">Block Steps to Parse the Reply</span></h3>
+          <p>
+            <span class="zh">
+              <strong>when Web1.GotText (url, responseCode, responseType, responseContent) do</strong>：<br><br>
+              <strong>a)</strong> 解码 JSON：<code>set jsonData to call Web1.JsonTextDecodeWithDictionaries(responseContent)</code><br><br>
+              <strong>b)</strong> 获取 choices 列表：<code>set choicesList to look up in pairs(jsonData, "choices")</code><br><br>
+              <strong>c)</strong> 取第 1 项：<code>set firstChoice to select list item(choicesList, 1)</code><br><br>
+              <strong>d)</strong> 获取 message 对象：<code>set messageObj to look up in pairs(firstChoice, "message")</code><br><br>
+              <strong>e)</strong> 获取 AI 的回复内容：<code>set aiReply to look up in pairs(messageObj, "content")</code><br><br>
+              <strong>f)</strong> 显示到聊天记录中：<code>set lblChatHistory.Text to join(lblChatHistory.Text, "\nAI: ", aiReply)</code>
+            </span>
+            <span class="en">
+              <strong>when Web1.GotText (url, responseCode, responseType, responseContent) do</strong>:<br><br>
+              <strong>a)</strong> Decode JSON: <code>set jsonData to call Web1.JsonTextDecodeWithDictionaries(responseContent)</code><br><br>
+              <strong>b)</strong> Get choices list: <code>set choicesList to look up in pairs(jsonData, "choices")</code><br><br>
+              <strong>c)</strong> Get 1st item: <code>set firstChoice to select list item(choicesList, 1)</code><br><br>
+              <strong>d)</strong> Get message object: <code>set messageObj to look up in pairs(firstChoice, "message")</code><br><br>
+              <strong>e)</strong> Get AI's reply content: <code>set aiReply to look up in pairs(messageObj, "content")</code><br><br>
+              <strong>f)</strong> Display in chat history: <code>set lblChatHistory.Text to join(lblChatHistory.Text, "\nAI: ", aiReply)</code>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>试一试！</strong>完成以上步骤后，连接你的手机或使用模拟器，在文本框中输入 "Hello!" 然后点击"发送"。等待几秒钟，你应该能看到 AI 的回复出现在聊天记录中。恭喜，你的 App 已经能和 AI 对话了！</span>
+          <span class="en"><strong>Try it!</strong> After completing the steps above, connect your phone or use the emulator, type "Hello!" in the text box, and tap "Send." Wait a few seconds and you should see AI's reply appear in the chat history. Congratulations — your App can now talk to AI!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4.4 Security Tips -->
+    <section class="section reveal" id="section-4-4">
+      <h2><span class="zh">4.4 安全提示</span><span class="en">4.4 Security Tips</span></h2>
+
+      <p>
+        <span class="zh">在使用 AI API 时，有一些重要的安全和成本注意事项：</span>
+        <span class="en">When using AI APIs, there are important security and cost considerations:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">保护 API Key</span><span class="en">Protect Your API Key</span></h3>
+          <p>
+            <span class="zh">在我们的课堂练习中，API Key 直接写在积木块里是可以的。但如果你要把 App 发布给别人用，<strong>千万不要</strong>把 Key 直接写在 App 里！别人可以反编译你的 App 找到 Key。正式项目应该用后端服务器来保管 Key。</span>
+            <span class="en">For our class exercises, putting the API Key directly in blocks is fine. But if you publish your App for others, <strong>never</strong> put the Key directly in the App! Others could decompile your App and find it. Real projects should use a backend server to manage Keys.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">注意使用量</span><span class="en">Watch Your Usage</span></h3>
+          <p>
+            <span class="zh">每次调用 API 都会消耗 token 并产生费用。虽然 GPT-4o-mini 很便宜，但如果你写了一个无限循环不停调用 API，费用会迅速累积！在 OpenAI 的控制台可以设置<strong>使用量上限（Usage Limit）</strong>，建议设为每月 $5 来保护自己。</span>
+            <span class="en">Every API call consumes tokens and costs money. While GPT-4o-mini is cheap, if you write an infinite loop that keeps calling the API, costs will pile up fast! In the OpenAI dashboard you can set a <strong>Usage Limit</strong> — we recommend setting it to $5/month to protect yourself.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">速率限制</span><span class="en">Rate Limiting</span></h3>
+          <p>
+            <span class="zh">API 有<strong>速率限制（Rate Limit）</strong>，就像排队买奶茶——同一时间只能服务这么多人。如果你太频繁地发送请求，API 会返回错误。正常聊天完全没问题，但不要写程序疯狂地循环发送请求。</span>
+            <span class="en">APIs have <strong>Rate Limits</strong> — like a milk tea shop that can only serve so many customers at once. If you send requests too frequently, the API will return an error. Normal chatting is perfectly fine, but don't write code that sends requests in a crazy loop.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <p>
+          <span class="zh"><strong>课堂安全规则：</strong>1) 不要把 API Key 截图或分享到任何地方；2) 如果使用老师的共用 Key，不要恶意大量调用；3) 不要让 AI 生成不当内容；4) 发现 Key 泄露立即通知老师。遵守这些规则，大家才能一起愉快地学习！</span>
+          <span class="en"><strong>Classroom Safety Rules:</strong> 1) Don't screenshot or share the API Key anywhere; 2) If using the teacher's shared Key, don't abuse it with excessive calls; 3) Don't ask AI to generate inappropriate content; 4) If a Key leak is discovered, notify the teacher immediately. Follow these rules so everyone can learn happily!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4.5 Challenge -->
+    <section class="section reveal" id="section-4-5">
+      <h2><span class="zh">4.5 挑战任务</span><span class="en">4.5 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：自定义 AI 人设</span><span class="en">Challenge A: Custom AI Persona</span></h3>
+          <p>
+            <span class="zh">修改 JSON 请求体中 <code>"system"</code> 角色的 <code>"content"</code>，让 AI 扮演一个有趣的角色！比如：<br><br>
+            • "你是一只会说话的猫咪，每句话结尾都要加'喵~'"<br>
+            • "你是一个海盗船长，用海盗的方式说话"<br>
+            • "你是一个来自未来的机器人，喜欢用科技术语"<br><br>
+            试试不同的人设，看看 AI 的回复会有什么变化！</span>
+            <span class="en">Modify the <code>"content"</code> of the <code>"system"</code> role in the JSON request body to make AI play a fun character! For example:<br><br>
+            • "You are a talking cat. End every sentence with 'meow~'"<br>
+            • "You are a pirate captain. Talk like a pirate"<br>
+            • "You are a robot from the future who loves using tech jargon"<br><br>
+            Try different personas and see how AI's replies change!</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：添加加载指示器</span><span class="en">Challenge B: Add a Loading Indicator</span></h3>
+          <p>
+            <span class="zh">AI 回复需要几秒钟时间。在等待期间，用户可能以为 App 卡住了。试试添加一个加载提示：<br><br>
+            <strong>1.</strong> 在点击"发送"按钮后，立刻设置 <code>lblChatHistory.Text</code> 追加一行 "AI 正在思考中…"<br>
+            <strong>2.</strong> 同时将 <code>btnSend.Enabled</code> 设为 <code>false</code>（防止重复点击）<br>
+            <strong>3.</strong> 当 <code>Web1.GotText</code> 收到回复后，把"AI 正在思考中…"替换为真正的 AI 回复<br>
+            <strong>4.</strong> 重新把 <code>btnSend.Enabled</code> 设为 <code>true</code></span>
+            <span class="en">AI takes a few seconds to reply. During the wait, users might think the App is frozen. Try adding a loading indicator:<br><br>
+            <strong>1.</strong> Right after tapping "Send," immediately append "AI is thinking…" to <code>lblChatHistory.Text</code><br>
+            <strong>2.</strong> Also set <code>btnSend.Enabled</code> to <code>false</code> (prevent double-tapping)<br>
+            <strong>3.</strong> When <code>Web1.GotText</code> receives a reply, replace "AI is thinking…" with the actual AI reply<br>
+            <strong>4.</strong> Set <code>btnSend.Enabled</code> back to <code>true</code></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-4">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="app4">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. API Key 最像下面哪样东西？</span><span class="en">1. An API Key is most like which of the following?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">一本说明书</span>
+              <span class="en">An instruction manual</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">一段代码</span>
+              <span class="en">A piece of code</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">一张门票或通行证，用来证明你的身份</span>
+              <span class="en">A ticket or pass that proves your identity</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">一种编程语言</span>
+              <span class="en">A programming language</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">API Key 就像一张入场券或通行证。API 服务器用它来确认"你是谁"，记录你的使用量，并防止未授权的访问。</span><span class="en">An API Key is like an entry ticket or pass. The API server uses it to confirm "who you are," track your usage, and prevent unauthorized access.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">2. 为什么跟 ChatGPT API 对话要用 POST 请求而不是 GET 请求？</span><span class="en">2. Why do we use a POST request instead of GET when talking to the ChatGPT API?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">因为 POST 更快</span>
+              <span class="en">Because POST is faster</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">因为我们需要发送数据（消息）给服务器，不只是获取数据</span>
+              <span class="en">Because we need to send data (our message) to the server, not just fetch data</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">因为 GET 不能连接互联网</span>
+              <span class="en">Because GET can't connect to the internet</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">因为 POST 是免费的</span>
+              <span class="en">Because POST is free</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">GET 请求用来"获取"数据（比如查天气），POST 请求用来"发送"数据给服务器。和 AI 聊天时，你要把你的消息发给 AI 处理，所以用 POST。</span><span class="en">GET requests are for "getting" data (like checking weather). POST requests are for "sending" data to the server. When chatting with AI, you send your message for AI to process, so you use POST.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 在 ChatGPT API 的 JSON 请求中，"system" 角色的作用是什么？</span><span class="en">3. What is the purpose of the "system" role in the ChatGPT API's JSON request?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">给 AI 设定性格和规则，让它按照你的要求回复</span>
+              <span class="en">Set AI's personality and rules so it replies the way you want</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">显示系统错误信息</span>
+              <span class="en">Display system error messages</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">重启 AI 模型</span>
+              <span class="en">Restart the AI model</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">存储聊天记录</span>
+              <span class="en">Store chat history</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">"system" 角色用来给 AI 设定背景和规则（也叫"人设"）。比如你可以让 AI 用简短的句子回答，扮演老师角色，或者只用中文回复等。</span><span class="en">The "system" role sets the AI's background and rules (also called "persona"). For example, you can tell AI to reply in short sentences, play a teacher role, or only reply in Chinese.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 如果你怀疑 API Key 被泄露了，应该怎么做？</span><span class="en">4. What should you do if you suspect your API Key has been leaked?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">什么都不做，没关系</span>
+              <span class="en">Do nothing, it's fine</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">把泄露的 Key 分享给朋友，让他们也能用</span>
+              <span class="en">Share the leaked Key with friends so they can use it too</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">删除整个 App 项目</span>
+              <span class="en">Delete the entire App project</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">立刻去 OpenAI 网站删除旧 Key 并生成新 Key</span>
+              <span class="en">Immediately go to the OpenAI website, delete the old Key, and generate a new one</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">API Key 泄露可能会导致别人用你的账号调用 API 产生费用。正确做法是立刻去 OpenAI 控制台删除（撤销）旧的 Key，然后生成一个新的 Key。同时通知老师。</span><span class="en">A leaked API Key could let others use your account and rack up charges. The right move is to immediately go to the OpenAI dashboard, delete (revoke) the old Key, and generate a new one. Also notify your teacher.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. ChatGPT API 返回的 JSON 中，AI 的回复文字在哪里？</span><span class="en">5. In the JSON returned by ChatGPT API, where is the AI's reply text?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">直接在最外层的 "content" 字段</span>
+              <span class="en">Directly in the top-level "content" field</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">在 choices → 第1项 → message → content 中</span>
+              <span class="en">Inside choices → 1st item → message → content</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">在 "model" 字段中</span>
+              <span class="en">In the "model" field</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">在 "url" 字段中</span>
+              <span class="en">In the "url" field</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">ChatGPT API 的回复嵌套了好几层：先找 <code>"choices"</code> 列表，取第 1 项，再找 <code>"message"</code> 对象，最后取 <code>"content"</code> 字段——这就是 AI 的回复文字。</span><span class="en">The ChatGPT API response is nested several layers deep: find the <code>"choices"</code> list, take the 1st item, find the <code>"message"</code> object, then get the <code>"content"</code> field — that's the AI's reply text.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson3.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous Lesson</span></a>
+      <a href="lesson5.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

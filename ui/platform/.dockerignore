@@ -1,0 +1,9 @@
+node_modules
+admin/dist
+admin/test-results
+admin/.vite
+admin/tests
+.env
+platform-data
+*.sqlite*
+*.log

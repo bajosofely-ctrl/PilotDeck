@@ -1,0 +1,495 @@
+{
+    "app": {
+        "title": "Teachable Machine",
+        "about": "About",
+        "save": "Save",
+        "load": "Open",
+        "language": "Language",
+        "reminder": "Remember to save your classifier.",
+        "models": {
+            "image": "Images",
+            "pose": "Poses",
+            "hand": "Gestures",
+            "speech": "Speech"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "Teaching Materials",
+        "selectModel": "What do you want to classify?",
+        "enableUSB": "Use USB device",
+        "subtitle": "Create classifiers with your own data, no coding required"
+    },
+    "load": {
+        "title": "Open Classifier",
+        "code": "Enter shared code",
+        "actions": {
+            "openFile": "Open File",
+            "openCode": "Use Code",
+            "cancel": "Cancel"
+        }
+    },
+    "save": {
+        "title": "Save Classifier",
+        "noModel": "You need to create a classifier first.",
+        "message": "Download the contents of your classifier to a file.",
+        "saveSamples": "Save Samples",
+        "saveClassifier": "Save Classifier",
+        "saveBehaviours": "Save Behaviors",
+        "name": "Name",
+        "actions": {
+            "save": "Save",
+            "cancel": "Cancel"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "left align",
+            "center": "center align",
+            "right": "right align",
+            "align": "text alignment"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "change text size",
+            "increase": "increase",
+            "decrease": "decrease"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "Add a class",
+            "webcam": "Webcam",
+            "audio": "Mic",
+            "upload": "Upload",
+            "datasets": "Datasets",
+            "deleteClass": "Delete Class",
+            "disableClass": "Disable Class",
+            "enableClass": "Enable Class",
+            "removeAll": "Remove all samples",
+            "capture": "Hold to capture",
+            "fileCapture": "Extract",
+            "record": "Record",
+            "collaborate": "Collaborate",
+            "cancel": "Cancel",
+            "use": "Use ({{count}})",
+            "displayMore": "Display {{count}} images"
+        },
+        "labels": {
+            "title": "Training Data",
+            "addSamples": "Add image samples",
+            "imageSamples": "{{count}} image samples",
+            "addAudioSamples": "Add audio samples",
+            "audioSamples": "{{count}} audio samples",
+            "class": "Class",
+            "noiseClass": "Background Noise",
+            "wait": "Capturing...",
+            "stop": "Stop",
+            "dropFiles": "or drag images here from a website or file",
+            "dropAudioFiles": "or drag audio files here from a website or file",
+            "needsMore": "More samples are needed",
+            "dropError": "Only images can be dropped here",
+            "dropAudioError": "Only audio files can be dropped here",
+            "emptyClass": "This class is empty.",
+            "qrMessage": "You can use a phone or tablet to add images. Click the QR code to expand it.",
+            "disabled": "DISABLED",
+            "selectDataset": "Select a Dataset",
+            "selectTestData": "Select an image",
+            "searchDataset": "Search a dataset",
+            "images": "images",
+            "selected": "selected",
+            "loading": "Loading...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again."
+        },
+        "aria": {
+            "sample": "uploaded sample",
+            "delete": "delete sample",
+            "more": "more options",
+            "close": "Close",
+            "classCard": "Training data for {{name}}"
+        }
+    },
+    "heatmap": {
+        "title": "Explanation",
+        "colorScaleHelp": "The color scale shows which parts of the image the model focuses on. Red = high importance, Blue = low importance.",
+        "noPoseDetected": "No Pose",
+        "high": "High",
+        "low": "Low"
+    },
+    "underTheHood": {
+        "title": "Under The Hood",
+        "visualization": "Heatmap",
+        "statistics": "Model Statistics",
+        "transferLearning": "Transfer Learning",
+        "on": "On",
+        "off": "Off"
+    },
+    "charts": {
+        "accuracyPerClass": "Accuracy per class",
+        "accuracyPerClassHelp": "Shows how often the model predicts each class correctly on test samples. 1.00 means all test samples for that class were correct.",
+        "confusionMatrix": "Confusion Matrix",
+        "confusionMatrixHelp": "Rows are the correct classes and columns are the model's predictions. Values on the diagonal are correct, values elsewhere are mix-ups.",
+        "accuracyPerEpoch": "Accuracy per epoch",
+        "accuracyPerEpochHelp": "Shows how prediction accuracy changes during training. Accuracy ranges from 0 to 1, where 1 is best. Test accuracy uses samples from test set, not from training set used to update the model.",
+        "lossPerEpoch": "Loss per epoch",
+        "lossPerEpochHelp": "Shows the model's error during training. Loss starts at 0 and can go higher, where lower is better. Test loss uses samples from test set, not from training set used to update the model.",
+        "transferLearningMatrix": "Transfer learning matrix",
+        "transferLearningMatrixHelp": "Class-level ImageNet concept profiles (from classifier) and how the current input aligns with them.",
+        "transferLearningGraph": "Transfer learning graph",
+        "transferLearningGraphHelp": "This diagram explains how the model relates your current image to classes it has already learned. Left side: your current input and candidate classes. Right side: classes from the pretrained model. Thicker lines mean a stronger match.",
+        "transferLearningFlow": "Transfer learning flow",
+        "transferLearningUserClass": "User class",
+        "transferLearningCurrentInput": "Current input",
+        "transferLearningSimilarity": "Similarity",
+        "transferLearningSimilarityHelp": "Cosine similarity compares the current input with each user class using all 1000 ImageNet probabilities. Values range from 0 to 1, where 1 means most similar.",
+        "transferLearningSamples": "{{count}} samples",
+        "transferLearningStages": "Transfer learning stages",
+        "transferLearningStageConcepts": "Concepts",
+        "transferLearningStageConnections": "Connections",
+        "transferLearningStageAdvanced": "Advanced",
+        "pretrainedConceptsTitle": "What the pretrained model recognizes",
+        "pretrainedConceptsHelp": "These are familiar ImageNet concepts the pretrained model matches to the current input. Higher % means a stronger match.",
+        "pretrainedModelLayers": "Pretrained model",
+        "pretrainedModelSubtitle": "Recognizes ImageNet concepts",
+        "pretrainedSampleAlt": "{{label}} sample {{index}}",
+        "class": "Class",
+        "accuracy": "Accuracy",
+        "testSamples": "# Test samples",
+        "prediction": "Prediction",
+        "actual": "Actual",
+        "predicted": "Predicted",
+        "count": "Count",
+        "acc": "acc",
+        "testAcc": "test acc",
+        "loss": "Loss",
+        "testLoss": "test loss",
+        "epochs": "Epochs",
+        "epoch": "Epoch",
+        "neuronExplanationTitle": "Neuron explanation",
+        "neuronExplanationHelp": "Top neurons in the penultimate layer driving the current prediction. Each neuron is a learned feature detector — its thumbnail shows the training image that activates it most.\n\nWeight bar (blue): how strongly this neuron influences the predicted class. A positive weight (+) means the neuron pushes the model toward this class — the higher the activation, the more confident the prediction. A negative weight (−) means the neuron suppresses this class — high activation here actually pulls confidence down.\n\nActivation bar (orange): how strongly the current image fires this neuron. The tick mark (▏) is the class mean from training. Green (+) means this image activates the neuron more than a typical class sample; red (−) means less. Activation values are unbounded — typical range 0–3+.",
+        "neuronExplanationDesc": "Top neurons driving the \"{{label}}\" prediction. The bar shows activation vs class mean ( ▏).",
+        "neuronCrossClass": "Class comparison (mean activation)",
+        "neuronCrossClassHelp": "For each of the top neurons, this shows the average activation across all training samples per class. Higher values mean that class strongly relies on this feature. Comparing classes side by side reveals which neurons are shared versus class-specific — a neuron with high mean for one class and near-zero for others is a reliable discriminating feature. Values are unbounded — typical range 0–3+.",
+        "neuronGroupSupporting": "▲ Supporting neurons (weight +)",
+        "neuronGroupSupportingDesc": "When these fire strongly, confidence in \"{{label}}\" goes up.",
+        "neuronGroupSuppressing": "▼ Suppressing neurons (weight −)",
+        "neuronGroupSuppressingDesc": "These are features of other classes. Their low activation on this image is evidence for \"{{label}}\".",
+        "neuronTopN": "Show top {{n}} neurons",
+        "transferLearningBarChart": "Test input similarity",
+        "transferLearningBarChartHelp": "The pretrained model describes the current input and each trained class as a long list of ImageNet concept scores. Cosine similarity compares the shape of those two lists. If the high and low scores line up, the similarity is high. Values range from 0% to 100%. A taller bar means the input looks more like that class."
+    },
+    "training": {
+        "actions": {
+            "train": "Train classifier"
+        },
+        "labels": {
+            "title": "Training",
+            "addMore": "Add more samples or classes first",
+            "needsTraining": "The classifier needs training",
+            "advanced": "Advanced",
+            "epochs": "Epochs",
+            "learningRate": "Learning Rate",
+            "batchSize": "Batch Size",
+            "loading": "Loading classifier",
+            "prepairing": "Preparing examples...",
+            "training": "Training the classifier",
+            "complete": "Training complete"
+        },
+        "tooltips": {
+            "epochs": "The number of times each sample is used for training.",
+            "learningRate": "Only make small adjustments to this, it should be less than 0.1.",
+            "batchSize": "Has minimal effect on the training. It is the number of samples used on each iteration of the training."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "Input",
+            "webcam": "Webcam",
+            "audio": "Mic",
+            "file": "File",
+            "device": "Device",
+            "dataset": "Dataset",
+            "switchOn": "On",
+            "switchOff": "Off",
+            "upload": "Upload or drop file here"
+        },
+        "aria": {
+            "switch": "Enable input source"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "Export for External Tool",
+            "clone": "Share a copy",
+            "bm": "Use with Breakable Machine"
+        },
+        "labels": {
+            "title": "Classifier",
+            "mustTrain": "You must train your classifier first",
+            "mustInput": "You must provide input to use the classifier",
+            "failedTensorflow": "Your device or browser could not run our classifier"
+        },
+        "aria": {
+            "more": "more options"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "Output",
+            "deploy": "Deploy",
+            "serialdevice": "USB device",
+            "connect": "Connect",
+            "disconnect": "Disconnect",
+            "connectSuccess": "Connected to the USB device",
+            "connectError": "Unable to connect to the USB device. Please ensure it’s not in use by another application and try again."
+        },
+        "aria": {
+            "volume": "Volume",
+            "image": "class {{index}} output",
+            "display": "output for class {{index}}",
+            "expand": "expand window size",
+            "serialdevice": "Serial device"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "Upload",
+            "dataset": "Dataset",
+            "delete": "Delete",
+            "record": "Record",
+            "stop": "Stop"
+        },
+        "labels": {
+            "title": "Actions",
+            "message": "Message",
+            "link": "Link",
+            "linkError": "That link is not supported",
+            "embedInfo": "Show videos and images from a link. Only some links will work, for example YouTube, Vimeo, SoundCloud, video files, audio files or images.<br/><br/>See <l>react-player</l> documentation for more.",
+            "voiceRecording": "Voice Recording",
+            "dropError": "Only images or sounds can be dropped here",
+            "loop": "Loop"
+        },
+        "aria": {
+            "message": "Text for output",
+            "image": "image behaviour",
+            "sound": "sound behaviour",
+            "text": "text behaviour",
+            "embed": "embed link behaviour",
+            "imageOutput": "Uploaded image",
+            "noImage": "Image placeholder",
+            "stop": "stop",
+            "play": "play",
+            "behaviourCard": "Behaviour for {{name}}",
+            "loop": "Loop"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "Next"
+        },
+        "aria": {
+            "step": "task steps"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "live webcam video",
+            "flip": "Flip to different camera"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "edit title",
+            "editTitleInput": "{{value}} edit box"
+        },
+        "labels": {
+            "titlePlaceholder": "Name"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "select font colour"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "Close",
+            "share": "Share",
+            "stopShare": "Stop sharing"
+        },
+        "labels": {
+            "title": "Share",
+            "includeSamples": "Include sample images",
+            "codeInstructions": "Allow others to open a copy of your classifier using the code below.",
+            "linkInstructions": "Copy the link to use the classifier in other applications such as <scratchLink>Scratch</scratchLink>. The link will only work if you keep this browser tab open, or if you save your project and open in again later."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "Animals",
+            "nature": "Nature",
+            "colors": "Colors",
+            "fruits": "Fruits",
+            "human": "Human",
+            "studyTools": "Study Tools",
+            "recyclingMaterials": "Recycling Materials",
+            "transportation": "Transportation"
+        },
+        "cats": {
+            "name": "Cats",
+            "description": "Collection of cat images"
+        },
+        "dogs": {
+            "name": "Dogs",
+            "description": "Collection of dog images"
+        },
+        "birds": {
+            "name": "Birds",
+            "description": "Collection of bird images"
+        },
+        "flowers": {
+            "name": "Flowers",
+            "description": "Collection of flower images"
+        },
+        "trees": {
+            "name": "Trees",
+            "description": "Collection of tree images"
+        },
+        "white": {
+            "name": "White",
+            "description": "Collection of white-colored images"
+        },
+        "black": {
+            "name": "Black",
+            "description": "Collection of black-colored images"
+        },
+        "gray": {
+            "name": "Gray",
+            "description": "Collection of gray-colored images"
+        },
+        "blue": {
+            "name": "Blue",
+            "description": "Collection of blue-colored images"
+        },
+        "green": {
+            "name": "Green",
+            "description": "Collection of green-colored images"
+        },
+        "red": {
+            "name": "Red",
+            "description": "Collection of red-colored images"
+        },
+        "pink": {
+            "name": "Pink",
+            "description": "Collection of pink-colored images"
+        },
+        "orange": {
+            "name": "Orange",
+            "description": "Collection of orange-colored images"
+        },
+        "purple": {
+            "name": "Purple",
+            "description": "Collection of purple-colored images"
+        },
+        "yellow": {
+            "name": "Yellow",
+            "description": "Collection of yellow-colored images"
+        },
+        "apple": {
+            "name": "Apple",
+            "description": "Collection of apple images"
+        },
+        "pear": {
+            "name": "Pear",
+            "description": "Collection of pear images"
+        },
+        "orangeFruit": {
+            "name": "Orange",
+            "description": "Collection of orange fruit images"
+        },
+        "men": {
+            "name": "Men",
+            "description": "Collection of men images"
+        },
+        "women": {
+            "name": "Women",
+            "description": "Collection of women images"
+        },
+        "handPalm": {
+            "name": "Hand Palm",
+            "description": "Collection of hand palm images"
+        },
+        "pencils": {
+            "name": "Pencils",
+            "description": "Collection of pencil images"
+        },
+        "pens": {
+            "name": "Pens",
+            "description": "Collection of pen images"
+        },
+        "humanPose": {
+            "name": "Human Pose",
+            "description": "Collection of human pose images"
+        },
+        "erasers": {
+            "name": "Erasers",
+            "description": "Collection of eraser images"
+        },
+        "batteries": {
+            "name": "Batteries",
+            "description": "Collection of battery images"
+        },
+        "cardboard": {
+            "name": "Cardboard",
+            "description": "Collection of cardboard images"
+        },
+        "glass": {
+            "name": "Glass",
+            "description": "Collection of glass images"
+        },
+        "paper": {
+            "name": "Paper",
+            "description": "Collection of paper images"
+        },
+        "plastics": {
+            "name": "Plastics",
+            "description": "Collection of plastic images"
+        },
+        "airplanes": {
+            "name": "Airplanes",
+            "description": "Collection of airplane images"
+        },
+        "buses": {
+            "name": "Buses",
+            "description": "Collection of bus images"
+        },
+        "bicycles": {
+            "name": "Bicycles",
+            "description": "Collection of bicycle images"
+        },
+        "cars": {
+            "name": "Cars",
+            "description": "Collection of car images"
+        },
+        "mopeds": {
+            "name": "Mopeds",
+            "description": "Collection of moped images"
+        },
+        "motorcycles": {
+            "name": "Motorcycles",
+            "description": "Collection of motorcycle images"
+        },
+        "pedestrians": {
+            "name": "Pedestrians",
+            "description": "Collection of pedestrian images"
+        },
+        "ships": {
+            "name": "Ships",
+            "description": "Collection of ship images"
+        },
+        "trains": {
+            "name": "Trains",
+            "description": "Collection of train images"
+        }
+    }
+}

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第6课：图像识别：拍照识物 App — 调用图像识别 API，做一个拍照识别物体的智能 App | Lesson 6: Image Recognition: Photo Identifier App — Call an image recognition API to build a smart photo identification App">
+  <title>第6课：图像识别：拍照识物 App | Lesson 6: Image Recognition: Photo Identifier App</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html" class="active"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 6 课</span>
+        <span class="en">Lesson 6</span>
+      </span>
+      <h1>
+        <span class="zh">图像识别：拍照识物 App</span>
+        <span class="en">Image Recognition: Photo Identifier App</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">调用图像识别 API，做一个拍照识别物体的智能 App</span>
+        <span class="en">Call an image recognition API to build a smart photo identification App</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ===== Section 6.1 课程目标 ===== -->
+    <section class="section reveal" id="section-6-1">
+      <h2>
+        <span class="zh">6.1 课程目标</span>
+        <span class="en">6.1 Lesson Goals</span>
+      </h2>
+      <p>
+        <span class="zh">在前两节课中，我们学会了让 App 与 ChatGPT 进行文字对话。但 AI 的能力远不止于文字——它还能"看"图片！这节课我们将学习如何使用手机摄像头拍照，然后将照片发送给 AI，让它告诉我们照片里有什么。</span>
+        <span class="en">In the past two lessons, we learned to make our App chat with ChatGPT using text. But AI can do much more than text — it can also "see" images! In this lesson, we'll learn to use the phone camera to take photos, then send them to AI to identify what's in the picture.</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">AI 视觉</span><span class="en">AI Vision</span></h3>
+          <p><span class="zh">理解 AI 是如何"看懂"图片的</span><span class="en">Understand how AI "sees" and understands images</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">拍照识别</span><span class="en">Photo Identification</span></h3>
+          <p><span class="zh">用手机拍照并调用 AI API 识别物体</span><span class="en">Take photos and call an AI API to identify objects</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">实用 App</span><span class="en">Practical App</span></h3>
+          <p><span class="zh">打造一个能识别植物、动物等的实用工具</span><span class="en">Build a practical tool that can identify plants, animals, and more</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 6.2 AI 如何"看"图片 ===== -->
+    <section class="section reveal" id="section-6-2">
+      <h2>
+        <span class="zh">6.2 AI 如何"看"图片</span>
+        <span class="en">6.2 How AI "Sees" Images</span>
+      </h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>计算机视觉简介</strong><br>我们人类看到一朵花时，大脑会立刻识别出"这是一朵花"。但计算机看到的其实只是一堆数字！每张图片都是由成千上万个<strong>像素（pixel）</strong>组成的，每个像素有红、绿、蓝三个颜色值（0-255）。AI 要做的就是从这些数字中找出规律。</span>
+          <span class="en"><strong>Introduction to Computer Vision</strong><br>When we humans see a flower, our brain instantly recognizes "this is a flower." But what a computer actually sees is just a bunch of numbers! Every image is made up of thousands of <strong>pixels</strong>, and each pixel has red, green, and blue color values (0-255). AI's job is to find patterns in these numbers.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">AI 识别图片的过程可以简单理解为三个步骤：</span>
+        <span class="en">The process of AI recognizing images can be simply understood in three steps:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">像素输入</span><span class="en">Pixel Input</span></h3>
+          <p><span class="zh">AI 接收图片的所有像素数据——比如一张 224×224 的图片就有超过 15 万个像素点</span><span class="en">AI receives all pixel data — for example, a 224×224 image has over 150,000 pixels</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">特征提取</span><span class="en">Feature Extraction</span></h3>
+          <p><span class="zh">AI 从像素中识别出边缘、形状、纹理等特征——就像你先看到轮廓，再看到细节</span><span class="en">AI identifies edges, shapes, textures from pixels — like how you first see outlines, then details</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">分类识别</span><span class="en">Classification</span></h3>
+          <p><span class="zh">AI 将这些特征与学过的知识对比，判断图片中是什么——"这是一只猫！置信度 95%"</span><span class="en">AI compares these features with its knowledge and determines what's in the image — "This is a cat! Confidence: 95%"</span></p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">现在的 AI 模型，比如 <strong>GPT-4 Vision</strong> 和 <strong>Gemini</strong>，不仅能识别物体是什么，还能描述图片中的场景、阅读图片中的文字，甚至回答关于图片的问题。这些模型被称为<strong>多模态模型（Multimodal Model）</strong>，因为它们同时能处理文字和图片。</span>
+        <span class="en">Modern AI models like <strong>GPT-4 Vision</strong> and <strong>Gemini</strong> can not only identify what objects are, but also describe scenes in images, read text in pictures, and even answer questions about images. These models are called <strong>Multimodal Models</strong> because they can process both text and images simultaneously.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>有趣的事实：</strong>训练一个图像识别 AI 需要让它看数百万张图片！比如 ImageNet 数据集就包含了超过 1400 万张标注好的图片。AI 就是通过这些海量数据学会"看"东西的。</span>
+          <span class="en"><strong>Fun fact:</strong> Training an image recognition AI requires showing it millions of images! For example, the ImageNet dataset contains over 14 million labeled images. AI learns to "see" things by studying this massive amount of data.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Section 6.3 动手实践 ===== -->
+    <section class="section reveal" id="section-6-3">
+      <h2>
+        <span class="zh">6.3 动手实践</span>
+        <span class="en">6.3 Hands-On</span>
+      </h2>
+
+      <p>
+        <span class="zh">现在让我们一步步搭建一个"拍照识物"App！拍一张照片，AI 就能告诉你照片里是什么。</span>
+        <span class="en">Now let's build a "Photo Identifier" App step by step! Take a photo and AI will tell you what's in it.</span>
+      </p>
+
+      <!-- Step 1 -->
+      <h3><span class="zh">步骤 1：设计界面</span><span class="en">Step 1: Design the UI</span></h3>
+
+      <p>
+        <span class="zh">在 App Inventor 的 Designer 中搭建界面，需要以下组件：</span>
+        <span class="en">In App Inventor's Designer, build the interface with these components:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">可见组件</span><span class="en">Visible Components</span></h3>
+          <p>
+            <span class="zh">
+              <strong>1. 按钮 (Button)</strong> — <code>btnTakePhoto</code>，文字"拍照识别"<br>
+              <strong>2. 图片 (Image)</strong> — <code>imgPhoto</code>，用来显示拍到的照片<br>
+              <strong>3. 标签 (Label)</strong> — <code>lblResult</code>，显示 AI 的识别结果<br>
+              <strong>4. 标签 (Label)</strong> — <code>lblStatus</code>，显示"识别中…"等状态信息
+            </span>
+            <span class="en">
+              <strong>1. Button</strong> — <code>btnTakePhoto</code>, text "Take &amp; Identify"<br>
+              <strong>2. Image</strong> — <code>imgPhoto</code>, to display the captured photo<br>
+              <strong>3. Label</strong> — <code>lblResult</code>, to show AI's identification result<br>
+              <strong>4. Label</strong> — <code>lblStatus</code>, to show status like "Identifying…"
+            </span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">不可见组件</span><span class="en">Non-visible Components</span></h3>
+          <p>
+            <span class="zh">
+              <strong>1. Camera</strong> — 用来调用手机摄像头拍照<br>
+              <strong>2. Web</strong> — 用来发送 API 请求<br>
+              <strong>3. File</strong> — 用来读取图片文件并转换为 base64
+            </span>
+            <span class="en">
+              <strong>1. Camera</strong> — to access the phone camera<br>
+              <strong>2. Web</strong> — to send API requests<br>
+              <strong>3. File</strong> — to read image files and convert to base64
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>界面布局建议：</strong>从上到下依次放置——标题标签 → 图片组件（宽 300px，高 300px）→ 拍照按钮 → 状态标签 → 结果标签。记得将图片组件的宽高设为合适大小。</span>
+          <span class="en"><strong>Layout suggestion:</strong> Place from top to bottom — Title label → Image component (300px × 300px) → Take Photo button → Status label → Result label. Remember to set appropriate dimensions for the Image component.</span>
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <h3><span class="zh">步骤 2：使用 Camera 组件拍照</span><span class="en">Step 2: Use the Camera Component to Take Photos</span></h3>
+
+      <p>
+        <span class="zh">当用户点击"拍照识别"按钮时，我们调用 Camera 组件打开手机摄像头。</span>
+        <span class="en">When the user clicks "Take &amp; Identify," we call the Camera component to open the phone camera.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 当点击拍照按钮时 / When Take Photo button is clicked:</span>
+<span class="kw">when</span> btnTakePhoto.Click <span class="kw">do</span>
+  <span class="kw">call</span> Camera1.TakePicture
+
+<span class="cm">// 当拍照完成后 / After photo is taken:</span>
+<span class="kw">when</span> Camera1.AfterPicture(image) <span class="kw">do</span>
+  <span class="cm">// 显示拍到的照片 / Display the captured photo</span>
+  <span class="kw">set</span> imgPhoto.Picture = image
+  <span class="cm">// 显示状态 / Show status</span>
+  <span class="kw">set</span> lblStatus.Text = <span class="str">"正在识别中... / Identifying..."</span>
+  <span class="cm">// 保存图片路径，用于后续处理 / Save image path for later</span>
+  <span class="kw">set</span> <span class="var">global imagePath</span> = image
+  <span class="cm">// 调用识别函数 / Call identification function</span>
+  <span class="kw">call</span> <span class="fn">identifyImage</span></code></pre>
+      </div>
+
+      <!-- Step 3 -->
+      <h3><span class="zh">步骤 3：将图片转换为 Base64</span><span class="en">Step 3: Convert Image to Base64</span></h3>
+
+      <p>
+        <span class="zh">要把图片发送给 AI API，我们需要将图片编码为 <strong>Base64</strong> 格式——这是一种把图片变成纯文本字符串的方法，这样就能放进 JSON 请求中发送了。</span>
+        <span class="en">To send an image to the AI API, we need to encode it in <strong>Base64</strong> format — a method of converting images into plain text strings so they can be included in JSON requests.</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>什么是 Base64？</strong>Base64 是一种编码方式，它把任何二进制数据（如图片、音频）转换成由字母、数字和少量符号组成的文本。一张 100KB 的图片转成 Base64 后大约是 133KB 的文本。虽然变大了，但好处是可以作为纯文本传输。</span>
+          <span class="en"><strong>What is Base64?</strong> Base64 is an encoding method that converts any binary data (like images, audio) into text made of letters, numbers, and a few symbols. A 100KB image becomes about 133KB of Base64 text. It gets bigger, but the advantage is it can be transmitted as plain text.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">在 App Inventor 中，我们可以使用扩展插件或者将图片路径发给服务器来处理。一种简单的方法是使用 <strong>Base64 编码扩展</strong>（Extension）来完成转换。</span>
+        <span class="en">In App Inventor, we can use an extension or send the image path to a server for processing. A simple method is to use a <strong>Base64 encoding extension</strong> to handle the conversion.</span>
+      </p>
+
+      <!-- Step 4 -->
+      <h3><span class="zh">步骤 4：调用 Gemini Vision API</span><span class="en">Step 4: Call the Gemini Vision API</span></h3>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>为什么推荐 Gemini？</strong>Google 的 Gemini API 提供免费额度，非常适合学习和实验。它支持图片理解，而且注册简单。当然，你也可以使用 GPT-4 Vision API（需要付费的 OpenAI 账户）。两者的调用方式类似。</span>
+          <span class="en"><strong>Why Gemini?</strong> Google's Gemini API offers a free tier, making it perfect for learning and experimenting. It supports image understanding and has simple registration. Of course, you can also use the GPT-4 Vision API (requires a paid OpenAI account). Both work similarly.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">发送图片给 Gemini Vision API 的请求格式如下：</span>
+        <span class="en">Here's the request format for sending an image to the Gemini Vision API:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JSON</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// Gemini Vision API 请求示例</span>
+<span class="cm">// Gemini Vision API request example</span>
+{
+  <span class="str">"contents"</span>: [{
+    <span class="str">"parts"</span>: [
+      {<span class="str">"text"</span>: <span class="str">"What is in this image? Describe it in detail."</span>},
+      {
+        <span class="str">"inline_data"</span>: {
+          <span class="str">"mime_type"</span>: <span class="str">"image/jpeg"</span>,
+          <span class="str">"data"</span>: <span class="str">"&lt;BASE64_ENCODED_IMAGE&gt;"</span>
+        }
+      }
+    ]
+  }]
+}
+
+<span class="cm">// API 端点 / API endpoint:</span>
+<span class="cm">// https://generativelanguage.googleapis.com/v1beta/models/</span>
+<span class="cm">//   gemini-1.5-flash:generateContent?key=YOUR_API_KEY</span></code></pre>
+      </div>
+
+      <p>
+        <span class="zh">在 Blocks 中的逻辑：</span>
+        <span class="en">Logic in Blocks:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 识别图片的过程 / Procedure to identify image:</span>
+<span class="kw">procedure</span> <span class="fn">identifyImage</span>
+
+  <span class="cm">// 1. 读取图片文件并转为 Base64</span>
+  <span class="cm">// 1. Read image file and convert to Base64</span>
+  <span class="kw">set</span> <span class="var">base64Image</span> = <span class="kw">call</span> Base64.Encode(<span class="var">global imagePath</span>)
+
+  <span class="cm">// 2. 构建 API 请求 JSON</span>
+  <span class="cm">// 2. Build the API request JSON</span>
+  <span class="kw">set</span> <span class="var">requestBody</span> = <span class="kw">make a dictionary</span>
+    <span class="str">"contents"</span> → <span class="kw">list</span> [
+      <span class="kw">dictionary</span> {
+        <span class="str">"parts"</span> → <span class="kw">list</span> [
+          <span class="kw">dictionary</span> {<span class="str">"text"</span>: <span class="str">"Identify what is in this image. Tell me the name, a brief description, and any interesting facts."</span>},
+          <span class="kw">dictionary</span> {<span class="str">"inline_data"</span>: {<span class="str">"mime_type"</span>: <span class="str">"image/jpeg"</span>, <span class="str">"data"</span>: base64Image}}
+        ]
+      }
+    ]
+
+  <span class="cm">// 3. 设置 URL 并发送请求</span>
+  <span class="cm">// 3. Set URL and send request</span>
+  <span class="kw">set</span> Web1.Url = <span class="str">"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=YOUR_API_KEY"</span>
+  <span class="kw">set</span> Web1.RequestHeaders = [[<span class="str">"Content-Type"</span>, <span class="str">"application/json"</span>]]
+  <span class="kw">call</span> Web1.PostText(<span class="fn">JsonEncode</span>(requestBody))</code></pre>
+      </div>
+
+      <!-- Step 5 -->
+      <h3><span class="zh">步骤 5：解析识别结果</span><span class="en">Step 5: Parse the Recognition Result</span></h3>
+
+      <p>
+        <span class="zh">当 API 返回结果后，我们需要从 JSON 响应中提取 AI 的描述文字。</span>
+        <span class="en">When the API returns a result, we need to extract AI's description text from the JSON response.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 当收到 API 回复时 / When Web got text response:</span>
+<span class="kw">when</span> Web1.GotText(responseCode, responseContent) <span class="kw">do</span>
+
+  <span class="kw">if</span> responseCode = <span class="num">200</span> <span class="kw">then</span>
+    <span class="cm">// 解析 JSON 响应 / Parse JSON response</span>
+    <span class="kw">set</span> <span class="var">jsonResponse</span> = <span class="kw">call</span> JsonTextDecode(responseContent)
+
+    <span class="cm">// 提取 AI 的识别描述</span>
+    <span class="cm">// Extract AI's identification description</span>
+    <span class="kw">set</span> <span class="var">resultText</span> = jsonResponse
+      .candidates[1].content.parts[1].text
+
+    <span class="cm">// 显示结果 / Display the result</span>
+    <span class="kw">set</span> lblResult.Text = resultText
+    <span class="kw">set</span> lblStatus.Text = <span class="str">"识别完成！ / Identification complete!"</span>
+
+  <span class="kw">else</span>
+    <span class="cm">// 显示错误 / Show error</span>
+    <span class="kw">set</span> lblStatus.Text = <span class="str">"出错了，请重试 / Error, please try again"</span></code></pre>
+      </div>
+
+      <!-- Step 6 -->
+      <h3><span class="zh">步骤 6：显示识别结果</span><span class="en">Step 6: Display the Results</span></h3>
+
+      <p>
+        <span class="zh">为了让结果更直观，我们可以优化显示效果：</span>
+        <span class="en">To make results more visual, we can enhance the display:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">结果展示</span><span class="en">Result Display</span></h3>
+          <p>
+            <span class="zh">将 <code>lblResult</code> 设置为多行显示，字体大小设为 16，背景色设为浅色。AI 返回的描述通常包含物体名称和详细说明，直接显示即可。</span>
+            <span class="en">Set <code>lblResult</code> to multi-line display, font size 16, with a light background color. AI's description typically includes the object name and detailed explanation — just display it directly.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">用户体验优化</span><span class="en">UX Optimization</span></h3>
+          <p>
+            <span class="zh">在等待 API 响应时禁用拍照按钮，防止重复请求。识别完成后再启用按钮。还可以添加一个小动画或进度提示让用户知道正在处理。</span>
+            <span class="en">Disable the photo button while waiting for API response to prevent duplicate requests. Re-enable the button after identification. You can also add a small animation or progress indicator to show processing.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>GPT-4 Vision 替代方案：</strong>如果你使用 OpenAI 的 GPT-4 Vision，请求格式稍有不同。把 <code>messages</code> 数组中的 <code>content</code> 改为一个数组，其中包含文本部分和图片 URL 部分：<br><code>{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,BASE64_DATA"}}</code></span>
+          <span class="en"><strong>GPT-4 Vision alternative:</strong> If using OpenAI's GPT-4 Vision, the request format differs slightly. Change <code>content</code> in the <code>messages</code> array to an array with a text part and an image URL part:<br><code>{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,BASE64_DATA"}}</code></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Section 6.4 植物/动物识别 ===== -->
+    <section class="section reveal" id="section-6-4">
+      <h2>
+        <span class="zh">6.4 植物/动物识别</span>
+        <span class="en">6.4 Plant/Animal Identification</span>
+      </h2>
+
+      <p>
+        <span class="zh">通过修改发送给 AI 的提示词，我们可以让 App 针对特定领域进行识别。这就是 Prompt 工程的魅力！</span>
+        <span class="en">By changing the prompt sent to AI, we can make the App specialize in specific areas. This is the power of Prompt Engineering!</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">植物识别提示词</span><span class="en">Plant Identification Prompt</span></h3>
+          <p>
+            <span class="zh">
+              将发送给 API 的 <code>text</code> 部分改为：<br><br>
+              <strong>"请识别这张图片中的植物。告诉我：<br>
+              1. 植物的名称（中英文）<br>
+              2. 它的主要特征<br>
+              3. 它是否可以食用<br>
+              4. 养护建议（浇水、光照需求）<br>
+              请用简洁友好的语言回答。"</strong>
+            </span>
+            <span class="en">
+              Change the <code>text</code> part sent to the API to:<br><br>
+              <strong>"Identify the plant in this image. Tell me:<br>
+              1. The plant's name (in Chinese and English)<br>
+              2. Its main characteristics<br>
+              3. Whether it's edible<br>
+              4. Care tips (watering, sunlight needs)<br>
+              Please answer in concise, friendly language."</strong>
+            </span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">动物识别提示词</span><span class="en">Animal Identification Prompt</span></h3>
+          <p>
+            <span class="zh">
+              同样修改提示词：<br><br>
+              <strong>"请识别这张图片中的动物。告诉我：<br>
+              1. 动物名称和品种（中英文）<br>
+              2. 它的生活习性<br>
+              3. 它生活在哪些地区<br>
+              4. 一个有趣的冷知识<br>
+              请用适合小学生理解的语言回答。"</strong>
+            </span>
+            <span class="en">
+              Similarly modify the prompt:<br><br>
+              <strong>"Identify the animal in this image. Tell me:<br>
+              1. Animal name and breed (in Chinese and English)<br>
+              2. Its behavior and habits<br>
+              3. Where it lives<br>
+              4. A fun interesting fact<br>
+              Please answer in language suitable for elementary students."</strong>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">你甚至可以在 App 中添加一个<strong>下拉菜单（Spinner）</strong>让用户选择识别模式："通用识别"、"植物识别"、"动物识别"。不同的模式使用不同的提示词，让 AI 给出更专业的回答！</span>
+        <span class="en">You can even add a <strong>Spinner (dropdown menu)</strong> in the App for users to choose recognition mode: "General," "Plant," "Animal." Different modes use different prompts, making AI give more specialized answers!</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>进阶技巧：</strong>你还可以要求 AI 用 JSON 格式返回结果，这样更方便解析。例如在提示词最后加上：<br>"请用以下 JSON 格式返回结果：{\"name\": \"植物名\", \"edible\": true/false, \"description\": \"描述\", \"care_tips\": \"养护建议\"}"</span>
+          <span class="en"><strong>Advanced tip:</strong> You can also ask AI to return results in JSON format for easier parsing. Add this to the end of your prompt:<br>"Return the result in this JSON format: {\"name\": \"plant name\", \"edible\": true/false, \"description\": \"description\", \"care_tips\": \"care tips\"}"</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Section 6.5 挑战任务 ===== -->
+    <section class="section reveal" id="section-6-5">
+      <h2>
+        <span class="zh">6.5 挑战任务</span>
+        <span class="en">6.5 Challenge</span>
+      </h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：植物百科 App</span><span class="en">Challenge A: Plant Encyclopedia App</span></h3>
+          <p>
+            <span class="zh">打造一个"植物百科"App，具备以下功能：<br><br><strong>1. 拍照识别植物：</strong>用摄像头拍一张植物的照片，AI 识别出植物名称<br><br><strong>2. 显示养护信息：</strong>识别后自动显示浇水频率、光照需求、土壤要求等养护建议<br><br><strong>3. 收藏功能：</strong>用户可以把识别过的植物保存到"我的植物"列表中<br><br><strong>4. 历史记录：</strong>使用 TinyDB 组件保存所有识别过的植物，下次打开 App 还能看到<br><br>这是一个非常实用的 App，你可以用它来认识校园或公园里的各种植物！</span>
+            <span class="en">Build a "Plant Encyclopedia" App with these features:<br><br><strong>1. Photo plant identification:</strong> Take a photo of a plant and AI identifies its name<br><br><strong>2. Show care info:</strong> Automatically display watering frequency, sunlight needs, soil requirements after identification<br><br><strong>3. Favorites feature:</strong> Users can save identified plants to a "My Plants" list<br><br><strong>4. History:</strong> Use the TinyDB component to save all identified plants so they persist when the App is reopened<br><br>This is a very practical App — you can use it to learn about plants in your school or park!</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：语音播报识别结果</span><span class="en">Challenge B: Text-to-Speech Results</span></h3>
+          <p>
+            <span class="zh">在拍照识物 App 的基础上，添加<strong>语音播报</strong>功能：<br><br><strong>1. 添加 TextToSpeech 组件：</strong>在 Designer 中拖入 TextToSpeech 不可见组件<br><br><strong>2. 识别后自动朗读：</strong>当 AI 返回识别结果后，自动用语音朗读出来<br><br><strong>3. 双语播报：</strong>先朗读中文结果，再朗读英文结果。用 <code>TextToSpeech.Language</code> 切换语言<br><br><strong>4. 添加播放/暂停按钮：</strong>让用户可以手动控制是否播报<br><br>这对于视力不好的用户或者希望同时练习听力的用户来说特别有用！</span>
+            <span class="en">On top of the Photo Identifier App, add a <strong>text-to-speech</strong> feature:<br><br><strong>1. Add TextToSpeech component:</strong> Drag the TextToSpeech non-visible component into the Designer<br><br><strong>2. Auto-read after identification:</strong> Automatically read the result aloud when AI returns the identification<br><br><strong>3. Bilingual reading:</strong> Read the Chinese result first, then English. Use <code>TextToSpeech.Language</code> to switch languages<br><br><strong>4. Add play/pause button:</strong> Let users manually control whether to read aloud<br><br>This is especially useful for users with vision difficulties or those who want to practice listening skills!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quiz ===== -->
+    <section class="section reveal" id="quiz-6">
+      <h2>
+        <span class="zh">课堂测验</span>
+        <span class="en">Lesson Quiz</span>
+      </h2>
+      <p>
+        <span class="zh">让我们来检验一下你在本课中学到的知识！</span>
+        <span class="en">Let's test what you've learned in this lesson!</span>
+      </p>
+
+      <div class="quiz" data-quiz-id="app6">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 计算机"看到"一张图片时，实际处理的是什么？</span>
+            <span class="en"><strong>Q1.</strong> When a computer "sees" an image, what does it actually process?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 图片的文件名</span>
+              <span class="en">A. The image file name</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 图片的整体形状</span>
+              <span class="en">B. The overall shape of the image</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 大量像素的颜色数值（RGB 值）</span>
+              <span class="en">C. Color values (RGB) of many pixels</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 图片附带的文字描述</span>
+              <span class="en">D. The text description attached to the image</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">计算机看到的图片实际上是由大量像素组成的数字矩阵。每个像素包含红（R）、绿（G）、蓝（B）三个颜色通道的数值（0-255）。AI 就是从这些数字中学习识别物体的。</span>
+              <span class="en">What a computer sees is actually a matrix of numbers made up of many pixels. Each pixel contains values (0-255) for three color channels: Red (R), Green (G), and Blue (B). AI learns to recognize objects from these numbers.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> Base64 编码的作用是什么？</span>
+            <span class="en"><strong>Q2.</strong> What is the purpose of Base64 encoding?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 压缩图片使其更小</span>
+              <span class="en">A. Compress images to make them smaller</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 将图片等二进制数据转换为纯文本字符串</span>
+              <span class="en">B. Convert binary data like images into plain text strings</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 给图片加上滤镜效果</span>
+              <span class="en">C. Add filter effects to images</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 加密图片防止被盗用</span>
+              <span class="en">D. Encrypt images to prevent theft</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Base64 编码将二进制数据（如图片）转换为由字母、数字和少量符号组成的纯文本字符串。这样图片就可以作为文本放进 JSON 请求中发送给 API。注意：Base64 不是压缩，转换后文件反而会稍微变大（约增加 33%）。</span>
+              <span class="en">Base64 encoding converts binary data (like images) into plain text strings of letters, numbers, and a few symbols. This allows images to be included as text in JSON requests to APIs. Note: Base64 is not compression — the encoded result is actually slightly larger (about 33% bigger).</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> GPT-4 Vision 和 Gemini 被称为什么类型的模型？</span>
+            <span class="en"><strong>Q3.</strong> What type of model are GPT-4 Vision and Gemini called?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 多模态模型（Multimodal Model）</span>
+              <span class="en">A. Multimodal Model</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 单模态模型（Unimodal Model）</span>
+              <span class="en">B. Unimodal Model</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 文本模型（Text Model）</span>
+              <span class="en">C. Text Model</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 图像生成模型（Image Generation Model）</span>
+              <span class="en">D. Image Generation Model</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">GPT-4 Vision 和 Gemini 是多模态模型——它们能同时处理和理解文字、图片等多种类型的数据。"多模态"意味着"多种数据类型"。普通的 GPT-3.5 只能处理文字，是单模态的。</span>
+              <span class="en">GPT-4 Vision and Gemini are multimodal models — they can process and understand multiple types of data like text and images simultaneously. "Multimodal" means "multiple data types." Regular GPT-3.5 only handles text, making it unimodal.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4.</strong> 在拍照识物 App 中，如果想让 AI 专门识别植物，应该怎么做？</span>
+            <span class="en"><strong>Q4.</strong> In the Photo Identifier App, how do you make AI specifically identify plants?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 使用不同的 API 端点</span>
+              <span class="en">A. Use a different API endpoint</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 在图片上添加"植物"标签</span>
+              <span class="en">B. Add a "plant" label on the image</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 使用更高分辨率的图片</span>
+              <span class="en">C. Use higher resolution images</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 修改发送给 AI 的文本提示词，指定识别植物</span>
+              <span class="en">D. Modify the text prompt sent to AI, specifying plant identification</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">通过修改文本提示词（Prompt），我们可以引导 AI 专注于特定领域。例如将提示词改为"识别这张图片中的植物，告诉我它的名字和养护建议"，AI 就会专注于植物识别。这就是 Prompt 工程的妙用！</span>
+              <span class="en">By modifying the text prompt, we can guide AI to focus on specific areas. For example, changing the prompt to "Identify the plant in this image, tell me its name and care tips" makes AI focus on plant identification. This is the magic of Prompt Engineering!</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5.</strong> AI 图像识别的正确流程顺序是什么？</span>
+            <span class="en"><strong>Q5.</strong> What is the correct order of the AI image recognition process?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 分类 → 特征提取 → 像素输入</span>
+              <span class="en">A. Classification → Feature Extraction → Pixel Input</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 特征提取 → 像素输入 → 分类</span>
+              <span class="en">B. Feature Extraction → Pixel Input → Classification</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 像素输入 → 特征提取 → 分类识别</span>
+              <span class="en">C. Pixel Input → Feature Extraction → Classification</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 像素输入 → 分类 → 特征提取</span>
+              <span class="en">D. Pixel Input → Classification → Feature Extraction</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">AI 图像识别的正确流程是：首先接收<strong>像素输入</strong>（图片数据），然后从中<strong>提取特征</strong>（边缘、形状、纹理等），最后进行<strong>分类识别</strong>（判断是什么物体）。就像人先看到整体，再注意细节，最后做出判断。</span>
+              <span class="en">The correct AI image recognition flow is: first receive <strong>pixel input</strong> (image data), then <strong>extract features</strong> (edges, shapes, textures, etc.), and finally <strong>classify</strong> (determine what the object is). It's like how humans first see the whole picture, then notice details, and finally make a judgment.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ Lesson Nav Footer ============ -->
+    <div class="lesson-nav-footer">
+      <a href="lesson5.html">
+        <span class="zh">← 上一课：ChatGPT 聊天助手（下）</span>
+        <span class="en">← Previous: ChatGPT Chat Assistant (Part 2)</span>
+      </a>
+      <a href="lesson7.html">
+        <span class="zh">下一课：语音 AI 助手 →</span>
+        <span class="en">Next: Voice AI Assistant →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

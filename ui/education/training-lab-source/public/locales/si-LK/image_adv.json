@@ -1,0 +1,477 @@
+{
+    "app": {
+        "title": "ඉගැන්වීමේ යන්ත්‍රය",
+        "about": "මෙය පිළිබඳව",
+        "save": "සුරකින්න",
+        "load": "පෙර ගොනුව විවෘත කරන්න",
+        "language": "භාෂාව",
+        "reminder": "වර්ගීකරණය සුරකින්න අමතක කරන්න එපා",
+        "models": {
+            "image": "රූප",
+            "pose": "ඉරියව්",
+            "hand": "ඕස්ති",
+            "speech": "කථනය"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "ඉගෙනුම් ද්‍රව්‍ය",
+        "selectModel": "ඔබට වර්ගීකරණය කිරීමට අවශ්‍ය කුමක්ද?",
+        "enableUSB": "USB උපාංගය භාවිතා කරන්න",
+        "subtitle": "ඔබේම දත්ත භාවිතයෙන්, කේත ලිවීමකින් තොරව වර්ගීකරණක සාදන්න"
+    },
+    "load": {
+        "title": "වර්ගීකරණය විවෘත කරන්න",
+        "code": "කේතය ඇතුල් කරන්න",
+        "actions": {
+            "openFile": "ගොනුව විවෘත කරන්න",
+            "openCode": "කේතය භාවිත කරන්න",
+            "cancel": "අවලංගු කරන්න"
+        }
+    },
+    "save": {
+        "title": "වර්ගීකරණය සුරකින්න",
+        "noModel": "මුලින් වර්ගීකරණයක් තනන්න",
+        "message": "ගොනුවක් ලෙස බාගන්න",
+        "saveSamples": "උදාහරණ සුරකින්න",
+        "saveClassifier": "වර්ගීකරණය සුරකින්න",
+        "saveBehaviours": "ක්‍රියාකාරීත්වය සුරකින්න",
+        "name": "නම",
+        "actions": {
+            "save": "සුරකින්න",
+            "cancel": "අවලංගු කරන්න"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "වමට යොමු කරන්න",
+            "center": "මැදට යොමු කරන්න",
+            "right": "දකුණට යොමු කරන්න",
+            "align": "පෙළ සකසන්න"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "අකුරු විශාල කරන්න",
+            "increase": "විශාල කරන්න",
+            "decrease": "කුඩා කරන්න"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "නව පන්තියක් එක් කරන්න",
+            "webcam": "වෙබ් කැමරාව",
+            "audio": "මයික්",
+            "upload": "උඩුගත කරන්න",
+            "datasets": "දත්ත කට්ටල",
+            "cancel": "අවලංගු කරන්න",
+            "deleteClass": "පන්තිය ඉවත් කරන්න",
+            "disableClass": "පන්තිය අක්‍රිය කරන්න",
+            "enableClass": "පන්තිය සක්‍රිය කරන්න",
+            "removeAll": "සියලුම උදාහරණ ඉවත් කරන්න",
+            "capture": "පිංතූරය ගන්න",
+            "fileCapture": "උපුටා ගන්න",
+            "record": "පටිගත කරන්න",
+            "collaborate": "සහාය දක්වන්න",
+            "use": "භාවිතා කරන්න ({{count}})",
+            "displayMore": "පින්තූර {{count}} ක් පෙන්වන්න"
+        },
+        "labels": {
+            "title": "පුහුණු දත්ත",
+            "addSamples": "උදාහරණ රූප එක් කරන්න",
+            "imageSamples": "{{count}} රූප",
+            "addAudioSamples": "ශ්‍රව්‍ය නියැදි එක් කරන්න",
+            "audioSamples": "{{count}} ශ්‍රව්‍ය නියැදි",
+            "class": "පන්තිය",
+            "noiseClass": "පසුබිම් ශබ්දය",
+            "wait": "කරුණාකර රැඳී සිටින්න...",
+            "stop": "නවත්වන්න",
+            "dropFiles": "රූප ඇදගෙන මෙතැනට දමන්න",
+            "dropAudioFiles": "ශ්‍රව්‍ය ගොනු ඇදගෙන මෙතැනට දමන්න",
+            "needsMore": "තව උදාහරණ අවශ්‍යයි",
+            "dropError": "පිළිගන්නා රූප පමණි",
+            "dropAudioError": "පිළිගන්නේ ශ්‍රව්‍ය ගොනු පමණි",
+            "emptyClass": "This class is empty.",
+            "qrMessage": "ඔබේ ජංගම දුරකථනයේන් QR කේතය ස්කැන් කර රූප එක් කල හැක",
+            "disabled": "අක්‍රිය කර ඇත",
+            "selectDataset": "දත්ත කට්ටලයක් තෝරන්න",
+            "selectTestData": "පින්තූරයක් තෝරන්න",
+            "searchDataset": "දත්ත කට්ටලයක් සොයන්න",
+            "images": "රූප",
+            "selected": "තෝරගත්තු",
+            "loading": "පූරණය වෙමින්...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again."
+        },
+        "aria": {
+            "sample": "උඩුගත කළ උදාහරණය",
+            "delete": "උදාහරණය ඉවත් කරන්න",
+            "more": "වැඩි විකල්ප",
+            "close": "වසන්න",
+            "classCard": "{{name}} සඳහා දත්ත එක් කරන්න"
+        }
+    },
+    "heatmap": {
+        "title": "විස්තර",
+        "colorScaleHelp": "වර්ණ පරිමාණය මගින් ආකෘතිය රූපයේ කුමන කොටස් කෙරෙහි අවධානය යොමු කරන්නේ දැයි පෙන්වයි. රතු = ඉහළ වැදගත්කම, නිල් = අඩු වැදගත්කම.",
+        "noPoseDetected": "ඉරියව්ව නොමැත",
+        "high": "ඉහළ",
+        "low": "අඩු"
+    },
+    "underTheHood": {
+        "title": "හුඩ් තලේ",
+        "visualization": "දෘශ්‍යකරණය",
+        "statistics": "ආකෘති සංඛ්‍යාලේඛන",
+        "transferLearning": "හුවමාරු ඉගෙනුම්",
+        "on": "සක්‍රිය",
+        "off": "අක්‍රිය"
+    },
+    "charts": {
+        "accuracyPerClass": "වර්ගය ප්‍රකාරව යව්නතාවය",
+        "accuracyPerClassHelp": "ආකෘතිය එක් එක් වර්ගය test නමුනා මත කොපමණ වාරයක් නිවැරදිව පුරෝකථනය කරයිද යන්න පෙන්වයි. 1.00 නම් එම වර්ගයේ සියලු test නමුනා නිවැරදියි.",
+        "confusionMatrix": "අනිශ්චිත මැට්රික්ස්වය",
+        "confusionMatrixHelp": "පේළි නිවැරදි වර්ග වන අතර තීරු ආකෘතියේ පුරෝකථන වේ. විකර්ණයේ අගයන් නිවැරදි වන අතර, අනෙක් අගයන් ගැලපීම් වැරදීම් වේ.",
+        "accuracyPerEpoch": "එපොක් ප්‍රකාරව යව්නතාවය",
+        "accuracyPerEpochHelp": "පුහුණුව අතරතුර පුරෝකථන යව්නතාවය වෙනස් වන ආකාරය පෙන්වයි. Accuracy 0 සිට 1 දක්වා වන අතර 1 හොඳම අගයයි. Test accuracy භාවිතා කරන්නේ test set නමුනා වන අතර, ආකෘතිය යාවත්කාලීන කළ training set නමුනා නොවේ.",
+        "lossPerEpoch": "එපොක් ප්‍රකාරව සන්තොෂය",
+        "lossPerEpochHelp": "පුහුණුව අතරතුර ආකෘතියේ දෝෂය පෙන්වයි. Loss 0 සිට ආරම්භ වී වැඩි විය හැකි අතර අඩු අගය හොඳයි. Test loss භාවිතා කරන්නේ test set නමුනා වන අතර, ආකෘතිය යාවත්කාලීන කළ training set නමුනා නොවේ.",
+        "class": "වර්ගය",
+        "accuracy": "යව්නතාවය",
+        "testSamples": "# Test නමුනා",
+        "prediction": "පුරාකත්නය",
+        "actual": "වාස්තවික",
+        "predicted": "පුරාකතන කර ඇත",
+        "count": "ගණනය",
+        "acc": "යව්.",
+        "testAcc": "පරීක්ෂණ යව්.",
+        "loss": "සන්තොෂය",
+        "testLoss": "පරීක්ෂණ සන්තොෂය",
+        "epochs": "එපොක්",
+        "epoch": "එපොක්",
+        "transferLearningMatrix": "හුවමාරු ඉගෙනුම් මැට්‍රික්ස්",
+        "transferLearningMatrixHelp": "පංති මට්ටමේ ImageNet සංකල්ප පැතිකඩ (වර්ගීකරණකයෙන්) සහ වර්තමාන ආදානය ඒවාට ගැළපෙන ආකාරය පෙන්වයි.",
+        "transferLearningGraph": "හුවමාරු ඉගෙනුම් ප්‍රස්ථාරය",
+        "transferLearningGraphHelp": "මෙම රූපසටහන ඔබගේ වර්තමාන රූපය පෙර ඉගෙනගත් පංති සමඟ ආකෘතිය සම්බන්ධ කරන ආකාරය පෙන්වයි. වමට: වර්තමාන ආදානය සහ අපේක්ෂක පංති. දකුණට: පෙර පුහුණු කළ ආකෘතියේ පංති. රේඛා ඝන වුවහොත් ගැළපීම බලවත් වේ.",
+        "transferLearningFlow": "හුවමාරු ඉගෙනුම් ප්‍රවාහය",
+        "transferLearningUserClass": "පරිශීලක පංතිය",
+        "transferLearningCurrentInput": "වර්තමාන ආදානය",
+        "transferLearningSimilarity": "සමානතාව",
+        "transferLearningSimilarityHelp": "Cosine similarity වර්තමාන ආදානය 1000 ImageNet සම්භාවිතා සියල්ල භාවිතයෙන් සෑම පරිශීලක පංතියක් සමඟම සසඳයි. අගයන් 0 සිට 1 දක්වා වන අතර, 1 යනු වැඩිම සමානතාවයි.",
+        "transferLearningSamples": "{{count}} නියැදි",
+        "transferLearningStages": "හුවමාරු ඉගෙනුම් පියවර",
+        "transferLearningStageConcepts": "සංකල්ප",
+        "transferLearningStageConnections": "සම්බන්ධතා",
+        "transferLearningStageAdvanced": "උසස්",
+        "pretrainedConceptsTitle": "පෙර පුහුණු කළ ආකෘතිය හඳුනාගන්නා දේ",
+        "pretrainedConceptsHelp": "මේවා පෙර පුහුණු කළ ආකෘතිය වත්මන් ආදානය සමඟ ගැළපෙන ImageNet සංකල්ප වේ. % අගය වැඩි වීමෙන් ගැළපීම වඩා ශක්තිමත් බව අදහස් වේ.",
+        "pretrainedModelLayers": "පූර්ව-පුහුණු ආකෘතිය",
+        "pretrainedModelSubtitle": "ImageNet සංකල්ප හඳුනාගනී",
+        "pretrainedSampleAlt": "{{label}} නියැදි {{index}}",
+        "transferLearningBarChart": "පරීක්ෂණ ආදානයේ සමානතාව",
+        "transferLearningBarChartHelp": "පෙර පුහුණු කළ මොඩලය වර්තමාන ආදානය සහ සෑම පුහුණු කළ පංතියක්ම ImageNet සංකල්ප ලකුණු දිග ලැයිස්තුවක් ලෙස විස්තර කරයි. Cosine similarity එම ලැයිස්තු දෙකේ හැඩය සසඳයි. ඉහළ සහ පහළ ලකුණු එකට ගැළපේ නම් සමානතාව ඉහළයි. අගයන් 0% සිට 100% දක්වා යයි. උස තීරුවක් කියන්නේ ආදානය එම පංතියට වැඩියෙන් සමාන බවයි."
+    },
+    "training": {
+        "actions": {
+            "train": "වර්ගීකරණය පුහුණු කරන්න"
+        },
+        "labels": {
+            "title": "පුහුණුව",
+            "addMore": "උදාහරණ හෝ පන්තියක් එකතු කරන්න",
+            "needsTraining": "වර්ගීකරණය තවම පුහුණු කර නැත",
+            "advanced": "උසස්",
+            "epochs": "පරිච්ඡේද",
+            "learningRate": "ඉගෙනීමේ වේගය",
+            "batchSize": "Batch Size",
+            "loading": "පූරණය වෙමින්...",
+            "prepairing": "සැකසෙමින්...",
+            "training": "පුහුණු වෙමින්...",
+            "complete": "නිමවිය"
+        },
+        "tooltips": {
+            "epochs": "උදාහරණය කිසිවක් කොපමණ වතාවක් භාවිතා කරන්නේද.",
+            "learningRate": "0.1 ට වඩා අඩුවෙන් තබන්න.",
+            "batchSize": "එකවරයක් තුළ පුහුණු වීමේ රූප ගණන."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "ආදානය",
+            "webcam": "වෙබ් කැමරාව",
+            "audio": "මයික්",
+            "file": "ගොනුව",
+            "device": "උපාංගය",
+            "dataset": "දත්ත කට්ටලය",
+            "switchOn": "ආරම්භ කරන්න",
+            "switchOff": "නවත්වන්න",
+            "upload": "ගොනුවක් මෙතැනට ඇදෙන්න හෝ උඩුගත කරන්න"
+        },
+        "aria": {
+            "switch": "ආදාන මූලාශ්‍රය සක්‍රීය කරන්න"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "බාහිර මෙවලමකට අපනයනය කරන්න",
+            "clone": "පිටපතක් බෙදාගන්න"
+        },
+        "labels": {
+            "title": "වර්ගීකරණය",
+            "mustTrain": "පළමුව පුහුණු කළ යුතුය",
+            "mustInput": "වර්ගීකරණකය භාවිතා කිරීමට ඔබ ආදානයක් ලබා දිය යුතුය"
+        },
+        "aria": {
+            "more": "වැඩි විකල්ප"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "ප්‍රතිඵල",
+            "deploy": "යෙදවන්න"
+        },
+        "aria": {
+            "volume": "ශ්‍රව්‍යය තදභාවය",
+            "image": "{{index}} පන්තිය සඳහා ප්‍රතිඵලය",
+            "display": "{{index}} පන්තිය පෙන්වන්න",
+            "expand": "විශාල කරන්න"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "උඩුගත කරන්න",
+            "dataset": "දත්ත කට්ටලය",
+            "delete": "මකන්න",
+            "record": "පටිගත කරන්න",
+            "stop": "නවත්වන්න"
+        },
+        "labels": {
+            "title": "ක්‍රියාකාරීත්වය",
+            "message": "පණිවිඩය",
+            "link": "සබැඳිය",
+            "linkError": "මෙම සබැඳිය සහය නොදක්වයි",
+            "embedInfo": "සබැඳියකින් වීඩියෝ සහ රූප පෙන්වන්න. YouTube, Vimeo, SoundCloud, වීඩියෝ ගොනු, ඕඩියෝ ගොනු හෝ රූප වැනි සබැඳි කිහිපයක් පමණක් ක්‍රියා කරයි.<br/><br/>වැඩි විස්තර සඳහා <l>react-player</l> ලේඛන බලන්න.",
+            "voiceRecording": "හඬ පටිගත කිරීම",
+            "dropError": "රූප හෝ ශබ්ද පමණක් අවසර ඇත",
+            "loop": "නිරතුරුව වාදනය"
+        },
+        "aria": {
+            "message": "පණිවිඩ ක්‍රියාව",
+            "image": "රූප ක්‍රියාව",
+            "sound": "ශබ්ද ක්‍රියාව",
+            "text": "පෙළ ක්‍රියාව",
+            "embed": "embed සබැඳිය ක්‍රියාව",
+            "imageOutput": "උඩුගත කළ රූපය",
+            "noImage": "රූපයක් නැත",
+            "stop": "නවත්වන්න",
+            "play": "විකසන්න",
+            "behaviourCard": "{{name}} සඳහා ක්‍රියාව",
+            "loop": "නිරතුරුව ක්‍රියා කරන්න"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "ඊළඟට යන්න"
+        },
+        "aria": {
+            "step": "පියවර"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "සජීවී වෙබ් කැමරා වීඩියෝව",
+            "flip": "කැමරාව මාරු කරන්න"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "මාතෘකාව වෙනස් කරන්න",
+            "editTitleInput": "{{value}} වෙනස් කරන්න"
+        },
+        "labels": {
+            "titlePlaceholder": "මාතෘකාව"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "අකුරු වර්ණය තෝරන්න"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "වසන්න",
+            "share": "බෙදාගන්න",
+            "stopShare": "බෙදා ගැනීම නවත්වන්න"
+        },
+        "labels": {
+            "title": "බෙදාගන්න",
+            "includeSamples": "උදාහරණ එක් කරන්න",
+            "codeInstructions": "වෙබ් අඩවිය බෙදා ගැනීම සඳහා මෙම කේතය භාවිතා කරන්න",
+            "linkInstructions": "Scratch වැනි යෙදුම්වල භාවිතා කිරීමට සබැඳියක් පිටපත් කරන්න. මෙම පිටුව විවෘතව තබාගන්න."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "සත්‍වයෝ",
+            "nature": "ප්‍රකෘතිය",
+            "colors": "වර්ණ",
+            "fruits": "පළතුරු",
+            "human": "මැනුෂ්‍යයා",
+            "studyTools": "අධ්‍යයන උපකරණ",
+            "recyclingMaterials": "ෝ‍රතිචක්‍රීකරණ ද්‍රව්‍ය",
+            "transportation": "ෝ‍රවාහනය"
+        },
+        "cats": {
+            "name": "බළ්ලෝ",
+            "description": "බළ්ලෝ කරන ලද ප්‍රතිමා සංග්‍රහය"
+        },
+        "dogs": {
+            "name": "බල්ලෝ",
+            "description": "බල්ලෝ ප්‍රතිමා සංග්‍රහය"
+        },
+        "birds": {
+            "name": "පක්ෂී",
+            "description": "පක්ෂී ප්‍රතිමා සංග්‍රහය"
+        },
+        "flowers": {
+            "name": "මල්",
+            "description": "මල් ප්‍රතිමා සංග්‍රහය"
+        },
+        "trees": {
+            "name": "ගස්",
+            "description": "ගස් ප්‍රතිමා සංග්‍රහය"
+        },
+        "white": {
+            "name": "සුදු",
+            "description": "සුදු වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "black": {
+            "name": "කැළුම්",
+            "description": "කැළුම් වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "gray": {
+            "name": "පැස්බරු",
+            "description": "පැස්බරු වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "blue": {
+            "name": "නීල්",
+            "description": "නීල් වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "green": {
+            "name": "පසුරු",
+            "description": "පසුරු වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "red": {
+            "name": "රතු",
+            "description": "රතු වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "pink": {
+            "name": "රෝස් පැත්",
+            "description": "රෝස් පැත් වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "orange": {
+            "name": "නැරංගි",
+            "description": "නැරංගි වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "purple": {
+            "name": "විස්තරා",
+            "description": "විස්තරා වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "yellow": {
+            "name": "කහ",
+            "description": "කහ වර්ණයේ ප්‍රතිමා සංග්‍රහය"
+        },
+        "apple": {
+            "name": "ඇප්පළි",
+            "description": "ඇප්පළි ප්‍රතිමා සංග්‍රහය"
+        },
+        "pear": {
+            "name": "පේරස්",
+            "description": "පේරස් ප්‍රතිමා සංග්‍රහය"
+        },
+        "orangeFruit": {
+            "name": "දොදම්",
+            "description": "දොදම් ප්‍රතිමා සංග්‍රහය"
+        },
+        "men": {
+            "name": "පුරුෂයින්",
+            "description": "පුරුෂයින් ප්‍රතිමා සංග්‍රහය"
+        },
+        "women": {
+            "name": "ස්‍ත්‍රීන්",
+            "description": "ස්‍ත්‍රීන් ප්‍රතිමා සංග්‍රහය"
+        },
+        "handPalm": {
+            "name": "අත් තලුව",
+            "description": "අත් තලුව ප්‍රතිමා සංග්‍රහය"
+        },
+        "pencils": {
+            "name": "පැන්සල්",
+            "description": "පැන්සල් ප්‍රතිමා සංග්‍රහය"
+        },
+        "pens": {
+            "name": "පෑන",
+            "description": "පෑන ප්‍රතිමා සංග්‍රහය"
+        },
+        "humanPose": {
+            "name": "මැනුෂ් ඉරියව්ව",
+            "description": "මැනුෂ් ඉරියව්ව ෝ‍රතිමා සංග්‍රහය"
+        },
+        "erasers": {
+            "name": "ඉවත් කරන",
+            "description": "ඉවත් කරන ෝ‍රතිමා සංග්‍රහය"
+        },
+        "batteries": {
+            "name": "බැටරි",
+            "description": "බැටරි ෝ‍රතිමා සංග්‍රහය"
+        },
+        "cardboard": {
+            "name": "කාඩ්බෝඩ්",
+            "description": "කාඩ්බෝඩ් ෝ‍රතිමා සංග්‍රහය"
+        },
+        "glass": {
+            "name": "වීදුරු",
+            "description": "වීදුරු ෝ‍රතිමා සංග්‍රහය"
+        },
+        "paper": {
+            "name": "කඩදාසි",
+            "description": "කඩදාසි ෝ‍රතිමා සංග්‍රහය"
+        },
+        "plastics": {
+            "name": "ෝ‍ලාස්ටික්",
+            "description": "ෝ‍ලාස්ටික් ෝ‍රතිමා සංග්‍රහය"
+        },
+        "airplanes": {
+            "name": "ගුවන්යානා",
+            "description": "ගුවන්යානා ෝ‍රතිමා සංග්‍රහය"
+        },
+        "buses": {
+            "name": "බස්",
+            "description": "බස් ෝ‍රතිමා සංග්‍රහය"
+        },
+        "bicycles": {
+            "name": "බයිසිකල්",
+            "description": "බයිසිකල් ෝ‍රතිමා සංග්‍රහය"
+        },
+        "cars": {
+            "name": "රෂ",
+            "description": "රෂ ෝ‍රතිමා සංග්‍රහය"
+        },
+        "mopeds": {
+            "name": "මෝපේඩ්",
+            "description": "මෝපේඩ් ෝ‍රතිමා සංග්‍රහය"
+        },
+        "motorcycles": {
+            "name": "යතුරු පැදි",
+            "description": "යතුරු පැදි ෝ‍රතිමා සංග්‍රහය"
+        },
+        "pedestrians": {
+            "name": "ගමන් කරන්නෝ",
+            "description": "ගමන් කරන්නෝ ෝ‍රතිමා සංග්‍රහය"
+        },
+        "ships": {
+            "name": "නෞකා",
+            "description": "නෞකා ෝ‍රතිමා සංග්‍රහය"
+        },
+        "trains": {
+            "name": "දුම්රිය",
+            "description": "දුම්රිය ෝ‍රතිමා සංග්‍රහය"
+        }
+    }
+}

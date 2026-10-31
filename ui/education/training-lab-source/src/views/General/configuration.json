@@ -1,0 +1,55 @@
+{
+    "base": {
+        "namespace": "image_adv",
+        "sampleUploadFile": true,
+        "sampleDatasets": true,
+        "imageBehaviours": true,
+        "soundBehaviours": true,
+        "speechBehaviours": true,
+        "textBehaviours": true,
+        "embedBehaviours": true,
+        "trainingStep": true,
+        "behavioursStep": true,
+        "disableAddClass": false,
+        "disableClassNameEdit": false,
+        "disabledClassRemove": false,
+        "modelSelect": false,
+        "modelThreshold": false,
+        "advancedMenu": false,
+        "multipleBehaviours": true,
+        "disableSaveSamples": false,
+        "showTrainingAnimation": false,
+        "resetOnLoad": false,
+        "enableFileInput": true,
+        "allowDeploy": true,
+        "showDragTip": false,
+        "usep2p": true,
+        "showSettings": true,
+        "modelVariant": "image",
+        "showSaveReminder": false,
+        "enabledP2PData": true,
+        "enableCollaboration": true,
+        "allowModelSharing": true,
+        "allowHeatmap": true,
+        "allowSerialUSB": false
+    },
+    "image": {
+        "modelVariant": "image"
+    },
+    "pose": {
+        "modelVariant": "pose"
+    },
+    "hand": {
+        "modelVariant": "hand"
+    },
+    "speech": {
+        "modelVariant": "speech"
+    },
+    "general": {},
+    "classroom": {
+        "namespace": "image_adv",
+        "embedBehaviours": false,
+        "showSettings": false,
+        "showSaveReminder": true
+    }
+}

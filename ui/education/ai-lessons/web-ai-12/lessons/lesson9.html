@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第9课：接入 AI（下）— 多轮对话、打字效果、Markdown 渲染，打造专业级聊天体验 | Lesson 9: AI Integration (Part 2) — Multi-turn chat, typing effect, Markdown rendering">
+  <title>第9课：接入 AI（下）| Lesson 9: AI Integration (Part 2)</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html" class="active"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 9 课</span>
+        <span class="en">Lesson 9</span>
+      </span>
+      <h1>
+        <span class="zh">接入 AI（下）— 完善 AI 聊天助手</span>
+        <span class="en">AI Integration (Part 2) — Polish the AI Chatbot</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">多轮对话、打字效果、Markdown 渲染，打造专业级聊天体验</span>
+        <span class="en">Multi-turn chat, typing effect, Markdown rendering — pro-level chat UX</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- 9.1 课程目标 -->
+    <section class="section reveal" id="section-9-1">
+      <h2><span class="zh">9.1 课程目标</span><span class="en">9.1 Learning Objectives</span></h2>
+      <div class="card">
+        <ul>
+          <li><span class="zh">实现多轮对话，维护完整的对话历史</span><span class="en">Implement multi-turn conversation with complete chat history</span></li>
+          <li><span class="zh">添加逐字打字效果，模拟 AI "思考"过程</span><span class="en">Add character-by-character typing effect to simulate AI "thinking"</span></li>
+          <li><span class="zh">将 AI 返回的 Markdown 渲染成 HTML</span><span class="en">Render AI's Markdown responses as HTML</span></li>
+          <li><span class="zh">优化聊天界面的用户体验（UX）</span><span class="en">Optimize the chat interface's user experience (UX)</span></li>
+          <li><span class="zh">添加清除聊天、加载状态、错误处理等功能</span><span class="en">Add clear chat, loading states, error handling, and more</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9.2 多轮对话 -->
+    <section class="section reveal" id="section-9-2">
+      <h2><span class="zh">9.2 多轮对话</span><span class="en">9.2 Multi-Turn Conversation</span></h2>
+
+      <p>
+        <span class="zh">在第 8 课中，我们每次只发送一条消息给 AI。但真正的聊天需要 AI 记住之前说过的话。要实现这一点，我们需要把<strong>整个对话历史</strong>发送给 API。</span>
+        <span class="en">In Lesson 8, we sent only one message to AI each time. But real chat requires AI to remember what was said before. To achieve this, we need to send the <strong>entire conversation history</strong> to the API.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 维护对话历史数组
+const conversationHistory = [
+  {
+    role: 'system',
+    content: 'You are a helpful coding assistant.'
+  }
+];
+
+async function sendMessage(userText) {
+  // 1. 将用户消息加入历史
+  conversationHistory.push({
+    role: 'user',
+    content: userText
+  });
+
+  // 2. 发送完整历史给 API
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({
+      model: 'gpt-4o-mini',
+      messages: conversationHistory,
+      temperature: 0.7
+    })
+  });
+
+  const data = await response.json();
+  const aiReply = data.choices[0].message.content;
+
+  // 3. 将 AI 回复也加入历史
+  conversationHistory.push({
+    role: 'assistant',
+    content: aiReply
+  });
+
+  return aiReply;
+}</code></pre>
+      </div>
+
+      <div class="card">
+        <h3><span class="zh">上下文窗口与 Token 限制</span><span class="en">Context Window &amp; Token Limits</span></h3>
+        <p>
+          <span class="zh">每个模型都有<strong>上下文窗口</strong>（Context Window）限制——它一次能处理的最大 Token 数量。</span>
+          <span class="en">Every model has a <strong>context window</strong> limit — the maximum number of tokens it can process at once.</span>
+        </p>
+        <ul>
+          <li><span class="zh"><strong>GPT-4o-mini</strong>：128K tokens（约 10 万字）</span><span class="en"><strong>GPT-4o-mini</strong>: 128K tokens (~100,000 words)</span></li>
+          <li><span class="zh"><strong>GPT-4o</strong>：128K tokens</span><span class="en"><strong>GPT-4o</strong>: 128K tokens</span></li>
+          <li><span class="zh"><strong>Claude 3.5</strong>：200K tokens</span><span class="en"><strong>Claude 3.5</strong>: 200K tokens</span></li>
+        </ul>
+        <p>
+          <span class="zh">当对话变得很长时，你可能需要裁剪历史，只保留最近的 N 条消息，以避免超出限制。</span>
+          <span class="en">When conversations get very long, you may need to trim history, keeping only the last N messages, to avoid exceeding limits.</span>
+        </p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 裁剪对话历史，保留 system + 最近 20 条消息
+function trimHistory(history, maxMessages = 20) {
+  if (history.length &lt;= maxMessages + 1) return history;
+
+  const systemMsg = history[0]; // 保留 system prompt
+  const recent = history.slice(-(maxMessages));
+  return [systemMsg, ...recent];
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- 9.3 打字效果 -->
+    <section class="section reveal" id="section-9-3">
+      <h2><span class="zh">9.3 打字效果</span><span class="en">9.3 Typing Effect</span></h2>
+
+      <p>
+        <span class="zh">ChatGPT 和 Claude 的网页版都有逐字显示的效果，让用户感觉 AI 在"实时思考"。我们可以用两种方式实现：<strong>前端模拟</strong>或<strong>流式传输</strong>（Streaming）。</span>
+        <span class="en">The web versions of ChatGPT and Claude both have a character-by-character display effect, making users feel AI is "thinking in real-time." We can implement this in two ways: <strong>frontend simulation</strong> or <strong>streaming</strong>.</span>
+      </p>
+
+      <h3><span class="zh">方式一：前端模拟打字效果</span><span class="en">Method 1: Frontend Typing Simulation</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 逐字显示文本
+function typeText(element, text, speed = 20) {
+  return new Promise((resolve) =&gt; {
+    let index = 0;
+
+    function type() {
+      if (index &lt; text.length) {
+        element.textContent += text[index];
+        index++;
+        setTimeout(type, speed);
+      } else {
+        resolve(); // 打字完成
+      }
+    }
+
+    type();
+  });
+}
+
+// 使用示例
+async function displayAIReply(text) {
+  const msgDiv = document.createElement('div');
+  msgDiv.classList.add('message', 'ai');
+  chatMessages.appendChild(msgDiv);
+
+  await typeText(msgDiv, text, 15);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">方式二：流式传输（Streaming）</span><span class="en">Method 2: Streaming</span></h3>
+
+      <p>
+        <span class="zh">真正的流式传输是让 API 边生成边发送数据。通过设置 <code>stream: true</code>，服务器会用 <strong>Server-Sent Events</strong>（SSE）一块一块地返回内容。</span>
+        <span class="en">True streaming lets the API send data as it generates. By setting <code>stream: true</code>, the server returns content chunk by chunk using <strong>Server-Sent Events</strong> (SSE).</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>async function streamAIReply(messages) {
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({
+      model: 'gpt-4o-mini',
+      messages: messages,
+      stream: true  // 开启流式传输！
+    })
+  });
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let aiText = '';
+
+  const msgDiv = document.createElement('div');
+  msgDiv.classList.add('message', 'ai');
+  chatMessages.appendChild(msgDiv);
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    const chunk = decoder.decode(value);
+    const lines = chunk.split('\n');
+
+    for (const line of lines) {
+      if (line.startsWith('data: ') &amp;&amp; line !== 'data: [DONE]') {
+        const json = JSON.parse(line.slice(6));
+        const content = json.choices[0]?.delta?.content || '';
+        aiText += content;
+        msgDiv.textContent = aiText;
+      }
+    }
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  return aiText;
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">聊天气泡动画</span><span class="en">Chat Bubble Animations</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">CSS</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>/* 新消息滑入动画 */
+.message {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 打字指示器动画 */
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+  margin: 0 2px;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- 9.4 Markdown 渲染 -->
+    <section class="section reveal" id="section-9-4">
+      <h2><span class="zh">9.4 Markdown 渲染</span><span class="en">9.4 Markdown Rendering</span></h2>
+
+      <p>
+        <span class="zh">AI 经常使用 Markdown 格式回复，包括<strong>粗体</strong>、<em>斜体</em>、代码块、列表等。我们需要把 Markdown 转换成 HTML 才能正确显示。</span>
+        <span class="en">AI often responds in Markdown format, including <strong>bold</strong>, <em>italic</em>, code blocks, lists, and more. We need to convert Markdown to HTML for proper display.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 简易 Markdown → HTML 转换器
+function markdownToHtml(md) {
+  let html = md
+    // 代码块 ```code```
+    .replace(/```(\w*)\n([\s\S]*?)```/g,
+      '&lt;pre&gt;&lt;code class="lang-$1"&gt;$2&lt;/code&gt;&lt;/pre&gt;')
+    // 行内代码 `code`
+    .replace(/`([^`]+)`/g, '&lt;code&gt;$1&lt;/code&gt;')
+    // 粗体 **text**
+    .replace(/\*\*(.+?)\*\*/g, '&lt;strong&gt;$1&lt;/strong&gt;')
+    // 斜体 *text*
+    .replace(/\*(.+?)\*/g, '&lt;em&gt;$1&lt;/em&gt;')
+    // 标题 ### heading
+    .replace(/^### (.+)$/gm, '&lt;h4&gt;$1&lt;/h4&gt;')
+    .replace(/^## (.+)$/gm, '&lt;h3&gt;$1&lt;/h3&gt;')
+    // 无序列表
+    .replace(/^- (.+)$/gm, '&lt;li&gt;$1&lt;/li&gt;')
+    // 换行
+    .replace(/\n/g, '&lt;br&gt;');
+
+  // 包裹 li 标签
+  html = html.replace(
+    /(&lt;li&gt;.*?&lt;\/li&gt;(\s*&lt;br&gt;)?)+/g,
+    '&lt;ul&gt;$&&lt;/ul&gt;'
+  );
+
+  return html;
+}
+
+// 使用：设置 innerHTML 而不是 textContent
+msgDiv.innerHTML = markdownToHtml(aiText);</code></pre>
+      </div>
+
+      <div class="callout">
+        <span class="zh">💡 <strong>进阶提示：</strong>在生产环境中，推荐使用成熟的库来处理 Markdown 渲染，比如 <code>marked.js</code> 或 <code>markdown-it</code>。它们处理了更多的边界情况，更安全、更可靠。代码高亮可以用 <code>highlight.js</code> 或 <code>Prism.js</code>。</span>
+        <span class="en">💡 <strong>Pro tip:</strong> In production, use mature libraries for Markdown rendering like <code>marked.js</code> or <code>markdown-it</code>. They handle many more edge cases and are safer and more reliable. For code highlighting, use <code>highlight.js</code> or <code>Prism.js</code>.</span>
+      </div>
+    </section>
+
+    <!-- 9.5 UX 细节 -->
+    <section class="section reveal" id="section-9-5">
+      <h2><span class="zh">9.5 UX 细节优化</span><span class="en">9.5 UX Detail Optimization</span></h2>
+
+      <p>
+        <span class="zh">专业的聊天体验需要关注许多细节。以下是让你的聊天助手从"能用"变成"好用"的关键改进。</span>
+        <span class="en">A professional chat experience requires attention to many details. Here are the key improvements to take your chatbot from "works" to "works great."</span>
+      </p>
+
+      <h3><span class="zh">自动滚动到最新消息</span><span class="en">Auto-Scroll to Latest Message</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 平滑滚动到底部
+function scrollToBottom() {
+  chatMessages.scrollTo({
+    top: chatMessages.scrollHeight,
+    behavior: 'smooth'
+  });
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">清除聊天按钮</span><span class="en">Clear Chat Button</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>function clearChat() {
+  // 清空 DOM
+  chatMessages.innerHTML = '';
+
+  // 重置对话历史（保留 system prompt）
+  conversationHistory.length = 1;
+
+  // 添加欢迎消息
+  addMessage('Hello! How can I help you today? 😊', 'ai');
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">加载状态管理</span><span class="en">Loading State Management</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>function setLoading(isLoading) {
+  sendBtn.disabled = isLoading;
+  userInput.disabled = isLoading;
+  sendBtn.textContent = isLoading ? '...' : 'Send';
+
+  if (isLoading) {
+    showTypingIndicator();
+  } else {
+    hideTypingIndicator();
+  }
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">友好的错误消息</span><span class="en">Friendly Error Messages</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>function handleError(error) {
+  let errorMsg = 'Oops! Something went wrong.';
+
+  if (error.message.includes('401')) {
+    errorMsg = 'Invalid API key. Please check your key.';
+  } else if (error.message.includes('429')) {
+    errorMsg = 'Too many requests. Please wait a moment.';
+  } else if (error.message.includes('Failed to fetch')) {
+    errorMsg = 'Network error. Check your connection.';
+  }
+
+  addMessage(`⚠️ ${errorMsg}`, 'ai');
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">响应式聊天布局</span><span class="en">Responsive Chat Layout</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">CSS</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>/* 桌面端 */
+.chat-container {
+  max-width: 600px;
+  height: 500px;
+  margin: 2rem auto;
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .chat-container {
+    max-width: 100%;
+    height: calc(100vh - 120px);
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .message {
+    max-width: 90%;
+    font-size: 0.95rem;
+  }
+
+  .chat-input-area input {
+    font-size: 16px; /* 防止 iOS 放大 */
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- 9.6 动手实践 -->
+    <section class="section reveal" id="section-9-6">
+      <h2><span class="zh">9.6 动手实践：升级你的聊天机器人</span><span class="en">9.6 Hands-On: Upgrade Your Chatbot</span></h2>
+
+      <p>
+        <span class="zh">把以上所有功能整合在一起，升级你在第 8 课创建的聊天机器人。下面是完整的 JavaScript 主逻辑：</span>
+        <span class="en">Combine all the features above and upgrade the chatbot you created in Lesson 8. Here's the complete main JavaScript logic:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// ========= 完整聊天机器人 =========
+const chatMessages = document.getElementById('chatMessages');
+const userInput = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+const clearBtn = document.getElementById('clearBtn');
+
+const conversationHistory = [
+  { role: 'system', content: 'You are a helpful assistant.' }
+];
+
+// 添加消息到 UI
+function addMessage(text, sender, useMarkdown = false) {
+  const div = document.createElement('div');
+  div.classList.add('message', sender);
+
+  if (useMarkdown &amp;&amp; sender === 'ai') {
+    div.innerHTML = markdownToHtml(text);
+  } else {
+    div.textContent = text;
+  }
+
+  chatMessages.appendChild(div);
+  scrollToBottom();
+  return div;
+}
+
+// 发送消息
+async function sendMessage() {
+  const text = userInput.value.trim();
+  if (!text) return;
+
+  addMessage(text, 'user');
+  userInput.value = '';
+  setLoading(true);
+
+  conversationHistory.push({ role: 'user', content: text });
+
+  try {
+    const trimmed = trimHistory(conversationHistory);
+    const aiReply = await callAI(trimmed);
+
+    conversationHistory.push({
+      role: 'assistant', content: aiReply
+    });
+
+    // 用打字效果显示 AI 回复
+    const msgDiv = addMessage('', 'ai');
+    await typeText(msgDiv, aiReply, 12);
+    msgDiv.innerHTML = markdownToHtml(aiReply);
+  } catch (error) {
+    handleError(error);
+  } finally {
+    setLoading(false);
+    userInput.focus();
+  }
+}
+
+// 事件监听
+sendBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keydown', (e) =&gt; {
+  if (e.key === 'Enter' &amp;&amp; !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+clearBtn.addEventListener('click', clearChat);
+
+// 初始欢迎消息
+addMessage('Hello! I\'m your AI assistant. Ask me anything! 😊', 'ai');</code></pre>
+      </div>
+    </section>
+
+    <!-- 9.7 挑战任务 -->
+    <section class="section reveal" id="section-9-7">
+      <h2><span class="zh">9.7 挑战任务</span><span class="en">9.7 Challenges</span></h2>
+
+      <div class="card">
+        <h3><span class="zh">挑战 A：新建聊天按钮</span><span class="en">Challenge A: New Chat Button</span></h3>
+        <p>
+          <span class="zh">添加一个"新建聊天"按钮，点击后清除所有消息历史并重置对话，就像 ChatGPT 的"New Chat"功能一样。</span>
+          <span class="en">Add a "New Chat" button that clears all message history and resets the conversation, just like ChatGPT's "New Chat" feature.</span>
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">HTML + JavaScript</span>
+            <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+          </div>
+          <pre class="code-pre"><code>&lt;!-- 在 chat-header 中添加按钮 --&gt;
+&lt;div class="chat-header"&gt;
+  &lt;h2&gt;🤖 AI Chat&lt;/h2&gt;
+  &lt;button id="newChatBtn" class="new-chat-btn"&gt;
+    + New Chat
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+document.getElementById('newChatBtn')
+  .addEventListener('click', () =&gt; {
+    if (confirm('Start a new chat? History will be lost.')) {
+      clearChat();
+    }
+  });
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="zh">挑战 B：AI 性格预设选择器</span><span class="en">Challenge B: AI Personality Preset Selector</span></h3>
+        <p>
+          <span class="zh">让用户从下拉菜单中选择不同的 AI 性格预设（如"编程导师"、"创意写手"、"科学家"），切换后自动更新 system prompt。</span>
+          <span class="en">Let users choose different AI personality presets from a dropdown (e.g., "Coding Tutor", "Creative Writer", "Scientist"), and automatically update the system prompt when switched.</span>
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+          </div>
+          <pre class="code-pre"><code>const presets = {
+  tutor: {
+    name: '🎓 Coding Tutor',
+    prompt: 'You are a patient coding tutor. Explain concepts step by step with examples. Use encouraging language.'
+  },
+  writer: {
+    name: '✍️ Creative Writer',
+    prompt: 'You are a creative writer who loves storytelling. Use vivid language and metaphors. Be imaginative and poetic.'
+  },
+  scientist: {
+    name: '🔬 Scientist',
+    prompt: 'You are a science enthusiast. Explain things with scientific accuracy, cite interesting facts, and spark curiosity.'
+  }
+};
+
+function switchPersonality(key) {
+  const preset = presets[key];
+  conversationHistory.length = 0;
+  conversationHistory.push({
+    role: 'system',
+    content: preset.prompt
+  });
+  clearChat();
+  addMessage(
+    `Personality switched to ${preset.name}!`, 'ai'
+  );
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-9">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web9">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh">1. 要实现多轮对话，我们需要在每次 API 请求中发送什么？</span>
+            <span class="en">1. What do we need to send in each API request to enable multi-turn conversation?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 只发送最新的一条消息</span><span class="en">A. Only the latest message</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 完整的对话历史（messages 数组）</span><span class="en">B. The complete conversation history (messages array)</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 用户的 ID 和会话 ID</span><span class="en">C. The user's ID and session ID</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 一个特殊的"记忆"参数</span><span class="en">D. A special "memory" parameter</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">AI API 本身是无状态的（stateless）。要让 AI "记住"之前的对话，我们必须在每次请求中把完整的 messages 数组发过去。</span>
+            <span class="en">The AI API is stateless. To make AI "remember" previous conversation, we must send the complete messages array in every request.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh">2. 当对话历史太长超出 Token 限制时，我们应该怎么做？</span>
+            <span class="en">2. What should we do when conversation history exceeds the token limit?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 裁剪旧消息，只保留最近的 N 条</span><span class="en">A. Trim old messages, keep only the most recent N</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 增加 API Key 的额度</span><span class="en">B. Increase the API key's quota</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 切换到更贵的模型</span><span class="en">C. Switch to a more expensive model</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 忽略错误继续发送</span><span class="en">D. Ignore the error and keep sending</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">最常见的做法是裁剪对话历史：保留 system prompt 和最近的 N 条消息。这样既保持了上下文，又不会超出 Token 限制。</span>
+            <span class="en">The most common approach is to trim conversation history: keep the system prompt and the most recent N messages. This maintains context without exceeding the token limit.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh">3. 要实现流式传输（Streaming），需要在请求中设置哪个参数？</span>
+            <span class="en">3. Which parameter enables streaming in the API request?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. <code>realtime: true</code></span><span class="en">A. <code>realtime: true</code></span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. <code>typing: true</code></span><span class="en">B. <code>typing: true</code></span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. <code>stream: true</code></span><span class="en">C. <code>stream: true</code></span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. <code>live: true</code></span><span class="en">D. <code>live: true</code></span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">在请求体中设置 <code>stream: true</code> 可以启用流式传输。服务器会通过 Server-Sent Events 逐块返回生成的内容。</span>
+            <span class="en">Setting <code>stream: true</code> in the request body enables streaming. The server returns generated content chunk by chunk via Server-Sent Events.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh">4. 为什么在移动端聊天输入框中设置 <code>font-size: 16px</code>？</span>
+            <span class="en">4. Why set <code>font-size: 16px</code> on the mobile chat input field?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 让文字更美观</span><span class="en">A. To make text look better</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 减少内存使用</span><span class="en">B. To reduce memory usage</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 提高网页加载速度</span><span class="en">C. To improve page loading speed</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 防止 iOS Safari 自动放大页面</span><span class="en">D. To prevent iOS Safari from auto-zooming the page</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">iOS Safari 会在输入框字号小于 16px 时自动放大页面。将字号设为 16px 或更大可以防止这个行为，提供更好的移动端体验。</span>
+            <span class="en">iOS Safari auto-zooms the page when input field font size is less than 16px. Setting it to 16px or larger prevents this behavior, providing a better mobile experience.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh">5. 在简易 Markdown 渲染中，<code>**text**</code> 应该转换成什么 HTML？</span>
+            <span class="en">5. In basic Markdown rendering, what HTML should <code>**text**</code> be converted to?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. <code>&lt;em&gt;text&lt;/em&gt;</code></span><span class="en">A. <code>&lt;em&gt;text&lt;/em&gt;</code></span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. <code>&lt;strong&gt;text&lt;/strong&gt;</code></span><span class="en">B. <code>&lt;strong&gt;text&lt;/strong&gt;</code></span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. <code>&lt;code&gt;text&lt;/code&gt;</code></span><span class="en">C. <code>&lt;code&gt;text&lt;/code&gt;</code></span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. <code>&lt;h2&gt;text&lt;/h2&gt;</code></span><span class="en">D. <code>&lt;h2&gt;text&lt;/h2&gt;</code></span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">在 Markdown 中，<code>**text**</code>（双星号）表示粗体，应该转换成 <code>&lt;strong&gt;text&lt;/strong&gt;</code>。单星号 <code>*text*</code> 是斜体，对应 <code>&lt;em&gt;</code>。</span>
+            <span class="en">In Markdown, <code>**text**</code> (double asterisks) means bold and should be converted to <code>&lt;strong&gt;text&lt;/strong&gt;</code>. Single asterisk <code>*text*</code> is italic, corresponding to <code>&lt;em&gt;</code>.</span>
+          </div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson8.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous</span></a>
+      <a href="lesson10.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

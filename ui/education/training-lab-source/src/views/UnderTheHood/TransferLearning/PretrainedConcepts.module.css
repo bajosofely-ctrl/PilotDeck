@@ -1,0 +1,151 @@
+@value backgroundLight, borderGrey, textDark, primary, primaryLight, bgOk, bgColourful3, workspaceBg from "@genai-fi/base/css/colours.module.css";
+
+.pretrainedFlow {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.pretrainedScrollableContent {
+    width: 100%;
+}
+
+.pretrainedModelNode {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 6px solid primaryLight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.pretrainedModelInfo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.pretrainedModelTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pretrainedModelSubtitle {
+    margin-top: 0.2rem;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pretrainedPredictionsArea {
+    display: flex;
+    align-items: start;
+    padding-left: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.pretrainedPredictionsScroller {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+@container (max-width: 440px) {
+    .pretrainedScrollableContent {
+        min-width: 300px;
+    }
+}
+
+.pretrainedModelLines {
+    margin-top: 0.1rem;
+    width: 72px;
+    flex-shrink: 0;
+}
+
+.pretrainedRows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 99%;
+    padding: 1rem 0rem;
+}
+
+.pretrainedItem {
+    width: 100%;
+}
+
+.pretrainedHierarchyRowButton {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pretrainedHierarchyRowButton > * {
+    min-width: 0;
+}
+
+.labelGroup {
+    background: white;
+    color: black;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 0.5rem;
+    padding-right: 1rem;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+.pretrainedValue {
+    text-align: right;
+    color: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pretrainedExpandIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: inherit;
+    font-size: 1.75rem;
+    flex-shrink: 0;
+}
+
+.pretrainedSamplesRow {
+    margin: 0.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+    gap: 0.4rem;
+}
+
+.pretrainedSampleThumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    background: workspaceBg;
+    display: block;
+}

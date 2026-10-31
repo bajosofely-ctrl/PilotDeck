@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第6课：深度学习与CNN | Lesson 6: Deep Learning & CNNs">
+  <title>第6课：深度学习与CNN | Lesson 6: Deep Learning & CNNs</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a>
+      <a href="lesson6.html" class="active"><span class="zh">6</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">9</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">11</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">12</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">13</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">14</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 6 课</span><span class="en">Lesson 6</span></span>
+      <h1><span class="zh">深度学习与CNN</span><span class="en">Deep Learning &amp; CNNs</span></h1>
+      <p class="subtitle">
+        <span class="zh">更深的网络，更强的能力——卷积神经网络如何看见世界？</span>
+        <span class="en">Deeper networks, stronger abilities — how do CNNs see the world?</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-6-1">
+      <h2><span class="zh">6.1 什么是深度学习？</span><span class="en">6.1 What is Deep Learning?</span></h2>
+      <p>
+        <span class="zh"><strong>深度学习</strong>就是使用很多层隐藏层的神经网络。"深度"指的是网络层数多——可以有几十甚至上百层！层数越多，网络就能学习越复杂的特征和规律。</span>
+        <span class="en"><strong>Deep learning</strong> uses neural networks with many hidden layers. "Deep" refers to the number of layers — there can be dozens or even hundreds! More layers enable the network to learn increasingly complex features and patterns.</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">浅层网络（1-2层）</span><span class="en">Shallow Network (1-2 layers)</span></h4>
+          <ul>
+            <li><span class="zh">只能学简单的规律</span><span class="en">Can only learn simple patterns</span></li>
+            <li><span class="zh">参数少，训练快</span><span class="en">Few parameters, fast training</span></li>
+            <li><span class="zh">适合简单任务</span><span class="en">Good for simple tasks</span></li>
+          </ul>
+        </div>
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">深度网络（多层）</span><span class="en">Deep Network (Many layers)</span></h4>
+          <ul>
+            <li><span class="zh">能学习非常复杂的规律</span><span class="en">Can learn very complex patterns</span></li>
+            <li><span class="zh">参数多，需要大量数据和算力</span><span class="en">Many parameters, needs lots of data & compute</span></li>
+            <li><span class="zh">在图像、语音、文本上表现出色</span><span class="en">Excels at images, speech, and text</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-6-2">
+      <h2><span class="zh">6.2 卷积神经网络（CNN）</span><span class="en">6.2 Convolutional Neural Networks (CNN)</span></h2>
+      <p>
+        <span class="zh">CNN 是专门为处理图像设计的深度学习网络。它模仿人眼看东西的方式——先看局部细节，再组合成整体。</span>
+        <span class="en">CNNs are deep learning networks specifically designed for images. They mimic how human eyes see — first looking at local details, then combining them into a whole picture.</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">卷积层</span><span class="en">Convolution Layer</span></h4>
+          <p><span class="zh">用小"滤波器"在图片上滑动，提取边缘、纹理等特征。就像用放大镜一小块一小块地检查图片。</span><span class="en">Slides small "filters" across the image, extracting edges, textures, etc. Like using a magnifying glass to examine the image piece by piece.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">池化层</span><span class="en">Pooling Layer</span></h4>
+          <p><span class="zh">缩小图片尺寸但保留重要信息。就像画缩略图——保留关键特征，去掉不重要的细节。</span><span class="en">Reduces image size while keeping important info. Like making a thumbnail — keep key features, remove unimportant details.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">全连接层</span><span class="en">Fully Connected Layer</span></h4>
+          <p><span class="zh">把提取的特征综合起来做最终决策。就像把所有线索汇总，给出"这是猫"的最终判断。</span><span class="en">Combines extracted features for final decision. Like gathering all clues to make the final judgment "this is a cat."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-6-3">
+      <h2><span class="zh">6.3 CNN 如何"看"图片</span><span class="en">6.3 How CNNs "See" Images</span></h2>
+      <p>
+        <span class="zh">CNN 分层提取特征，从简单到复杂，就像人眼识别物体的过程：</span>
+        <span class="en">CNNs extract features layer by layer, from simple to complex, like how human eyes recognize objects:</span>
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Layer 1</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">边缘检测</span><span class="en">Edge Detection</span></h3>
+            <p><span class="zh">第一层学会识别简单的边缘和线条——水平线、垂直线、斜线。这是最基础的视觉特征。</span><span class="en">The first layer learns to detect simple edges and lines — horizontal, vertical, diagonal. These are the most basic visual features.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Layer 2-3</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">纹理和形状</span><span class="en">Textures & Shapes</span></h3>
+            <p><span class="zh">中间层把边缘组合成更复杂的特征：眼睛的形状、毛发的纹理、耳朵的轮廓。</span><span class="en">Middle layers combine edges into more complex features: eye shapes, fur textures, ear outlines.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Layer 4+</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">物体识别</span><span class="en">Object Recognition</span></h3>
+            <p><span class="zh">深层把形状组合成完整的物体：圆耳朵 + 胡须 + 尖鼻子 = 猫！做出最终的识别判断。</span><span class="en">Deep layers combine shapes into complete objects: round ears + whiskers + pointed nose = cat! Making the final recognition judgment.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-6-4">
+      <h2><span class="zh">6.4 著名的 CNN 架构</span><span class="en">6.4 Famous CNN Architectures</span></h2>
+      <p>
+        <span class="zh">CNN 的发展历程中出现了很多里程碑式的架构：</span>
+        <span class="en">Many milestone architectures have appeared in CNN's history:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">LeNet（1998）</span><span class="en">LeNet (1998)</span></h4>
+          <p><span class="zh">CNN的"始祖"，由Yann LeCun提出，最早用于手写数字识别。只有5层，但开创了CNN的先河。</span><span class="en">The "ancestor" of CNNs, proposed by Yann LeCun, first used for handwritten digit recognition. Only 5 layers, but pioneered CNN.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">AlexNet（2012）</span><span class="en">AlexNet (2012)</span></h4>
+          <p><span class="zh">ImageNet竞赛冠军，将图像识别错误率从26%降到15%，引爆了深度学习革命。</span><span class="en">ImageNet competition winner, cut image recognition error from 26% to 15%, sparking the deep learning revolution.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">ResNet（2015）</span><span class="en">ResNet (2015)</span></h4>
+          <p><span class="zh">152层的超深网络！引入"跳跃连接"，在ImageNet上首次超越人类水平（错误率3.6%，人类5.1%）。</span><span class="en">A 152-layer super-deep network! Introduced "skip connections," first surpassed human-level on ImageNet (3.6% error vs human 5.1%).</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">EfficientNet（2019）</span><span class="en">EfficientNet (2019)</span></h4>
+          <p><span class="zh">追求效率的CNN。同样准确度下参数更少，证明了"更聪明的设计"比"更大"更重要。</span><span class="en">Efficiency-focused CNN. Fewer parameters for same accuracy, proving "smarter design" matters more than "bigger."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-6-5">
+      <h2><span class="zh">6.5 深度学习的GPU革命</span><span class="en">6.5 The GPU Revolution in Deep Learning</span></h2>
+      <p>
+        <span class="zh">深度学习为什么现在才爆发？一个关键原因是<strong>GPU</strong>（图形处理器）。它本来是为游戏设计的，没想到成了AI训练的神器！</span>
+        <span class="en">Why did deep learning only explode now? A key reason is the <strong>GPU</strong>. Originally designed for gaming, it became an AI training powerhouse!</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">CPU 训练</span><span class="en">CPU Training</span></h4>
+          <p><span class="zh">像一个超级聪明的厨师，一次只能做一道菜，但每道菜做得又快又好。</span><span class="en">Like one super-smart chef who can only cook one dish at a time, but does each perfectly.</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">GPU 训练</span><span class="en">GPU Training</span></h4>
+          <p><span class="zh">像1000个普通厨师同时做菜。虽然每人没那么精，但1000道菜同时出锅！深度学习正好需要大量并行计算。</span><span class="en">Like 1,000 average chefs cooking simultaneously. Each isn't as skilled, but 1,000 dishes come out at once! Deep learning needs massive parallel computation.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>你知道吗？</strong>训练一个大型深度学习模型可能需要几百块GPU运行几周，电费可能超过100万元！</span><span class="en"><strong>Did you know?</strong> Training a large deep learning model might need hundreds of GPUs running for weeks, with electricity costs over $100,000!</span></p>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="section reveal" id="quiz-6">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson6">
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> "深度学习"中的"深度"指的是什么？</span><span class="en"><strong>Q1.</strong> What does "deep" in "deep learning" refer to?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 学习的深度</span><span class="en">A. Depth of understanding</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 数据量的大小</span><span class="en">B. Amount of data</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 神经网络的层数多</span><span class="en">C. Many layers in the neural network</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 训练时间的长度</span><span class="en">D. Length of training time</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">"深度"指神经网络有很多隐藏层（几十到上百层），让网络能学习更复杂的特征和规律。</span><span class="en">"Deep" means the neural network has many hidden layers (dozens to hundreds), enabling more complex feature and pattern learning.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> CNN 中卷积层的作用是什么？</span><span class="en"><strong>Q2.</strong> What does the convolution layer do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 用滤波器提取图像的局部特征</span><span class="en">A. Extract local features with filters</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 缩小图片尺寸</span><span class="en">B. Reduce image size</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 做最终分类决策</span><span class="en">C. Make final classification</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 存储训练数据</span><span class="en">D. Store training data</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">卷积层使用小的滤波器在图像上滑动，提取边缘、纹理等局部特征。</span><span class="en">Convolution layers slide small filters across images to extract local features like edges and textures.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> 哪个CNN在ImageNet上首次超越人类水平？</span><span class="en"><strong>Q3.</strong> Which CNN first surpassed human-level on ImageNet?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AlexNet</span><span class="en">A. AlexNet</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. ResNet</span><span class="en">B. ResNet</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. LeNet</span><span class="en">C. LeNet</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. EfficientNet</span><span class="en">D. EfficientNet</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">ResNet（2015）在ImageNet上实现了3.6%的错误率，首次低于人类的5.1%错误率。</span><span class="en">ResNet (2015) achieved 3.6% error on ImageNet, first beating the human error rate of 5.1%.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> 为什么GPU比CPU更适合深度学习训练？</span><span class="en"><strong>Q4.</strong> Why are GPUs better than CPUs for deep learning?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. GPU更便宜</span><span class="en">A. GPUs are cheaper</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. GPU单核速度更快</span><span class="en">B. GPU single-core is faster</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. GPU更容易编程</span><span class="en">C. GPUs are easier to program</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. GPU擅长大量并行计算</span><span class="en">D. GPUs excel at massive parallel computation</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">GPU有数千个小核心，可以同时执行大量简单计算，非常适合深度学习中的矩阵运算。</span><span class="en">GPUs have thousands of small cores for many simultaneous calculations, ideal for matrix operations in deep learning.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> CNN的第一层通常学习到什么类型的特征？</span><span class="en"><strong>Q5.</strong> What features does the first CNN layer typically learn?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 边缘和线条</span><span class="en">A. Edges and lines</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 完整的物体</span><span class="en">B. Complete objects</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 颜色分类</span><span class="en">C. Color classification</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 文字识别</span><span class="en">D. Text recognition</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">CNN第一层学习最基础的特征：边缘和线条。更深的层逐步学习纹理、形状，最后识别完整物体。</span><span class="en">CNN's first layer learns basic features: edges and lines. Deeper layers progressively learn textures, shapes, and finally complete objects.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson5.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson7.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

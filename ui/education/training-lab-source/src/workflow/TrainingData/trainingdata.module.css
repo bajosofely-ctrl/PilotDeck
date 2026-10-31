@@ -1,0 +1,37 @@
+.trainingcontainer {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    background: #d7dce0;
+    padding: 1rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.containerDisabled {
+    composes: trainingcontainer;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.trainingcontainer h1 {
+    color: #444;
+    margin: 0;
+}
+
+.containerDisabled h1 {
+    color: #444;
+    margin: 0;
+}
+
+@media only screen and (max-width: 700px), (max-height: 500px) {
+    .trainingcontainer {
+        max-width: 390px;
+        width: 100%;
+    }
+    .trainingcontainer > h1 {
+        margin-left: 1rem;
+    }
+}

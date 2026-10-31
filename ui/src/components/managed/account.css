@@ -1,0 +1,37 @@
+.managed-account { box-sizing: border-box; padding: 24px; width: 100%; min-width: 0; height: 100%; overflow: auto; color: var(--pd-ink, #222); background: var(--pd-surface, #fff); font-size: 14px; letter-spacing: 0; }
+.dark .managed-account { color: #e5e5e5; background: #171717; }
+.settings-content .managed-account { height: auto; padding: 0; overflow: visible; background: transparent; }
+.managed-account header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.managed-account header > div { flex: 1; min-width: 120px; overflow-wrap: anywhere; }
+.managed-account h1 { font-size: 22px; font-weight: 600; }
+.managed-account h2 { font-size: 16px; margin-bottom: 14px; font-weight: 600; }
+.managed-account small, .managed-account p { color: #737373; font-size: 13px; overflow-wrap: anywhere; }
+.dark .managed-account small, .dark .managed-account p, .dark .account-balances span { color: #a3a3a3; }
+.managed-account button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid #aaa5; padding: 8px 12px; border-radius: 5px; min-height: 36px; }
+.managed-account button:disabled { opacity: .5; cursor: not-allowed; }
+.managed-account button:not(:disabled):hover { background: #8881; }
+.managed-account button:focus-visible, .managed-account input:focus-visible { outline: 2px solid #16806b; outline-offset: 3px; }
+.account-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.managed-account svg { flex-shrink: 0; }
+.managed-account section { margin-top: 24px; padding-top: 20px; border-top: 1px solid #aaa4; }
+.managed-account .account-balances { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.account-balances span { display: flex; gap: 6px; font-size: 13px; color: #777; }
+.account-balances strong { display: block; margin-top: 8px; font-size: 21px; overflow-wrap: anywhere; }
+.managed-account input { border: 1px solid #aaa7; border-radius: 4px; padding: 8px; background: transparent; min-width: 0; }
+.account-inline { display: flex; align-items: center; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.account-inline input { flex: 1; }
+.account-table { overflow-x: auto; }
+.account-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.account-table td, .account-table th { padding: 10px 12px; border-bottom: 1px solid #aaa3; overflow-wrap: anywhere; min-width: 85px; }
+.account-table td { font-variant-numeric: tabular-nums; }
+.account-devices li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #aaa3; }
+.account-devices li > div { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.account-password { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+.account-password label { display: grid; gap: 6px; max-width: 100%; }
+.managed-account .account-error { color: #c33; margin: 14px 0; }
+.managed-account .account-notice { color: #13795b; margin: 14px 0; }
+.managed-account .account-warning { color: #9a6700; margin: 14px 0; }
+.dark .managed-account .account-error { color: #fca5a5; }
+.dark .managed-account .account-notice { color: #6ee7b7; }
+.dark .managed-account .account-warning { color: #fde68a; }
+@media (max-width: 650px) { .managed-account { padding: 16px; } .managed-account .account-balances { grid-template-columns: repeat(2,minmax(0,1fr)); } }

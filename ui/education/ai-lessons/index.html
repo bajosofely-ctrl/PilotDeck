@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI 探索之旅 — 写给 00 后的人工智能入门课，三大版本任你选择 | AI Explorer — Choose Your AI Learning Path">
+  <title>AI 探索之旅 | AI Explorer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Portal-specific styles */
+    .editions {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: var(--sp-section) var(--sp-xl);
+    }
+    .editions-heading {
+      text-align: center;
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--sp-2xl);
+      color: var(--c-text);
+    }
+    .editions-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--sp-xl);
+    }
+    .edition-card {
+      background: var(--c-card);
+      border: 2px solid var(--c-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-2xl) var(--sp-xl);
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .edition-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--c-primary);
+    }
+    .edition-badge {
+      display: inline-block;
+      padding: var(--sp-xs) var(--sp-md);
+      border-radius: 999px;
+      font-size: var(--fs-small);
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--sp-lg);
+    }
+    .badge-standard { background: #ede9fe; color: #6366f1; }
+    .badge-deep { background: #dbeafe; color: #2563eb; }
+    .badge-lab { background: #d1fae5; color: #059669; }
+    .badge-app { background: #fef3c7; color: #d97706; }
+    .badge-web { background: #fce7f3; color: #db2777; }
+    [data-theme="dark"] .badge-standard { background: #3b2f7e; color: #a5b4fc; }
+    [data-theme="dark"] .badge-deep { background: #1e3a5f; color: #93c5fd; }
+    [data-theme="dark"] .badge-lab { background: #134e4a; color: #6ee7b7; }
+    [data-theme="dark"] .badge-app { background: #78350f; color: #fde68a; }
+    [data-theme="dark"] .badge-web { background: #831843; color: #fbcfe8; }
+    .edition-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: var(--sp-lg);
+      color: var(--c-primary);
+    }
+    .edition-title {
+      font-size: var(--fs-h3);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--sp-sm);
+      color: var(--c-text);
+    }
+    .edition-subtitle {
+      font-size: var(--fs-body);
+      color: var(--c-text-secondary);
+      margin-bottom: var(--sp-lg);
+      line-height: 1.6;
+    }
+    .edition-meta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--sp-xl) 0;
+      text-align: left;
+      width: 100%;
+    }
+    .edition-meta li {
+      padding: var(--sp-xs) 0;
+      font-size: var(--fs-small);
+      color: var(--c-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+    }
+    .edition-meta li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-primary);
+      flex-shrink: 0;
+    }
+    .edition-cta {
+      display: inline-block;
+      padding: var(--sp-sm) var(--sp-xl);
+      background: var(--c-primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-weight: var(--fw-medium);
+      transition: background 0.2s, transform 0.2s;
+      margin-top: auto;
+    }
+    .edition-cta:hover {
+      background: var(--c-primary-dark);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 1300px) {
+      .editions-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: 900px) {
+      .editions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 620px;
+      }
+    }
+    @media (max-width: 600px) {
+      .editions-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="standard-5/index.html"><span class="zh">精简版</span><span class="en">Standard 5</span></a>
+      <a href="standard-15/index.html"><span class="zh">完整版</span><span class="en">Standard 15</span></a>
+      <a href="lab-10/index.html"><span class="zh">实验版</span><span class="en">Lab 10</span></a>
+      <a href="app-inventor-10/index.html"><span class="zh">App创造营</span><span class="en">App Studio</span></a>
+      <a href="web-ai-12/index.html"><span class="zh">网站工坊</span><span class="en">Web Studio</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="zh">AI 探索之旅</span>
+        <span class="en">AI Explorer</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="zh">写给 00 后的人工智能入门课 — 选择适合你的学习路径</span>
+        <span class="en">An AI Intro Course for Gen Z — Choose Your Learning Path</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Editions Section ============ -->
+  <section class="editions">
+    <h2 class="editions-heading">
+      <span class="zh">选择你的版本</span>
+      <span class="en">Choose Your Edition</span>
+    </h2>
+
+    <div class="editions-grid">
+
+      <!-- Standard 5 -->
+      <div class="edition-card">
+        <span class="edition-badge badge-standard">
+          <span class="zh">精简版</span>
+          <span class="en">Standard</span>
+        </span>
+        <svg class="edition-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+          <line x1="8" y1="7" x2="16" y2="7"/>
+          <line x1="8" y1="11" x2="13" y2="11"/>
+        </svg>
+        <h3 class="edition-title">
+          <span class="zh">5 课时精简版</span>
+          <span class="en">5-Lesson Standard</span>
+        </h3>
+        <p class="edition-subtitle">
+          <span class="zh">快速入门AI核心概念，适合课堂教学或自学体验</span>
+          <span class="en">Quick intro to core AI concepts, great for classroom or self-study</span>
+        </p>
+        <ul class="edition-meta">
+          <li><span class="zh">5 节课，每节约 45 分钟</span><span class="en">5 lessons, ~45 min each</span></li>
+          <li><span class="zh">零基础友好</span><span class="en">Beginner-friendly</span></li>
+          <li><span class="zh">互动测验 + 时间线</span><span class="en">Interactive quizzes + timelines</span></li>
+          <li><span class="zh">涵盖 AI 基础到伦理</span><span class="en">From AI basics to ethics</span></li>
+        </ul>
+        <a href="standard-5/index.html" class="edition-cta">
+          <span class="zh">进入课程</span>
+          <span class="en">Enter Course</span>
+        </a>
+      </div>
+
+      <!-- Standard 15 -->
+      <div class="edition-card">
+        <span class="edition-badge badge-deep">
+          <span class="zh">完整版</span>
+          <span class="en">Comprehensive</span>
+        </span>
+        <svg class="edition-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+        </svg>
+        <h3 class="edition-title">
+          <span class="zh">15 课时完整版</span>
+          <span class="en">15-Lesson Complete</span>
+        </h3>
+        <p class="edition-subtitle">
+          <span class="zh">深入全面地探索AI世界，适合系统学习</span>
+          <span class="en">Deep dive into AI, ideal for comprehensive study</span>
+        </p>
+        <ul class="edition-meta">
+          <li><span class="zh">15 节课，覆盖所有AI主题</span><span class="en">15 lessons covering all AI topics</span></li>
+          <li><span class="zh">从基础到前沿技术</span><span class="en">From basics to cutting-edge</span></li>
+          <li><span class="zh">NLP、CV、强化学习等专题</span><span class="en">NLP, CV, RL and more</span></li>
+          <li><span class="zh">AI伦理与安全深度探讨</span><span class="en">Deep ethics & safety coverage</span></li>
+        </ul>
+        <a href="standard-15/index.html" class="edition-cta">
+          <span class="zh">进入课程</span>
+          <span class="en">Enter Course</span>
+        </a>
+      </div>
+
+      <!-- Lab 10 -->
+      <div class="edition-card">
+        <span class="edition-badge badge-lab">
+          <span class="zh">实验版</span>
+          <span class="en">Lab Edition</span>
+        </span>
+        <svg class="edition-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+        </svg>
+        <h3 class="edition-title">
+          <span class="zh">10 实验动手版</span>
+          <span class="en">10-Lab Hands-On</span>
+        </h3>
+        <p class="edition-subtitle">
+          <span class="zh">边做边学，通过项目实践掌握AI技能</span>
+          <span class="en">Learn by building — master AI through hands-on projects</span>
+        </p>
+        <ul class="edition-meta">
+          <li><span class="zh">10 个实验项目</span><span class="en">10 lab projects</span></li>
+          <li><span class="zh">图像识别、聊天机器人、AI绘画</span><span class="en">Image recognition, chatbots, AI art</span></li>
+          <li><span class="zh">使用在线工具，无需安装</span><span class="en">Online tools, no installation needed</span></li>
+          <li><span class="zh">每个实验产出可展示的作品</span><span class="en">Build a portfolio project in each lab</span></li>
+        </ul>
+        <a href="lab-10/index.html" class="edition-cta">
+          <span class="zh">进入实验室</span>
+          <span class="en">Enter Lab</span>
+        </a>
+      </div>
+
+      <!-- App Inventor 10 -->
+      <div class="edition-card">
+        <span class="edition-badge badge-app">
+          <span class="zh">创造营</span>
+          <span class="en">App Studio</span>
+        </span>
+        <svg class="edition-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="12" y1="18" x2="12.01" y2="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 8h6M9 12h4"/>
+        </svg>
+        <h3 class="edition-title">
+          <span class="zh">10 课 AI App 创造营</span>
+          <span class="en">10-Lesson AI App Studio</span>
+        </h3>
+        <p class="edition-subtitle">
+          <span class="zh">用 MIT App Inventor + AI API 做出真正能用的手机 App</span>
+          <span class="en">Build real AI-powered mobile apps with MIT App Inventor + AI APIs</span>
+        </p>
+        <ul class="edition-meta">
+          <li><span class="zh">10 节课，每节约 1.5 小时</span><span class="en">10 lessons, ~1.5 hrs each</span></li>
+          <li><span class="zh">适合 10-14 岁，零基础</span><span class="en">Ages 10-14, no experience needed</span></li>
+          <li><span class="zh">ChatGPT / Gemini API 实战</span><span class="en">Hands-on with ChatGPT / Gemini APIs</span></li>
+          <li><span class="zh">作品可参加 MIT Hackathon / DSA 面试</span><span class="en">Competition & DSA portfolio ready</span></li>
+        </ul>
+        <a href="app-inventor-10/index.html" class="edition-cta">
+          <span class="zh">开始创造</span>
+          <span class="en">Start Building</span>
+        </a>
+      </div>
+
+      <!-- Web AI 12 -->
+      <div class="edition-card">
+        <span class="edition-badge badge-web">
+          <span class="zh">网站工坊</span>
+          <span class="en">Web Studio</span>
+        </span>
+        <svg class="edition-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <polyline points="16 18 22 12 16 6" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="8 6 2 12 8 18" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="14.5" y1="4" x2="9.5" y2="20" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="edition-title">
+          <span class="zh">12 课 AI 网站工坊</span>
+          <span class="en">12-Lesson AI Web Studio</span>
+        </h3>
+        <p class="edition-subtitle">
+          <span class="zh">用 HTML/CSS/JS + AI API 做出有 AI 功能的真网站，上线可访问</span>
+          <span class="en">Build a real AI-powered website with HTML/CSS/JS + AI APIs — live on the web</span>
+        </p>
+        <ul class="edition-meta">
+          <li><span class="zh">12 节课，每节约 1.5 小时</span><span class="en">12 lessons, ~1.5 hrs each</span></li>
+          <li><span class="zh">适合 12-16 岁，零基础</span><span class="en">Ages 12-16, no experience needed</span></li>
+          <li><span class="zh">AI 聊天助手 + AI 图像生成</span><span class="en">AI chatbot + AI image generation</span></li>
+          <li><span class="zh">GitHub Pages 部署，真正上线</span><span class="en">Deploy on GitHub Pages — truly live</span></li>
+        </ul>
+        <a href="web-ai-12/index.html" class="edition-cta">
+          <span class="zh">开始建站</span>
+          <span class="en">Start Building</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Features Section ============ -->
+  <section class="features">
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">零基础</span>
+          <span class="en">No Prerequisites</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">无需编程经验，从零开始学习</span>
+          <span class="en">No coding experience needed, start from scratch</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 15l-2 5L9 9l11 4-5 2z"></path>
+            <path d="M18.5 18.5L22 22"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">互动式</span>
+          <span class="en">Interactive</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">动手实践，边学边练</span>
+          <span class="en">Hands-on practice, learn by doing</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">中英双语</span>
+          <span class="en">Bilingual</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">一键切换中文/英文界面</span>
+          <span class="en">Switch between Chinese and English</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">专为青少年</span>
+          <span class="en">For Teens</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">13-15岁年龄段量身打造</span>
+          <span class="en">Designed for ages 13-15</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text"><a href="https://github.com/JaniceWei99/AI-Lessons" target="_blank" rel="noopener noreferrer">AI-Lessons</a> · <a href="./LICENSE" target="_blank">MIT</a> · 本地教育模块</p>
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

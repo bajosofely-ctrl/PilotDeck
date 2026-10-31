@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第7课：API 调用基础 — 理解 API 原理，用 fetch() 调用公开 API 获取数据 | Lesson 7: API Basics — Understand APIs, use fetch() to call public APIs">
+  <title>第7课：API 调用基础 | Lesson 7: API Basics</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html" class="active"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 7 课</span>
+        <span class="en">Lesson 7</span>
+      </span>
+      <h1>
+        <span class="zh">API 调用基础 — fetch() 的魔力</span>
+        <span class="en">API Basics — The Magic of fetch()</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">理解 API 原理，用 fetch() 调用公开 API 获取真实数据</span>
+        <span class="en">Understand how APIs work and use fetch() to get real data from public APIs</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- 7.1 课程目标 -->
+    <section class="section reveal" id="section-7-1">
+      <h2><span class="zh">7.1 课程目标</span><span class="en">7.1 Learning Objectives</span></h2>
+      <div class="card">
+        <ul>
+          <li><span class="zh">理解什么是 API 以及它在 Web 开发中的作用</span><span class="en">Understand what an API is and its role in web development</span></li>
+          <li><span class="zh">掌握 JSON 数据格式的读取和转换</span><span class="en">Master reading and converting JSON data format</span></li>
+          <li><span class="zh">学会使用 <code>fetch()</code> 发送 HTTP 请求</span><span class="en">Learn to send HTTP requests using <code>fetch()</code></span></li>
+          <li><span class="zh">掌握 <code>async/await</code> 异步编程模式</span><span class="en">Master the <code>async/await</code> asynchronous programming pattern</span></li>
+          <li><span class="zh">动手调用公开 API 并将数据展示在网页上</span><span class="en">Hands-on: call a public API and display data on a web page</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7.2 什么是 API？ -->
+    <section class="section reveal" id="section-7-2">
+      <h2><span class="zh">7.2 什么是 API？</span><span class="en">7.2 What Is an API?</span></h2>
+
+      <p>
+        <span class="zh"><strong>API</strong>（Application Programming Interface，应用程序编程接口）是程序和程序之间"对话"的桥梁。你的网页通过 API 向服务器请求数据，就像在餐厅点菜一样。</span>
+        <span class="en"><strong>API</strong> (Application Programming Interface) is a bridge that lets programs talk to each other. Your web page requests data from a server through an API, just like ordering food at a restaurant.</span>
+      </p>
+
+      <div class="card">
+        <h3><span class="zh">🍽️ 餐厅类比</span><span class="en">🍽️ Restaurant Analogy</span></h3>
+        <ul>
+          <li><span class="zh"><strong>你</strong>（客户端 / 浏览器）— 坐在餐桌前，想要吃东西</span><span class="en"><strong>You</strong> (client / browser) — sitting at the table, wanting food</span></li>
+          <li><span class="zh"><strong>服务员</strong>（API）— 接收你的点单，把它传给厨房</span><span class="en"><strong>Waiter</strong> (API) — takes your order and delivers it to the kitchen</span></li>
+          <li><span class="zh"><strong>厨房</strong>（服务器）— 准备食物（数据），通过服务员端给你</span><span class="en"><strong>Kitchen</strong> (server) — prepares the food (data) and sends it back via the waiter</span></li>
+        </ul>
+      </div>
+
+      <p>
+        <span class="zh">在 Web 开发中，我们最常用的是 <strong>REST API</strong>。它使用 HTTP 方法（GET、POST、PUT、DELETE）来操作数据，返回的格式通常是 <strong>JSON</strong>。</span>
+        <span class="en">In web development, we most commonly use <strong>REST APIs</strong>. They use HTTP methods (GET, POST, PUT, DELETE) to manipulate data, and typically return data in <strong>JSON</strong> format.</span>
+      </p>
+
+      <div class="card">
+        <h3><span class="zh">常用的公开 API 示例</span><span class="en">Popular Public API Examples</span></h3>
+        <ul>
+          <li><span class="zh"><strong>天气 API</strong> — 获取任意城市的天气信息</span><span class="en"><strong>Weather API</strong> — get weather info for any city</span></li>
+          <li><span class="zh"><strong>笑话 API</strong> — 随机获取一个笑话</span><span class="en"><strong>Joke API</strong> — get a random joke</span></li>
+          <li><span class="zh"><strong>狗狗图片 API</strong> — 随机获取可爱狗狗图片</span><span class="en"><strong>Dog Image API</strong> — get random cute dog images</span></li>
+          <li><span class="zh"><strong>Pokemon API</strong> — 获取宝可梦的详细数据</span><span class="en"><strong>Pokemon API</strong> — get detailed Pokémon data</span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <span class="zh">💡 <strong>小知识：</strong>你每天都在使用 API！当你在手机上查看天气、刷社交媒体、或者用地图导航时，应用都在后台调用各种 API 来获取数据。</span>
+        <span class="en">💡 <strong>Fun fact:</strong> You use APIs every day! When you check the weather, scroll social media, or navigate with maps on your phone, apps are calling various APIs behind the scenes.</span>
+      </div>
+    </section>
+
+    <!-- 7.3 JSON 数据格式 -->
+    <section class="section reveal" id="section-7-3">
+      <h2><span class="zh">7.3 JSON 数据格式</span><span class="en">7.3 JSON Data Format</span></h2>
+
+      <p>
+        <span class="zh"><strong>JSON</strong>（JavaScript Object Notation）是 API 传输数据的标准格式。它长得很像 JavaScript 对象，由键值对（key-value pairs）组成，人类和机器都能轻松读懂。</span>
+        <span class="en"><strong>JSON</strong> (JavaScript Object Notation) is the standard format for API data transfer. It looks a lot like JavaScript objects, made up of key-value pairs that are easy for both humans and machines to read.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JSON</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>{
+  "name": "Alice",
+  "age": 14,
+  "hobbies": ["coding", "drawing", "gaming"],
+  "school": {
+    "name": "Sunshine Academy",
+    "grade": 8
+  },
+  "isStudent": true
+}</code></pre>
+      </div>
+
+      <div class="card">
+        <h3><span class="zh">JSON 核心规则</span><span class="en">Core JSON Rules</span></h3>
+        <ul>
+          <li><span class="zh"><strong>对象</strong>用花括号 <code>{}</code> 包裹，包含键值对</span><span class="en"><strong>Objects</strong> are wrapped in curly braces <code>{}</code> and contain key-value pairs</span></li>
+          <li><span class="zh"><strong>数组</strong>用方括号 <code>[]</code> 包裹，包含有序的值</span><span class="en"><strong>Arrays</strong> are wrapped in square brackets <code>[]</code> and contain ordered values</span></li>
+          <li><span class="zh"><strong>键名</strong>必须用双引号 <code>""</code> 包裹</span><span class="en"><strong>Keys</strong> must be wrapped in double quotes <code>""</code></span></li>
+          <li><span class="zh">值可以是：字符串、数字、布尔值、null、对象、数组</span><span class="en">Values can be: strings, numbers, booleans, null, objects, arrays</span></li>
+        </ul>
+      </div>
+
+      <p>
+        <span class="zh">JavaScript 提供两个关键方法来处理 JSON：</span>
+        <span class="en">JavaScript provides two key methods for working with JSON:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// JSON 字符串 → JavaScript 对象
+const jsonString = '{"name": "Alice", "age": 14}';
+const obj = JSON.parse(jsonString);
+console.log(obj.name); // "Alice"
+
+// JavaScript 对象 → JSON 字符串
+const person = { name: "Bob", age: 15 };
+const str = JSON.stringify(person);
+console.log(str); // '{"name":"Bob","age":15}'</code></pre>
+      </div>
+    </section>
+
+    <!-- 7.4 fetch() 入门 -->
+    <section class="section reveal" id="section-7-4">
+      <h2><span class="zh">7.4 fetch() 入门</span><span class="en">7.4 Getting Started with fetch()</span></h2>
+
+      <p>
+        <span class="zh"><code>fetch()</code> 是浏览器内置的函数，用来发送网络请求。它返回一个 <strong>Promise</strong>（承诺），表示"我会在未来某个时刻给你结果"。</span>
+        <span class="en"><code>fetch()</code> is a built-in browser function for making network requests. It returns a <strong>Promise</strong>, meaning "I'll give you the result at some point in the future."</span>
+      </p>
+
+      <h3><span class="zh">方式一：.then() 链式调用</span><span class="en">Method 1: .then() chaining</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>fetch('https://dog.ceo/api/breeds/image/random')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    console.log(data);
+    // { message: "https://images.dog.ceo/...", status: "success" }
+  })
+  .catch(error =&gt; {
+    console.error('出错了:', error);
+  });</code></pre>
+      </div>
+
+      <h3><span class="zh">方式二：async/await（推荐）</span><span class="en">Method 2: async/await (Recommended)</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>async function getDogImage() {
+  try {
+    const response = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await response.json();
+    console.log(data.message); // 图片 URL
+  } catch (error) {
+    console.error('出错了:', error);
+  }
+}
+
+getDogImage();</code></pre>
+      </div>
+
+      <div class="callout">
+        <span class="zh">💡 <strong>async/await</strong> 让异步代码看起来像同步代码一样直观。<code>await</code> 会"暂停"并等待 Promise 完成，然后继续执行。但注意：<code>await</code> 只能在 <code>async</code> 函数内使用！</span>
+        <span class="en">💡 <strong>async/await</strong> makes asynchronous code look as intuitive as synchronous code. <code>await</code> "pauses" and waits for the Promise to resolve, then continues. Note: <code>await</code> can only be used inside an <code>async</code> function!</span>
+      </div>
+
+      <h3><span class="zh">HTTP 状态码</span><span class="en">HTTP Status Codes</span></h3>
+
+      <div class="card">
+        <ul>
+          <li><span class="zh"><strong>200</strong> — OK，请求成功</span><span class="en"><strong>200</strong> — OK, request succeeded</span></li>
+          <li><span class="zh"><strong>404</strong> — Not Found，找不到资源</span><span class="en"><strong>404</strong> — Not Found, resource doesn't exist</span></li>
+          <li><span class="zh"><strong>500</strong> — Internal Server Error，服务器内部错误</span><span class="en"><strong>500</strong> — Internal Server Error, server-side problem</span></li>
+          <li><span class="zh"><strong>401</strong> — Unauthorized，需要认证（比如缺少 API Key）</span><span class="en"><strong>401</strong> — Unauthorized, authentication needed (e.g., missing API key)</span></li>
+          <li><span class="zh"><strong>429</strong> — Too Many Requests，请求太频繁</span><span class="en"><strong>429</strong> — Too Many Requests, rate limit exceeded</span></li>
+        </ul>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>async function fetchWithCheck(url) {
+  try {
+    const response = await fetch(url);
+
+    // 检查状态码
+    if (!response.ok) {
+      throw new Error(`HTTP 错误！状态码: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('请求失败:', error.message);
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- 7.5 动手实践 -->
+    <section class="section reveal" id="section-7-5">
+      <h2><span class="zh">7.5 动手实践：随机狗狗图片生成器</span><span class="en">7.5 Hands-On: Random Dog Image Generator</span></h2>
+
+      <p>
+        <span class="zh">让我们来做一个完整的小项目：点击按钮，调用 Dog CEO API，在页面上显示一张随机的狗狗图片！</span>
+        <span class="en">Let's build a complete mini project: click a button, call the Dog CEO API, and display a random dog image on the page!</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Random Dog&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #f0f4f8;
+    }
+    h1 { color: #333; }
+    #dog-img {
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin: 1rem auto;
+      display: block;
+    }
+    button {
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background: #4338ca; }
+    .loading { color: #888; font-style: italic; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;🐶 Random Dog&lt;/h1&gt;
+  &lt;button id="fetch-btn"&gt;Get a Dog!&lt;/button&gt;
+  &lt;p id="status"&gt;&lt;/p&gt;
+  &lt;img id="dog-img" alt="A random dog" /&gt;
+
+  &lt;script&gt;
+    const btn = document.getElementById('fetch-btn');
+    const img = document.getElementById('dog-img');
+    const status = document.getElementById('status');
+
+    async function fetchDog() {
+      status.textContent = 'Loading...';
+      status.className = 'loading';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(
+          'https://dog.ceo/api/breeds/image/random'
+        );
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        img.src = data.message;
+        status.textContent = '';
+      } catch (error) {
+        status.textContent = 'Error: ' + error.message;
+        status.className = '';
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    btn.addEventListener('click', fetchDog);
+    fetchDog(); // Load one on page load
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout">
+        <span class="zh">🔍 <strong>代码解析：</strong>我们使用了 <code>try/catch/finally</code> 来处理可能的错误。<code>finally</code> 块中的代码无论成功还是失败都会执行——非常适合用来恢复按钮状态。<code>btn.disabled = true</code> 防止用户在加载时重复点击。</span>
+        <span class="en">🔍 <strong>Code breakdown:</strong> We use <code>try/catch/finally</code> to handle possible errors. Code in the <code>finally</code> block runs whether the request succeeds or fails — perfect for resetting button state. <code>btn.disabled = true</code> prevents users from clicking repeatedly while loading.</span>
+      </div>
+    </section>
+
+    <!-- 7.6 挑战任务 -->
+    <section class="section reveal" id="section-7-6">
+      <h2><span class="zh">7.6 挑战任务</span><span class="en">7.6 Challenges</span></h2>
+
+      <div class="card">
+        <h3><span class="zh">挑战 A：天气查询器</span><span class="en">Challenge A: Weather Lookup</span></h3>
+        <p>
+          <span class="zh">使用 <a href="https://wttr.in" target="_blank">wttr.in</a> API 搭建一个简单的天气查询页面。用户输入城市名称，点击按钮后显示当前温度和天气情况。</span>
+          <span class="en">Use the <a href="https://wttr.in" target="_blank">wttr.in</a> API to build a simple weather lookup page. Users type a city name, click a button, and see the current temperature and conditions.</span>
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+          </div>
+          <pre class="code-pre"><code>// 提示：API URL 格式
+// https://wttr.in/Beijing?format=j1
+
+async function getWeather(city) {
+  const url = `https://wttr.in/${city}?format=j1`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  // data.current_condition[0] 包含当前天气
+  const current = data.current_condition[0];
+  console.log('温度:', current.temp_C, '°C');
+  console.log('天气:', current.weatherDesc[0].value);
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3><span class="zh">挑战 B：随机名言生成器</span><span class="en">Challenge B: Random Quote Generator</span></h3>
+        <p>
+          <span class="zh">使用公开的名言 API 搭建一个随机名言页面。每次点击按钮显示一条新的名言，并展示作者姓名。</span>
+          <span class="en">Build a random quote page using a public quotes API. Each button click shows a new quote with the author's name.</span>
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript</span>
+            <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+          </div>
+          <pre class="code-pre"><code>// 提示：使用 DummyJSON Quotes API
+// https://dummyjson.com/quotes/random
+
+async function getQuote() {
+  const res = await fetch('https://dummyjson.com/quotes/random');
+  const data = await res.json();
+
+  document.getElementById('quote').textContent =
+    `"${data.quote}"`;
+  document.getElementById('author').textContent =
+    `— ${data.author}`;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-7">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web7">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh">1. API 的全称是什么？</span>
+            <span class="en">1. What does API stand for?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. Advanced Program Integration</span><span class="en">A. Advanced Program Integration</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. Application Programming Interface</span><span class="en">B. Application Programming Interface</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. Automatic Page Interaction</span><span class="en">C. Automatic Page Interaction</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. Applied Protocol Interface</span><span class="en">D. Applied Protocol Interface</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">API 全称 Application Programming Interface（应用程序编程接口），是不同软件之间通信的标准方式。</span>
+            <span class="en">API stands for Application Programming Interface — a standard way for different software to communicate.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh">2. 以下哪个是合法的 JSON？</span>
+            <span class="en">2. Which of the following is valid JSON?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. {name: "Alice"}</span><span class="en">A. {name: "Alice"}</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. {'name': 'Alice'}</span><span class="en">B. {'name': 'Alice'}</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. {"name": "Alice"}</span><span class="en">C. {"name": "Alice"}</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. ["name" = "Alice"]</span><span class="en">D. ["name" = "Alice"]</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">JSON 中的键名必须使用双引号包裹。选项 C 是唯一符合规范的 JSON 格式。</span>
+            <span class="en">JSON keys must be wrapped in double quotes. Option C is the only valid JSON format.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh">3. <code>fetch()</code> 返回的是什么？</span>
+            <span class="en">3. What does <code>fetch()</code> return?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 一个 Promise</span><span class="en">A. A Promise</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 一个 JSON 对象</span><span class="en">B. A JSON object</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 一个字符串</span><span class="en">C. A string</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 一个 HTML 元素</span><span class="en">D. An HTML element</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh"><code>fetch()</code> 返回一个 Promise 对象。我们需要用 <code>.then()</code> 或 <code>await</code> 来获取实际的响应数据。</span>
+            <span class="en"><code>fetch()</code> returns a Promise object. We need <code>.then()</code> or <code>await</code> to get the actual response data.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh">4. <code>await</code> 关键字只能在哪里使用？</span>
+            <span class="en">4. Where can the <code>await</code> keyword only be used?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 在任何函数中</span><span class="en">A. Inside any function</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 在 for 循环中</span><span class="en">B. Inside a for loop</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 在全局作用域中</span><span class="en">C. In global scope only</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 在 async 函数中</span><span class="en">D. Inside an async function</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh"><code>await</code> 只能在标记为 <code>async</code> 的函数内部使用。如果在普通函数中使用，会报语法错误。</span>
+            <span class="en"><code>await</code> can only be used inside functions marked with <code>async</code>. Using it in a regular function will cause a syntax error.</span>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh">5. HTTP 状态码 404 表示什么？</span>
+            <span class="en">5. What does HTTP status code 404 mean?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 请求成功</span><span class="en">A. Request succeeded</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 资源未找到</span><span class="en">B. Resource not found</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 服务器内部错误</span><span class="en">C. Internal server error</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 请求被拒绝</span><span class="en">D. Request denied</span></button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <span class="zh">404 表示"Not Found"（未找到）。当请求的 URL 不存在时，服务器会返回 404 状态码。</span>
+            <span class="en">404 means "Not Found." The server returns a 404 status code when the requested URL doesn't exist.</span>
+          </div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson6.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous</span></a>
+      <a href="lesson8.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

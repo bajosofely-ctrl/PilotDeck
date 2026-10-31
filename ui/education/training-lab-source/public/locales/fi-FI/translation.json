@@ -1,0 +1,91 @@
+{
+    "deploy": {
+        "actions": {
+            "copy": "Kopioi",
+            "close": "Sulje"
+        },
+        "labels": {
+            "notFound": "Luokittelijaa ei löytynyt.",
+            "dropHere": "Pudota kuva tänne",
+            "errorInfo": "Tämä sivu on olemassa vain silloin kun tekemäsi luokittelija on avoinna selaimen ikkunassa tai välilehdellä.  Joissakin tapauksissa turva-asetukset verkossa tai omalla laitteella estävät appisi jakamisen.",
+            "share": "Jaa muille laitteille",
+            "qrExpand": "Laajenna QR-koodi napsauttamalla sitä.",
+            "noWebcam": "Luokittimen jakamiseen tarvitaan kameran käyttöoikeus.",
+            "switch": " Ota webkamera käytöön"
+        }
+    },
+    "testInput": {
+        "title": "Syöte"
+    },
+    "collect": {
+        "samplePrompt": "Ota kuvia tai lataa kuvia tästä.",
+        "actions": {
+            "upload": "Lataa"
+        },
+        "sampleCount": "{{count}} kuvaa",
+        "connecting": "Yhdistää...",
+        "disconnected": "Yhteys katkaistu",
+        "failed": "Epäonnistui",
+        "failedMessage": "Tähän luokittelijaan ei saa yhteyttä laitteeltasi",
+        "dropError": "Tähän voi pudottaa vain kuvia",
+        "relayWarning": "Tieto laitteiden välillä kulkee tällä hetkellä palvelimemme kautta.  Voit kokeilla vaihtaa Wifi-yhteyttä toiseen jotta laitteet voisivat keskustella suoraan ilman välikäsiä."
+    },
+    "about": {
+        "back": "Takaisin",
+        "title": "Generation AI",
+        "privacyTitle": "Tietoturvaselvitys"
+    },
+    "settings": {
+        "title": "Asetukset",
+        "actions": {
+            "save": "Tallenna",
+            "reset": "Tyhjennä",
+            "cancel": "Peruuta"
+        },
+        "labels": {
+            "language": "Kieli",
+            "model": "Luokittimen tyyppi",
+            "variant": "Käyttöliittymävaihtoehto",
+            "advanced": "Lisäasetukset"
+        },
+        "values": {
+            "models": ["Kuva (MobileNet)", "Asento (PoseNet)", "Käsi (MediaPipe)", "Puhe (SpeechCommands)"],
+            "variants": ["Kaikkeen käyttöön", "Luokkahuoneeseen"]
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "muokkaa otsikkoa",
+            "editTitleInput": "{{value}} muokkaa laatikkoa"
+        },
+        "labels": {
+            "titlePlaceholder": "Nimi"
+        }
+    },
+    "feedback": {
+        "button": "Anna palautetta",
+        "title": "Anna meille palautetta!",
+        "ratingTitle": "Millainen kokemuksesi tästä työkalusta oli kokonaisuutena?",
+        "ratingVeryDissatisfied": "Erittäin tyytymätön",
+        "ratingVerySatisfied": "Erittäin tyytyväinen",
+        "recommendTitle": "Kuinka todennäköisesti suosittelisit tätä työkalua muille?",
+        "recommendVeryUnlikely": "Erittäin epätodennäköisesti",
+        "recommendVeryLikely": "Erittäin todennäköisesti",
+        "experienceTitle": "Kerro meille kokemuksestasi.",
+        "close": "Sulje",
+        "send": "Lähetä palaute",
+        "error": "Hups!",
+        "errorMessage": "Palautteen lähettäminen ei onnistunut. Yritä myöhemmin uudelleen.",
+        "thankYou": "Kiitos palautteestasi!"
+    },
+    "clock": {
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
+    },
+    "aria": {
+        "close": "Sulje",
+        "stop": "Pysäytä",
+        "play": "Toista"
+    }
+}

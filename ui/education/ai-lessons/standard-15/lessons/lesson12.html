@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第12课：强化学习与游戏AI | Lesson 12: Reinforcement Learning & Game AI">
+  <title>第12课：强化学习与游戏AI | Lesson 12: Reinforcement Learning & Game AI</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a><a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a><a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a><a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a><a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a><a href="lesson6.html"><span class="zh">6</span><span class="en">L6</span></a><a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a><a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a><a href="lesson9.html"><span class="zh">9</span><span class="en">L9</span></a><a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a><a href="lesson11.html"><span class="zh">11</span><span class="en">L11</span></a>
+      <a href="lesson12.html" class="active"><span class="zh">12</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">13</span><span class="en">L13</span></a><a href="lesson14.html"><span class="zh">14</span><span class="en">L14</span></a><a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 12 课</span><span class="en">Lesson 12</span></span>
+      <h1><span class="zh">强化学习与游戏AI</span><span class="en">Reinforcement Learning &amp; Game AI</span></h1>
+      <p class="subtitle">
+        <span class="zh">AI 如何通过"玩游戏"学会超越人类？</span>
+        <span class="en">How does AI learn to surpass humans by "playing games"?</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-12-1">
+      <h2><span class="zh">12.1 什么是强化学习？</span><span class="en">12.1 What is Reinforcement Learning?</span></h2>
+      <p>
+        <span class="zh"><strong>强化学习（RL）</strong>是一种特殊的机器学习方法。与监督学习不同，RL不需要标注好的数据——它通过<strong>试错</strong>来学习。就像训练小狗一样：做对了给奖励（骨头），做错了给惩罚（不给骨头）。</span>
+        <span class="en"><strong>Reinforcement Learning (RL)</strong> is a special machine learning method. Unlike supervised learning, RL doesn't need labeled data — it learns by <strong>trial and error</strong>. Like training a puppy: good behavior gets rewards (treats), bad behavior gets penalties (no treats).</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">智能体（Agent）</span><span class="en">Agent</span></h4>
+          <p><span class="zh">做决策的AI。在游戏中就是AI玩家，在机器人中就是机器人的"大脑"。</span><span class="en">The AI making decisions. In games, it's the AI player; in robots, it's the robot's "brain."</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">环境（Environment）</span><span class="en">Environment</span></h4>
+          <p><span class="zh">智能体所在的世界。可以是游戏地图、棋盘、真实世界。环境会根据智能体的行动发生变化。</span><span class="en">The world the agent lives in. Could be a game map, chess board, or real world. It changes based on agent actions.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">奖励（Reward）</span><span class="en">Reward</span></h4>
+          <p><span class="zh">环境给智能体的反馈信号。得分+1是奖励，失去生命是惩罚。智能体的目标是<strong>最大化总奖励</strong>。</span><span class="en">Feedback signal from environment. Score +1 is reward, losing a life is penalty. The agent's goal: <strong>maximize total reward</strong>.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-12-2">
+      <h2><span class="zh">12.2 探索与利用</span><span class="en">12.2 Exploration vs. Exploitation</span></h2>
+      <p>
+        <span class="zh">强化学习面临一个核心困境：<strong>探索</strong>还是<strong>利用</strong>？</span>
+        <span class="en">RL faces a core dilemma: <strong>explore</strong> or <strong>exploit</strong>?</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">探索（Exploration）</span><span class="en">Exploration</span></h4>
+          <p><span class="zh">尝试新的、没试过的行动。可能发现更好的策略，也可能浪费时间。就像去一家没去过的餐厅——可能发现新美食，也可能踩雷。</span><span class="en">Try new, untested actions. Might discover better strategies, or waste time. Like trying a new restaurant — might find great food, might be disappointing.</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">利用（Exploitation）</span><span class="en">Exploitation</span></h4>
+          <p><span class="zh">重复已知的最佳行动。安全但可能错过更好的选择。就像永远去同一家最爱的餐厅——稳定但可能错过更好吃的店。</span><span class="en">Repeat the best known action. Safe but might miss better options. Like always going to your favorite restaurant — reliable but might miss better ones.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>平衡是关键：</strong>好的RL算法会在开始时多探索（了解环境），随着学习的深入逐渐转向利用（使用最佳策略）。就像你在一个新城市——刚到时到处探索，熟悉后就知道去哪里最好了。</span><span class="en"><strong>Balance is key:</strong> Good RL algorithms explore more at the start (learning the environment) and gradually shift to exploitation (using the best strategy). Like arriving in a new city — explore at first, then you know the best spots.</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-12-3">
+      <h2><span class="zh">12.3 AI 击败人类的里程碑</span><span class="en">12.3 AI Beating Humans: Milestones</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1997</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">深蓝 vs 卡斯帕罗夫</span><span class="en">Deep Blue vs. Kasparov</span></h3>
+            <p><span class="zh">IBM的"深蓝"击败国际象棋世界冠军。但深蓝主要靠暴力搜索（每秒分析2亿个棋局），不是真正的"学习"。</span><span class="en">IBM's Deep Blue beat the world chess champion. But Deep Blue relied on brute-force search (analyzing 200 million positions/second), not true "learning."</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">AlphaGo vs 李世石</span><span class="en">AlphaGo vs. Lee Sedol</span></h3>
+            <p><span class="zh">DeepMind的AlphaGo以4:1击败围棋世界冠军。围棋的复杂度远超象棋（可能的棋局数超过宇宙中原子的数量），暴力搜索行不通。AlphaGo结合了深度学习和强化学习，真正"学会"了下棋。</span><span class="en">DeepMind's AlphaGo beat Go world champion 4-1. Go's complexity far exceeds chess (more possible games than atoms in the universe), making brute force impossible. AlphaGo combined deep learning and RL, truly "learning" to play.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">AlphaStar 征服星际争霸</span><span class="en">AlphaStar Conquers StarCraft</span></h3>
+            <p><span class="zh">AI在星际争霸II中达到大师级水平。这是一个需要即时决策、长期规划、不完全信息的复杂游戏，比棋类难得多。</span><span class="en">AI reached Grandmaster level in StarCraft II. This game requires real-time decisions, long-term planning, and incomplete information — far harder than board games.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023+</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">AI 征服更多游戏</span><span class="en">AI Conquers More Games</span></h3>
+            <p><span class="zh">AI已经在几乎所有经典游戏中超越人类：Dota 2、扑克、麻将等。下一个挑战是更复杂的开放世界游戏。</span><span class="en">AI has surpassed humans in nearly all classic games: Dota 2, poker, mahjong. Next challenge: more complex open-world games.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-12-4">
+      <h2><span class="zh">12.4 RL 不只是游戏</span><span class="en">12.4 RL Beyond Games</span></h2>
+      <p>
+        <span class="zh">虽然游戏是RL最出名的应用，但它的用途远不止于此：</span>
+        <span class="en">While games are RL's most famous application, its uses go far beyond:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">机器人控制</span><span class="en">Robot Control</span></h4>
+          <p><span class="zh">教机器人走路、抓取物体、完成复杂动作。RL让机器人通过反复试验学会这些技能，而不需要人工编程每一个动作。</span><span class="en">Teach robots to walk, grasp objects, and perform complex actions. RL lets robots learn skills through trial and error, without manually programming each movement.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">推荐系统</span><span class="en">Recommendation Systems</span></h4>
+          <p><span class="zh">抖音、B站的推荐算法就用了RL——通过观察你的点赞、评论、观看时长来学习你的喜好，不断优化推荐内容。</span><span class="en">TikTok and YouTube recommendation algorithms use RL — learning your preferences from likes, comments, and watch time to continuously optimize recommendations.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">自动驾驶</span><span class="en">Self-Driving</span></h4>
+          <p><span class="zh">RL帮助自动驾驶系统做决策：何时变道、何时刹车、如何处理复杂路口。在模拟环境中训练数百万次后再上路。</span><span class="en">RL helps self-driving systems decide: when to change lanes, brake, handle complex intersections. Trained millions of times in simulation before hitting the road.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">RLHF 优化LLM</span><span class="en">RLHF for LLMs</span></h4>
+          <p><span class="zh">ChatGPT就用了RLHF（基于人类反馈的强化学习）。人类评价AI的回答，RL根据这些反馈不断改进模型。</span><span class="en">ChatGPT uses RLHF (Reinforcement Learning from Human Feedback). Humans rate AI answers, and RL continuously improves the model based on this feedback.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-12-5">
+      <h2><span class="zh">12.5 设计你自己的RL环境</span><span class="en">12.5 Design Your Own RL Environment</span></h2>
+      <p>
+        <span class="zh">理解RL最好的方式是思考如何设计一个RL系统。试着回答这些问题：</span>
+        <span class="en">The best way to understand RL is thinking about how to design an RL system. Try answering these questions:</span>
+      </p>
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>思考练习：</strong>如果你要设计一个AI来学会打乒乓球：</span><span class="en"><strong>Thought exercise:</strong> If you were designing an AI to learn ping pong:</span></p>
+        <ul>
+          <li><p><span class="zh"><strong>智能体是什么？</strong>控制球拍的AI程序</span><span class="en"><strong>Agent?</strong> AI program controlling the paddle</span></p></li>
+          <li><p><span class="zh"><strong>环境是什么？</strong>乒乓球桌、球、对手</span><span class="en"><strong>Environment?</strong> Ping pong table, ball, opponent</span></p></li>
+          <li><p><span class="zh"><strong>状态包括什么？</strong>球的位置和速度、球拍位置、对手位置</span><span class="en"><strong>State includes?</strong> Ball position and speed, paddle position, opponent position</span></p></li>
+          <li><p><span class="zh"><strong>动作有哪些？</strong>上移、下移、击球力度和角度</span><span class="en"><strong>Actions?</strong> Move up, move down, hit strength and angle</span></p></li>
+          <li><p><span class="zh"><strong>奖励是什么？</strong>得分+1，失分-1</span><span class="en"><strong>Rewards?</strong> Score point +1, lose point -1</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quiz-12">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson12">
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 强化学习的核心学习方式是什么？</span><span class="en"><strong>Q1.</strong> What is RL's core learning method?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 记忆大量数据</span><span class="en">A. Memorizing lots of data</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 复制人类行为</span><span class="en">B. Copying human behavior</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 通过试错和奖惩反馈学习</span><span class="en">C. Learning through trial-and-error with reward feedback</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 阅读教科书</span><span class="en">D. Reading textbooks</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">强化学习通过不断尝试动作、接收环境反馈（奖励/惩罚），逐步学会最优策略。不需要预先标注的数据。</span><span class="en">RL learns by repeatedly trying actions and receiving environmental feedback (rewards/penalties), gradually learning the optimal strategy without pre-labeled data.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> "探索vs利用"困境中，"利用"指的是什么？</span><span class="en"><strong>Q2.</strong> In the "explore vs exploit" dilemma, what does "exploit" mean?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 尝试新策略</span><span class="en">A. Try new strategies</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 重复使用已知的最佳策略</span><span class="en">B. Repeat the best known strategy</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 退出游戏</span><span class="en">C. Quit the game</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 随机选择动作</span><span class="en">D. Choose actions randomly</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">"利用"是指重复已知最优的行动策略。虽然安全，但可能错过更好的选择。好的RL会在探索与利用之间找到平衡。</span><span class="en">"Exploit" means repeating the best known strategy. Safe but might miss better options. Good RL finds a balance between exploration and exploitation.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> AlphaGo 为什么比深蓝更厉害？</span><span class="en"><strong>Q3.</strong> Why was AlphaGo more impressive than Deep Blue?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 它真正"学会"了下棋，不只是暴力搜索</span><span class="en">A. It truly "learned" to play, not just brute-force search</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 它更便宜</span><span class="en">B. It was cheaper</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 它跑得更快</span><span class="en">C. It ran faster</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 它有更多内存</span><span class="en">D. It had more memory</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">深蓝靠暴力搜索赢棋，而AlphaGo结合深度学习和强化学习真正"理解"了围棋的策略。围棋的复杂度远超象棋，暴力搜索行不通。</span><span class="en">Deep Blue won through brute force; AlphaGo combined deep learning and RL to truly "understand" Go strategy. Go's complexity far exceeds chess, making brute force impossible.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> 以下哪个不是强化学习的三个核心要素？</span><span class="en"><strong>Q4.</strong> Which is NOT one of RL's three core elements?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 智能体</span><span class="en">A. Agent</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 环境</span><span class="en">B. Environment</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 奖励</span><span class="en">C. Reward</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 数据集</span><span class="en">D. Dataset</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">RL的三个核心要素是智能体、环境和奖励。RL不需要预先准备的数据集——它通过与环境交互自己产生"数据"。</span><span class="en">RL's three core elements are Agent, Environment, and Reward. RL doesn't need prepared datasets — it generates its own "data" through environmental interaction.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> RLHF 在 ChatGPT 中的作用是什么？</span><span class="en"><strong>Q5.</strong> What role does RLHF play in ChatGPT?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 让ChatGPT能玩游戏</span><span class="en">A. Let ChatGPT play games</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 让ChatGPT搜索互联网</span><span class="en">B. Let ChatGPT search the internet</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 用人类反馈不断改进回答质量</span><span class="en">C. Continuously improve answer quality with human feedback</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 让ChatGPT生成图片</span><span class="en">D. Let ChatGPT generate images</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">RLHF让人类评价ChatGPT的回答，然后用强化学习根据这些反馈优化模型，使回答更安全、更有用、更符合人类期望。</span><span class="en">RLHF has humans evaluate ChatGPT responses, then uses RL to optimize the model based on feedback, making answers safer, more useful, and aligned with human expectations.</span></p>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson11.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson13.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

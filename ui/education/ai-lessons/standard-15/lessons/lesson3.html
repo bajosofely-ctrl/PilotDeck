@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第3课：AI 发展简史 — 图灵测试→深蓝→ImageNet→AlphaGo→ChatGPT→Sora | Lesson 3: History of AI">
+  <title>第3课：AI 发展简史 | Lesson 3: History of AI</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html" class="active"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 3 课</span><span class="en">Lesson 3</span></span>
+      <h1><span class="zh">AI 发展简史</span><span class="en">History of AI</span></h1>
+      <p class="subtitle"><span class="zh">从图灵测试到 ChatGPT，AI 走过了怎样的旅程？</span><span class="en">From the Turing Test to ChatGPT — what journey has AI taken?</span></p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ── Section 3.1 ── -->
+    <section class="section reveal" id="section-3-1">
+      <h2><span class="zh">3.1 AI 的诞生（1950s）</span><span class="en">3.1 The Birth of AI (1950s)</span></h2>
+      <p>
+        <span class="zh">1950 年，英国数学家<strong>阿兰·图灵</strong>发表了一篇划时代的论文《计算机器与智能》，提出了一个著名的问题："机器能思考吗？"他设计了<strong>图灵测试</strong>：如果一台机器在对话中能让人类评判者无法分辨它和真人的区别，那么这台机器就可以被认为具有智能。</span>
+        <span class="en">In 1950, British mathematician <strong>Alan Turing</strong> published a groundbreaking paper "Computing Machinery and Intelligence," posing the famous question: "Can machines think?" He designed the <strong>Turing Test</strong>: if a machine can converse with a human judge who cannot distinguish it from a real person, then the machine can be considered intelligent.</span>
+      </p>
+      <p>
+        <span class="zh">1956 年夏天，在美国达特茅斯学院举办的一次研讨会上，<strong>约翰·麦卡锡</strong>等科学家首次使用了"人工智能"（Artificial Intelligence）这个词。这次会议被认为是 AI 的正式诞生。与会者们乐观地预测，AI 将在二十年内解决大部分人类智能问题——然而现实远比他们想象的复杂。</span>
+        <span class="en">In the summer of 1956, at a workshop at Dartmouth College in the US, scientists including <strong>John McCarthy</strong> first coined the term "Artificial Intelligence." This conference is considered the official birth of AI. Attendees optimistically predicted that AI would solve most human intelligence problems within twenty years — but reality proved far more complex than they imagined.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 3.2 ── -->
+    <section class="section reveal" id="section-3-2">
+      <h2><span class="zh">3.2 AI 时间线：关键里程碑</span><span class="en">3.2 AI Timeline: Key Milestones</span></h2>
+      <p><span class="zh">AI 的发展并非一帆风顺，经历了多次"热潮"和"寒冬"。让我们沿着时间线回顾那些改变历史的关键时刻：</span><span class="en">AI's development has not been smooth — it has experienced multiple "booms" and "winters." Let's walk through the key moments that changed history:</span></p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1950</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">图灵测试</span><span class="en">Turing Test</span></h3>
+            <p><span class="zh">图灵提出"机器能思考吗？"，为 AI 奠定了哲学基础。</span><span class="en">Turing asked "Can machines think?", laying the philosophical foundation for AI.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">图灵测试至今仍是衡量 AI 智能水平的重要参考标准，虽然许多研究者也指出了它的局限性。</span><span class="en">The Turing Test remains an important reference for measuring AI intelligence, though many researchers have also pointed out its limitations.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1997</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">深蓝击败棋王</span><span class="en">Deep Blue Beats Kasparov</span></h3>
+            <p><span class="zh">IBM 的深蓝计算机以 3.5:2.5 击败国际象棋世界冠军卡斯帕罗夫。</span><span class="en">IBM's Deep Blue defeated world chess champion Kasparov 3.5-2.5.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">深蓝每秒能评估 2 亿个棋局位置。然而它使用的是"暴力搜索"策略，而非真正的"学习"。这次胜利证明了计算能力在特定领域的威力。</span><span class="en">Deep Blue could evaluate 200 million positions per second. However, it used "brute force search" rather than actual "learning." This victory proved the power of computing in specific domains.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">ImageNet 突破</span><span class="en">ImageNet Breakthrough</span></h3>
+            <p><span class="zh">AlexNet 在 ImageNet 竞赛中将图像识别错误率从 26% 骤降至 15%。</span><span class="en">AlexNet slashed the ImageNet image recognition error rate from 26% to 15%.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">这是深度学习的"出圈"时刻。AlexNet 使用了 GPU 加速训练和深度卷积神经网络，证明了深度学习在视觉任务上的巨大潜力，引发了 AI 研究的新浪潮。</span><span class="en">This was deep learning's "breakout" moment. AlexNet used GPU-accelerated training and deep convolutional neural networks, proving deep learning's immense potential for visual tasks and sparking a new wave of AI research.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">AlphaGo 击败李世石</span><span class="en">AlphaGo Beats Lee Sedol</span></h3>
+            <p><span class="zh">Google DeepMind 的 AlphaGo 以 4:1 击败围棋世界冠军李世石。</span><span class="en">Google DeepMind's AlphaGo defeated Go world champion Lee Sedol 4-1.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">围棋的可能局面数比宇宙中的原子还多（约 10^170），暴力搜索不再可行。AlphaGo 结合了深度神经网络和强化学习，展示了 AI 解决极其复杂决策问题的能力。</span><span class="en">Go has more possible positions than atoms in the universe (~10^170), making brute force infeasible. AlphaGo combined deep neural networks with reinforcement learning, demonstrating AI's ability to solve extremely complex decision problems.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">ChatGPT 发布</span><span class="en">ChatGPT Launch</span></h3>
+            <p><span class="zh">OpenAI 发布 ChatGPT，两个月内用户突破 1 亿。</span><span class="en">OpenAI released ChatGPT, reaching 100 million users in two months.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">ChatGPT 基于大语言模型（LLM），能够进行流畅的多轮对话、写作、编程、翻译等。它让普通人第一次真正感受到 AI 的强大，引发了全球性的 AI 热潮。</span><span class="en">ChatGPT is based on Large Language Models (LLM), capable of fluent multi-turn conversations, writing, coding, translation, and more. It let ordinary people truly feel AI's power for the first time, sparking a global AI craze.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">Sora 与 AI 视频生成</span><span class="en">Sora & AI Video Generation</span></h3>
+            <p><span class="zh">OpenAI 发布 Sora，实现文字到高质量视频的生成。</span><span class="en">OpenAI released Sora, enabling text-to-high-quality-video generation.</span></p>
+            <div class="timeline-detail hidden">
+              <p><span class="zh">AI 从文字生成扩展到图片、音频，再到视频。多模态 AI 的能力正在快速提升，AI 的创造力越来越接近甚至超越人类在某些方面的表现。</span><span class="en">AI expanded from text generation to images, audio, and now video. Multimodal AI capabilities are advancing rapidly, with AI creativity approaching or even surpassing human performance in certain areas.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section 3.3 ── -->
+    <section class="section reveal" id="section-3-3">
+      <h2><span class="zh">3.3 AI 的寒冬与复兴</span><span class="en">3.3 AI Winters and Revivals</span></h2>
+      <p><span class="zh">AI 的发展并非一路向前。历史上经历过至少两次<strong>"AI 寒冬"</strong>——因为期望过高而实际技术达不到，导致研究资金大幅缩减。</span><span class="en">AI's development hasn't been a straight line forward. History has seen at least two <strong>"AI Winters"</strong> — periods when over-hyped expectations met technological limitations, causing research funding to dry up.</span></p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/></svg></div>
+          <h4><span class="zh">第一次热潮 (1956-1974)</span><span class="en">First Boom (1956-1974)</span></h4>
+          <p><span class="zh">AI 诞生后的乐观时期。科学家们相信 AI 很快就能解决所有问题，但计算能力远远不够。</span><span class="en">The optimistic period after AI's birth. Scientists believed AI would solve everything soon, but computing power was far from sufficient.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg></div>
+          <h4><span class="zh">AI 寒冬 (1974-1980, 1987-1993)</span><span class="en">AI Winters (1974-1980, 1987-1993)</span></h4>
+          <p><span class="zh">期望落空，资金断裂。AI 研究者被嘲笑为"做不到的事情说大话"，许多项目被迫停止。</span><span class="en">Expectations unmet, funding cut. AI researchers were mocked for overpromising, and many projects were forced to stop.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg></div>
+          <h4><span class="zh">深度学习复兴 (2012-今)</span><span class="en">Deep Learning Revival (2012-Now)</span></h4>
+          <p><span class="zh">大数据 + 强大 GPU + 深度学习算法，三者结合让 AI 迎来了前所未有的突破。</span><span class="en">Big data + powerful GPUs + deep learning algorithms — the combination brought unprecedented AI breakthroughs.</span></p>
+        </div>
+      </div>
+
+      <p><span class="zh"><strong>启示：</strong>AI 的历史告诉我们，技术发展需要耐心。每一次"寒冬"之后，AI 都以更强大的姿态回归。而今天，我们正处在 AI 发展最激动人心的时期。</span><span class="en"><strong>Lesson learned:</strong> AI's history teaches us that technological progress requires patience. After every "winter," AI came back stronger. And today, we're in the most exciting period of AI development ever.</span></p>
+    </section>
+
+    <!-- ── Section 3.4 ── -->
+    <section class="section reveal" id="section-3-4">
+      <h2><span class="zh">3.4 驱动 AI 复兴的三大因素</span><span class="en">3.4 Three Factors Driving AI's Revival</span></h2>
+      <p><span class="zh">为什么 AI 在经历寒冬后能再次崛起？关键在于三个因素的同时成熟：</span><span class="en">Why was AI able to rise again after its winters? The key lies in three factors maturing simultaneously:</span></p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg></div>
+          <h4><span class="zh">大数据</span><span class="en">Big Data</span></h4>
+          <p><span class="zh">互联网产生了海量数据（图片、文字、视频），为 AI 训练提供了充足的"粮食"。</span><span class="en">The internet generated massive data (images, text, videos), providing abundant "food" for AI training.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg></div>
+          <h4><span class="zh">算力（GPU）</span><span class="en">Computing Power (GPU)</span></h4>
+          <p><span class="zh">GPU 并行计算能力的飞速提升，使训练大规模神经网络成为可能。NVIDIA 的 GPU 成了 AI 的"发动机"。</span><span class="en">The rapid improvement of GPU parallel computing made training large-scale neural networks possible. NVIDIA's GPUs became AI's "engine."</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+          <h4><span class="zh">算法突破</span><span class="en">Algorithm Breakthroughs</span></h4>
+          <p><span class="zh">深度学习、Transformer、注意力机制等关键算法的发明，让 AI 能处理更复杂的任务。</span><span class="en">Inventions like deep learning, Transformer, and attention mechanisms enabled AI to handle more complex tasks.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section 3.5: Quiz ── -->
+    <section class="section reveal" id="section-3-5">
+      <h2><span class="zh">3.5 小测验</span><span class="en">3.5 Quiz</span></h2>
+      <p><span class="zh">让我们来检验一下你在本课中学到的知识！</span><span class="en">Let's test what you've learned in this lesson!</span></p>
+
+      <div class="quiz" data-quiz-id="lesson3">
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> "人工智能"这个术语首次在哪里被提出？</span><span class="en"><strong>Q1.</strong> Where was the term "Artificial Intelligence" first coined?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 1956年达特茅斯会议</span><span class="en">A. 1956 Dartmouth Conference</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 1950年图灵的论文</span><span class="en">B. 1950 Turing's paper</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 1997年深蓝比赛</span><span class="en">C. 1997 Deep Blue match</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 2012年ImageNet竞赛</span><span class="en">D. 2012 ImageNet competition</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">1956年达特茅斯会议上，约翰·麦卡锡等科学家首次正式使用了"人工智能"这个术语。</span><span class="en">At the 1956 Dartmouth Conference, John McCarthy and other scientists first officially used the term "Artificial Intelligence."</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 以下哪个<strong>不是</strong>驱动 AI 复兴的三大因素之一？</span><span class="en"><strong>Q2.</strong> Which is <strong>NOT</strong> one of the three factors driving AI's revival?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 大数据</span><span class="en">A. Big data</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 强大的GPU算力</span><span class="en">B. Powerful GPU computing</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 算法突破（如深度学习）</span><span class="en">C. Algorithm breakthroughs (e.g., deep learning)</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 5G 网络</span><span class="en">D. 5G networks</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">AI 复兴的三大驱动力是：大数据、强大的GPU算力和算法突破。5G 网络虽然有用，但不是 AI 复兴的核心因素。</span><span class="en">The three drivers of AI's revival are: big data, powerful GPU computing, and algorithm breakthroughs. 5G networks, while useful, are not a core factor.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> AlphaGo 击败人类围棋冠军是在哪一年？</span><span class="en"><strong>Q3.</strong> In what year did AlphaGo defeat the human Go champion?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 2012</span><span class="en">A. 2012</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 2016</span><span class="en">B. 2016</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 2019</span><span class="en">C. 2019</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 2022</span><span class="en">D. 2022</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">2016年，Google DeepMind 的 AlphaGo 以 4:1 击败了韩国围棋世界冠军李世石，震惊世界。</span><span class="en">In 2016, Google DeepMind's AlphaGo defeated Korean Go world champion Lee Sedol 4-1, stunning the world.</span></p>
+        </div>
+        <div class="quiz-result hidden">
+          <p class="score"><span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span><span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span></p>
+          <p><span class="zh">完成测验！继续学习下一课吧。</span><span class="en">Quiz complete! Continue to the next lesson.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Lesson Navigation Footer ── -->
+    <div class="lesson-nav-footer">
+      <a href="lesson2.html"><span class="zh">← 上一课：什么是人工智能</span><span class="en">← Previous: What Is AI?</span></a>
+      <a href="lesson4.html"><span class="zh">下一课：数据：AI 的粮食 →</span><span class="en">Next: Data: AI's Food →</span></a>
+    </div>
+
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text"><span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span><span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span></p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

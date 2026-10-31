@@ -1,0 +1,91 @@
+{
+    "deploy": {
+        "actions": {
+            "copy": "Kopieren",
+            "close": "Schließen"
+        },
+        "labels": {
+            "notFound": "Der Klassifikator konnte nicht gefunden werden.",
+            "dropHere": "Bild hier ablegen",
+            "errorInfo": "Diese Seite existiert nur, wenn du deinen Klassifikator in einem Browser-Tab geöffnet hast. Möglicherweise gibt es auch Sicherheitseinschränkungen, die verhindern, dass sie gefunden wird.",
+            "share": "App für andere Geräte freigeben",
+            "qrExpand": "Klicke auf den QR-Code, um ihn zu erweitern.",
+            "noWebcam": "Für die Freigabe des Klassifizierers ist der Zugriff auf die Kamera erforderlich.",
+            "switch": "Eingangsquelle aktivieren"
+        }
+    },
+    "testInput": {
+        "title": "Eingabe"
+    },
+    "collect": {
+        "samplePrompt": "Nimm Fotos auf oder lade hier Bilder hoch.",
+        "actions": {
+            "upload": "Hochladen"
+        },
+        "sampleCount": "{{count}} Beispiele",
+        "connecting": "Verbinde...",
+        "disconnected": "Getrennt",
+        "failed": "Fehlgeschlagen",
+        "failedMessage": "Auf diesen Klassifikator konnte von deinem Gerät aus nicht zugegriffen werden",
+        "dropError": "Hier können nur Bilder abgelegt werden",
+        "relayWarning": "Deine Daten werden über unseren Server gesendet. Um dies zu vermeiden, solltest du eine andere WiFi-Verbindung nutzen."
+    },
+    "about": {
+        "back": "Zurück",
+        "title": "Generation AI",
+        "privacyTitle": "Datenschutzhinweis"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "actions": {
+            "save": "Speichern",
+            "reset": "Zurücksetzen",
+            "cancel": "Abbrechen"
+        },
+        "labels": {
+            "language": "Sprache",
+            "model": "Modell",
+            "variant": "Schnittstellenvariante",
+            "advanced": "Erweitert"
+        },
+        "values": {
+            "models": ["Bild (MobileNet)", "Pose (PoseNet)", "Geste (MediaPipe)", "Sprache (SpeechCommands)"],
+            "variants": ["Allgemeine Nutzung", "Klassenzimmer"]
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "Titel bearbeiten",
+            "editTitleInput": "{{value}} Feld bearbeiten"
+        },
+        "labels": {
+            "titlePlaceholder": "Name"
+        }
+    },
+    "feedback": {
+        "button": "Feedback geben",
+        "title": "Gib uns Feedback!",
+        "ratingTitle": "Wie war insgesamt deine Erfahrung mit diesem Tool?",
+        "ratingVeryDissatisfied": "Sehr unzufrieden",
+        "ratingVerySatisfied": "Sehr zufrieden",
+        "recommendTitle": "Wie wahrscheinlich ist es, dass du dieses Tool anderen empfiehlst?",
+        "recommendVeryUnlikely": "Sehr unwahrscheinlich",
+        "recommendVeryLikely": "Sehr wahrscheinlich",
+        "experienceTitle": "Erzähl uns von deinen Erfahrungen.",
+        "close": "Schließen",
+        "send": "Feedback senden",
+        "error": "Hoppla!",
+        "errorMessage": "Wir konnten dein Feedback nicht senden. Bitte versuche es später erneut.",
+        "thankYou": "Vielen Dank für dein Feedback!"
+    },
+    "clock": {
+        "hours": "Std",
+        "minutes": "Min",
+        "seconds": "Sek"
+    },
+    "aria": {
+        "close": "Schließen",
+        "stop": "Stopp",
+        "play": "Wiedergabe"
+    }
+}

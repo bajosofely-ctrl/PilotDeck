@@ -1,0 +1,44 @@
+{
+    "routes": [
+        {
+            "route": "/image*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/pose*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/speech*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/hand*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/deploy*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/collect*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/input*",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/about",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/home",
+            "rewrite": "index.html"
+        },
+        {
+            "route": "/settings",
+            "rewrite": "index.html"
+        }
+    ]
+}

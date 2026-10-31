@@ -1,0 +1,31 @@
+.previewContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.buttonContainer {
+    margin: 1rem;
+}
+
+.actionRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 1rem 1rem;
+    width: fit-content;
+}
+
+.widget {
+    max-width: 300px;
+    width: 100%;
+}
+
+.table {
+    border-spacing: 0.5rem;
+    margin: 0 0.5rem;
+}
+
+.valueCell {
+    min-width: 5rem;
+}

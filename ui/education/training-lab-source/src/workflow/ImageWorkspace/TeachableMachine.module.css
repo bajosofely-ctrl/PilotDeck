@@ -1,0 +1,121 @@
+.workspace {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    width: 100vw;
+}
+
+.workspace > section {
+    min-width: 0;
+}
+
+.workspaceContent {
+    flex: 1;
+    overflow: auto;
+    min-width: 0;
+}
+
+.svglayer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.container {
+    min-width: 100%;
+    min-height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    overflow: auto;
+    gap: 3rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    width: max-content;
+}
+
+.container3 {
+    composes: container;
+    grid-template-columns: repeat(3, max-content);
+}
+
+.container5 {
+    composes: container;
+    grid-template-columns: repeat(5, max-content);
+}
+
+@media only screen and (max-height: 500px), (max-width: 700px) {
+    .svglayer {
+        display: none;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        width: 100%;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.previewActions {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: -0.5rem;
+    flex-wrap: nowrap;
+}
+
+.padded {
+    margin: 1rem 0;
+}
+
+.codeShare {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.codeContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.incImagesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.openColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spacer {
+    height: 2px;
+    width: 100%;
+    background-color: #eee;
+    margin: 1rem 0;
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第1课：App Inventor 快速入门（上） | Lesson 1: App Inventor Quick Start (Part 1)">
+  <title>第1课：App Inventor 快速入门（上） | Lesson 1: App Inventor Quick Start (Part 1)</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html" class="active"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 1 课</span>
+        <span class="en">Lesson 1</span>
+      </span>
+      <h1>
+        <span class="zh">App Inventor 快速入门（上）</span>
+        <span class="en">App Inventor Quick Start (Part 1)</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">认识 MIT App Inventor，制作你的第一个手机 App</span>
+        <span class="en">Meet MIT App Inventor and build your first mobile App</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 1.1 Lesson Goal -->
+    <section class="section reveal" id="section-1-1">
+      <h2><span class="zh">1.1 课程目标</span><span class="en">1.1 Lesson Goal</span></h2>
+      <p>
+        <span class="zh">欢迎来到 <strong>AI App 创造营</strong>！在接下来的 10 节课中，你将学会使用 MIT App Inventor —— 一个由麻省理工学院开发的可视化编程平台，结合强大的 AI API（如 ChatGPT、图像识别、语音识别），制作出真正能安装到手机上的智能 App。你的最终作品还可以参加 MIT App Inventor Hackathon 国际竞赛！</span>
+        <span class="en">Welcome to <strong>AI App Studio</strong>! Over the next 10 lessons, you'll learn to use MIT App Inventor — a visual programming platform created by MIT — combined with powerful AI APIs (like ChatGPT, image recognition, and speech recognition) to build real AI-powered Apps you can install on your phone. Your final project can even be submitted to the MIT App Inventor Hackathon!</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">认识平台</span><span class="en">Meet the Platform</span></h3>
+          <p><span class="zh">了解 App Inventor 的界面和工作方式</span><span class="en">Explore the App Inventor interface and workflow</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">搭建 App</span><span class="en">Build an App</span></h3>
+          <p><span class="zh">动手制作你的第一个 "Hello AI" App</span><span class="en">Create your very first "Hello AI" App hands-on</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">在手机运行</span><span class="en">Run on Phone</span></h3>
+          <p><span class="zh">把 App 安装到手机上，真正跑起来</span><span class="en">Install and run your App on a real phone</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1.2 What is App Inventor? -->
+    <section class="section reveal" id="section-1-2">
+      <h2><span class="zh">1.2 什么是 App Inventor？</span><span class="en">1.2 What is App Inventor?</span></h2>
+
+      <p>
+        <span class="zh"><strong>MIT App Inventor</strong> 是由麻省理工学院（MIT）媒体实验室开发的一个在线可视化编程平台。它完全在浏览器中运行，不需要安装任何软件。你只需要一个 Google 账号就能登录使用。通过拖拽"积木块"（Blocks）的方式来编写程序逻辑，即使你从来没写过一行代码，也能轻松上手！</span>
+        <span class="en"><strong>MIT App Inventor</strong> is an online visual programming platform developed by MIT's Media Lab. It runs entirely in your browser — no software installation needed. All you need is a Google account to log in. You program by dragging and snapping together "blocks," so even if you've never written a line of code before, you can get started easily!</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>App Inventor 有两个主要视图：</strong><br><br><strong>Designer 视图（设计视图）：</strong>在这里你可以设计 App 的外观。左边是组件面板，你可以拖入按钮、文本框、图片等 UI 组件到中间的手机预览区。右边是属性面板，用来设置组件的颜色、文字、大小等。<br><br><strong>Blocks 视图（编程视图）：</strong>在这里你用积木块编写 App 的逻辑。比如"当按钮被点击时 → 改变文字内容"。积木块像拼图一样咬合在一起，不同颜色代表不同功能类别。</span>
+          <span class="en"><strong>App Inventor has two main views:</strong><br><br><strong>Designer View:</strong> This is where you design your app's look. The left panel has components (buttons, text boxes, images, etc.) you drag onto the phone preview in the center. The right panel lets you set properties like color, text, and size.<br><br><strong>Blocks View:</strong> This is where you code your app's logic using blocks. For example, "When Button is clicked → change the text." Blocks snap together like puzzle pieces, and different colors represent different categories of functionality.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">App Inventor 支持制作 Android App（也有实验性的 iOS 支持）。你做出来的 App 可以直接安装到手机上使用，也可以生成 APK 文件分享给朋友。全世界已经有超过 195 个国家的学生使用 App Inventor 来学习编程和制作 App！</span>
+        <span class="en">App Inventor supports building Android apps (with experimental iOS support too). The apps you create can be installed directly on your phone, or you can generate an APK file to share with friends. Students from over 195 countries worldwide already use App Inventor to learn coding and build apps!</span>
+      </p>
+    </section>
+
+    <!-- Section 1.3 Hands-On -->
+    <section class="section reveal" id="section-1-3">
+      <h2><span class="zh">1.3 动手实践</span><span class="en">1.3 Hands-On</span></h2>
+
+      <p>
+        <span class="zh">现在让我们一步步制作你的第一个 App —— <strong>"HelloAI"</strong>！这个 App 会在你点击按钮时显示一条 AI 相关的消息。</span>
+        <span class="en">Now let's build your first App step by step — <strong>"HelloAI"</strong>! This App will display an AI-related message when you tap a button.</span>
+      </p>
+
+      <h3><span class="zh">步骤 1：打开 App Inventor 并登录</span><span class="en">Step 1: Open App Inventor and Sign In</span></h3>
+      <p>
+        <span class="zh">在浏览器中打开 <code>ai2.appinventor.mit.edu</code>，使用你的 Google 账号登录。如果你没有 Google 账号，请先请家长帮你注册一个。登录后你会看到"我的项目"（My Projects）页面。</span>
+        <span class="en">Open <code>ai2.appinventor.mit.edu</code> in your browser and sign in with your Google account. If you don't have a Google account, ask a parent to help you create one. After signing in, you'll see the "My Projects" page.</span>
+      </p>
+
+      <h3><span class="zh">步骤 2：创建新项目</span><span class="en">Step 2: Create a New Project</span></h3>
+      <p>
+        <span class="zh">点击左上角的 <strong>"新建项目"（Start new project）</strong> 按钮，在弹出框中输入项目名称 <code>HelloAI</code>，然后点击"确定"。你会进入 Designer 视图，看到一个空白的手机屏幕。</span>
+        <span class="en">Click the <strong>"Start new project"</strong> button in the top-left corner. In the popup, enter the project name <code>HelloAI</code> and click "OK." You'll enter the Designer view and see a blank phone screen.</span>
+      </p>
+
+      <h3><span class="zh">步骤 3：添加 UI 组件</span><span class="en">Step 3: Add UI Components</span></h3>
+      <p>
+        <span class="zh">从左侧的 <strong>User Interface</strong> 面板中，依次拖入以下组件到手机屏幕上：</span>
+        <span class="en">From the <strong>User Interface</strong> palette on the left, drag the following components onto the phone screen:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">A</div>
+          <h3><span class="zh">Label（标签）</span><span class="en">Label</span></h3>
+          <p><span class="zh">拖入一个 Label，在右侧属性面板中将 <strong>Text</strong> 改为 <code>Hello, AI World!</code>，字体大小设为 <strong>24</strong>，勾选 <strong>FontBold</strong></span><span class="en">Drag in a Label. In the Properties panel on the right, set <strong>Text</strong> to <code>Hello, AI World!</code>, font size to <strong>24</strong>, and check <strong>FontBold</strong></span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">B</div>
+          <h3><span class="zh">Button（按钮）</span><span class="en">Button</span></h3>
+          <p><span class="zh">拖入一个 Button，将 <strong>Text</strong> 改为 <code>Click Me</code>，可以修改 <strong>BackgroundColor</strong> 让按钮更好看</span><span class="en">Drag in a Button. Set <strong>Text</strong> to <code>Click Me</code>. You can change <strong>BackgroundColor</strong> to make it look nicer</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">C</div>
+          <h3><span class="zh">Image（图片）</span><span class="en">Image</span></h3>
+          <p><span class="zh">拖入一个 Image 组件，点击 <strong>Picture</strong> 属性，上传一张你喜欢的图片（比如一个 AI 机器人图标）</span><span class="en">Drag in an Image component. Click the <strong>Picture</strong> property and upload an image you like (e.g., an AI robot icon)</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 4：切换到 Blocks 视图，编写逻辑</span><span class="en">Step 4: Switch to Blocks View and Add Logic</span></h3>
+      <p>
+        <span class="zh">点击右上角的 <strong>"Blocks"</strong> 按钮切换到编程视图。现在我们要给按钮添加一个"点击事件"：</span>
+        <span class="en">Click the <strong>"Blocks"</strong> button in the top-right to switch to the programming view. Now let's add a "click event" to the button:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木块逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 积木块伪代码 / Block pseudocode</span>
+
+<span class="kw">When</span> <span class="var">Button1</span>.<span class="fn">Click</span>
+  <span class="kw">do</span> <span class="kw">set</span> <span class="var">Label1</span>.<span class="var">Text</span> <span class="kw">to</span> <span class="str">&quot;AI is Amazing!&quot;</span></code></pre>
+      </div>
+
+      <p>
+        <span class="zh"><strong>操作步骤：</strong>在左侧点击 <strong>Button1</strong>，找到 <code>when Button1.Click do</code> 积木块，拖到工作区。然后点击 <strong>Label1</strong>，找到 <code>set Label1.Text to</code> 积木块，拼接到 Click 积木块内部。最后从 <strong>Text</strong> 类别中拖入一个文本块，输入 <code>AI is Amazing!</code>。</span>
+        <span class="en"><strong>How to do it:</strong> On the left, click <strong>Button1</strong> and find the <code>when Button1.Click do</code> block — drag it to the workspace. Then click <strong>Label1</strong>, find the <code>set Label1.Text to</code> block, and snap it inside the Click block. Finally, from the <strong>Text</strong> category, drag in a text block and type <code>AI is Amazing!</code>.</span>
+      </p>
+
+      <h3><span class="zh">步骤 5：连接手机测试</span><span class="en">Step 5: Connect Your Phone to Test</span></h3>
+      <p>
+        <span class="zh">现在让我们在真实手机上看看效果！你需要在手机的应用商店中下载 <strong>MIT AI2 Companion</strong> App。</span>
+        <span class="en">Now let's see your App on a real phone! You need to download the <strong>MIT AI2 Companion</strong> app from your phone's app store.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>如何在手机上测试：</strong><br><br>1. 在手机上安装 <strong>MIT AI2 Companion</strong>（Android 在 Google Play 搜索，iPhone 在 App Store 搜索）<br>2. 确保手机和电脑连接同一个 Wi-Fi 网络<br>3. 在 App Inventor 网页上点击菜单栏的 <strong>Connect → AI Companion</strong><br>4. 屏幕上会出现一个二维码和 6 位代码<br>5. 打开手机上的 MIT AI2 Companion，扫描二维码或输入代码<br>6. 几秒后，你的 App 就会出现在手机上！<br><br><strong>没有手机？</strong>你也可以使用内置模拟器：点击 <strong>Connect → Emulator</strong>。</span>
+          <span class="en"><strong>How to test on your phone:</strong><br><br>1. Install <strong>MIT AI2 Companion</strong> on your phone (search Google Play for Android, or App Store for iPhone)<br>2. Make sure your phone and computer are on the same Wi-Fi network<br>3. In the App Inventor website, click <strong>Connect → AI Companion</strong> from the menu bar<br>4. A QR code and a 6-character code will appear on screen<br>5. Open MIT AI2 Companion on your phone and scan the QR code or enter the code<br>6. In a few seconds, your App will appear on your phone!<br><br><strong>No phone?</strong> You can also use the built-in emulator: click <strong>Connect → Emulator</strong>.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">点击手机上的 "Click Me" 按钮，你应该会看到文字从 "Hello, AI World!" 变成了 "AI is Amazing!" —— 恭喜你，你的第一个 App 成功了！</span>
+        <span class="en">Tap the "Click Me" button on your phone. You should see the text change from "Hello, AI World!" to "AI is Amazing!" — Congratulations, your first App works!</span>
+      </p>
+    </section>
+
+    <!-- Section 1.4 Challenge -->
+    <section class="section reveal" id="section-1-4">
+      <h2><span class="zh">1.4 挑战任务</span><span class="en">1.4 Challenge</span></h2>
+
+      <p>
+        <span class="zh">完成了基本的 HelloAI App 后，试试下面的挑战来提升你的技能吧！</span>
+        <span class="en">Now that you've completed the basic HelloAI App, try these challenges to level up your skills!</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：消息轮播</span><span class="en">Challenge A: Message Cycle</span></h3>
+          <p>
+            <span class="zh">修改按钮逻辑，让每次点击按钮时在 3 条不同的消息之间循环切换：<br>① "AI is Amazing!"<br>② "AI 正在改变世界！"<br>③ "I love building Apps!"<br><br><strong>提示：</strong>你需要用一个<strong>变量</strong>（Variable）来记住当前显示的是第几条消息，再用 <strong>if / else if</strong> 积木块来判断应该显示哪一条。</span>
+            <span class="en">Modify the button logic so each tap cycles through 3 different messages:<br>① "AI is Amazing!"<br>② "AI is changing the world!"<br>③ "I love building Apps!"<br><br><strong>Hint:</strong> You'll need a <strong>variable</strong> to track which message is currently displayed, then use <strong>if / else if</strong> blocks to decide which one to show next.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：变色背景</span><span class="en">Challenge B: Color-Changing Background</span></h3>
+          <p>
+            <span class="zh">添加第二个按钮 "Change Color"，每次点击时将 Screen 的背景颜色（BackgroundColor）在红色、蓝色、绿色之间切换。<br><br><strong>提示：</strong>在 Blocks 视图中，你可以用 <code>set Screen1.BackgroundColor to</code> 来改变背景颜色。颜色值可以从 <strong>Colors</strong> 积木块类别中获取。</span>
+            <span class="en">Add a second button "Change Color" that changes the Screen's background color (BackgroundColor) cycling between red, blue, and green on each tap.<br><br><strong>Hint:</strong> In the Blocks view, use <code>set Screen1.BackgroundColor to</code> to change the background. You can find color values in the <strong>Colors</strong> block category.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-1">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="app1">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. MIT App Inventor 是什么？</span><span class="en">1. What is MIT App Inventor?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">一种手机操作系统</span>
+              <span class="en">A mobile operating system</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">一个在浏览器中运行的可视化编程平台，用于制作手机 App</span>
+              <span class="en">A visual programming platform that runs in a browser for building mobile Apps</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">一个手机游戏</span>
+              <span class="en">A mobile game</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">一个需要下载安装的编程软件</span>
+              <span class="en">A programming software that needs to be downloaded and installed</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">MIT App Inventor 是由麻省理工学院开发的在线可视化编程平台，完全在浏览器中运行，通过拖拽积木块来制作手机 App。</span><span class="en">MIT App Inventor is an online visual programming platform developed by MIT. It runs entirely in the browser and lets you build mobile apps by dragging and dropping blocks.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">2. App Inventor 的 Designer 视图和 Blocks 视图分别用来做什么？</span><span class="en">2. What are the Designer view and Blocks view used for in App Inventor?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">Designer 用来写代码，Blocks 用来设计界面</span>
+              <span class="en">Designer is for writing code, Blocks is for designing the interface</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">它们是同一个东西的两种叫法</span>
+              <span class="en">They are two names for the same thing</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">Designer 用来设计 App 的界面外观，Blocks 用来编写 App 的程序逻辑</span>
+              <span class="en">Designer is for designing the App's UI appearance, Blocks is for programming the App's logic</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">Designer 只能在手机上用，Blocks 只能在电脑上用</span>
+              <span class="en">Designer can only be used on phones, Blocks can only be used on computers</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">Designer 视图用来设计 App 的界面（拖入按钮、文字等组件），Blocks 视图用来编写 App 的逻辑（用积木块定义点击按钮后会发生什么）。</span><span class="en">The Designer view is for designing the app's interface (dragging in buttons, labels, etc.), while the Blocks view is for programming the app's logic (using blocks to define what happens when a button is clicked).</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 如何在手机上实时测试你的 App？</span><span class="en">3. How do you test your App on a phone in real time?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">在手机上安装 MIT AI2 Companion，扫描二维码连接</span>
+              <span class="en">Install MIT AI2 Companion on your phone and scan the QR code to connect</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">用 USB 数据线把手机连上电脑</span>
+              <span class="en">Connect your phone to the computer with a USB cable</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">通过电子邮件把 App 发到手机上</span>
+              <span class="en">Email the App to your phone</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">只能在电脑上测试，无法在手机上实时查看</span>
+              <span class="en">You can only test on a computer, not on a phone in real time</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">使用 MIT AI2 Companion App 可以实时在手机上测试。确保手机和电脑在同一 Wi-Fi 网络，然后在 App Inventor 中选择 Connect → AI Companion，扫描二维码即可。</span><span class="en">Use the MIT AI2 Companion app for real-time testing on your phone. Make sure your phone and computer are on the same Wi-Fi network, then select Connect → AI Companion in App Inventor and scan the QR code.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 在 Blocks 视图中，<code>when Button1.Click</code> 积木块的作用是什么？</span><span class="en">4. In the Blocks view, what does the <code>when Button1.Click</code> block do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">改变按钮的颜色</span>
+              <span class="en">Changes the button's color</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">删除按钮</span>
+              <span class="en">Deletes the button</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">创建一个新按钮</span>
+              <span class="en">Creates a new button</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">定义当用户点击按钮时要执行的操作</span>
+              <span class="en">Defines the actions to perform when the user clicks the button</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>when Button1.Click</code> 是一个事件处理积木块，它定义了当用户点击 Button1 时程序要执行的操作。你可以在它内部拼接其他积木块来设定具体行为。</span><span class="en"><code>when Button1.Click</code> is an event handler block. It defines what actions the program should perform when the user clicks Button1. You snap other blocks inside it to set the specific behavior.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. 如果你没有手机，还能怎么测试 App Inventor 项目？</span><span class="en">5. If you don't have a phone, how else can you test an App Inventor project?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">没办法，必须有手机才能测试</span>
+              <span class="en">There's no way — you must have a phone to test</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">使用 App Inventor 内置的模拟器（Emulator）</span>
+              <span class="en">Use the built-in emulator in App Inventor</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">打印成纸质版查看</span>
+              <span class="en">Print it out on paper to view</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">用计算器模拟</span>
+              <span class="en">Simulate it with a calculator</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">App Inventor 提供了内置的模拟器（Emulator），可以在电脑上模拟手机环境来测试你的 App。点击 Connect → Emulator 即可使用。</span><span class="en">App Inventor includes a built-in emulator that simulates a phone environment on your computer. Click Connect → Emulator to use it.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="../index.html"><span class="zh">&larr; 返回目录</span><span class="en">&larr; Back to Course</span></a>
+      <a href="lesson2.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

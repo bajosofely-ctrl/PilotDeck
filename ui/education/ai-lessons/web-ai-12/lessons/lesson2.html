@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Web Studio Lesson 2 - HTML Basics Part 2: Links, Lists and Forms">
+  <title>第2课 - HTML 基础（下）| AI 网站工坊</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html" class="active"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 2 课</span>
+        <span class="en">Lesson 2</span>
+      </span>
+      <h1>
+        <span class="zh">HTML 基础（下）— 链接、列表与表单</span>
+        <span class="en">HTML Basics (Part 2) — Links, Lists &amp; Forms</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">学习如何用链接连接页面、用列表组织信息、用表单收集用户输入。</span>
+        <span class="en">Learn to connect pages with links, organize info with lists, and collect user input with forms.</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <!-- Section 2.1: Course Goals -->
+    <section class="section reveal" id="section-2-1">
+      <h2>
+        <span class="zh">2.1 课程目标</span>
+        <span class="en">2.1 Lesson Goals</span>
+      </h2>
+      <p>
+        <span class="zh">在上一课中，我们学会了用标题、段落和图片构建网页。这一课，我们将学习三个新的重要 HTML 功能：</span>
+        <span class="en">In the last lesson, we learned to build pages with headings, paragraphs, and images. This lesson covers three important new HTML features:</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">🔗</div>
+          <h3><span class="zh">超链接</span><span class="en">Hyperlinks</span></h3>
+          <p><span class="zh">让用户可以在不同页面之间跳转，也可以链接到外部网站。</span><span class="en">Let users navigate between pages and link to external websites.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">📋</div>
+          <h3><span class="zh">列表</span><span class="en">Lists</span></h3>
+          <p><span class="zh">用有序列表和无序列表来清晰地组织和展示信息。</span><span class="en">Use ordered and unordered lists to organize and display information clearly.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">📝</div>
+          <h3><span class="zh">表单</span><span class="en">Forms</span></h3>
+          <p><span class="zh">创建输入框、下拉菜单和按钮，让用户可以与网页交互。</span><span class="en">Create input fields, dropdowns, and buttons so users can interact with your page.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2.2: Hyperlinks -->
+    <section class="section reveal" id="section-2-2">
+      <h2>
+        <span class="zh">2.2 超链接 <code>&lt;a&gt;</code></span>
+        <span class="en">2.2 Hyperlinks <code>&lt;a&gt;</code></span>
+      </h2>
+      <p>
+        <span class="zh"><code>&lt;a&gt;</code> 标签（anchor，锚点）用来创建超链接。<code>href</code> 属性指定链接的目标地址。</span>
+        <span class="en">The <code>&lt;a&gt;</code> tag (anchor) creates hyperlinks. The <code>href</code> attribute specifies the destination URL.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!-- 链接到外部网站 --&gt;
+&lt;a href="https://www.example.com"&gt;访问 Example 网站&lt;/a&gt;
+
+&lt;!-- 链接到本地页面 --&gt;
+&lt;a href="about.html"&gt;关于我们&lt;/a&gt;
+
+&lt;!-- 在新标签页打开链接 --&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;
+  在新窗口打开
+&lt;/a&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh">💡 <strong>小技巧：</strong>使用 <code>target="_blank"</code> 可以让链接在新标签页中打开，这样用户不会离开你的网站。</span>
+          <span class="en">💡 <strong>Tip:</strong> Use <code>target="_blank"</code> to open links in a new tab, so users don't leave your site.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">你也可以创建<strong>页内锚点链接</strong>，让用户跳转到同一页面的不同位置：</span>
+        <span class="en">You can also create <strong>anchor links</strong> that jump to different sections on the same page:</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!-- 导航链接 --&gt;
+&lt;a href="#hobbies"&gt;跳到爱好部分&lt;/a&gt;
+
+&lt;!-- 目标位置 --&gt;
+&lt;h2 id="hobbies"&gt;我的爱好&lt;/h2&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- Section 2.3: Lists -->
+    <section class="section reveal" id="section-2-3">
+      <h2>
+        <span class="zh">2.3 列表</span>
+        <span class="en">2.3 Lists</span>
+      </h2>
+      <p>
+        <span class="zh">HTML 提供两种基本列表类型：<strong>无序列表</strong>（项目符号）和<strong>有序列表</strong>（编号）。</span>
+        <span class="en">HTML provides two basic list types: <strong>unordered lists</strong> (bullet points) and <strong>ordered lists</strong> (numbered).</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">无序列表 <code>&lt;ul&gt;</code></span><span class="en">Unordered List <code>&lt;ul&gt;</code></span></h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">HTML</span>
+              <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+            </div>
+            <pre class="code-pre"><code>&lt;ul&gt;
+  &lt;li&gt;苹果&lt;/li&gt;
+  &lt;li&gt;香蕉&lt;/li&gt;
+  &lt;li&gt;橙子&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+          <p><span class="zh">显示为圆点列表，用于顺序不重要的项目。</span><span class="en">Displays bullet points — used when order doesn't matter.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">有序列表 <code>&lt;ol&gt;</code></span><span class="en">Ordered List <code>&lt;ol&gt;</code></span></h3>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-lang">HTML</span>
+              <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+            </div>
+            <pre class="code-pre"><code>&lt;ol&gt;
+  &lt;li&gt;打开编辑器&lt;/li&gt;
+  &lt;li&gt;编写代码&lt;/li&gt;
+  &lt;li&gt;保存文件&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          </div>
+          <p><span class="zh">显示为编号列表，用于有先后顺序的步骤。</span><span class="en">Displays numbered items — used when order matters (like steps).</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh">💡 <strong>注意：</strong>每个列表项都使用 <code>&lt;li&gt;</code>（list item）标签。列表还可以嵌套——在 <code>&lt;li&gt;</code> 里放入另一个 <code>&lt;ul&gt;</code> 或 <code>&lt;ol&gt;</code>。</span>
+          <span class="en">💡 <strong>Note:</strong> Each list item uses the <code>&lt;li&gt;</code> (list item) tag. Lists can be nested — put another <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> inside an <code>&lt;li&gt;</code>.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2.4: Form Basics -->
+    <section class="section reveal" id="section-2-4">
+      <h2>
+        <span class="zh">2.4 表单基础</span>
+        <span class="en">2.4 Form Basics</span>
+      </h2>
+      <p>
+        <span class="zh">表单是网页中收集用户信息的重要工具。登录页面、搜索栏、联系表单——这些都是用 HTML 表单构建的。</span>
+        <span class="en">Forms are essential for collecting user information on the web. Login pages, search bars, contact forms — they're all built with HTML forms.</span>
+      </p>
+
+      <h3><span class="zh">常用表单元素</span><span class="en">Common Form Elements</span></h3>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">✏️</div>
+          <h3><span class="zh"><code>&lt;input&gt;</code> 输入框</span><span class="en"><code>&lt;input&gt;</code> Input Field</span></h3>
+          <p><span class="zh">最常用的表单元素。<code>type</code> 属性决定输入类型：<code>text</code>（文本）、<code>email</code>（邮箱）、<code>password</code>（密码）、<code>number</code>（数字）等。</span><span class="en">The most common form element. The <code>type</code> attribute determines input type: <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, etc.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">📄</div>
+          <h3><span class="zh"><code>&lt;textarea&gt;</code> 文本区域</span><span class="en"><code>&lt;textarea&gt;</code> Text Area</span></h3>
+          <p><span class="zh">用于多行文本输入，适合留言、评论等较长内容。</span><span class="en">For multi-line text input — great for messages, comments, and longer content.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">📃</div>
+          <h3><span class="zh"><code>&lt;select&gt;</code> 下拉菜单</span><span class="en"><code>&lt;select&gt;</code> Dropdown</span></h3>
+          <p><span class="zh">提供一个下拉选择列表，用户从预设选项中选择一个。</span><span class="en">Provides a dropdown list where users pick from predefined options.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🔘</div>
+          <h3><span class="zh"><code>&lt;button&gt;</code> 按钮</span><span class="en"><code>&lt;button&gt;</code> Button</span></h3>
+          <p><span class="zh">用户点击按钮来提交表单或触发操作。</span><span class="en">Users click buttons to submit forms or trigger actions.</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">完整的联系表单示例</span><span class="en">Complete Contact Form Example</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;form&gt;
+  &lt;label for="name"&gt;姓名：&lt;/label&gt;
+  &lt;input type="text" id="name" placeholder="请输入你的姓名"&gt;
+
+  &lt;label for="email"&gt;邮箱：&lt;/label&gt;
+  &lt;input type="email" id="email" placeholder="example@mail.com"&gt;
+
+  &lt;label for="subject"&gt;主题：&lt;/label&gt;
+  &lt;select id="subject"&gt;
+    &lt;option value="question"&gt;问题咨询&lt;/option&gt;
+    &lt;option value="feedback"&gt;意见反馈&lt;/option&gt;
+    &lt;option value="other"&gt;其他&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for="message"&gt;留言：&lt;/label&gt;
+  &lt;textarea id="message" rows="4" placeholder="写下你的留言..."&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;发送&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <p>
+          <span class="zh">⚠️ <strong>注意：</strong><code>&lt;label&gt;</code> 标签的 <code>for</code> 属性必须和对应 <code>&lt;input&gt;</code> 的 <code>id</code> 一致。这不仅方便用户点击标签聚焦到输入框，还能提升无障碍访问体验。</span>
+          <span class="en">⚠️ <strong>Note:</strong> The <code>for</code> attribute of <code>&lt;label&gt;</code> must match the <code>id</code> of the corresponding <code>&lt;input&gt;</code>. This lets users click the label to focus the input and improves accessibility.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2.5: Hands-on Practice -->
+    <section class="section reveal" id="section-2-5">
+      <h2>
+        <span class="zh">2.5 动手实践</span>
+        <span class="en">2.5 Hands-on Practice</span>
+      </h2>
+      <p>
+        <span class="zh">让我们把学到的链接、列表和表单结合起来，制作一个完整的个人信息页面！</span>
+        <span class="en">Let's combine links, lists, and forms to build a complete personal info page!</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;我的个人主页&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 导航菜单 --&gt;
+    &lt;nav&gt;
+      &lt;a href="#about"&gt;关于我&lt;/a&gt; |
+      &lt;a href="#hobbies"&gt;我的爱好&lt;/a&gt; |
+      &lt;a href="#contact"&gt;联系我&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;h1&gt;欢迎来到我的主页&lt;/h1&gt;
+
+    &lt;h2 id="about"&gt;关于我&lt;/h2&gt;
+    &lt;p&gt;大家好！我是一名热爱编程的学生。&lt;/p&gt;
+    &lt;p&gt;点击这里访问
+      &lt;a href="https://www.example.com" target="_blank"&gt;
+        我喜欢的网站
+      &lt;/a&gt;。
+    &lt;/p&gt;
+
+    &lt;h2 id="hobbies"&gt;我的爱好&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;编程&lt;/li&gt;
+      &lt;li&gt;画画&lt;/li&gt;
+      &lt;li&gt;打篮球&lt;/li&gt;
+      &lt;li&gt;阅读科幻小说&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id="contact"&gt;联系我&lt;/h2&gt;
+    &lt;form&gt;
+      &lt;label for="visitor-name"&gt;你的名字：&lt;/label&gt;
+      &lt;input type="text" id="visitor-name"&gt;
+      &lt;label for="visitor-msg"&gt;留言：&lt;/label&gt;
+      &lt;textarea id="visitor-msg" rows="3"&gt;&lt;/textarea&gt;
+      &lt;button type="submit"&gt;发送留言&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh">💡 <strong>试一试：</strong>把上面的代码保存为 <code>profile.html</code>，然后在浏览器中打开。点击导航链接，看看页面是否会跳到对应的部分！</span>
+          <span class="en">💡 <strong>Try it:</strong> Save the code above as <code>profile.html</code> and open it in your browser. Click the nav links and see if the page scrolls to the corresponding sections!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2.6: Challenge Tasks -->
+    <section class="section reveal" id="section-2-6">
+      <h2>
+        <span class="zh">2.6 挑战任务</span>
+        <span class="en">2.6 Challenge Tasks</span>
+      </h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">⭐</div>
+          <h3><span class="zh">挑战 A：多页面网站</span><span class="en">Challenge A: Multi-Page Site</span></h3>
+          <p><span class="zh">创建 3 个 HTML 文件（<code>index.html</code>、<code>about.html</code>、<code>hobbies.html</code>），并用 <code>&lt;a&gt;</code> 标签在它们之间创建导航链接，让用户可以在不同页面之间自由跳转。</span><span class="en">Create 3 HTML files (<code>index.html</code>, <code>about.html</code>, <code>hobbies.html</code>) and use <code>&lt;a&gt;</code> tags to create navigation links between them so users can freely navigate between pages.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🌟</div>
+          <h3><span class="zh">挑战 B：调查问卷</span><span class="en">Challenge B: Survey Form</span></h3>
+          <p><span class="zh">使用表单元素创建一个简单的调查问卷，包括：文本输入框（姓名）、邮箱输入框、单选按钮（性别）、复选框（爱好）、下拉菜单（年龄段）和一个提交按钮。</span><span class="en">Create a survey form using: text input (name), email input, radio buttons (gender), checkboxes (hobbies), a dropdown (age range), and a submit button.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="section reveal" id="quiz-2">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web2">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. 哪个属性用来指定超链接的目标地址？</span><span class="en">1. Which attribute specifies the destination of a hyperlink?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">src</span><span class="en">src</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">link</span><span class="en">link</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">href</span><span class="en">href</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">url</span><span class="en">url</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>href</code>（Hypertext Reference）是 <code>&lt;a&gt;</code> 标签中用来指定链接目标的属性。</span><span class="en"><code>href</code> (Hypertext Reference) is the attribute in the <code>&lt;a&gt;</code> tag that specifies the link destination.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">2. 哪个标签用来创建无序列表？</span><span class="en">2. Which tag creates an unordered list?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh"><code>&lt;ol&gt;</code></span><span class="en"><code>&lt;ol&gt;</code></span></button>
+            <button class="quiz-option" data-value="B"><span class="zh"><code>&lt;ul&gt;</code></span><span class="en"><code>&lt;ul&gt;</code></span></button>
+            <button class="quiz-option" data-value="C"><span class="zh"><code>&lt;li&gt;</code></span><span class="en"><code>&lt;li&gt;</code></span></button>
+            <button class="quiz-option" data-value="D"><span class="zh"><code>&lt;list&gt;</code></span><span class="en"><code>&lt;list&gt;</code></span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>&lt;ul&gt;</code>（Unordered List）创建无序列表，显示为项目符号。<code>&lt;ol&gt;</code> 是有序列表。</span><span class="en"><code>&lt;ul&gt;</code> (Unordered List) creates a bullet-point list. <code>&lt;ol&gt;</code> is for ordered (numbered) lists.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 在表单中，哪个标签用来创建多行文本输入？</span><span class="en">3. Which form tag creates a multi-line text input?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh"><code>&lt;textarea&gt;</code></span><span class="en"><code>&lt;textarea&gt;</code></span></button>
+            <button class="quiz-option" data-value="B"><span class="zh"><code>&lt;input type="text"&gt;</code></span><span class="en"><code>&lt;input type="text"&gt;</code></span></button>
+            <button class="quiz-option" data-value="C"><span class="zh"><code>&lt;p&gt;</code></span><span class="en"><code>&lt;p&gt;</code></span></button>
+            <button class="quiz-option" data-value="D"><span class="zh"><code>&lt;textbox&gt;</code></span><span class="en"><code>&lt;textbox&gt;</code></span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>&lt;textarea&gt;</code> 创建可以输入多行文本的区域。<code>&lt;input type="text"&gt;</code> 只能输入一行文字。</span><span class="en"><code>&lt;textarea&gt;</code> creates a multi-line text area. <code>&lt;input type="text"&gt;</code> is single-line only.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. <code>target="_blank"</code> 属性的作用是什么？</span><span class="en">4. What does the <code>target="_blank"</code> attribute do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">让链接变成粗体</span><span class="en">Makes the link bold</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">删除链接的下划线</span><span class="en">Removes the link underline</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">让链接变成空白页</span><span class="en">Makes the link a blank page</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">在新标签页中打开链接</span><span class="en">Opens the link in a new tab</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>target="_blank"</code> 让浏览器在新的标签页或窗口中打开链接，而不是在当前页面跳转。</span><span class="en"><code>target="_blank"</code> tells the browser to open the link in a new tab or window instead of navigating away from the current page.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">5. <code>&lt;label&gt;</code> 标签的 <code>for</code> 属性应该与什么匹配？</span><span class="en">5. What should the <code>for</code> attribute of <code>&lt;label&gt;</code> match?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">输入框的 <code>name</code> 属性</span><span class="en">The input's <code>name</code> attribute</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">输入框的 <code>class</code> 属性</span><span class="en">The input's <code>class</code> attribute</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">输入框的 <code>id</code> 属性</span><span class="en">The input's <code>id</code> attribute</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">输入框的 <code>type</code> 属性</span><span class="en">The input's <code>type</code> attribute</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>&lt;label&gt;</code> 的 <code>for</code> 属性需要与对应表单元素的 <code>id</code> 属性保持一致，这样点击标签就能聚焦到输入框。</span><span class="en">The <code>for</code> attribute of <code>&lt;label&gt;</code> must match the <code>id</code> of the corresponding form element, so clicking the label focuses the input.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson1.html"><span class="zh">&larr; 返回目录</span><span class="en">&larr; Back to Course</span></a>
+      <a href="lesson3.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

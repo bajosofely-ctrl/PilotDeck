@@ -1,0 +1,53 @@
+@value borderGrey, primary, bgSubdued1, textDark from "@genai-fi/base/css/colours.module.css";
+
+.scroll {
+    overflow-x: auto;
+}
+
+.table {
+    border-collapse: collapse;
+    min-width: 760px;
+    width: 100%;
+    font-size: 0.875rem;
+}
+
+.table th,
+.table td {
+    border: 1px solid borderGrey;
+    padding: 0.45rem 0.5rem;
+    text-align: center;
+}
+
+.table thead th {
+    background: transparent;
+    font-weight: 600;
+}
+
+.rowHeader {
+    text-align: left !important;
+    white-space: nowrap;
+    background: transparent;
+    font-weight: 600;
+}
+
+.currentInputRow td,
+.currentInputRow th {
+    background: bgSubdued1;
+    color: textDark;
+}
+
+.valueStrong {
+    font-weight: 700;
+}
+
+.similarity {
+    width: 96px;
+    font-weight: 600;
+}
+
+.similarityHeaderContent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+}

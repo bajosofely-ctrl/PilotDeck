@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Web Studio Lesson 1 - HTML Basics Part 1: Your First Webpage">
+  <title>第1课 - HTML 基础（上）| AI 网站工坊</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html" class="active"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 1 课</span>
+        <span class="en">Lesson 1</span>
+      </span>
+      <h1>
+        <span class="zh">HTML 基础（上）— 你的第一个网页</span>
+        <span class="en">HTML Basics (Part 1) — Your First Webpage</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">从零开始，了解网页是怎么诞生的，并亲手写出你人生中的第一个网页！</span>
+        <span class="en">Start from scratch — learn how webpages are born and build your very first one!</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <!-- Section 1.1: Course Goals -->
+    <section class="section reveal" id="section-1-1">
+      <h2>
+        <span class="zh">1.1 课程目标</span>
+        <span class="en">1.1 Course Goals</span>
+      </h2>
+      <p>
+        <span class="zh">欢迎来到 <strong>AI 网站工坊</strong>！在这门课程中，你将通过 12 节课的学习，从零开始构建一个真正的 AI 驱动的网站。你不需要任何编程经验——我们会一步步带你前进。</span>
+        <span class="en">Welcome to <strong>AI Web Studio</strong>! In this course, you'll build a real AI-powered website from scratch across 12 lessons. No prior coding experience needed — we'll guide you step by step.</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">🌐</div>
+          <h3><span class="zh">学习 HTML / CSS / JS</span><span class="en">Learn HTML / CSS / JS</span></h3>
+          <p><span class="zh">掌握网页开发三大核心技术：HTML 搭建结构、CSS 美化样式、JavaScript 添加交互。</span><span class="en">Master the three pillars of web development: HTML for structure, CSS for styling, and JavaScript for interactivity.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🤖</div>
+          <h3><span class="zh">集成 AI 接口</span><span class="en">Integrate AI APIs</span></h3>
+          <p><span class="zh">学会调用 AI 模型的 API，为你的网站添加智能对话、图像识别等酷炫功能。</span><span class="en">Learn to call AI model APIs and add smart features like chatbots and image recognition to your site.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🚀</div>
+          <h3><span class="zh">部署上线</span><span class="en">Deploy Live</span></h3>
+          <p><span class="zh">把你的作品部署到互联网上，让全世界都能看到你做的网站！</span><span class="en">Deploy your project to the internet so the whole world can see your website!</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh">💡 <strong>提示：</strong>本课程每节课都有动手实践和挑战任务。完成所有 12 课后，你将拥有一个属于自己的 AI 网站！</span>
+          <span class="en">💡 <strong>Tip:</strong> Every lesson includes hands-on practice and challenge tasks. After all 12 lessons, you'll have your very own AI website!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1.2: What is HTML? -->
+    <section class="section reveal" id="section-1-2">
+      <h2>
+        <span class="zh">1.2 什么是 HTML？</span>
+        <span class="en">1.2 What Is HTML?</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>HTML</strong> 是 <em>HyperText Markup Language</em>（超文本标记语言）的缩写。它不是一种编程语言，而是一种<strong>标记语言</strong>——用来告诉浏览器"这里是标题""这里是段落""这里是图片"。</span>
+        <span class="en"><strong>HTML</strong> stands for <em>HyperText Markup Language</em>. It's not a programming language — it's a <strong>markup language</strong> that tells the browser "this is a heading," "this is a paragraph," "this is an image."</span>
+      </p>
+      <p>
+        <span class="zh">你可以把 HTML 想象成网页的"骨架"。就像人的骨骼支撑着身体一样，HTML 定义了网页的结构和内容。</span>
+        <span class="en">Think of HTML as the "skeleton" of a webpage. Just as bones support the human body, HTML defines the structure and content of a page.</span>
+      </p>
+
+      <h3><span class="zh">标签、元素与属性</span><span class="en">Tags, Elements &amp; Attributes</span></h3>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">🏷️</div>
+          <h3><span class="zh">标签 (Tags)</span><span class="en">Tags</span></h3>
+          <p><span class="zh">用尖括号包裹的关键词，如 <code>&lt;p&gt;</code>、<code>&lt;h1&gt;</code>。大多数标签成对出现：开始标签和结束标签。</span><span class="en">Keywords wrapped in angle brackets, like <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>. Most tags come in pairs: an opening tag and a closing tag.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">📦</div>
+          <h3><span class="zh">元素 (Elements)</span><span class="en">Elements</span></h3>
+          <p><span class="zh">开始标签 + 内容 + 结束标签 = 一个完整的元素。例如 <code>&lt;p&gt;你好&lt;/p&gt;</code> 就是一个段落元素。</span><span class="en">Opening tag + content + closing tag = a complete element. For example, <code>&lt;p&gt;Hello&lt;/p&gt;</code> is a paragraph element.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">⚙️</div>
+          <h3><span class="zh">属性 (Attributes)</span><span class="en">Attributes</span></h3>
+          <p><span class="zh">在开始标签中添加额外信息，如 <code>&lt;a href="..."&gt;</code> 中的 <code>href</code> 就是属性。</span><span class="en">Extra info added to opening tags, like <code>href</code> in <code>&lt;a href="..."&gt;</code> is an attribute.</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">HTML 基本结构</span><span class="en">Basic HTML Structure</span></h3>
+      <p>
+        <span class="zh">每个 HTML 文件都遵循一个固定的基本结构。下面是最简单的 HTML 页面：</span>
+        <span class="en">Every HTML file follows a standard structure. Here's the simplest HTML page:</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;我的第一个网页&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;你好，世界！&lt;/h1&gt;
+    &lt;p&gt;这是我的第一个网页。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh">🔍 <strong>解读：</strong><code>&lt;!DOCTYPE html&gt;</code> 告诉浏览器这是 HTML5 文档。<code>&lt;head&gt;</code> 包含页面元信息（如标题），<code>&lt;body&gt;</code> 包含用户看到的所有内容。</span>
+          <span class="en">🔍 <strong>Breakdown:</strong> <code>&lt;!DOCTYPE html&gt;</code> tells the browser this is an HTML5 document. <code>&lt;head&gt;</code> contains metadata (like the title), and <code>&lt;body&gt;</code> contains everything the user sees.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1.3: Hands-on Practice -->
+    <section class="section reveal" id="section-1-3">
+      <h2>
+        <span class="zh">1.3 动手实践</span>
+        <span class="en">1.3 Hands-on Practice</span>
+      </h2>
+      <p>
+        <span class="zh">现在让我们来创建一个包含标题、段落和图片的完整网页！</span>
+        <span class="en">Now let's create a complete webpage with headings, paragraphs, and images!</span>
+      </p>
+
+      <h3><span class="zh">标题标签 h1 到 h6</span><span class="en">Heading Tags h1 to h6</span></h3>
+      <p>
+        <span class="zh">HTML 提供了 6 级标题，<code>&lt;h1&gt;</code> 最大最重要，<code>&lt;h6&gt;</code> 最小。每个页面通常只有一个 <code>&lt;h1&gt;</code>。</span>
+        <span class="en">HTML provides 6 levels of headings. <code>&lt;h1&gt;</code> is the largest and most important, <code>&lt;h6&gt;</code> the smallest. Each page usually has only one <code>&lt;h1&gt;</code>.</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;h1&gt;一级标题（最大）&lt;/h1&gt;
+&lt;h2&gt;二级标题&lt;/h2&gt;
+&lt;h3&gt;三级标题&lt;/h3&gt;
+&lt;h4&gt;四级标题&lt;/h4&gt;
+&lt;h5&gt;五级标题&lt;/h5&gt;
+&lt;h6&gt;六级标题（最小）&lt;/h6&gt;</code></pre>
+      </div>
+
+      <h3><span class="zh">段落和图片</span><span class="en">Paragraphs and Images</span></h3>
+      <p>
+        <span class="zh"><code>&lt;p&gt;</code> 标签用来创建段落。<code>&lt;img&gt;</code> 标签用来插入图片——注意它是一个<strong>自闭合标签</strong>，不需要结束标签。</span>
+        <span class="en">The <code>&lt;p&gt;</code> tag creates paragraphs. The <code>&lt;img&gt;</code> tag inserts images — note that it's a <strong>self-closing tag</strong> with no closing tag needed.</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;关于我&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;大家好！&lt;/h1&gt;
+    &lt;p&gt;我叫小明，今年 14 岁，正在学习做网页。&lt;/p&gt;
+    &lt;h2&gt;我的爱好&lt;/h2&gt;
+    &lt;p&gt;我喜欢编程、画画和打篮球。&lt;/p&gt;
+    &lt;img src="my-photo.jpg" alt="我的照片"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <p>
+          <span class="zh">⚠️ <strong>重要：</strong>文件必须保存为 <code>.html</code> 后缀（例如 <code>index.html</code>），然后用浏览器打开。<code>alt</code> 属性是给图片加上文字说明，当图片无法显示时会显示这段文字。</span>
+          <span class="en">⚠️ <strong>Important:</strong> Save your file with a <code>.html</code> extension (e.g. <code>index.html</code>), then open it in a browser. The <code>alt</code> attribute provides a text description of the image, shown when the image can't load.</span>
+        </p>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh">💡 <strong>小技巧：</strong>你可以使用任何文本编辑器来写 HTML，推荐使用 <strong>VS Code</strong>——它免费、强大，还有很多好用的插件。</span>
+          <span class="en">💡 <strong>Pro tip:</strong> You can use any text editor to write HTML. We recommend <strong>VS Code</strong> — it's free, powerful, and has tons of helpful extensions.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1.4: Challenge Tasks -->
+    <section class="section reveal" id="section-1-4">
+      <h2>
+        <span class="zh">1.4 挑战任务</span>
+        <span class="en">1.4 Challenge Tasks</span>
+      </h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">⭐</div>
+          <h3><span class="zh">挑战 A：丰富内容</span><span class="en">Challenge A: Enrich Content</span></h3>
+          <p><span class="zh">在你的网页中添加更多内容：至少 3 个不同级别的标题和 3 个段落。试着介绍你自己、你的学校和你的梦想。</span><span class="en">Add more content to your page: at least 3 headings of different levels and 3 paragraphs. Try introducing yourself, your school, and your dreams.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🌟</div>
+          <h3><span class="zh">挑战 B：添加图片</span><span class="en">Challenge B: Add Images</span></h3>
+          <p><span class="zh">找一张你喜欢的图片，用 <code>&lt;img&gt;</code> 标签添加到网页中。别忘了写有意义的 <code>alt</code> 属性文字！你可以试试添加 2-3 张图片。</span><span class="en">Find an image you like and add it with the <code>&lt;img&gt;</code> tag. Don't forget a meaningful <code>alt</code> attribute! Try adding 2-3 images.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="section reveal" id="quiz-1">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web1">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. HTML 的全称是什么？</span><span class="en">1. What does HTML stand for?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">High Tech Modern Language</span><span class="en">High Tech Modern Language</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">HyperText Markup Language</span><span class="en">HyperText Markup Language</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">Home Tool Markup Language</span><span class="en">Home Tool Markup Language</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">Hyper Transfer Making Language</span><span class="en">Hyper Transfer Making Language</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">HTML 全称为 HyperText Markup Language（超文本标记语言），是构建网页的基础语言。</span><span class="en">HTML stands for HyperText Markup Language — the foundational language for building webpages.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">2. <code>&lt;h1&gt;</code> 标签的作用是什么？</span><span class="en">2. What does the <code>&lt;h1&gt;</code> tag do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">创建最大的标题</span><span class="en">Creates the largest heading</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">创建超链接</span><span class="en">Creates a hyperlink</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">创建段落</span><span class="en">Creates a paragraph</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">创建最小的标题</span><span class="en">Creates the smallest heading</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>&lt;h1&gt;</code> 是最高级别的标题标签，通常用于页面的主标题。<code>&lt;h6&gt;</code> 才是最小的标题。</span><span class="en"><code>&lt;h1&gt;</code> is the highest-level heading tag, typically used for the page's main title. <code>&lt;h6&gt;</code> is the smallest heading.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">3. <code>&lt;img&gt;</code> 标签必须包含哪个属性来描述图片内容？</span><span class="en">3. Which attribute must the <code>&lt;img&gt;</code> tag include to describe the image?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">href</span><span class="en">href</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">title</span><span class="en">title</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">alt</span><span class="en">alt</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">class</span><span class="en">class</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>alt</code> 属性为图片提供替代文本，当图片无法加载时显示，也有助于屏幕阅读器理解图片内容。</span><span class="en">The <code>alt</code> attribute provides alternative text for the image, shown when the image can't load, and helps screen readers understand the image.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 以下哪个是正确的 HTML 基本结构？</span><span class="en">4. Which of the following is the correct basic HTML structure?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh"><code>&lt;body&gt;&lt;head&gt;&lt;html&gt;</code></span><span class="en"><code>&lt;body&gt;&lt;head&gt;&lt;html&gt;</code></span></button>
+            <button class="quiz-option" data-value="B"><span class="zh"><code>&lt;head&gt;&lt;body&gt;&lt;html&gt;</code></span><span class="en"><code>&lt;head&gt;&lt;body&gt;&lt;html&gt;</code></span></button>
+            <button class="quiz-option" data-value="C"><span class="zh"><code>&lt;html&gt;&lt;body&gt;&lt;head&gt;</code></span><span class="en"><code>&lt;html&gt;&lt;body&gt;&lt;head&gt;</code></span></button>
+            <button class="quiz-option" data-value="D"><span class="zh"><code>&lt;html&gt;&lt;head&gt;&lt;body&gt;</code></span><span class="en"><code>&lt;html&gt;&lt;head&gt;&lt;body&gt;</code></span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">正确顺序是 <code>&lt;html&gt;</code> 包裹一切，里面先是 <code>&lt;head&gt;</code>（元信息），再是 <code>&lt;body&gt;</code>（可见内容）。</span><span class="en">The correct order is <code>&lt;html&gt;</code> wrapping everything, with <code>&lt;head&gt;</code> (metadata) first, then <code>&lt;body&gt;</code> (visible content).</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. <code>&lt;!DOCTYPE html&gt;</code> 的作用是什么？</span><span class="en">5. What is the purpose of <code>&lt;!DOCTYPE html&gt;</code>?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">创建一个段落</span><span class="en">Creates a paragraph</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">告诉浏览器这是一个 HTML5 文档</span><span class="en">Tells the browser this is an HTML5 document</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">定义网页的标题</span><span class="en">Defines the page title</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">插入一张图片</span><span class="en">Inserts an image</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>&lt;!DOCTYPE html&gt;</code> 不是 HTML 标签，而是一个声明，告诉浏览器当前文档使用 HTML5 标准解析。</span><span class="en"><code>&lt;!DOCTYPE html&gt;</code> is not an HTML tag but a declaration that tells the browser to parse the document using the HTML5 standard.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="../index.html"><span class="zh">&larr; 返回目录</span><span class="en">&larr; Back to Course</span></a>
+      <a href="lesson2.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

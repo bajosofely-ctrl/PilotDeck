@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第1课：走进AI的世界 — 了解AI的定义、发展历史和日常应用 | Lesson 1: Welcome to the World of AI">
+  <title>第1课：走进 AI 的世界 | Lesson 1: Welcome to the World of AI</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html" class="active"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 1 课</span>
+        <span class="en">Lesson 1</span>
+      </span>
+      <h1>
+        <span class="zh">走进 AI 的世界</span>
+        <span class="en">Welcome to the World of AI</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">什么是人工智能？它是如何改变我们的生活的？</span>
+        <span class="en">What is AI? How is it changing our lives?</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ── Section 1.1 ── -->
+    <section class="section reveal" id="section-1-1">
+      <h2>
+        <span class="zh">1.1 你今天用了哪些 AI？</span>
+        <span class="en">1.1 What AI Did You Use Today?</span>
+      </h2>
+      <p>
+        <span class="zh">你可能没有意识到，人工智能早已融入了我们的日常生活。看看下面这些场景，你今天用了几个？</span>
+        <span class="en">You might not realize it, but AI is already woven into our daily lives. Check out these scenarios — how many did you use today?</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+
+        <!-- Card: Recommendation Algorithms -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">推荐算法</span>
+            <span class="en">Recommendation Algorithms</span>
+          </h4>
+          <p>
+            <span class="zh">抖音、B站、小红书为你推荐喜欢的内容</span>
+            <span class="en">TikTok, YouTube, and Instagram recommend content you'll love</span>
+          </p>
+        </div>
+
+        <!-- Card: Face Unlock -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">人脸解锁</span>
+            <span class="en">Face Unlock</span>
+          </h4>
+          <p>
+            <span class="zh">用你的脸解锁手机、验证身份</span>
+            <span class="en">Unlock your phone and verify identity with your face</span>
+          </p>
+        </div>
+
+        <!-- Card: Voice Assistants -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">语音助手</span>
+            <span class="en">Voice Assistants</span>
+          </h4>
+          <p>
+            <span class="zh">Siri、小爱同学、天猫精灵听懂你说的话</span>
+            <span class="en">Siri, Alexa, and Google Assistant understand your voice</span>
+          </p>
+        </div>
+
+        <!-- Card: AI Translation -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg>
+          </div>
+          <h4>
+            <span class="zh">AI 翻译</span>
+            <span class="en">AI Translation</span>
+          </h4>
+          <p>
+            <span class="zh">Google翻译、DeepL让你读懂外语</span>
+            <span class="en">Google Translate and DeepL help you read any language</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Section 1.2 ── -->
+    <section class="section reveal" id="section-1-2">
+      <h2>
+        <span class="zh">1.2 什么是人工智能？</span>
+        <span class="en">1.2 What is Artificial Intelligence?</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>人工智能（AI）</strong>是让机器模拟人类智能的技术——包括<strong>感知、推理、学习和决策</strong>。简单来说，就是让计算机像人一样"看"、"听"、"想"和"做"。</span>
+        <span class="en"><strong>Artificial Intelligence (AI)</strong> is technology that enables machines to simulate human intelligence—<strong>perception, reasoning, learning, and decision-making</strong>. In simple terms, it's about making computers "see," "hear," "think," and "act" like humans.</span>
+      </p>
+
+      <div class="compare reveal">
+        <!-- Narrow AI -->
+        <div class="compare-col highlight-good">
+          <h4>
+            <span class="zh">🤖 弱 AI（专用 AI）</span>
+            <span class="en">🤖 Narrow AI (Specialized)</span>
+          </h4>
+          <p>
+            <span class="zh">只能做特定任务——下棋、翻译、识别人脸。这就是我们今天使用的所有 AI。</span>
+            <span class="en">Can only do specific tasks—chess, translation, face recognition. This is all the AI we use today.</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">✅ 已经存在，广泛使用</span>
+              <span class="en">✅ Already exists, widely used</span>
+            </li>
+            <li>
+              <span class="zh">✅ 在特定领域可以超越人类</span>
+              <span class="en">✅ Can surpass humans in specific domains</span>
+            </li>
+            <li>
+              <span class="zh">⚠️ 离开训练领域就无能为力</span>
+              <span class="en">⚠️ Helpless outside its trained domain</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- General AI -->
+        <div class="compare-col highlight-bad">
+          <h4>
+            <span class="zh">🧠 强 AI（通用 AI）</span>
+            <span class="en">🧠 General AI (AGI)</span>
+          </h4>
+          <p>
+            <span class="zh">能像人一样思考和解决任何问题——目前还不存在！</span>
+            <span class="en">Can think and solve any problem like humans—doesn't exist yet!</span>
+          </p>
+          <ul>
+            <li>
+              <span class="zh">❌ 目前还不存在</span>
+              <span class="en">❌ Doesn't exist yet</span>
+            </li>
+            <li>
+              <span class="zh">🔮 科学家们仍在研究</span>
+              <span class="en">🔮 Scientists are still researching</span>
+            </li>
+            <li>
+              <span class="zh">🎬 常见于科幻电影中</span>
+              <span class="en">🎬 Commonly seen in sci-fi movies</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Section 1.3 ── -->
+    <section class="section reveal" id="section-1-3">
+      <h2>
+        <span class="zh">1.3 AI 发展简史</span>
+        <span class="en">1.3 A Brief History of AI</span>
+      </h2>
+      <p>
+        <span class="zh">人工智能不是一夜之间出现的。让我们沿着时间线，看看 AI 是如何一步步走到今天的。点击卡片查看更多详情！</span>
+        <span class="en">AI didn't appear overnight. Let's follow the timeline to see how AI got to where it is today. Click each card for more details!</span>
+      </p>
+
+      <div class="timeline">
+
+        <!-- 1950 -->
+        <div class="timeline-item">
+          <div class="timeline-year">1950</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">图灵测试</span>
+              <span class="en">Turing Test</span>
+            </h3>
+            <p>
+              <span class="zh">图灵提出"机器能思考吗？"</span>
+              <span class="en">Turing asked "Can machines think?"</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">阿兰·图灵发表论文，提出了判断机器是否具有智能的标准。如果一台机器能在对话中让人无法区分它和人类，那么它就"通过了"图灵测试。这个想法奠定了人工智能的哲学基础。</span>
+                <span class="en">Alan Turing published his paper proposing a standard for machine intelligence. If a machine can carry on a conversation indistinguishable from a human, it "passes" the Turing Test. This idea laid the philosophical foundation for AI.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1997 -->
+        <div class="timeline-item">
+          <div class="timeline-year">1997</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">深蓝击败棋王</span>
+              <span class="en">Deep Blue Beats Kasparov</span>
+            </h3>
+            <p>
+              <span class="zh">IBM 的深蓝计算机击败国际象棋世界冠军。</span>
+              <span class="en">IBM's Deep Blue defeated the world chess champion.</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">这是 AI 第一次在国际象棋上击败人类顶尖选手，轰动世界。深蓝每秒能评估 2 亿个棋局位置，展示了计算能力在策略游戏中的巨大潜力。</span>
+                <span class="en">This was the first time AI defeated a top human chess player, stunning the world. Deep Blue could evaluate 200 million positions per second, demonstrating the immense potential of computing power in strategic games.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2012 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">ImageNet 突破</span>
+              <span class="en">ImageNet Breakthrough</span>
+            </h3>
+            <p>
+              <span class="zh">深度学习在图像识别上取得重大突破。</span>
+              <span class="en">Deep learning achieved a major breakthrough in image recognition.</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">AlexNet 将图像识别错误率从 26% 降到 15%，开启了深度学习时代。这次突破证明了深度神经网络在处理视觉任务上的强大能力，引发了 AI 研究的新浪潮。</span>
+                <span class="en">AlexNet reduced the image recognition error rate from 26% to 15%, ushering in the deep learning era. This breakthrough proved the power of deep neural networks for visual tasks and sparked a new wave of AI research.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2016 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">AlphaGo 击败李世石</span>
+              <span class="en">AlphaGo Beats Lee Sedol</span>
+            </h3>
+            <p>
+              <span class="zh">AI 在被认为最复杂的棋类游戏围棋中取胜。</span>
+              <span class="en">AI won in Go, considered the most complex board game.</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">这一刻被视为 AI 发展的里程碑，因为围棋的可能性比宇宙中的原子还多。AlphaGo 以 4:1 击败韩国棋手李世石，证明了深度强化学习能够解决极其复杂的决策问题。</span>
+                <span class="en">This moment was seen as a milestone in AI development, because Go has more possible positions than atoms in the universe. AlphaGo defeated Korean player Lee Sedol 4-1, proving that deep reinforcement learning can solve extremely complex decision problems.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">ChatGPT 发布</span>
+              <span class="en">ChatGPT Launch</span>
+            </h3>
+            <p>
+              <span class="zh">OpenAI 发布 ChatGPT，引发全球 AI 热潮。</span>
+              <span class="en">OpenAI released ChatGPT, sparking a global AI craze.</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">两个月内用户突破 1 亿，成为历史上增长最快的消费应用。ChatGPT 让普通人第一次真正体验到大语言模型的强大能力，从写作、编程到解答问题无所不能。</span>
+                <span class="en">It reached 100 million users within two months, becoming the fastest-growing consumer application in history. ChatGPT let ordinary people truly experience the power of large language models for the first time—from writing and coding to answering any question.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3>
+              <span class="zh">AI 视频生成</span>
+              <span class="en">AI Video Generation</span>
+            </h3>
+            <p>
+              <span class="zh">Sora 等模型实现文字生成视频。</span>
+              <span class="en">Models like Sora enabled text-to-video generation.</span>
+            </p>
+            <div class="timeline-detail hidden">
+              <p>
+                <span class="zh">AI 从文字、图片扩展到视频生成，多模态能力大幅提升。Sora 能根据文字描述生成逼真的视频片段，标志着 AI 创造力进入了新纪元。</span>
+                <span class="en">AI expanded from text and images to video generation, with a huge leap in multimodal capabilities. Sora can generate realistic video clips from text descriptions, marking a new era in AI creativity.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Section 1.4 ── -->
+    <section class="section reveal" id="section-1-4">
+      <h2>
+        <span class="zh">1.4 AI 的三大能力</span>
+        <span class="en">1.4 Three Core Capabilities of AI</span>
+      </h2>
+      <p>
+        <span class="zh">不管 AI 多么复杂，它的核心能力可以归结为三类：</span>
+        <span class="en">No matter how complex AI gets, its core capabilities boil down to three categories:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+
+        <!-- Perceive -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">感知</span>
+            <span class="en">Perceive</span>
+          </h4>
+          <p>
+            <span class="zh">看、听、读——处理图像、声音和文字</span>
+            <span class="en">See, hear, read—process images, sound, and text</span>
+          </p>
+        </div>
+
+        <!-- Think -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+          </div>
+          <h4>
+            <span class="zh">思考</span>
+            <span class="en">Think</span>
+          </h4>
+          <p>
+            <span class="zh">推理、规划、做决策</span>
+            <span class="en">Reason, plan, and make decisions</span>
+          </p>
+        </div>
+
+        <!-- Create -->
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">创造</span>
+            <span class="en">Create</span>
+          </h4>
+          <p>
+            <span class="zh">生成文字、图片、代码、音乐</span>
+            <span class="en">Generate text, images, code, and music</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Section 1.5 ── -->
+    <section class="section reveal" id="section-1-5">
+      <h2>
+        <span class="zh">1.5 互动：AI 还是人类？</span>
+        <span class="en">1.5 Interactive: AI or Human?</span>
+      </h2>
+      <p>
+        <span class="zh">下面有 5 段内容。你能分辨出哪些是 AI 生成的，哪些是人类创作的吗？点击你的判断，看看你能答对几个！</span>
+        <span class="en">Below are 5 pieces of content. Can you tell which were generated by AI and which were created by humans? Click your guess and see how many you get right!</span>
+      </p>
+
+      <div class="ai-or-human">
+
+        <!-- Item 1: AI poem -->
+        <div class="aoh-item" data-answer="ai">
+          <div class="aoh-content">
+            <p>
+              <span class="zh">"枫叶如火映晚霞，秋风送爽过人家。一年好景君须记，最是橙黄橘绿时。"</span>
+              <span class="en">"Maple leaves like fire reflect the sunset glow, autumn breeze refreshing as it blows. Remember the best scenes of the year, when orange-yellow and tangerine-green appear."</span>
+            </p>
+          </div>
+          <div class="aoh-buttons">
+            <button class="aoh-btn" data-choice="ai">
+              <span class="zh">🤖 AI 生成</span>
+              <span class="en">🤖 AI Generated</span>
+            </button>
+            <button class="aoh-btn" data-choice="human">
+              <span class="zh">👤 人类创作</span>
+              <span class="en">👤 Human Created</span>
+            </button>
+          </div>
+          <div class="aoh-reveal hidden">
+            <p>
+              <span class="zh">🤖 这首诗由 AI 生成。虽然模仿了古诗的格式和意境，但最后两句实际上改编自苏轼的诗句。AI 很擅长模仿风格，但往往会"借鉴"已有作品。</span>
+              <span class="en">🤖 This poem was generated by AI. While it mimics the format and mood of classical poetry, the last two lines are actually adapted from Su Shi's poetry. AI is great at imitating styles, but often "borrows" from existing works.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: Human (Mona Lisa) -->
+        <div class="aoh-item" data-answer="human">
+          <div class="aoh-content">
+            <p>
+              <span class="zh">"一位女性的半身像，带着神秘微笑，背景是蜿蜒的风景。达芬奇创作于 16 世纪。"</span>
+              <span class="en">"A half-portrait of a woman with a mysterious smile, with a winding landscape behind. Created by Da Vinci in the 16th century."</span>
+            </p>
+          </div>
+          <div class="aoh-buttons">
+            <button class="aoh-btn" data-choice="ai">
+              <span class="zh">🤖 AI 生成</span>
+              <span class="en">🤖 AI Generated</span>
+            </button>
+            <button class="aoh-btn" data-choice="human">
+              <span class="zh">👤 人类创作</span>
+              <span class="en">👤 Human Created</span>
+            </button>
+          </div>
+          <div class="aoh-reveal hidden">
+            <p>
+              <span class="zh">👤 这是对达芬奇真迹《蒙娜丽莎》的描述。这幅画创作于 1503-1519 年间，是世界上最著名的画作之一，现藏于巴黎卢浮宫。</span>
+              <span class="en">👤 This describes Da Vinci's real painting, the Mona Lisa. Created between 1503-1519, it's one of the most famous paintings in the world, housed in the Louvre, Paris.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3: AI essay about space -->
+        <div class="aoh-item" data-answer="ai">
+          <div class="aoh-content">
+            <p>
+              <span class="zh">"太空探索是人类最伟大的冒险之一。从 1969 年阿波罗 11 号登月，到如今的火星探测器，我们不断突破边界。每一次发射都承载着人类对未知的渴望，每一个发现都让我们更接近宇宙的真相。"</span>
+              <span class="en">"Space exploration is one of humanity's greatest adventures. From the Apollo 11 moon landing in 1969 to today's Mars rovers, we keep pushing boundaries. Every launch carries humanity's thirst for the unknown, and every discovery brings us closer to the truth of the universe."</span>
+            </p>
+          </div>
+          <div class="aoh-buttons">
+            <button class="aoh-btn" data-choice="ai">
+              <span class="zh">🤖 AI 生成</span>
+              <span class="en">🤖 AI Generated</span>
+            </button>
+            <button class="aoh-btn" data-choice="human">
+              <span class="zh">👤 人类创作</span>
+              <span class="en">👤 Human Created</span>
+            </button>
+          </div>
+          <div class="aoh-reveal hidden">
+            <p>
+              <span class="zh">🤖 由 AI 语言模型生成。这段文字结构工整、语言流畅，但缺少个人经历和独特视角，是 AI 生成文本的典型特征——"正确但缺乏灵魂"。</span>
+              <span class="en">🤖 Generated by an AI language model. The text is well-structured and fluent, but lacks personal experience and unique perspective—a typical trait of AI-generated text: "correct but lacking soul."</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4: Human student diary -->
+        <div class="aoh-item" data-answer="human">
+          <div class="aoh-content">
+            <p>
+              <span class="zh">"今天数学考试终于结束了！虽然最后一道大题没做出来，但总体感觉还行。回家路上买了杯奶茶犒劳自己。明天要开始复习英语了，唉。"</span>
+              <span class="en">"The math exam is finally over today! Although I couldn't solve the last big problem, overall it felt okay. Got a milk tea on the way home as a treat. Gotta start reviewing English tomorrow, ugh."</span>
+            </p>
+          </div>
+          <div class="aoh-buttons">
+            <button class="aoh-btn" data-choice="ai">
+              <span class="zh">🤖 AI 生成</span>
+              <span class="en">🤖 AI Generated</span>
+            </button>
+            <button class="aoh-btn" data-choice="human">
+              <span class="zh">👤 人类创作</span>
+              <span class="en">👤 Human Created</span>
+            </button>
+          </div>
+          <div class="aoh-reveal hidden">
+            <p>
+              <span class="zh">👤 真人学生日记。这段文字有真实的情感波动（如"唉"），具体的生活细节（买奶茶），和自然的口语表达。这些"不完美"恰恰是人类写作的特征。</span>
+              <span class="en">👤 Real student diary. This text has genuine emotional fluctuations (like "ugh"), specific life details (buying milk tea), and natural colloquial expressions. These "imperfections" are exactly what characterize human writing.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 5: AI news summary -->
+        <div class="aoh-item" data-answer="ai">
+          <div class="aoh-content">
+            <p>
+              <span class="zh">"据最新研究显示，全球平均气温在过去十年中上升了 0.3 摄氏度，极端天气事件的频率增加了 15%。科学家呼吁各国加强合作，采取更积极的气候行动。"</span>
+              <span class="en">"According to the latest research, the global average temperature has risen by 0.3°C in the past decade, with extreme weather events increasing by 15%. Scientists are calling on nations to strengthen cooperation and take more proactive climate action."</span>
+            </p>
+          </div>
+          <div class="aoh-buttons">
+            <button class="aoh-btn" data-choice="ai">
+              <span class="zh">🤖 AI 生成</span>
+              <span class="en">🤖 AI Generated</span>
+            </button>
+            <button class="aoh-btn" data-choice="human">
+              <span class="zh">👤 人类创作</span>
+              <span class="en">👤 Human Created</span>
+            </button>
+          </div>
+          <div class="aoh-reveal hidden">
+            <p>
+              <span class="zh">🤖 AI 生成的新闻摘要。这段文字看起来很"官方"，但实际上数据是 AI 编造的。这提醒我们：AI 生成的内容可能看起来很专业，但不一定准确，需要核实。</span>
+              <span class="en">🤖 AI-generated news summary. This text looks very "official," but the data is actually fabricated by AI. This reminds us: AI-generated content may look professional, but isn't necessarily accurate and needs to be verified.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Score -->
+      <div class="aoh-score hidden">
+        <span class="zh">你答对了 0 / 5 题！</span>
+        <span class="en">You got 0 / 5 correct!</span>
+      </div>
+    </section>
+
+    <!-- ── Section 1.6: Quiz ── -->
+    <section class="section reveal" id="section-1-6">
+      <h2>
+        <span class="zh">1.6 小测验</span>
+        <span class="en">1.6 Quiz</span>
+      </h2>
+      <p>
+        <span class="zh">让我们来检验一下你在本课中学到的知识！每题只能作答一次哦。</span>
+        <span class="en">Let's test what you've learned in this lesson! You only get one chance per question.</span>
+      </p>
+
+      <div class="quiz" data-quiz-id="lesson1">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 以下哪个最准确地描述了人工智能？</span>
+            <span class="en"><strong>Q1.</strong> Which of the following best describes artificial intelligence?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 一种能自己思考的机器人</span>
+              <span class="en">A. A robot that can think on its own</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 让机器模拟人类智能的技术</span>
+              <span class="en">B. Technology enabling machines to simulate human intelligence</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 一个超级计算机程序</span>
+              <span class="en">C. A supercomputer program</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 只存在于科幻电影中的技术</span>
+              <span class="en">D. Technology that only exists in sci-fi movies</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">AI 是一个广泛的技术领域，核心是让机器模拟人类的感知、推理和学习能力。它不仅是机器人，也不限于超级计算机。</span>
+            <span class="en">AI is a broad field focused on making machines simulate human perception, reasoning, and learning. It's not limited to robots or supercomputers.</span>
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 目前我们日常生活中的 AI 属于哪种类型？</span>
+            <span class="en"><strong>Q2.</strong> What type of AI do we use in daily life currently?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 强人工智能</span>
+              <span class="en">A. Strong AI</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 超级智能</span>
+              <span class="en">B. Superintelligence</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 弱人工智能（专用 AI）</span>
+              <span class="en">C. Narrow AI (Specialized AI)</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 通用人工智能</span>
+              <span class="en">D. Artificial General Intelligence</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">目前所有商用 AI 都是弱 AI（专用 AI），只能完成特定任务。通用 AI（强 AI）目前还不存在。</span>
+            <span class="en">All commercial AI today is narrow AI, capable of specific tasks only. General AI (strong AI) doesn't exist yet.</span>
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 哪一年 ChatGPT 首次发布？</span>
+            <span class="en"><strong>Q3.</strong> What year was ChatGPT first released?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 2020</span>
+              <span class="en">A. 2020</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 2021</span>
+              <span class="en">B. 2021</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 2022</span>
+              <span class="en">C. 2022</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 2023</span>
+              <span class="en">D. 2023</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">ChatGPT 于 2022 年 11 月发布，两个月内用户突破 1 亿，成为历史上增长最快的消费应用。</span>
+            <span class="en">ChatGPT was released in November 2022, reaching 100 million users in two months—the fastest-growing consumer app in history.</span>
+          </p>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4.</strong> 以下哪个<strong>不是</strong> AI 的核心能力？</span>
+            <span class="en"><strong>Q4.</strong> Which of the following is <strong>NOT</strong> a core capability of AI?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 感知（处理图像和声音）</span>
+              <span class="en">A. Perception (processing images and sound)</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 情感体验</span>
+              <span class="en">B. Emotional experience</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 推理和决策</span>
+              <span class="en">C. Reasoning and decision-making</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 生成内容</span>
+              <span class="en">D. Content generation</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">AI 可以模拟情感表达，但不能真正"体验"情感。感知、思考（推理）和创造（生成）是 AI 的三大核心能力。</span>
+            <span class="en">AI can simulate emotional expression but cannot truly "experience" emotions. Perception, thinking (reasoning), and creation (generation) are AI's three core capabilities.</span>
+          </p>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5.</strong> AlphaGo 击败人类围棋冠军是在哪一年？</span>
+            <span class="en"><strong>Q5.</strong> When did AlphaGo defeat the human Go champion?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 2014</span>
+              <span class="en">A. 2014</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 2016</span>
+              <span class="en">B. 2016</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 2018</span>
+              <span class="en">C. 2018</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 2020</span>
+              <span class="en">D. 2020</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">2016 年，AlphaGo 以 4:1 击败韩国棋手李世石，被视为 AI 发展史上的里程碑事件。</span>
+            <span class="en">In 2016, AlphaGo defeated Korean player Lee Sedol 4-1, widely regarded as a milestone in AI history.</span>
+          </p>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p class="score">
+            <span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">5</span> 题！</span>
+            <span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">5</span> correct!</span>
+          </p>
+          <p>
+            <span class="zh">完成测验！继续学习下一课吧。</span>
+            <span class="en">Quiz complete! Continue to the next lesson.</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Lesson Navigation Footer ── -->
+    <div class="lesson-nav-footer">
+      <span></span>
+      <a href="lesson2.html">
+        <span class="zh">下一课：机器是怎么"学习"的 →</span>
+        <span class="en">Next: How Do Machines Learn? →</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

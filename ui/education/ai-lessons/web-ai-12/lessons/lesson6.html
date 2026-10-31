@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第6课：JavaScript DOM 操作与表单交互 | Lesson 6: JavaScript DOM Manipulation & Form Interactions">
+  <title>第6课 JavaScript 入门（下）| L6 JavaScript Intro Part 2</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html" class="active"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 6 课</span>
+        <span class="en">Lesson 6</span>
+      </span>
+      <h1>
+        <span class="zh">JavaScript 入门（下）— DOM 操作与表单交互</span>
+        <span class="en">JavaScript Intro (Part 2) — DOM &amp; Form Interactions</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">用 JS 动态修改网页内容，制作交互式表单验证</span>
+        <span class="en">Dynamically modify page content with JS — build interactive form validation</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- 6.1 课程目标 -->
+    <section class="section reveal" id="section-6-1">
+      <h2><span class="zh">6.1 课程目标</span><span class="en">6.1 Lesson Objectives</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh">理解 DOM</span><span class="en">Understand the DOM</span></h3>
+          <p><span class="zh">认识文档对象模型（DOM），理解浏览器如何将 HTML 转换为可操作的树形结构。</span><span class="en">Learn the Document Object Model (DOM) and how browsers convert HTML into a manipulable tree structure.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">查找与修改元素</span><span class="en">Find &amp; Modify Elements</span></h3>
+          <p><span class="zh">用 <code>getElementById</code>、<code>querySelector</code> 查找元素，用 JS 修改内容、样式和类名。</span><span class="en">Use <code>getElementById</code> and <code>querySelector</code> to find elements, then modify content, styles, and class names with JS.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">表单处理</span><span class="en">Form Handling</span></h3>
+          <p><span class="zh">读取用户输入、验证表单数据、阻止默认提交行为。</span><span class="en">Read user input, validate form data, and prevent default submission behavior.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">动态创建元素</span><span class="en">Create Elements Dynamically</span></h3>
+          <p><span class="zh">用 JavaScript 动态添加和删除 HTML 元素，构建交互式列表。</span><span class="en">Dynamically add and remove HTML elements with JavaScript to build interactive lists.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.2 DOM 是什么？ -->
+    <section class="section reveal" id="section-6-2">
+      <h2><span class="zh">6.2 DOM 是什么？</span><span class="en">6.2 What Is the DOM?</span></h2>
+      <p><span class="zh">DOM（Document Object Model，文档对象模型）是浏览器把 HTML 文档解析后生成的<strong>树形结构</strong>。每一个 HTML 标签都变成了树上的一个"节点"，JavaScript 可以通过 DOM 来读取和修改这些节点。</span><span class="en">The DOM (Document Object Model) is a <strong>tree structure</strong> generated when the browser parses an HTML document. Each HTML tag becomes a "node" on the tree, and JavaScript can read and modify these nodes through the DOM.</span></p>
+
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>想象一下：</strong>DOM 就像一棵倒过来的大树。<code>&lt;html&gt;</code> 是树根，<code>&lt;head&gt;</code> 和 <code>&lt;body&gt;</code> 是两大树枝，每个标签都是更小的树枝或树叶。JavaScript 就是园丁，可以修剪、添加或移除树上的任何部分。</span><span class="en"><strong>Think of it this way:</strong> The DOM is like an upside-down tree. <code>&lt;html&gt;</code> is the root, <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> are two main branches, and each tag is a smaller branch or leaf. JavaScript is the gardener who can trim, add, or remove any part of the tree.</span></p>
+      </div>
+
+      <h3><span class="zh">查找元素的三种方式</span><span class="en">Three Ways to Find Elements</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 1. 通过 ID 查找（返回单个元素）
+const title = document.getElementById("main-title");
+
+// 2. 通过 CSS 选择器查找第一个匹配项
+const firstCard = document.querySelector(".card");
+
+// 3. 通过 CSS 选择器查找所有匹配项（返回列表）
+const allCards = document.querySelectorAll(".card");
+
+// 遍历所有匹配的元素
+allCards.forEach(card =&gt; {
+  console.log(card.textContent);
+});</code></pre>
+      </div>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh"><code>getElementById</code></span><span class="en"><code>getElementById</code></span></h3>
+          <p><span class="zh">通过 <code>id</code> 属性查找，返回单个元素。最快的查找方式。</span><span class="en">Finds by <code>id</code> attribute, returns a single element. The fastest lookup method.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh"><code>querySelector</code></span><span class="en"><code>querySelector</code></span></h3>
+          <p><span class="zh">用 CSS 选择器查找，返回第一个匹配的元素。非常灵活。</span><span class="en">Uses CSS selectors to find the first matching element. Very flexible.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh"><code>querySelectorAll</code></span><span class="en"><code>querySelectorAll</code></span></h3>
+          <p><span class="zh">用 CSS 选择器查找所有匹配的元素，返回一个 NodeList 列表。</span><span class="en">Uses CSS selectors to find all matching elements, returns a NodeList.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.3 修改 DOM -->
+    <section class="section reveal" id="section-6-3">
+      <h2><span class="zh">6.3 修改 DOM</span><span class="en">6.3 Modifying the DOM</span></h2>
+
+      <h3><span class="zh">修改文本内容</span><span class="en">Modifying Text Content</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const heading = document.getElementById("title");
+
+// textContent — 只设置纯文本
+heading.textContent = "New Title";
+
+// innerHTML — 可以包含 HTML 标签（注意安全！）
+heading.innerHTML = "New &lt;em&gt;Title&lt;/em&gt;";</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <p><span class="zh"><strong>安全警告：</strong>使用 <code>innerHTML</code> 时要小心！如果内容来自用户输入，可能导致 XSS（跨站脚本）攻击。对于纯文本内容，优先使用 <code>textContent</code>。</span><span class="en"><strong>Security warning:</strong> Be careful with <code>innerHTML</code>! If the content comes from user input, it can lead to XSS (Cross-Site Scripting) attacks. For plain text, prefer <code>textContent</code>.</span></p>
+      </div>
+
+      <h3><span class="zh">修改样式</span><span class="en">Modifying Styles</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const box = document.querySelector(".box");
+
+// 直接修改 style 属性（注意用驼峰命名法）
+box.style.backgroundColor = "#4f46e5";
+box.style.color = "white";
+box.style.borderRadius = "12px";
+box.style.padding = "20px";</code></pre>
+      </div>
+
+      <h3><span class="zh">操作 CSS 类名</span><span class="en">Manipulating CSS Classes</span></h3>
+      <p><span class="zh">比直接修改 style 更好的方式是操作类名，让样式保持在 CSS 文件中：</span><span class="en">A better approach than modifying styles directly is to manipulate class names, keeping styles in your CSS file:</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const element = document.querySelector(".card");
+
+// 添加类名
+element.classList.add("active");
+
+// 移除类名
+element.classList.remove("hidden");
+
+// 切换类名（有则删、无则加）
+element.classList.toggle("dark-mode");
+
+// 检查是否包含某个类名
+if (element.classList.contains("active")) {
+  console.log("Element is active!");
+}</code></pre>
+      </div>
+
+      <h3><span class="zh">创建和删除元素</span><span class="en">Creating &amp; Removing Elements</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 创建新元素
+const newItem = document.createElement("li");
+newItem.textContent = "New task";
+newItem.classList.add("todo-item");
+
+// 添加到列表末尾
+const list = document.getElementById("todo-list");
+list.appendChild(newItem);
+
+// 删除元素
+newItem.remove();
+// 或者从父元素中删除
+// list.removeChild(newItem);</code></pre>
+      </div>
+    </section>
+
+    <!-- 6.4 表单交互 -->
+    <section class="section reveal" id="section-6-4">
+      <h2><span class="zh">6.4 表单交互</span><span class="en">6.4 Form Interactions</span></h2>
+
+      <h3><span class="zh">读取输入框的值</span><span class="en">Reading Input Values</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;input type="text" id="nameInput" placeholder="Enter your name"&gt;
+&lt;button id="submitBtn"&gt;Submit&lt;/button&gt;
+&lt;p id="greeting"&gt;&lt;/p&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const input = document.getElementById("nameInput");
+const btn = document.getElementById("submitBtn");
+const greeting = document.getElementById("greeting");
+
+btn.addEventListener("click", () =&gt; {
+  const name = input.value.trim();  // .trim() 去掉首尾空格
+  if (name) {
+    greeting.textContent = `Hello, ${name}!`;
+  } else {
+    greeting.textContent = "Please enter your name.";
+  }
+});</code></pre>
+      </div>
+
+      <h3><span class="zh">表单验证与阻止默认行为</span><span class="en">Form Validation &amp; Preventing Default</span></h3>
+      <p><span class="zh">表单的默认行为是提交时刷新页面。使用 <code>event.preventDefault()</code> 可以阻止这个行为，让我们用 JS 来处理数据。</span><span class="en">A form's default behavior is to refresh the page on submit. Use <code>event.preventDefault()</code> to stop this, allowing us to handle data with JS.</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;form id="signupForm"&gt;
+  &lt;input type="text" id="username" placeholder="Username" required&gt;
+  &lt;input type="email" id="email" placeholder="Email" required&gt;
+  &lt;input type="password" id="password" placeholder="Password" required&gt;
+  &lt;button type="submit"&gt;Sign Up&lt;/button&gt;
+  &lt;p id="formMessage"&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const form = document.getElementById("signupForm");
+const message = document.getElementById("formMessage");
+
+form.addEventListener("submit", (event) =&gt; {
+  event.preventDefault();  // 阻止页面刷新
+
+  const username = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  // 简单验证
+  if (password.length &lt; 6) {
+    message.textContent = "Password must be at least 6 characters!";
+    message.style.color = "red";
+    return;
+  }
+
+  message.textContent = `Welcome, ${username}! Account created.`;
+  message.style.color = "green";
+  form.reset();  // 清空表单
+});</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>event 对象：</strong>事件处理函数可以接收一个 <code>event</code> 参数（通常简写为 <code>e</code>），它包含了事件的所有信息。<code>event.preventDefault()</code> 是最常用的方法之一。</span><span class="en"><strong>The event object:</strong> Event handler functions can receive an <code>event</code> parameter (often abbreviated as <code>e</code>), which contains all event information. <code>event.preventDefault()</code> is one of the most commonly used methods.</span></p>
+      </div>
+    </section>
+
+    <!-- 6.5 动手实践 -->
+    <section class="section reveal" id="section-6-5">
+      <h2><span class="zh">6.5 动手实践：待办事项列表</span><span class="en">6.5 Hands-On: To-Do List App</span></h2>
+      <p><span class="zh">让我们综合所有知识，构建一个完整的待办事项应用！可以添加任务、标记完成和删除任务。</span><span class="en">Let's combine everything we've learned to build a complete to-do list app! You can add tasks, mark them complete, and delete them.</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Todo List&lt;/title&gt;
+  &lt;style&gt;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .app {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    h1 { text-align: center; margin-bottom: 20px; }
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .input-row input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .input-row button {
+      padding: 10px 20px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    ul { list-style: none; }
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    li.done span { text-decoration: line-through; color: #94a3b8; }
+    .delete-btn {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="app"&gt;
+    &lt;h1&gt;My Todo List&lt;/h1&gt;
+    &lt;div class="input-row"&gt;
+      &lt;input type="text" id="todoInput" placeholder="Add a task..."&gt;
+      &lt;button id="addBtn"&gt;Add&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;ul id="todoList"&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    const input = document.getElementById("todoInput");
+    const addBtn = document.getElementById("addBtn");
+    const list = document.getElementById("todoList");
+
+    function addTask() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      // 创建列表项
+      const li = document.createElement("li");
+
+      // 任务文本（点击切换完成状态）
+      const span = document.createElement("span");
+      span.textContent = text;
+      span.addEventListener("click", () =&gt; {
+        li.classList.toggle("done");
+      });
+
+      // 删除按钮
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.classList.add("delete-btn");
+      delBtn.addEventListener("click", () =&gt; {
+        li.remove();
+      });
+
+      li.appendChild(span);
+      li.appendChild(delBtn);
+      list.appendChild(li);
+
+      input.value = "";
+      input.focus();
+    }
+
+    addBtn.addEventListener("click", addTask);
+
+    // 按回车键也能添加
+    input.addEventListener("keydown", (e) =&gt; {
+      if (e.key === "Enter") addTask();
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>试一试：</strong>把代码保存为 <code>todo.html</code>，在浏览器中打开。添加几个任务，点击任务名可以标记为已完成（出现删除线），点击 Delete 按钮可以删除。</span><span class="en"><strong>Try it:</strong> Save the code as <code>todo.html</code> and open it in your browser. Add some tasks, click a task name to mark it as done (strikethrough), and click the Delete button to remove it.</span></p>
+      </div>
+    </section>
+
+    <!-- 6.6 挑战任务 -->
+    <section class="section reveal" id="section-6-6">
+      <h2><span class="zh">6.6 挑战任务</span><span class="en">6.6 Challenges</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh">挑战 A：编辑功能</span><span class="en">Challenge A: Edit Feature</span></h3>
+          <p><span class="zh">给待办事项列表添加"编辑"功能。在每个任务旁边加一个 Edit 按钮，点击后任务文本变成输入框，可以修改内容，再点击 Save 保存修改。</span><span class="en">Add an "Edit" feature to the to-do list. Add an Edit button next to each task. When clicked, the task text becomes an input field for editing. Click Save to confirm changes.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">挑战 B：本地存储</span><span class="en">Challenge B: Local Storage</span></h3>
+          <p><span class="zh">使用 <code>localStorage</code> 让数据持久化。页面刷新后，之前添加的任务不会丢失。提示：用 <code>JSON.stringify()</code> 存储，<code>JSON.parse()</code> 读取。</span><span class="en">Use <code>localStorage</code> to persist data. After refreshing the page, previously added tasks remain. Hint: Use <code>JSON.stringify()</code> to save and <code>JSON.parse()</code> to load.</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>localStorage 入门：</strong></span><span class="en"><strong>localStorage Primer:</strong></span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 保存数据
+const tasks = ["Buy milk", "Study JS", "Build website"];
+localStorage.setItem("todos", JSON.stringify(tasks));
+
+// 读取数据
+const saved = JSON.parse(localStorage.getItem("todos"));
+console.log(saved);  // ["Buy milk", "Study JS", "Build website"]
+
+// 删除数据
+localStorage.removeItem("todos");</code></pre>
+      </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-6">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web6">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. DOM 是什么？</span><span class="en">1. What is the DOM?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 一种编程语言</span><span class="en">A. A programming language</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 浏览器将 HTML 文档解析后生成的树形结构</span><span class="en">B. A tree structure generated when the browser parses an HTML document</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 一个 CSS 布局方法</span><span class="en">C. A CSS layout method</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 一种数据库技术</span><span class="en">D. A database technology</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">DOM（Document Object Model）是浏览器将 HTML 文档解析后生成的树形结构，JavaScript 可以通过它来访问和操作网页元素。</span><span class="en">The DOM (Document Object Model) is a tree structure generated when the browser parses an HTML document. JavaScript can access and manipulate page elements through it.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">2. 以下哪个方法可以查找页面中所有 class 为 "item" 的元素？</span><span class="en">2. Which method finds all elements with class "item" on the page?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. document.querySelectorAll(".item")</span><span class="en">A. document.querySelectorAll(".item")</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. document.getElementById(".item")</span><span class="en">B. document.getElementById(".item")</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. document.querySelector(".item")</span><span class="en">C. document.querySelector(".item")</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. document.findAll("item")</span><span class="en">D. document.findAll("item")</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>querySelectorAll</code> 返回所有匹配的元素列表。<code>querySelector</code> 只返回第一个匹配项，<code>getElementById</code> 只能通过 ID 查找，<code>findAll</code> 不存在。</span><span class="en"><code>querySelectorAll</code> returns all matching elements. <code>querySelector</code> returns only the first match, <code>getElementById</code> only finds by ID, and <code>findAll</code> does not exist.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">3. <code>classList.toggle("active")</code> 的作用是什么？</span><span class="en">3. What does <code>classList.toggle("active")</code> do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 总是添加 "active" 类</span><span class="en">A. Always adds the "active" class</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 总是移除 "active" 类</span><span class="en">B. Always removes the "active" class</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 如果有 "active" 类就移除，没有就添加</span><span class="en">C. Removes "active" if present, adds it if absent</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 检查是否有 "active" 类并返回布尔值</span><span class="en">D. Checks for "active" and returns a boolean</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>toggle</code> 的含义是"切换"——如果元素有该类名就移除，没有就添加。这在实现开关效果时非常实用。</span><span class="en"><code>toggle</code> means "switch" — if the element has the class, it removes it; if not, it adds it. This is very useful for implementing on/off effects.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. <code>event.preventDefault()</code> 在表单中的作用是什么？</span><span class="en">4. What does <code>event.preventDefault()</code> do in a form?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 删除表单所有数据</span><span class="en">A. Deletes all form data</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 验证所有输入字段</span><span class="en">B. Validates all input fields</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 隐藏表单元素</span><span class="en">C. Hides the form element</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 阻止表单默认的提交（刷新页面）行为</span><span class="en">D. Prevents the form's default submit (page refresh) behavior</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>event.preventDefault()</code> 阻止事件的默认行为。对于表单提交事件，默认行为是刷新页面并发送数据，调用此方法后可以用 JavaScript 自行处理数据。</span><span class="en"><code>event.preventDefault()</code> stops the event's default behavior. For form submit events, the default is to refresh the page and send data. Calling this method lets JavaScript handle the data instead.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">5. 如何将一个数组保存到 localStorage？</span><span class="en">5. How do you save an array to localStorage?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. localStorage.setItem("key", JSON.stringify(array))</span><span class="en">A. localStorage.setItem("key", JSON.stringify(array))</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. localStorage.save("key", array)</span><span class="en">B. localStorage.save("key", array)</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. localStorage.setItem("key", array)</span><span class="en">C. localStorage.setItem("key", array)</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. localStorage.push(array)</span><span class="en">D. localStorage.push(array)</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>localStorage</code> 只能存储字符串，所以要先用 <code>JSON.stringify()</code> 将数组转换为 JSON 字符串，再存储。读取时用 <code>JSON.parse()</code> 转回数组。</span><span class="en"><code>localStorage</code> can only store strings, so you must first convert the array to a JSON string using <code>JSON.stringify()</code>. When reading, use <code>JSON.parse()</code> to convert it back to an array.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson5.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous</span></a>
+      <a href="lesson7.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

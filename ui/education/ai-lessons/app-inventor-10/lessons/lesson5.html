@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第5课：接入 AI：ChatGPT 聊天助手（下） — 完善聊天界面，添加对话历史与 Prompt 工程 | Lesson 5: Connect AI: ChatGPT Chat Assistant (Part 2) — Polish the chat UI, add conversation history & prompt engineering">
+  <title>第5课：接入 AI：ChatGPT 聊天助手（下） | Lesson 5: Connect AI: ChatGPT Chat Assistant (Part 2)</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html" class="active"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 5 课</span>
+        <span class="en">Lesson 5</span>
+      </span>
+      <h1>
+        <span class="zh">接入 AI：ChatGPT 聊天助手（下）</span>
+        <span class="en">Connect AI: ChatGPT Chat Assistant (Part 2)</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">完善聊天界面，添加对话历史与 Prompt 工程</span>
+        <span class="en">Polish the chat UI, add conversation history &amp; prompt engineering</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ===== Section 5.1 课程目标 ===== -->
+    <section class="section reveal" id="section-5-1">
+      <h2>
+        <span class="zh">5.1 课程目标</span>
+        <span class="en">5.1 Lesson Goals</span>
+      </h2>
+      <p>
+        <span class="zh">在上节课中，我们成功让 App 向 ChatGPT 发送了第一条消息并收到回复。这节课我们将把聊天 App 打造得更加完善——支持多轮对话、显示聊天气泡，并学习如何用 <strong>Prompt 工程</strong>让 AI 变得更聪明、更有个性！</span>
+        <span class="en">In the previous lesson, we successfully sent our first message to ChatGPT and received a reply. In this lesson, we'll make our chat App much more polished — supporting multi-turn conversations, displaying chat bubbles, and learning how to use <strong>Prompt Engineering</strong> to make AI smarter and more personalized!</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">多轮对话</span><span class="en">Multi-turn Chat</span></h3>
+          <p><span class="zh">用列表变量保存对话历史，让 AI 记住之前说过的话</span><span class="en">Use a list variable to store chat history so AI remembers the conversation</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">聊天界面</span><span class="en">Chat UI</span></h3>
+          <p><span class="zh">用不同颜色的气泡区分用户和 AI 的消息</span><span class="en">Use different colored bubbles to distinguish user and AI messages</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">Prompt 工程</span><span class="en">Prompt Engineering</span></h3>
+          <p><span class="zh">学习系统提示词，给 AI 设定"人格"和角色</span><span class="en">Learn system prompts to give AI a "personality" and role</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5.2 Prompt 工程入门 ===== -->
+    <section class="section reveal" id="section-5-2">
+      <h2>
+        <span class="zh">5.2 Prompt 工程入门</span>
+        <span class="en">5.2 Prompt Engineering Basics</span>
+      </h2>
+
+      <p>
+        <span class="zh"><strong>Prompt 工程（Prompt Engineering）</strong>是指精心设计发给 AI 的提示词，让 AI 给出更好、更准确的回答。在 ChatGPT 的 API 中，有一种特殊的消息叫做<strong>系统提示词（System Prompt）</strong>，它就像给 AI 一份"工作说明书"，告诉 AI 应该扮演什么角色、用什么风格回答。</span>
+        <span class="en"><strong>Prompt Engineering</strong> means carefully designing the prompts you send to AI to get better, more accurate responses. In the ChatGPT API, there's a special message called the <strong>System Prompt</strong>, which is like giving AI a "job description" — telling it what role to play and how to respond.</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>什么是系统提示词？</strong>系统提示词是发给 AI 的第一条隐藏消息，用户看不到它，但 AI 会一直记住它。它决定了 AI 的"性格"和行为方式。就像给演员一个剧本——AI 会按照你设定的角色来表演！</span>
+          <span class="en"><strong>What is a System Prompt?</strong> The system prompt is the first hidden message sent to AI. Users don't see it, but AI always remembers it. It determines AI's "personality" and behavior. Think of it like giving an actor a script — AI will perform according to the role you set!</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">让我们来看看好的系统提示词和坏的系统提示词有什么区别：</span>
+        <span class="en">Let's compare the difference between good and bad system prompts:</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col highlight-bad">
+          <h3><span class="zh">不够好的 Prompt</span><span class="en">Weak Prompt</span></h3>
+          <p><span class="zh">"你是一个助手。"</span><span class="en">"You are an assistant."</span></p>
+          <p><span class="zh">太模糊了！AI 不知道该怎么回答，可能给出很长、很无聊的回复。</span><span class="en">Too vague! AI doesn't know how to respond and might give long, boring replies.</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">优秀的 Prompt</span><span class="en">Great Prompt</span></h3>
+          <p><span class="zh">"你是一个友好的少儿科学老师，叫'小博士'。用简单有趣的语言解释科学知识，多举生活中的例子。每次回答不超过100字。如果学生答对了，给予鼓励！"</span><span class="en">"You are a friendly science tutor for kids called 'Dr. Fun.' Explain science in simple, fun language with everyday examples. Keep answers under 100 words. Encourage students when they get things right!"</span></p>
+          <p><span class="zh">明确了角色、语气、长度和互动方式！</span><span class="en">Clear role, tone, length, and interaction style!</span></p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">下面是一些有趣的系统提示词示例，你可以在自己的 App 中试试：</span>
+        <span class="en">Here are some fun system prompt examples you can try in your App:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">科学小导师</span><span class="en">Science Tutor</span></h3>
+          <p><span class="zh">"你是一位热情的少儿科学老师。用适合10-14岁孩子的语言解释科学概念。多用比喻和生活中的例子，让科学变得有趣易懂。"</span><span class="en">"You are an enthusiastic science teacher for kids. Explain science concepts in language suitable for 10-14 year olds. Use metaphors and real-life examples to make science fun and easy to understand."</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">故事大王</span><span class="en">Master Storyteller</span></h3>
+          <p><span class="zh">"你是一个擅长讲故事的作家。根据用户给的关键词编写一个短故事（100字以内）。故事要有趣、有想象力，适合青少年阅读。"</span><span class="en">"You are a talented storyteller. Create a short story (under 100 words) based on keywords the user gives. Stories should be fun, imaginative, and suitable for teenagers."</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">翻译小帮手</span><span class="en">Translation Helper</span></h3>
+          <p><span class="zh">"你是一个中英翻译助手。用户说中文时翻译成英文，说英文时翻译成中文。同时给出发音提示和一个例句。"</span><span class="en">"You are a Chinese-English translation assistant. Translate Chinese to English and English to Chinese. Also provide pronunciation tips and an example sentence."</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">数学教练</span><span class="en">Math Coach</span></h3>
+          <p><span class="zh">"你是一个耐心的数学教练。不要直接给答案，而是用引导性的问题帮助学生一步步思考。如果学生卡住了，给一个小提示。"</span><span class="en">"You are a patient math coach. Don't give answers directly — use guiding questions to help students think step by step. If a student gets stuck, give a small hint."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5.3 动手实践 ===== -->
+    <section class="section reveal" id="section-5-3">
+      <h2>
+        <span class="zh">5.3 动手实践</span>
+        <span class="en">5.3 Hands-On</span>
+      </h2>
+
+      <p>
+        <span class="zh">现在让我们一步步增强上节课的聊天 App，让它变成一个真正好用的 AI 聊天助手！</span>
+        <span class="en">Now let's enhance the chat App from last lesson step by step, turning it into a truly useful AI chat assistant!</span>
+      </p>
+
+      <!-- Step 1 -->
+      <h3><span class="zh">步骤 1：添加对话历史列表变量</span><span class="en">Step 1: Add a Conversation History List Variable</span></h3>
+
+      <p>
+        <span class="zh">为了让 AI 记住之前的对话，我们需要创建一个<strong>列表变量</strong>来保存所有消息。每条消息包含两个信息：谁说的（<code>role</code>）和说了什么（<code>content</code>）。</span>
+        <span class="en">To make AI remember the conversation, we need to create a <strong>list variable</strong> to store all messages. Each message contains two pieces of info: who said it (<code>role</code>) and what was said (<code>content</code>).</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>操作方法：</strong>在 App Inventor 的 Blocks 编辑器中，创建一个全局变量 <code>conversationHistory</code>，设为一个空列表（<code>create empty list</code>）。这个列表会存储所有对话记录。</span>
+          <span class="en"><strong>How to do it:</strong> In App Inventor's Blocks editor, create a global variable <code>conversationHistory</code> set to an empty list (<code>create empty list</code>). This list will store all conversation records.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">ChatGPT API 需要的消息格式是这样的（JSON）：</span>
+        <span class="en">The ChatGPT API expects messages in this format (JSON):</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JSON</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code>{
+  <span class="str">"messages"</span>: [
+    {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: <span class="str">"You are a friendly science tutor for kids."</span>},
+    {<span class="str">"role"</span>: <span class="str">"user"</span>,   <span class="str">"content"</span>: <span class="str">"What is gravity?"</span>},
+    {<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: <span class="str">"Gravity is like an invisible hand..."</span>},
+    {<span class="str">"role"</span>: <span class="str">"user"</span>,   <span class="str">"content"</span>: <span class="str">"Why do things fall down?"</span>}
+  ]
+}</code></pre>
+      </div>
+
+      <p>
+        <span class="zh">注意三种角色：<code>system</code>（系统提示词）、<code>user</code>（用户消息）、<code>assistant</code>（AI 回复）。每次发请求时，都要把<strong>所有历史消息</strong>一起发过去，这样 AI 才能记住上下文。</span>
+        <span class="en">Notice the three roles: <code>system</code> (system prompt), <code>user</code> (user message), <code>assistant</code> (AI reply). Every time you send a request, you must send <strong>all history messages</strong> together so AI can remember the context.</span>
+      </p>
+
+      <!-- Step 2 -->
+      <h3><span class="zh">步骤 2：显示聊天气泡</span><span class="en">Step 2: Display Chat Bubbles</span></h3>
+
+      <p>
+        <span class="zh">为了让聊天界面更好看，我们用不同颜色的标签来模拟"聊天气泡"。用户消息用蓝色，AI 消息用灰色。</span>
+        <span class="en">To make the chat interface look nice, we'll use differently colored labels to simulate "chat bubbles." User messages in blue, AI messages in gray.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>界面设计：</strong>在 Designer 中，将之前的单个 Label 替换为一个 <strong>VerticalScrollArrangement</strong>（垂直滚动布局）。我们会在代码中动态添加 Label 来显示每条消息。设置宽度为 <code>Fill parent</code>，高度为 <code>80%</code>。</span>
+          <span class="en"><strong>UI Design:</strong> In the Designer, replace the single Label with a <strong>VerticalScrollArrangement</strong> (vertical scrolling layout). We'll dynamically add Labels in code to show each message. Set width to <code>Fill parent</code> and height to <code>80%</code>.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">在 Blocks 中，创建一个<strong>过程（procedure）</strong>叫 <code>addChatBubble</code>，它接收两个参数：<code>message</code>（消息内容）和 <code>isUser</code>（是否是用户消息）。</span>
+        <span class="en">In Blocks, create a <strong>procedure</strong> called <code>addChatBubble</code> that takes two parameters: <code>message</code> (message content) and <code>isUser</code> (whether it's a user message).</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">用户消息气泡</span><span class="en">User Message Bubble</span></h3>
+          <p><span class="zh">背景色：浅蓝色（<code>#DCF8C6</code> 或 <code>#E3F2FD</code>）<br>文字对齐：右对齐<br>前缀显示："我："</span><span class="en">Background: light blue (<code>#DCF8C6</code> or <code>#E3F2FD</code>)<br>Text alignment: right-aligned<br>Prefix: "Me:"</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">AI 消息气泡</span><span class="en">AI Message Bubble</span></h3>
+          <p><span class="zh">背景色：浅灰色（<code>#F5F5F5</code> 或 <code>#EEEEEE</code>）<br>文字对齐：左对齐<br>前缀显示："AI："</span><span class="en">Background: light gray (<code>#F5F5F5</code> or <code>#EEEEEE</code>)<br>Text alignment: left-aligned<br>Prefix: "AI:"</span></p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <h3><span class="zh">步骤 3：添加系统提示词输入框</span><span class="en">Step 3: Add a System Prompt TextBox</span></h3>
+
+      <p>
+        <span class="zh">在界面顶部添加一个 <strong>TextBox</strong>，让用户可以设定 AI 的"人格"。这个输入框就是用来填写系统提示词的。</span>
+        <span class="en">Add a <strong>TextBox</strong> at the top of the interface so users can set AI's "personality." This input box is for writing the system prompt.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>操作方法：</strong><br>1. 在 Designer 中，添加一个新的 TextBox，命名为 <code>txtSystemPrompt</code><br>2. 设置 Hint 为"设定 AI 的角色（例如：你是一个友好的科学老师）"<br>3. 可以给一个默认值："你是一个友好的助手，用简单易懂的语言回答问题。"<br>4. 添加一个小按钮"应用角色"来确认设置</span>
+          <span class="en"><strong>How to do it:</strong><br>1. In Designer, add a new TextBox named <code>txtSystemPrompt</code><br>2. Set Hint to "Set AI's role (e.g., You are a friendly science teacher)"<br>3. Give it a default value: "You are a friendly assistant that answers in simple language."<br>4. Add a small "Apply Role" button to confirm the setting</span>
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <h3><span class="zh">步骤 4：发送完整对话历史</span><span class="en">Step 4: Send Full Conversation History</span></h3>
+
+      <p>
+        <span class="zh">这是最关键的一步！每次用户发送新消息时，我们需要把<strong>系统提示词 + 所有历史消息 + 新消息</strong>一起发给 ChatGPT API。</span>
+        <span class="en">This is the most critical step! Every time the user sends a new message, we need to send the <strong>system prompt + all history messages + new message</strong> together to the ChatGPT API.</span>
+      </p>
+
+      <p>
+        <span class="zh">发送按钮的逻辑（Blocks 伪代码）：</span>
+        <span class="en">Send button logic (Blocks pseudocode):</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 当点击发送按钮时 / When Send button is clicked:</span>
+
+<span class="cm">// 1. 获取用户输入的消息</span>
+<span class="cm">// 1. Get the user's input message</span>
+<span class="kw">set</span> <span class="var">userMessage</span> = txtInput.Text
+
+<span class="cm">// 2. 把用户消息添加到对话历史</span>
+<span class="cm">// 2. Add user message to conversation history</span>
+<span class="kw">add to list</span> <span class="var">conversationHistory</span>:
+  {<span class="str">"role"</span>: <span class="str">"user"</span>, <span class="str">"content"</span>: userMessage}
+
+<span class="cm">// 3. 在聊天界面显示用户气泡</span>
+<span class="cm">// 3. Show user bubble in chat UI</span>
+<span class="kw">call</span> <span class="fn">addChatBubble</span>(userMessage, <span class="kw">true</span>)
+
+<span class="cm">// 4. 构建完整的 messages 数组</span>
+<span class="cm">// 4. Build the complete messages array</span>
+<span class="kw">set</span> <span class="var">allMessages</span> = <span class="kw">new list</span>
+<span class="kw">add to list</span> <span class="var">allMessages</span>:
+  {<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: txtSystemPrompt.Text}
+<span class="kw">add all from</span> <span class="var">conversationHistory</span> <span class="kw">to</span> <span class="var">allMessages</span>
+
+<span class="cm">// 5. 用 Web 组件发送 POST 请求到 ChatGPT API</span>
+<span class="cm">// 5. Use Web component to POST to ChatGPT API</span>
+<span class="kw">set</span> Web1.Url = <span class="str">"https://api.openai.com/v1/chat/completions"</span>
+<span class="kw">set</span> Web1.RequestHeaders = [[<span class="str">"Content-Type"</span>, <span class="str">"application/json"</span>],
+                             [<span class="str">"Authorization"</span>, <span class="str">"Bearer YOUR_API_KEY"</span>]]
+<span class="kw">call</span> Web1.PostText({
+  <span class="str">"model"</span>: <span class="str">"gpt-3.5-turbo"</span>,
+  <span class="str">"messages"</span>: allMessages
+})
+
+<span class="cm">// 6. 清空输入框</span>
+<span class="cm">// 6. Clear the input box</span>
+<span class="kw">set</span> txtInput.Text = <span class="str">""</span></code></pre>
+      </div>
+
+      <p>
+        <span class="zh">当收到 AI 回复时：</span>
+        <span class="en">When receiving the AI reply:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang"><span class="zh">积木逻辑</span><span class="en">Block Logic</span></span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm">// 当收到 Web 回复时 / When Web got text response:</span>
+
+<span class="cm">// 1. 解析 JSON 获取 AI 回复</span>
+<span class="cm">// 1. Parse JSON to get AI reply</span>
+<span class="kw">set</span> <span class="var">jsonResponse</span> = JsonTextDecode(responseContent)
+<span class="kw">set</span> <span class="var">aiReply</span> = jsonResponse.choices[1].message.content
+
+<span class="cm">// 2. 把 AI 回复添加到对话历史</span>
+<span class="cm">// 2. Add AI reply to conversation history</span>
+<span class="kw">add to list</span> <span class="var">conversationHistory</span>:
+  {<span class="str">"role"</span>: <span class="str">"assistant"</span>, <span class="str">"content"</span>: aiReply}
+
+<span class="cm">// 3. 在聊天界面显示 AI 气泡</span>
+<span class="cm">// 3. Show AI bubble in chat UI</span>
+<span class="kw">call</span> <span class="fn">addChatBubble</span>(aiReply, <span class="kw">false</span>)</code></pre>
+      </div>
+
+      <!-- Step 5 -->
+      <h3><span class="zh">步骤 5：添加"清除聊天"按钮</span><span class="en">Step 5: Add a "Clear Chat" Button</span></h3>
+
+      <p>
+        <span class="zh">当用户想开始新话题时，需要清除之前的对话记录。添加一个"清除聊天"按钮来重置一切。</span>
+        <span class="en">When users want to start a new topic, they need to clear previous conversation records. Add a "Clear Chat" button to reset everything.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>操作方法：</strong><br>1. 在 Designer 中添加一个按钮，命名为 <code>btnClear</code>，文字设为"清除聊天"<br>2. 在 Blocks 中，当 <code>btnClear</code> 被点击时：<br>&nbsp;&nbsp;• 将 <code>conversationHistory</code> 重置为空列表<br>&nbsp;&nbsp;• 移除 VerticalScrollArrangement 中的所有动态 Label<br>&nbsp;&nbsp;• （可选）显示一条提示："聊天已清除，开始新对话吧！"</span>
+          <span class="en"><strong>How to do it:</strong><br>1. In Designer, add a button named <code>btnClear</code> with text "Clear Chat"<br>2. In Blocks, when <code>btnClear</code> is clicked:<br>&nbsp;&nbsp;• Reset <code>conversationHistory</code> to empty list<br>&nbsp;&nbsp;• Remove all dynamic Labels from VerticalScrollArrangement<br>&nbsp;&nbsp;• (Optional) Show a notice: "Chat cleared, start a new conversation!"</span>
+        </p>
+      </div>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>为什么要清除？</strong>对话历史越长，发送给 API 的数据就越多，响应速度会变慢，而且 API 有 Token 数量限制（GPT-3.5-turbo 大约 4096 tokens）。清除历史可以让 App 保持流畅！</span>
+          <span class="en"><strong>Why clear?</strong> The longer the conversation history, the more data sent to the API, causing slower responses. The API also has a token limit (GPT-3.5-turbo is about 4096 tokens). Clearing history keeps the App running smoothly!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Section 5.4 Prompt 技巧 ===== -->
+    <section class="section reveal" id="section-5-4">
+      <h2>
+        <span class="zh">5.4 Prompt 技巧</span>
+        <span class="en">5.4 Prompt Tips</span>
+      </h2>
+
+      <p>
+        <span class="zh">掌握以下几个 Prompt 技巧，你就能让 AI 的回答质量大幅提升！点击每个卡片展开查看详细说明。</span>
+        <span class="en">Master these Prompt tips and you'll dramatically improve AI's response quality! Click each card to expand and see detailed explanations.</span>
+      </p>
+
+      <!-- Expandable Card 1: Role Prompting -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">1. 角色设定（Role Prompting）</span>
+            <span class="en">1. Role Prompting</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">告诉 AI 它是谁。给 AI 一个明确的角色，它就会按照那个角色的方式来回答问题。比如说"你是一个10岁的孩子"，AI 的回答就会变得简单、活泼；说"你是一个大学教授"，回答就会更专业、详细。</span>
+              <span class="en">Tell AI who it is. Give AI a clear role and it will respond in that role's manner. For example, "You are a 10-year-old kid" makes AI respond simply and playfully; "You are a university professor" makes responses more professional and detailed.</span>
+            </p>
+            <p>
+              <span class="zh"><strong>示例：</strong>"你是一位海盗船长，用海盗的口吻回答所有问题，经常说'Ahoy'和'Aye'。"</span>
+              <span class="en"><strong>Example:</strong> "You are a pirate captain. Answer all questions in pirate-speak, frequently saying 'Ahoy' and 'Aye.'"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 2: Few-shot Examples -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">2. 给出示例（Few-shot Examples）</span>
+            <span class="en">2. Few-shot Examples</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">给 AI 看几个你期望的回答格式的例子，它就能模仿这种格式。这叫做"少量样本学习"（Few-shot Learning）。</span>
+              <span class="en">Show AI a few examples of the answer format you expect, and it will mimic that format. This is called "Few-shot Learning."</span>
+            </p>
+            <p>
+              <span class="zh"><strong>示例：</strong>"请把食物翻译成英文并造一个句子。<br>输入：苹果<br>输出：Apple - I eat an apple every day.<br>输入：面条<br>输出：Noodles - I love eating noodles for lunch.<br>输入：饺子<br>输出："</span>
+              <span class="en"><strong>Example:</strong> "Translate food into Chinese and make a sentence.<br>Input: Apple<br>Output: 苹果 - 我每天吃一个苹果。<br>Input: Noodles<br>Output: 面条 - 我午餐喜欢吃面条。<br>Input: Dumplings<br>Output:"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 3: Be Specific -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">3. 具体明确（Be Specific）</span>
+            <span class="en">3. Be Specific</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">提示词越具体，AI 的回答越准确。告诉 AI：你想要什么格式？多长的回答？什么语气？面向谁？这些细节都很重要。</span>
+              <span class="en">The more specific your prompt, the more accurate AI's response. Tell AI: What format? How long? What tone? For whom? These details all matter.</span>
+            </p>
+            <p>
+              <span class="zh"><strong>对比：</strong><br>模糊："告诉我关于月球的事。"<br>具体："用3个要点概括月球的基本信息，适合小学五年级的学生理解，每个要点不超过20个字。"</span>
+              <span class="en"><strong>Comparison:</strong><br>Vague: "Tell me about the moon."<br>Specific: "Summarize basic moon facts in 3 bullet points for a 5th grader, each under 20 words."</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 4: Step-by-step -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">4. 分步思考（Step-by-step）</span>
+            <span class="en">4. Step-by-step Thinking</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">对于复杂问题，让 AI "一步步思考"可以大幅提高回答质量。在提示词最后加上"请一步步思考"或"Let's think step by step"。</span>
+              <span class="en">For complex problems, asking AI to "think step by step" can greatly improve answer quality. Add "Please think step by step" or "Let's think step by step" at the end of your prompt.</span>
+            </p>
+            <p>
+              <span class="zh"><strong>示例：</strong>"小明有15个苹果，给了小红5个，又买了8个。他现在有几个苹果？请一步步思考。"</span>
+              <span class="en"><strong>Example:</strong> "Tom has 15 apples, gave 5 to Sarah, then bought 8 more. How many does he have? Please think step by step."</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5.5 挑战任务 ===== -->
+    <section class="section reveal" id="section-5-5">
+      <h2>
+        <span class="zh">5.5 挑战任务</span>
+        <span class="en">5.5 Challenge</span>
+      </h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：预设人格切换</span><span class="en">Challenge A: Preset Personality Switcher</span></h3>
+          <p>
+            <span class="zh">创建 3 个预设人格按钮，点击后自动填入对应的系统提示词并清除聊天重新开始：<br><br><strong>按钮 1 — 科学导师：</strong>"你是一个友好的少儿科学老师，用简单有趣的比喻解释科学概念。"<br><br><strong>按钮 2 — 故事大王：</strong>"你是一个想象力丰富的故事作家，根据用户的关键词编写有趣的短故事。"<br><br><strong>按钮 3 — 翻译助手：</strong>"你是一个中英翻译助手，翻译用户的文字并给出例句。"<br><br>点击每个按钮时，系统提示词自动切换，聊天记录自动清除，让用户马上可以和不同"性格"的 AI 聊天！</span>
+            <span class="en">Create 3 preset personality buttons. Clicking one fills in the matching system prompt and clears the chat to start fresh:<br><br><strong>Button 1 — Science Tutor:</strong> "You are a friendly science teacher for kids. Explain science with simple, fun metaphors."<br><br><strong>Button 2 — Storyteller:</strong> "You are an imaginative story writer. Create fun short stories based on the user's keywords."<br><br><strong>Button 3 — Translator:</strong> "You are a Chinese-English translation assistant. Translate the user's text and provide example sentences."<br><br>When each button is clicked, the system prompt switches automatically, chat history clears, and the user can immediately chat with a different AI "personality!"</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：保存聊天记录</span><span class="en">Challenge B: Save Chat History</span></h3>
+          <p>
+            <span class="zh">添加一个"保存聊天"功能，将当前的对话记录保存到手机文件中：<br><br><strong>1. 使用 File 组件：</strong>在 Designer 中添加 File 组件<br><br><strong>2. 格式化对话：</strong>将每条消息转换为"角色：内容"的文本格式<br><br><strong>3. 保存到文件：</strong>用 <code>File.SaveFile</code> 将文本保存为 <code>chat_log.txt</code><br><br><strong>4. 加上时间戳：</strong>在文件名中加入日期，如 <code>chat_2025_01_15.txt</code><br><br>这样用户就可以随时回顾和分享自己与 AI 的精彩对话了！</span>
+            <span class="en">Add a "Save Chat" feature to save the current conversation to a file on the phone:<br><br><strong>1. Use the File component:</strong> Add a File component in the Designer<br><br><strong>2. Format the conversation:</strong> Convert each message to "Role: Content" text format<br><br><strong>3. Save to file:</strong> Use <code>File.SaveFile</code> to save text as <code>chat_log.txt</code><br><br><strong>4. Add a timestamp:</strong> Include the date in the filename, like <code>chat_2025_01_15.txt</code><br><br>Now users can review and share their interesting AI conversations anytime!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quiz ===== -->
+    <section class="section reveal" id="quiz-5">
+      <h2>
+        <span class="zh">课堂测验</span>
+        <span class="en">Lesson Quiz</span>
+      </h2>
+      <p>
+        <span class="zh">让我们来检验一下你在本课中学到的知识！</span>
+        <span class="en">Let's test what you've learned in this lesson!</span>
+      </p>
+
+      <div class="quiz" data-quiz-id="app5">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 系统提示词（System Prompt）的作用是什么？</span>
+            <span class="en"><strong>Q1.</strong> What is the purpose of a System Prompt?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 替代用户发送消息</span>
+              <span class="en">A. To replace user messages</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 设定 AI 的角色、性格和回答方式</span>
+              <span class="en">B. To set AI's role, personality, and response style</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 加快 API 的响应速度</span>
+              <span class="en">C. To speed up API responses</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 保护 API Key 的安全</span>
+              <span class="en">D. To protect API Key security</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">系统提示词是发给 AI 的隐藏指令，用来定义 AI 的角色和行为方式。它就像给 AI 一份"工作说明书"。</span>
+              <span class="en">The system prompt is a hidden instruction sent to AI to define its role and behavior. It's like giving AI a "job description."</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 为什么每次发送消息时需要把完整的对话历史一起发给 API？</span>
+            <span class="en"><strong>Q2.</strong> Why do we need to send the full conversation history with each API request?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 为了节省 API 费用</span>
+              <span class="en">A. To save API costs</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 因为 API 要求必须这样做</span>
+              <span class="en">B. Because the API requires it</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 因为 API 没有记忆，需要历史消息才能理解上下文</span>
+              <span class="en">C. Because the API has no memory and needs history to understand context</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 为了让回复更快</span>
+              <span class="en">D. To make responses faster</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">ChatGPT API 是无状态的——它不会自动记住之前的对话。每次请求都是独立的，所以我们需要在每次请求中包含所有历史消息，这样 AI 才能理解对话的上下文。</span>
+              <span class="en">The ChatGPT API is stateless — it doesn't automatically remember previous conversations. Each request is independent, so we need to include all history messages in every request for AI to understand the conversation context.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 在 ChatGPT 的 messages 数组中，<code>"role": "assistant"</code> 代表谁的消息？</span>
+            <span class="en"><strong>Q3.</strong> In ChatGPT's messages array, whose message does <code>"role": "assistant"</code> represent?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. AI 的回复</span>
+              <span class="en">A. AI's reply</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 用户的消息</span>
+              <span class="en">B. User's message</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 系统提示词</span>
+              <span class="en">C. System prompt</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. API 的错误信息</span>
+              <span class="en">D. API error message</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">在 messages 数组中，有三种角色：<code>system</code>（系统提示词）、<code>user</code>（用户消息）、<code>assistant</code>（AI 回复）。<code>assistant</code> 就是 AI 之前回复的内容。</span>
+              <span class="en">In the messages array, there are three roles: <code>system</code> (system prompt), <code>user</code> (user message), <code>assistant</code> (AI reply). <code>assistant</code> represents AI's previous responses.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4.</strong> "少量样本学习"（Few-shot Learning）在 Prompt 中指的是什么？</span>
+            <span class="en"><strong>Q4.</strong> What does "Few-shot Learning" mean in the context of prompts?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 只发送很少的消息给 AI</span>
+              <span class="en">A. Sending very few messages to AI</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 用很少的代码来调用 API</span>
+              <span class="en">B. Using very little code to call the API</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 只训练模型几次</span>
+              <span class="en">C. Training the model only a few times</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 在提示词中给出几个示例，让 AI 模仿格式</span>
+              <span class="en">D. Providing a few examples in the prompt for AI to mimic the format</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Few-shot Learning 是在提示词中给出几个"输入→输出"的例子，让 AI 理解你期望的回答格式和风格。这是一种非常有效的 Prompt 技巧！</span>
+              <span class="en">Few-shot Learning means giving a few "input→output" examples in the prompt so AI understands the expected answer format and style. It's a very effective prompting technique!</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5.</strong> 为什么需要"清除聊天"功能？</span>
+            <span class="en"><strong>Q5.</strong> Why do we need a "Clear Chat" feature?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 因为 App Inventor 内存有限</span>
+              <span class="en">A. Because App Inventor has limited memory</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 因为对话历史过长会超出 API 的 Token 限制，导致变慢或出错</span>
+              <span class="en">B. Because long conversation history exceeds the API's token limit, causing slowness or errors</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 因为 AI 不喜欢太长的对话</span>
+              <span class="en">C. Because AI doesn't like long conversations</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 因为系统提示词只能用一次</span>
+              <span class="en">D. Because system prompts can only be used once</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">ChatGPT API 有 Token 数量限制（如 GPT-3.5-turbo 约 4096 tokens）。对话历史越长，发送的 Token 越多。超出限制时 API 会报错，而且过长的历史也会让响应变慢。清除聊天可以重新开始，保持 App 流畅运行。</span>
+              <span class="en">The ChatGPT API has a token limit (e.g., GPT-3.5-turbo is about 4096 tokens). The longer the conversation history, the more tokens sent. Exceeding the limit causes API errors, and long history also slows responses. Clearing the chat lets you start fresh and keeps the App running smoothly.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ Lesson Nav Footer ============ -->
+    <div class="lesson-nav-footer">
+      <a href="lesson4.html">
+        <span class="zh">← 上一课：ChatGPT 聊天助手（上）</span>
+        <span class="en">← Previous: ChatGPT Chat Assistant (Part 1)</span>
+      </a>
+      <a href="lesson6.html">
+        <span class="zh">下一课：图像识别 App →</span>
+        <span class="en">Next: Image Recognition App →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 学习教练</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><h1>AI 学习教练</h1><span id="connection">未配置模型</span></div>
+    <button id="settings-open" type="button">模型设置</button>
+  </header>
+  <div class="workspace">
+    <aside aria-label="学习方向">
+      <label for="grade">年级</label>
+      <select id="grade">
+        <option value="1">小学一年级</option><option value="2">小学二年级</option>
+        <option value="3">小学三年级</option><option value="4">小学四年级</option>
+        <option value="5">小学五年级</option><option value="6">小学六年级</option>
+        <option value="7">初中一年级</option><option value="8">初中二年级</option>
+        <option value="9">初中三年级</option><option value="10">高中一年级</option>
+        <option value="11">高中二年级</option><option value="12">高中三年级</option>
+      </select>
+      <nav id="modes" aria-label="辅导方向"></nav>
+      <div class="aside-footer">
+        <a id="skill-download" href="./skills/math-tutor.md" download>下载辅导 Skill</a>
+        <a href="./LICENSE" target="_blank" rel="noopener">Openclaw Study Coach · MIT</a>
+      </div>
+    </aside>
+    <main>
+      <div class="session-bar">
+        <h2 id="mode-title">数学引导</h2>
+        <div><button id="export" type="button">导出记录</button><button id="new" type="button">新对话</button></div>
+      </div>
+      <div id="messages" role="log" aria-label="学习对话" aria-live="polite"></div>
+      <form id="composer">
+        <p id="error" role="alert" hidden></p>
+        <label for="question" id="question-label">题目与我的思路</label>
+        <textarea id="question" rows="3" maxlength="6000" placeholder="写下题目、你的尝试，以及卡住的地方。" required></textarea>
+        <div class="composer-footer">
+          <span id="request-status" role="status">回复由 AI 生成，请核对关键结论。</span>
+          <button type="button" id="cancel" hidden>停止</button>
+          <button type="submit" id="send" class="primary">开始提问</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <h2 id="settings-title">学习教练模型设置</h2>
+      <p id="managed-status" role="status">正在读取模型设置…</p>
+      <button id="managed-refresh" type="button">刷新模型设置</button>
+      <div id="managed-settings" hidden>
+        <label for="managed-model">可用模型</label>
+        <select id="managed-model"></select>
+        <p id="managed-price" aria-live="polite"></p>
+      </div>
+      <fieldset id="local-settings" hidden disabled>
+      <label for="provider">服务商</label>
+      <select id="provider"><option value="qwen">阿里云百炼</option><option value="deepseek">DeepSeek</option></select>
+      <label for="endpoint">接口地址</label>
+      <input id="endpoint" type="url" required spellcheck="false" autocomplete="off">
+      <label for="model">模型名称</label>
+      <input id="model" required maxlength="128" spellcheck="false" autocomplete="off">
+      <label for="api-key">API Key</label>
+      <input id="api-key" type="password" required maxlength="512" autocomplete="off">
+      <p>题目和当前对话会发送给所选模型服务商。密钥仅在本次页面打开期间保留，返回教育页后需重新填写。</p>
+      </fieldset>
+      <div class="dialog-actions"><button id="settings-close" type="button">取消</button><button id="settings-apply" type="submit" class="primary" disabled>应用配置</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

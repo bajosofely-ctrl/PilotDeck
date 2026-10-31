@@ -1,0 +1,477 @@
+{
+    "app": {
+        "title": "Classificador de Imagens",
+        "about": "Sobre",
+        "save": "Salvar",
+        "load": "Carregar",
+        "language": "Idioma",
+        "reminder": "Lembre-se de salvar seu classificador.",
+        "models": {
+            "image": "Imagens",
+            "pose": "Poses",
+            "hand": "Gestos",
+            "speech": "Fala"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "Materiais didáticos",
+        "selectModel": "O que você quer classificar?",
+        "enableUSB": "Usar dispositivo USB",
+        "subtitle": "Crie classificadores com seus próprios dados, sem precisar programar"
+    },
+    "save": {
+        "title": "Salvar Classificador",
+        "noModel": "Você precisa criar um classificador primeiro.",
+        "message": "Baixe o conteúdo do seu classificador para um arquivo.",
+        "saveSamples": "Salvar Amostras",
+        "saveClassifier": "Salvar Classificador",
+        "saveBehaviours": "Salvar Comportamentos",
+        "name": "Name",
+        "actions": {
+            "save": "Salvar",
+            "cancel": "Cancelar"
+        }
+    },
+    "load": {
+        "title": "Carregar",
+        "code": "Coloque o código",
+        "actions": {
+            "openFile": "Carregar",
+            "openCode": "Usar código",
+            "cancel": "Cancelar"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "alinhar à esquerda",
+            "center": "alinhar ao centro",
+            "right": "alinhar à direita",
+            "align": "alinhamento de texto"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "alterar tamanho do texto",
+            "increase": "aumentar",
+            "decrease": "diminuir"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "Adicionar uma classe",
+            "webcam": "Webcam",
+            "audio": "Microfone",
+            "upload": "Carregar",
+            "datasets": "Conjuntos de dados",
+            "cancel": "Cancelar",
+            "deleteClass": "Excluir Classe",
+            "disableClass": "Desativar Classe",
+            "enableClass": "Ativar Classe",
+            "removeAll": "Remover todas as amostras",
+            "capture": "Segure para capturar",
+            "fileCapture": "Extrair",
+            "record": "Gravar",
+            "collaborate": "Colaborar",
+            "use": "Usar ({{count}})",
+            "displayMore": "Exibir {{count}} imagens"
+        },
+        "labels": {
+            "title": "Dados de Treinamento",
+            "addSamples": "Adicionar amostras de imagem",
+            "imageSamples": "{{count}} amostras de imagem",
+            "addAudioSamples": "Adicionar amostras de áudio",
+            "audioSamples": "{{count}} amostras de áudio",
+            "class": "Classe",
+            "noiseClass": "Ruído de fundo",
+            "wait": "Capturando...",
+            "stop": "Parar",
+            "dropFiles": "ou arraste imagens aqui de um site ou arquivo",
+            "dropAudioFiles": "ou arraste arquivos de áudio aqui de um site ou arquivo",
+            "needsMore": "São necessárias mais amostras",
+            "addropError": "Apenas imagens podem ser arrastadas aqui",
+            "dropAudioError": "Somente arquivos de áudio podem ser arrastados aqui",
+            "emptyClass": "Esta classe está vazia.",
+            "qrMessage": "Você pode usar um telefone ou tablet para adicionar imagens. Clique no código QR para expandi-lo.",
+            "disabled": "DESATIVADO",
+            "selectDataset": "Selecionar conjunto de dados",
+            "selectTestData": "Selecionar uma imagem",
+            "searchDataset": "Pesquisar conjunto de dados",
+            "images": "imagens",
+            "selected": "selecionado",
+            "loading": "Carregando...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again."
+        },
+        "aria": {
+            "sample": "amostra carregada",
+            "delete": "excluir amostra",
+            "more": "mais opções",
+            "close": "Fechar",
+            "classCard": "Dados de treinamento para {{name}}"
+        }
+    },
+    "heatmap": {
+        "title": "Explicação",
+        "colorScaleHelp": "A escala de cores mostra em quais partes da imagem o modelo se concentra. Vermelho = alta importância, Azul = baixa importância.",
+        "noPoseDetected": "Sem pose",
+        "high": "Alta",
+        "low": "Baixa"
+    },
+    "underTheHood": {
+        "title": "Sob o capô",
+        "visualization": "Visualização",
+        "statistics": "Estatísticas do modelo",
+        "transferLearning": "Aprendizado por Transferência",
+        "on": "Ligado",
+        "off": "Desligado"
+    },
+    "charts": {
+        "accuracyPerClass": "Precisão por classe",
+        "accuracyPerClassHelp": "Mostra com que frequência o modelo prevê cada classe corretamente nas amostras de teste. 1,00 significa que todas as amostras de teste dessa classe estavam corretas.",
+        "confusionMatrix": "Matriz de confusão",
+        "confusionMatrixHelp": "As linhas são as classes corretas e as colunas são as previsões do modelo. A diagonal mostra acertos, os outros valores mostram confusões.",
+        "accuracyPerEpoch": "Precisão por época",
+        "accuracyPerEpochHelp": "Mostra como a precisão muda durante o treinamento. A precisão vai de 0 a 1, onde 1 é o melhor. A precisão de teste usa amostras do conjunto de teste, não do conjunto de treinamento usado para atualizar o modelo.",
+        "lossPerEpoch": "Perda por época",
+        "lossPerEpochHelp": "Mostra o erro do modelo durante o treinamento. A perda começa em 0 e pode aumentar, onde menor é melhor. A perda de teste usa amostras do conjunto de teste, não do conjunto de treinamento usado para atualizar o modelo.",
+        "class": "Classe",
+        "accuracy": "Precisão",
+        "testSamples": "# Amostras de teste",
+        "prediction": "Predição",
+        "actual": "Real",
+        "predicted": "Previsto",
+        "count": "Contagem",
+        "acc": "prec.",
+        "testAcc": "prec. teste",
+        "loss": "Perda",
+        "testLoss": "perda teste",
+        "epochs": "Épocas",
+        "epoch": "Época",
+        "transferLearningMatrix": "Matriz de aprendizado por transferência",
+        "transferLearningMatrixHelp": "Perfis de conceitos do ImageNet por classe (do classificador) e como a entrada atual se alinha a eles.",
+        "transferLearningGraph": "Gráfico de aprendizado por transferência",
+        "transferLearningGraphHelp": "Este diagrama mostra como o modelo relaciona sua imagem atual com classes que já aprendeu. Lado esquerdo: entrada atual e classes candidatas. Lado direito: classes do modelo pré-treinado. Linhas mais grossas indicam correspondência mais forte.",
+        "transferLearningFlow": "Fluxo de aprendizado por transferência",
+        "transferLearningUserClass": "Classe do usuário",
+        "transferLearningCurrentInput": "Entrada atual",
+        "transferLearningSimilarity": "Similaridade",
+        "transferLearningSimilarityHelp": "A similaridade de cosseno compara a entrada atual com cada classe do usuário usando todas as 1000 probabilidades do ImageNet. Os valores vão de 0 a 1, em que 1 significa mais semelhante.",
+        "transferLearningSamples": "{{count}} amostras",
+        "transferLearningStages": "Etapas do aprendizado por transferência",
+        "transferLearningStageConcepts": "Conceitos",
+        "transferLearningStageConnections": "Conexões",
+        "transferLearningStageAdvanced": "Avançado",
+        "pretrainedConceptsTitle": "O que o modelo pré-treinado reconhece",
+        "pretrainedConceptsHelp": "Estes são conceitos familiares do ImageNet que o modelo pré-treinado associa à entrada atual. Uma % maior significa uma correspondência mais forte.",
+        "pretrainedModelLayers": "Modelo pré-treinado",
+        "pretrainedModelSubtitle": "Reconhece conceitos do ImageNet",
+        "pretrainedSampleAlt": "{{label}} amostra {{index}}",
+        "transferLearningBarChart": "Similaridade da entrada de teste",
+        "transferLearningBarChartHelp": "O modelo pré-treinado descreve a entrada atual e cada classe treinada como uma longa lista de pontuações de conceitos do ImageNet. A similaridade de cosseno compara o formato dessas duas listas. Se as pontuações altas e baixas se alinham, a similaridade é alta. Os valores vão de 0% a 100%. Uma barra mais alta significa que a entrada parece mais com essa classe."
+    },
+    "training": {
+        "actions": {
+            "train": "Treinar classificador"
+        },
+        "labels": {
+            "title": "Treinamento",
+            "addMore": "Adicione mais amostras ou classes primeiro",
+            "needsTraining": "O classificador precisa de treinamento",
+            "advanced": "Avançado",
+            "epochs": "Épocas",
+            "learningRate": "Taxa de Aprendizado",
+            "batchSize": "Tamanho do Lote",
+            "loading": "Carregando classificador",
+            "prepairing": "Preparando exemplos...",
+            "training": "Treinando o classificador",
+            "complete": "Treinamento completo"
+        },
+        "tooltips": {
+            "epochs": "O número de vezes que cada amostra é usada para treinamento.",
+            "learningRate": "Faça apenas pequenos ajustes, deve ser menos que 0.1.",
+            "batchSize": "Tem um efeito mínimo no treinamento. É o número de amostras usadas em cada iteração do treinamento."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "Entrada",
+            "webcam": "Webcam",
+            "audio": "Microfone",
+            "file": "Arquivo",
+            "device": "Telefone",
+            "dataset": "Conjunto de dados",
+            "switchOn": "Ligar",
+            "switchOff": "Desligar",
+            "upload": "Fazer carregamento ou soltar arquivo aqui"
+        },
+        "aria": {
+            "switch": "Habilitar fonte de entrada"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "Exportar para ferramenta externa",
+            "clone": "Compartilhe uma cópia"
+        },
+        "labels": {
+            "title": "Classificador",
+            "mustTrain": "Você deve treinar seu classificador primeiro",
+            "mustInput": "Você deve fornecer uma entrada para usar o classificador"
+        },
+        "aria": {
+            "more": "mais opções"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "Saída",
+            "deploy": "Implantar"
+        },
+        "aria": {
+            "volume": "Volume",
+            "image": "classe {{index}} de saída",
+            "display": "saída para a classe {{index}}",
+            "expand": "expandir tamanho da janela"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "Carregar",
+            "dataset": "Conjunto de dados",
+            "delete": "Excluir",
+            "record": "Gravar",
+            "stop": "Parar"
+        },
+        "labels": {
+            "title": "Comportamentos",
+            "message": "Mensagem",
+            "link": "Link",
+            "linkError": "Esse link não é suportado",
+            "embedInfo": "Mostrar vídeos e imagens a partir de um link. Apenas alguns links funcionarão, por exemplo, YouTube, Vimeo, SoundCloud, arquivos de vídeo, arquivos de áudio ou imagens.<br/><br/>Consulte a documentação do <l>react-player</l> para mais detalhes.",
+            "voiceRecording": "Gravação de Voz",
+            "dropError": "Apenas imagens ou sons podem ser soltos aqui",
+            "loop": "Loop"
+        },
+        "aria": {
+            "message": "Texto para saída",
+            "image": "comportamento de imagem",
+            "sound": "comportamento de som",
+            "text": "comportamento de texto",
+            "embed": "comportamento de link incorporado",
+            "imageOutput": "Imagem carregada",
+            "noImage": "Espaço reservado para imagem",
+            "stop": "parar",
+            "play": "executar",
+            "behaviourCard": "Comportamento para {{name}}",
+            "loop": "Loop"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "Próximo"
+        },
+        "aria": {
+            "step": "etapas da tarefa"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "vídeo ao vivo da webcam",
+            "flip": "Virar para uma câmera diferente"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "editar título",
+            "editTitleInput": "{{value}} caixa de edição"
+        },
+        "labels": {
+            "titlePlaceholder": "Nome"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "selecionar cor da fonte"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "Fechar",
+            "share": "Compartilhar",
+            "stopShare": "Parar de compartilhar"
+        },
+        "labels": {
+            "title": "Compartilhar",
+            "includeSamples": "Incluir imagens de amostra",
+            "codeInstructions": "Permita que outras pessoas abram uma cópia do seu classificador usando o código abaixo.",
+            "linkInstructions": "Copie o link para usar o classificador em outras aplicações como o <scratchLink>Scratch</scratchLink>. O link só funcionará se você mantiver esta aba do navegador aberta, ou se você salvar seu projeto e abri-lo novamente mais tarde."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "Animais",
+            "nature": "Natureza",
+            "colors": "Cores",
+            "fruits": "Frutas",
+            "human": "Humano",
+            "studyTools": "Materiais Escolares",
+            "recyclingMaterials": "Materiais Recicláveis",
+            "transportation": "Transporte"
+        },
+        "cats": {
+            "name": "Gatos",
+            "description": "Coleção de imagens de gatos"
+        },
+        "dogs": {
+            "name": "Cães",
+            "description": "Coleção de imagens de cães"
+        },
+        "birds": {
+            "name": "Pássaros",
+            "description": "Coleção de imagens de pássaros"
+        },
+        "flowers": {
+            "name": "Flores",
+            "description": "Coleção de imagens de flores"
+        },
+        "trees": {
+            "name": "Árvores",
+            "description": "Coleção de imagens de árvores"
+        },
+        "white": {
+            "name": "Branco",
+            "description": "Coleção de imagens brancas"
+        },
+        "black": {
+            "name": "Preto",
+            "description": "Coleção de imagens pretas"
+        },
+        "gray": {
+            "name": "Cinza",
+            "description": "Coleção de imagens cinzas"
+        },
+        "blue": {
+            "name": "Azul",
+            "description": "Coleção de imagens azuis"
+        },
+        "green": {
+            "name": "Verde",
+            "description": "Coleção de imagens verdes"
+        },
+        "red": {
+            "name": "Vermelho",
+            "description": "Coleção de imagens vermelhas"
+        },
+        "pink": {
+            "name": "Rosa",
+            "description": "Coleção de imagens rosas"
+        },
+        "orange": {
+            "name": "Laranja",
+            "description": "Coleção de imagens laranjas"
+        },
+        "purple": {
+            "name": "Roxo",
+            "description": "Coleção de imagens roxas"
+        },
+        "yellow": {
+            "name": "Amarelo",
+            "description": "Coleção de imagens amarelas"
+        },
+        "apple": {
+            "name": "Maçã",
+            "description": "Coleção de imagens de maçãs"
+        },
+        "pear": {
+            "name": "Pera",
+            "description": "Coleção de imagens de peras"
+        },
+        "orangeFruit": {
+            "name": "Laranja",
+            "description": "Coleção de imagens de laranjas"
+        },
+        "men": {
+            "name": "Homens",
+            "description": "Coleção de imagens de homens"
+        },
+        "women": {
+            "name": "Mulheres",
+            "description": "Coleção de imagens de mulheres"
+        },
+        "handPalm": {
+            "name": "Palma da mão",
+            "description": "Coleção de imagens de palmas"
+        },
+        "pencils": {
+            "name": "Lápis",
+            "description": "Coleção de imagens de lápis"
+        },
+        "pens": {
+            "name": "Canetas",
+            "description": "Coleção de imagens de canetas"
+        },
+        "humanPose": {
+            "name": "Pose Humana",
+            "description": "Coleção de imagens de poses humanas"
+        },
+        "erasers": {
+            "name": "Borrachas",
+            "description": "Coleção de imagens de borrachas"
+        },
+        "batteries": {
+            "name": "Pilhas",
+            "description": "Coleção de imagens de pilhas"
+        },
+        "cardboard": {
+            "name": "Papelão",
+            "description": "Coleção de imagens de papelão"
+        },
+        "glass": {
+            "name": "Vidro",
+            "description": "Coleção de imagens de vidro"
+        },
+        "paper": {
+            "name": "Papel",
+            "description": "Coleção de imagens de papel"
+        },
+        "plastics": {
+            "name": "Plásticos",
+            "description": "Coleção de imagens de plásticos"
+        },
+        "airplanes": {
+            "name": "Aviões",
+            "description": "Coleção de imagens de aviões"
+        },
+        "buses": {
+            "name": "Ônibus",
+            "description": "Coleção de imagens de ônibus"
+        },
+        "bicycles": {
+            "name": "Bicicletas",
+            "description": "Coleção de imagens de bicicletas"
+        },
+        "cars": {
+            "name": "Carros",
+            "description": "Coleção de imagens de carros"
+        },
+        "mopeds": {
+            "name": "Motonetas",
+            "description": "Coleção de imagens de motonetas"
+        },
+        "motorcycles": {
+            "name": "Motocicletas",
+            "description": "Coleção de imagens de motocicletas"
+        },
+        "pedestrians": {
+            "name": "Pedestres",
+            "description": "Coleção de imagens de pedestres"
+        },
+        "ships": {
+            "name": "Navios",
+            "description": "Coleção de imagens de navios"
+        },
+        "trains": {
+            "name": "Trens",
+            "description": "Coleção de imagens de trens"
+        }
+    }
+}

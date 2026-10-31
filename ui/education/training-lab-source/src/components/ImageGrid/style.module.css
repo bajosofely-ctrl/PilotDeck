@@ -1,0 +1,90 @@
+@value primary, workspaceBg, bgSubdued1, borderBrightBlue from "@genai-fi/base/css/colours.module.css";
+
+.sampleList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.sampleListEmpty {
+    composes: sampleList;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroller {
+    overflow-y: scroll;
+    width: 100%;
+    flex-grow: 1;
+    background: workspaceBg;
+}
+
+@media only screen and (min-width: 850px) {
+    .sampleList {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+.sampleImage {
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+}
+
+.sampleImage :global .MuiCircularProgress-root {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+
+.sampleImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.sampleImage-pending {
+    composes: sampleImage;
+    opacity: 0.5;
+}
+
+.sampleImage-deleted {
+    composes: sampleImage;
+}
+
+.sampleImage-added {
+    composes: sampleImage;
+}
+
+@keyframes grow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.dropPlaceholder {
+    composes: sampleImage;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    border: 1px dashed primary;
+    background: bgSubdued1;
+    animation: grow 0.2s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    color: primary;
+}
+
+.alertInfo {
+    border: 1px solid borderBrightBlue;
+    border-radius: 6px;
+}

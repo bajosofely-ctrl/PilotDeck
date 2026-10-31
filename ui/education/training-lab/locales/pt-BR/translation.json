@@ -1,0 +1,91 @@
+{
+    "deploy": {
+        "actions": {
+            "copy": "Copiar",
+            "close": "Fechar"
+        },
+        "labels": {
+            "notFound": "Não foi possível encontrar o classificador.",
+            "dropHere": "Arraste a imagem para cá",
+            "errorInfo": "Esta página só existe se você mantiver seu classificador aberto em uma aba do navegador. Também podem existir restrições de segurança que impedem sua localização.",
+            "share": "Compartilhar com outros dispositivos",
+            "qrExpand": "Click the QR code to expand it.",
+            "noWebcam": "Camera access is required for classifier sharing.",
+            "switch": "Habilitar fonte de entrada"
+        }
+    },
+    "testInput": {
+        "title": "Entrada"
+    },
+    "collect": {
+        "samplePrompt": "Tire fotos ou carregue imagens aqui.",
+        "actions": {
+            "upload": "Carregar"
+        },
+        "sampleCount": "{{count}} amostras de imagem",
+        "connecting": "Connecting...",
+        "disconnected": "Disconnected",
+        "failed": "Failed",
+        "failedMessage": "This classifier could not be accessed from your device",
+        "dropError": "Apenas imagens podem ser arrastadas aqui",
+        "relayWarning": "Your data is being sent through our server. You may wish to use another WiFi connection to avoid this."
+    },
+    "about": {
+        "back": "Voltar",
+        "title": "Generation AI",
+        "privacyTitle": "Aviso de Privacidade"
+    },
+    "settings": {
+        "title": "Settings",
+        "actions": {
+            "save": "Salvar",
+            "reset": "Reset",
+            "cancel": "Cancelar"
+        },
+        "labels": {
+            "language": "Language",
+            "model": "Model",
+            "variant": "Interface Variant",
+            "advanced": "Avançado"
+        },
+        "values": {
+            "models": ["Imagem (MobileNet)", "Postura (PoseNet)", "Mão (MediaPipe)", "Voz (SpeechCommands)"],
+            "variants": ["General Use", "Classroom"]
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "editar título",
+            "editTitleInput": "{{value}} caixa de edição"
+        },
+        "labels": {
+            "titlePlaceholder": "Nome"
+        }
+    },
+    "feedback": {
+        "button": "Enviar feedback",
+        "title": "Queremos seu feedback!",
+        "ratingTitle": "No geral, como foi sua experiência com esta ferramenta?",
+        "ratingVeryDissatisfied": "Muito insatisfeito",
+        "ratingVerySatisfied": "Muito satisfeito",
+        "recommendTitle": "Qual a probabilidade de você recomendar esta ferramenta para outras pessoas?",
+        "recommendVeryUnlikely": "Muito improvável",
+        "recommendVeryLikely": "Muito provável",
+        "experienceTitle": "Conte-nos sobre a sua experiência.",
+        "close": "Fechar",
+        "send": "Enviar feedback",
+        "error": "Ops!",
+        "errorMessage": "Não foi possível enviar seu feedback. Tente novamente mais tarde.",
+        "thankYou": "Obrigado pelo seu feedback!"
+    },
+    "clock": {
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
+    },
+    "aria": {
+        "close": "Fechar",
+        "stop": "Parar",
+        "play": "Reproduzir"
+    }
+}

@@ -1,0 +1,156 @@
+import { useCallback, useState, useRef, useEffect } from 'react';
+import { useAtom } from 'jotai';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import { Button } from '@genaitm/components/button/Button';
+import Typography from '@mui/material/Typography';
+import LinearProgress from '@mui/material/LinearProgress';
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
+import { useTranslation } from 'react-i18next';
+import { datasetsAtom, fetchAndCacheDatasets, DatasetImage } from '@genaitm/util/datasets';
+import { loadDatasetImagesInParallel, LoadProgress } from '@genaitm/util/datasetLoader';
+import { useVariant } from '@genaitm/util/variant';
+import DatasetCategoryList, { DatasetCategoryListHandle } from './DatasetCategoryList';
+import { ScrollRootContext, useScrollRootRef } from './ScrollRootContext';
+import styles from './DatasetPicker.module.css';
+import { Alert } from '@mui/material';
+
+interface DatasetPickerProps {
+    open: boolean;
+    onClose: () => void;
+    onDatasetSelected: (canvases: HTMLCanvasElement[]) => void | Promise<void>;
+}
+
+export default function DatasetPicker({ open, onClose, onDatasetSelected }: DatasetPickerProps) {
+    const { namespace } = useVariant();
+    const { t } = useTranslation(namespace);
+    const [loading, setLoading] = useState(false);
+    const [loadProgress, setLoadProgress] = useState<LoadProgress>({ loaded: 0, total: 0 });
+    const [datasets, setDatasets] = useAtom(datasetsAtom);
+    const [selectedCount, setSelectedCount] = useState(0);
+    const [scrollRoot, scrollRootRef] = useScrollRootRef();
+    const listRef = useRef<DatasetCategoryListHandle>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!open || datasets.length > 0) return;
+        fetchAndCacheDatasets().then(setDatasets);
+    }, [open, datasets.length, setDatasets]);
+
+    const handleUse = useCallback(async () => {
+        const images = listRef.current?.getSelectedImages() ?? [];
+        if (images.length === 0) return;
+
+        setLoading(true);
+        setLoadProgress({ loaded: 0, total: images.length });
+
+        try {
+            const canvases = await loadDatasetImagesInParallel(images as DatasetImage[], (progress) => {
+                setLoadProgress(progress);
+            });
+
+            if (canvases.length > 0) {
+                await onDatasetSelected(canvases);
+                listRef.current?.clearSelection();
+                onClose();
+            } else {
+                setError(t('trainingdata.labels.datasetLoadError'));
+            }
+        } catch (error) {
+            console.error('Error loading images:', error);
+            setError(t('trainingdata.labels.datasetLoadError'));
+        } finally {
+            setLoading(false);
+        }
+    }, [onDatasetSelected, onClose, t]);
+
+    const handleClose = useCallback(() => {
+        if (!loading) {
+            listRef.current?.clearSelection();
+            onClose();
+        }
+    }, [loading, onClose]);
+
+    const progressPercentage = loadProgress.total > 0 ? (loadProgress.loaded / loadProgress.total) * 100 : 0;
+
+    return (
+        <Dialog
+            open={open}
+            onClose={handleClose}
+            maxWidth="lg"
+            fullWidth
+            slotProps={{ paper: { className: styles.dialogPaper } }}
+        >
+            <DialogTitle className={styles.dialogTitle}>
+                {t('trainingdata.labels.selectDataset')}
+                <IconButton
+                    onClick={handleClose}
+                    disabled={loading}
+                    aria-label="close"
+                    className={styles.closeButton}
+                >
+                    <CloseIcon />
+                </IconButton>
+            </DialogTitle>
+            <DialogContent ref={scrollRootRef}>
+                {!error && (
+                    <ScrollRootContext.Provider value={scrollRoot}>
+                        {loading ? (
+                            <div className={styles.loadingContainer}>
+                                <Typography
+                                    variant="body1"
+                                    gutterBottom
+                                >
+                                    {t('trainingdata.labels.loadingDataset', {
+                                        loaded: loadProgress.loaded,
+                                        total: loadProgress.total,
+                                    })}
+                                </Typography>
+                                <LinearProgress
+                                    variant="determinate"
+                                    value={progressPercentage}
+                                    className={styles.loadingProgress}
+                                />
+                            </div>
+                        ) : (
+                            <DatasetCategoryList
+                                ref={listRef}
+                                datasets={datasets}
+                                onSelectionChange={setSelectedCount}
+                            />
+                        )}
+                    </ScrollRootContext.Provider>
+                )}
+                {error && (
+                    <Alert
+                        severity="error"
+                        className={styles.errorAlert}
+                    >
+                        {error}
+                    </Alert>
+                )}
+            </DialogContent>
+            <DialogActions className={styles.dialogActions}>
+                <Button
+                    variant="outlined"
+                    onClick={handleClose}
+                    disabled={loading}
+                >
+                    {t('trainingdata.actions.cancel')}
+                </Button>
+                <Button
+                    onClick={handleUse}
+                    disabled={loading || selectedCount === 0}
+                    variant="contained"
+                >
+                    {loading
+                        ? t('trainingdata.labels.loading')
+                        : t('trainingdata.actions.use', { count: selectedCount })}
+                </Button>
+            </DialogActions>
+        </Dialog>
+    );
+}

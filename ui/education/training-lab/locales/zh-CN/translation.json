@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "title": "设置",
+    "actions": { "save": "保存", "reset": "重置", "cancel": "取消" },
+    "labels": { "language": "语言", "model": "模型", "variant": "界面模式", "advanced": "高级" },
+    "values": { "models": ["图像（MobileNet）", "姿态（PoseNet）", "手势（MediaPipe）", "声音（SpeechCommands）"], "variants": ["通用", "课堂"] }
+  },
+  "widget": { "aria": { "editTitle": "修改名称", "editTitleInput": "{{value}} 名称编辑框" }, "labels": { "titlePlaceholder": "名称" } },
+  "clock": { "hours": "时", "minutes": "分", "seconds": "秒" },
+  "aria": { "close": "关闭", "stop": "停止", "play": "播放" },
+  "about": { "back": "返回", "title": "Generation AI", "privacyTitle": "隐私说明" },
+  "testInput": { "title": "输入" },
+  "deploy": { "actions": { "copy": "复制", "close": "关闭" }, "labels": { "dropHere": "拖入图像", "switch": "启用输入" } }
+}

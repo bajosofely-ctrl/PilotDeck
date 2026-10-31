@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Web Studio Lesson 11 - Deployment: Publish Your Website to the Internet">
+  <title>第11课 - 部署上线 | AI 网站工坊</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html" class="active"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 11 课</span>
+        <span class="en">Lesson 11</span>
+      </span>
+      <h1>
+        <span class="zh">部署上线 — 发布到互联网</span>
+        <span class="en">Deployment — Publish to the Internet</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">让全世界都能访问你的网站！学习 Git、GitHub Pages 和 Vercel 部署。</span>
+        <span class="en">Make your website accessible to the whole world! Learn Git, GitHub Pages, and Vercel deployment.</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <!-- Section 11.1: Course Goals -->
+    <section class="section reveal" id="section-11-1">
+      <h2>
+        <span class="zh">11.1 课程目标</span>
+        <span class="en">11.1 Course Goals</span>
+      </h2>
+      <p>
+        <span class="zh">到目前为止，你的网站只能在自己的电脑上运行。在本节课中，你将学会把网站部署到互联网上，让任何人都能通过一个网址访问它！</span>
+        <span class="en">So far, your website only runs on your own computer. In this lesson, you'll learn to deploy it to the internet so anyone can visit it via a URL!</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">📦</div>
+          <h3><span class="zh">学习 Git 基础</span><span class="en">Learn Git Basics</span></h3>
+          <p><span class="zh">掌握版本控制工具 Git 的核心概念和基本命令。</span><span class="en">Master the core concepts and basic commands of the version control tool Git.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🐙</div>
+          <h3><span class="zh">使用 GitHub</span><span class="en">Use GitHub</span></h3>
+          <p><span class="zh">创建仓库、上传代码，学会用 GitHub 管理你的项目。</span><span class="en">Create repositories, upload code, and manage your projects with GitHub.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🚀</div>
+          <h3><span class="zh">部署上线</span><span class="en">Deploy Live</span></h3>
+          <p><span class="zh">通过 GitHub Pages 或 Vercel 将网站发布到互联网。</span><span class="en">Publish your website to the internet via GitHub Pages or Vercel.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11.2: What Is Deployment? -->
+    <section class="section reveal" id="section-11-2">
+      <h2>
+        <span class="zh">11.2 什么是部署？</span>
+        <span class="en">11.2 What Is Deployment?</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>部署（Deployment）</strong>就是把你的网站文件放到一台连接互联网的服务器上，这样别人就能通过网址（URL）访问你的网站了。</span>
+        <span class="en"><strong>Deployment</strong> means putting your website files on a server connected to the internet, so others can access your site through a URL.</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">💻</div>
+          <h3><span class="zh">本地网站</span><span class="en">Local Website</span></h3>
+          <p><span class="zh">文件在你的电脑上，只有你能看到。地址是 <code>file://</code> 或 <code>localhost</code>。</span><span class="en">Files are on your computer, only you can see them. Address is <code>file://</code> or <code>localhost</code>.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🌍</div>
+          <h3><span class="zh">线上网站</span><span class="en">Live Website</span></h3>
+          <p><span class="zh">文件在服务器上，全世界都能访问。地址是 <code>https://yourname.github.io</code> 等。</span><span class="en">Files are on a server, accessible worldwide. Address is <code>https://yourname.github.io</code> etc.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-info">
+        <p>
+          <span class="zh">💡 <strong>科普：</strong><strong>域名（Domain）</strong>是网站的地址，如 <code>google.com</code>。<strong>DNS</strong> 把域名翻译成服务器的 IP 地址。免费托管平台会给你一个子域名，如 <code>yourname.github.io</code>。</span>
+          <span class="en">💡 <strong>Fun fact:</strong> A <strong>domain</strong> is a website's address, like <code>google.com</code>. <strong>DNS</strong> translates domains to server IP addresses. Free hosting platforms give you a subdomain like <code>yourname.github.io</code>.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 11.3: Git & GitHub Basics -->
+    <section class="section reveal" id="section-11-3">
+      <h2>
+        <span class="zh">11.3 Git 与 GitHub 基础</span>
+        <span class="en">11.3 Git &amp; GitHub Basics</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>Git</strong> 是一个版本控制工具——它帮你追踪代码的每一次修改，就像游戏中的"存档"功能。<strong>GitHub</strong> 是一个在线平台，让你把 Git 仓库存储到云端。</span>
+        <span class="en"><strong>Git</strong> is a version control tool — it tracks every change to your code, like a "save game" feature. <strong>GitHub</strong> is an online platform that stores your Git repositories in the cloud.</span>
+      </p>
+      <h3><span class="zh">第一步：创建 GitHub 账号</span><span class="en">Step 1: Create a GitHub Account</span></h3>
+      <p>
+        <span class="zh">前往 <code>github.com</code> 注册一个免费账号。选择一个好记的用户名——它会出现在你的网站地址中！</span>
+        <span class="en">Go to <code>github.com</code> and sign up for a free account. Choose a memorable username — it will appear in your website URL!</span>
+      </p>
+      <h3><span class="zh">第二步：创建仓库并上传代码</span><span class="en">Step 2: Create a Repository and Upload Code</span></h3>
+      <p>
+        <span class="zh">你可以通过 GitHub 网页直接上传文件，或使用 Git 命令行：</span>
+        <span class="en">You can upload files directly through GitHub's web interface, or use Git commands:</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Bash</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code># Initialize a Git repository in your project folder
+git init
+
+# Stage all files for commit
+git add .
+
+# Create your first commit
+git commit -m "Initial commit - my AI website"
+
+# Connect to your GitHub repository
+git remote add origin https://github.com/YOUR_USERNAME/my-ai-website.git
+
+# Push your code to GitHub
+git push -u origin main</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh">💡 <strong>不熟悉命令行？</strong>没关系！你可以在 GitHub 网站上点击 "Add file" → "Upload files"，直接拖拽上传你的项目文件夹中的所有文件。</span>
+          <span class="en">💡 <strong>Not comfortable with the command line?</strong> No worries! On the GitHub website, click "Add file" → "Upload files" and drag-and-drop all files from your project folder.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 11.4: GitHub Pages Deployment -->
+    <section class="section reveal" id="section-11-4">
+      <h2>
+        <span class="zh">11.4 GitHub Pages 部署</span>
+        <span class="en">11.4 GitHub Pages Deployment</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>GitHub Pages</strong> 是 GitHub 提供的免费静态网站托管服务。只需几步设置，你的仓库就变成了一个活的网站！</span>
+        <span class="en"><strong>GitHub Pages</strong> is a free static website hosting service from GitHub. With a few settings, your repository becomes a live website!</span>
+      </p>
+      <h3><span class="zh">部署步骤</span><span class="en">Deployment Steps</span></h3>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1️⃣</div>
+          <h3><span class="zh">进入仓库设置</span><span class="en">Go to Repository Settings</span></h3>
+          <p><span class="zh">打开你的 GitHub 仓库，点击顶部的 <strong>Settings</strong> 选项卡。</span><span class="en">Open your GitHub repository and click the <strong>Settings</strong> tab at the top.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2️⃣</div>
+          <h3><span class="zh">启用 Pages</span><span class="en">Enable Pages</span></h3>
+          <p><span class="zh">在左侧菜单找到 <strong>Pages</strong>，在 Source 下选择 <strong>main</strong> 分支，文件夹选 <strong>/ (root)</strong>，点击 Save。</span><span class="en">Find <strong>Pages</strong> in the left menu. Under Source, select the <strong>main</strong> branch, folder <strong>/ (root)</strong>, and click Save.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3️⃣</div>
+          <h3><span class="zh">等待部署</span><span class="en">Wait for Deployment</span></h3>
+          <p><span class="zh">GitHub 会自动构建并部署你的网站，通常需要 1-3 分钟。</span><span class="en">GitHub will automatically build and deploy your site, usually taking 1-3 minutes.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4️⃣</div>
+          <h3><span class="zh">访问你的网站！</span><span class="en">Visit Your Website!</span></h3>
+          <p><span class="zh">部署成功后，你的网站地址是：<code>https://YOUR_USERNAME.github.io/REPO_NAME/</code></span><span class="en">Once deployed, your website URL is: <code>https://YOUR_USERNAME.github.io/REPO_NAME/</code></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11.5: Vercel Deployment (Alternative) -->
+    <section class="section reveal" id="section-11-5">
+      <h2>
+        <span class="zh">11.5 Vercel 部署（备选方案）</span>
+        <span class="en">11.5 Vercel Deployment (Alternative)</span>
+      </h2>
+      <p>
+        <span class="zh"><strong>Vercel</strong> 是另一个优秀的免费托管平台，部署过程更加简单，而且支持自动部署——每次你推送代码到 GitHub，Vercel 会自动更新网站。</span>
+        <span class="en"><strong>Vercel</strong> is another excellent free hosting platform with an even simpler deployment process. It supports automatic deployments — every time you push code to GitHub, Vercel updates your site automatically.</span>
+      </p>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Steps</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>1. Go to vercel.com and sign up with your GitHub account
+2. Click "New Project"
+3. Import your GitHub repository
+4. Click "Deploy"
+5. Done! Your site is live at https://your-project.vercel.app</code></pre>
+      </div>
+      <div class="callout callout-info">
+        <p>
+          <span class="zh">💡 <strong>Vercel vs GitHub Pages：</strong>两者都免费且优秀。GitHub Pages 更简单，适合纯静态网站；Vercel 功能更强大，支持自定义域名和服务端功能。</span>
+          <span class="en">💡 <strong>Vercel vs GitHub Pages:</strong> Both are free and excellent. GitHub Pages is simpler, great for pure static sites; Vercel is more powerful with custom domains and serverless functions.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 11.6: Hands-on Practice -->
+    <section class="section reveal" id="section-11-6">
+      <h2>
+        <span class="zh">11.6 动手实践</span>
+        <span class="en">11.6 Hands-on Practice</span>
+      </h2>
+      <p>
+        <span class="zh">现在，把你在前几节课中构建的 AI 网站项目部署到互联网上！按照以下清单操作：</span>
+        <span class="en">Now, deploy the AI website project you built in previous lessons to the internet! Follow this checklist:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">✅</div>
+          <h3><span class="zh">确认文件完整</span><span class="en">Verify Files Are Complete</span></h3>
+          <p><span class="zh">确保你的项目包含 <code>index.html</code>、CSS 文件和 JS 文件，且本地测试正常。</span><span class="en">Make sure your project includes <code>index.html</code>, CSS files, and JS files, and works correctly locally.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">✅</div>
+          <h3><span class="zh">上传到 GitHub</span><span class="en">Upload to GitHub</span></h3>
+          <p><span class="zh">创建新仓库，用 Git 命令或网页上传将所有文件推送到 GitHub。</span><span class="en">Create a new repo and push all files to GitHub using Git commands or the web uploader.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">✅</div>
+          <h3><span class="zh">启用 GitHub Pages</span><span class="en">Enable GitHub Pages</span></h3>
+          <p><span class="zh">在仓库 Settings → Pages 中启用，选择 main 分支。</span><span class="en">Enable in repo Settings → Pages, select the main branch.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">✅</div>
+          <h3><span class="zh">测试你的网站</span><span class="en">Test Your Website</span></h3>
+          <p><span class="zh">用手机和电脑分别访问你的网站地址，确认一切正常！</span><span class="en">Visit your website URL on both phone and computer to verify everything works!</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11.7: Challenge Tasks -->
+    <section class="section reveal" id="section-11-7">
+      <h2>
+        <span class="zh">11.7 挑战任务</span>
+        <span class="en">11.7 Challenge Tasks</span>
+      </h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">⭐</div>
+          <h3><span class="zh">挑战 A：设置自定义域名</span><span class="en">Challenge A: Set Up a Custom Domain</span></h3>
+          <p><span class="zh">购买一个属于自己的域名（如 <code>myname.com</code>），并将它指向你的 GitHub Pages 或 Vercel 网站。在仓库中添加 <code>CNAME</code> 文件。</span><span class="en">Purchase your own domain (e.g. <code>myname.com</code>) and point it to your GitHub Pages or Vercel site. Add a <code>CNAME</code> file to your repository.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">🌟</div>
+          <h3><span class="zh">挑战 B：添加 README</span><span class="en">Challenge B: Add a README</span></h3>
+          <p><span class="zh">为你的 GitHub 仓库创建一个 <code>README.md</code> 文件，用 Markdown 语法介绍你的项目，包括项目名称、功能介绍和使用方法。</span><span class="en">Create a <code>README.md</code> file for your GitHub repo using Markdown to describe your project, including its name, features, and how to use it.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="section reveal" id="quiz-11">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web11">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. "部署"一个网站意味着什么？</span><span class="en">1. What does "deploying" a website mean?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">删除网站</span><span class="en">Deleting the website</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">在本地修改代码</span><span class="en">Editing code locally</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">把网站发布到服务器，让所有人都能访问</span><span class="en">Publishing the website to a server so everyone can access it</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">下载网站模板</span><span class="en">Downloading a website template</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">部署就是把网站文件放到互联网上的服务器中，这样任何人都能通过网址访问你的网站。</span><span class="en">Deployment means putting website files on an internet server so anyone can access your site via a URL.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">2. Git 的主要功能是什么？</span><span class="en">2. What is the primary purpose of Git?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">追踪代码的每次修改（版本控制）</span><span class="en">Tracking every code change (version control)</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">设计网页样式</span><span class="en">Designing webpage styles</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">运行 JavaScript 代码</span><span class="en">Running JavaScript code</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">生成 AI 图片</span><span class="en">Generating AI images</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">Git 是一个版本控制系统，它帮你记录代码的每次更改，可以随时回到之前的版本，就像游戏中的存档功能。</span><span class="en">Git is a version control system that records every code change. You can go back to any previous version, like a save-game feature.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">3. 以下哪个命令用于将文件添加到 Git 暂存区？</span><span class="en">3. Which command adds files to the Git staging area?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">git commit</span><span class="en">git commit</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">git add</span><span class="en">git add</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">git push</span><span class="en">git push</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">git deploy</span><span class="en">git deploy</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>git add</code> 将文件添加到暂存区，准备提交。<code>git commit</code> 保存更改，<code>git push</code> 推送到远程仓库。</span><span class="en"><code>git add</code> stages files for commit. <code>git commit</code> saves changes, and <code>git push</code> uploads to the remote repository.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. GitHub Pages 部署后，你的网站地址格式通常是什么？</span><span class="en">4. After deploying with GitHub Pages, what is the typical URL format?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">localhost:3000/mysite</span><span class="en">localhost:3000/mysite</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">github.com/mysite.html</span><span class="en">github.com/mysite.html</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">www.mysite.git</span><span class="en">www.mysite.git</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">username.github.io/repo-name</span><span class="en">username.github.io/repo-name</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">GitHub Pages 的默认网址格式是 <code>https://username.github.io/repo-name/</code>，其中 username 是你的 GitHub 用户名。</span><span class="en">The default GitHub Pages URL format is <code>https://username.github.io/repo-name/</code>, where username is your GitHub username.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">5. Vercel 相比 GitHub Pages 的一个优势是什么？</span><span class="en">5. What is one advantage of Vercel over GitHub Pages?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">只有 Vercel 支持 HTML</span><span class="en">Only Vercel supports HTML</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">Vercel 不需要 GitHub 账号</span><span class="en">Vercel doesn't need a GitHub account</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">每次推送代码都能自动重新部署</span><span class="en">Automatic redeployment on every code push</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">Vercel 是唯一的免费平台</span><span class="en">Vercel is the only free platform</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">Vercel 支持自动部署：每次你把代码推送到 GitHub，Vercel 会自动检测变化并重新部署网站，非常方便。</span><span class="en">Vercel supports automatic deployments: every time you push code to GitHub, Vercel detects changes and redeploys your site automatically — very convenient.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson10.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous</span></a>
+      <a href="lesson12.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

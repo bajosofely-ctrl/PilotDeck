@@ -1,0 +1,900 @@
+diff --git a/.gitignore b/.gitignore
+index fb7db3c..ae9215c 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,62 +1,3 @@
+-# See https://help.github.com/ignore-files/ for more about ignoring files.
+-
+-# dependencies
+-/node_modules
+-**/node_modules
+-
+-# testing
+-/coverage
+-
+-# production
+-/build
+-/dist
+-
+-# misc
+-.DS_Store
+-.env
+-npm-debug.log*
+-yarn-debug.log*
+-yarn-error.log*
+-
+-# See https://help.github.com/ignore-files/ for more about ignoring files.
+-
+-# dependencies
+-/node_modules
+-
+-# testing
+-/coverage
+-
+-# production
+-/build
+-
+-# misc
+-.DS_Store
+-.env
+-npm-debug.log*
+-yarn-debug.log*
+-yarn-error.log*
+-
+-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+-
+-# dependencies
+-/node_modules
+-/.pnp
+-.pnp.js
+-
+-# testing
+-/coverage
+-junit.xml
+-
+-# production
+-/build
+-
+-# misc
+-.DS_Store
+-.env.local
+-.env.development.local
+-.env.test.local
+-.env.production.local
+-
+-npm-debug.log*
+-yarn-debug.log*
+-yarn-error.log*
++node_modules/
++dist/
++!package-lock.json
+diff --git a/index.html b/index.html
+index f04be60..68ec367 100644
+--- a/index.html
++++ b/index.html
+@@ -1,6 +1,6 @@
+ <!DOCTYPE html>
+ <html
+-    lang="en"
++    lang="zh-CN"
+     translate="no"
+ >
+     <head>
+@@ -49,7 +49,7 @@
+             rel="manifest"
+             href="/manifest.json"
+         />
+-        <title>GenAI Teachable Machine</title>
++        <title>AI 训练实验室</title>
+     </head>
+     <body>
+         <noscript>You need to enable JavaScript to run this app.</noscript>
+diff --git a/package.json b/package.json
+index 6801c20..1aa4364 100644
+--- a/package.json
++++ b/package.json
+@@ -42,7 +42,7 @@
+     "scripts": {
+         "git-info": "node scripts/gitInfo.js",
+         "start": "vite",
+-        "build": "npm run git-info && tsc && vite build",
++        "build": "node ../build-training-lab.mjs",
+         "build:robot": "npm run git-info && tsc && vite build --mode robot",
+         "lint": "eslint --max-warnings=0 ./src/**/*.ts ./src/**/*.tsx",
+         "test": "vitest",
+@@ -92,4 +92,4 @@
+         "vite": "^8.2.1",
+         "vitest": "^4.1.10"
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/public/locales/zh-CN/image_adv.json b/public/locales/zh-CN/image_adv.json
+new file mode 100644
+index 0000000..cd58ed8
+--- /dev/null
++++ b/public/locales/zh-CN/image_adv.json
+@@ -0,0 +1,118 @@
++{
++  "app": {
++    "title": "AI 训练实验室",
++    "about": "关于",
++    "save": "保存",
++    "load": "打开",
++    "language": "语言",
++    "reminder": "请记得保存你的分类器。",
++    "models": { "image": "图像", "pose": "身体姿态", "hand": "手势", "speech": "声音" },
++    "github": "源代码",
++    "teachingMaterials": "教学材料",
++    "selectModel": "你想识别什么？",
++    "enableUSB": "使用 USB 设备",
++    "subtitle": "用自己的样本训练分类器"
++  },
++  "load": {
++    "title": "打开分类器",
++    "code": "输入分享码",
++    "actions": { "openFile": "打开文件", "openCode": "使用分享码", "cancel": "取消" }
++  },
++  "save": {
++    "title": "保存分类器",
++    "noModel": "请先创建分类器。",
++    "message": "将分类器保存到本地文件。",
++    "saveSamples": "保存样本",
++    "saveClassifier": "保存分类器",
++    "saveBehaviours": "保存响应动作",
++    "name": "名称",
++    "actions": { "save": "保存", "cancel": "取消" }
++  },
++  "alignment": { "aria": { "left": "左对齐", "center": "居中", "right": "右对齐", "align": "文字对齐" } },
++  "fontsize": { "aria": { "title": "字号", "increase": "增大", "decrease": "减小" } },
++  "trainingdata": {
++    "actions": {
++      "addClass": "添加类别", "webcam": "摄像头", "audio": "麦克风", "upload": "上传",
++      "datasets": "数据集", "deleteClass": "删除类别", "disableClass": "停用类别",
++      "enableClass": "启用类别", "removeAll": "清空样本", "capture": "按住采集",
++      "fileCapture": "提取", "record": "录制", "collaborate": "协作", "cancel": "取消",
++      "use": "使用（{{count}}）", "displayMore": "显示 {{count}} 张图像"
++    },
++    "labels": {
++      "title": "训练数据", "addSamples": "添加图像样本", "imageSamples": "{{count}} 个图像样本",
++      "addAudioSamples": "添加声音样本", "audioSamples": "{{count}} 个声音样本",
++      "class": "类别", "noiseClass": "背景噪声", "wait": "正在采集…", "stop": "停止",
++      "dropFiles": "或拖入图像文件", "dropAudioFiles": "或拖入音频文件",
++      "needsMore": "需要更多样本", "dropError": "只能拖入图像", "dropAudioError": "只能拖入音频",
++      "emptyClass": "此类别还没有样本。", "disabled": "已停用",
++      "selectDataset": "选择数据集", "selectTestData": "选择图像", "searchDataset": "搜索数据集",
++      "images": "图像", "selected": "已选", "loading": "正在加载…",
++      "loadingDataset": "正在加载图像 {{loaded}}/{{total}}…", "datasetLoadError": "图像加载失败，请重试。"
++    },
++    "aria": { "sample": "已上传样本", "delete": "删除样本", "more": "更多选项", "close": "关闭", "classCard": "{{name}} 的训练数据" }
++  },
++  "heatmap": {
++    "title": "识别解释", "colorScaleHelp": "红色表示模型更关注的区域，蓝色表示关注较少的区域。",
++    "noPoseDetected": "未检测到姿态", "high": "高", "low": "低"
++  },
++  "underTheHood": { "title": "模型内部", "visualization": "热力图", "statistics": "模型统计", "transferLearning": "迁移学习", "on": "开", "off": "关" },
++  "charts": {
++    "accuracyPerClass": "各类别准确率",
++    "accuracyPerClassHelp": "显示模型正确预测各类别样本的比例。1.00 表示全部正确。",
++    "confusionMatrix": "混淆矩阵", "confusionMatrixHelp": "行是真实类别，列是预测类别。对角线为正确预测。",
++    "accuracyPerEpoch": "每轮准确率", "accuracyPerEpochHelp": "准确率范围为 0 到 1。数值越高，正确预测的比例越大。",
++    "lossPerEpoch": "每轮损失", "lossPerEpochHelp": "损失反映模型在训练中的误差，通常越低越好。",
++    "transferLearningMatrix": "迁移学习矩阵", "transferLearningGraph": "迁移学习图",
++    "transferLearningFlow": "迁移学习流程", "transferLearningUserClass": "自定义类别",
++    "transferLearningCurrentInput": "当前输入", "transferLearningSimilarity": "相似度",
++    "transferLearningSamples": "{{count}} 个样本", "transferLearningStages": "迁移学习阶段",
++    "transferLearningStageConcepts": "概念", "transferLearningStageConnections": "连接",
++    "transferLearningStageAdvanced": "高级", "pretrainedConceptsTitle": "预训练模型识别的概念",
++    "pretrainedConceptsHelp": "预训练模型从 ImageNet 中学到的概念，百分比越高表示匹配程度越高。",
++    "pretrainedModelLayers": "预训练模型", "pretrainedModelSubtitle": "识别 ImageNet 概念",
++    "pretrainedSampleAlt": "{{label}} 样本 {{index}}", "class": "类别", "accuracy": "准确率",
++    "testSamples": "测试样本数", "prediction": "预测", "actual": "实际", "predicted": "预测",
++    "count": "数量", "acc": "准确率", "testAcc": "验证准确率", "loss": "损失",
++    "testLoss": "验证损失", "epochs": "训练轮数", "epoch": "轮次",
++    "neuronExplanationTitle": "神经元解释", "neuronCrossClass": "类别平均激活值",
++    "neuronTopN": "显示前 {{n}} 个神经元", "transferLearningBarChart": "输入相似度",
++    "transferLearningBarChartHelp": "比较当前输入与各类别的 ImageNet 概念分数分布，柱形越高表示越相似。"
++  },
++  "training": {
++    "actions": { "train": "训练分类器" },
++    "labels": {
++      "title": "训练", "addMore": "至少添加两个类别，每类至少两个样本。声音训练还需要至少 20 个背景噪声样本。",
++      "needsTraining": "样本已就绪，可以开始训练。", "advanced": "高级参数",
++      "epochs": "训练轮数", "learningRate": "学习率", "batchSize": "批次大小",
++      "loading": "正在加载分类器", "prepairing": "正在处理样本…",
++      "training": "正在训练分类器", "complete": "训练完成", "failed": "训练失败，请检查样本后重试。"
++    },
++    "tooltips": {
++      "epochs": "每个样本参与训练的次数。", "learningRate": "每次更新参数的幅度，建议小于 0.1。",
++      "batchSize": "每次训练更新所使用的样本数量。"
++    }
++  },
++  "input": {
++    "labels": { "title": "测试输入", "webcam": "摄像头", "audio": "麦克风", "file": "文件", "device": "其他设备", "dataset": "数据集", "switchOn": "开", "switchOff": "关", "upload": "上传或拖入文件" },
++    "aria": { "switch": "启用输入" }
++  },
++  "model": {
++    "actions": { "export": "导出到外部工具", "clone": "分享副本", "bm": "在 Breakable Machine 中使用" },
++    "labels": { "title": "分类器", "mustTrain": "请先训练分类器", "mustInput": "请添加测试输入", "failedTensorflow": "设备或浏览器无法运行此分类器" },
++    "aria": { "more": "更多选项" }
++  },
++  "output": {
++    "labels": { "title": "输出", "deploy": "部署", "serialdevice": "USB 设备", "connect": "连接", "disconnect": "断开" },
++    "aria": { "volume": "音量", "image": "类别 {{index}} 输出", "display": "类别 {{index}} 输出", "expand": "放大窗口", "serialdevice": "串口设备" }
++  },
++  "behaviours": {
++    "actions": { "upload": "上传", "dataset": "数据集", "delete": "删除", "record": "录制", "stop": "停止" },
++    "labels": { "title": "响应动作", "message": "文字", "link": "链接", "linkError": "不支持此链接", "voiceRecording": "声音录制", "dropError": "只能拖入图像或声音", "loop": "循环" },
++    "aria": { "message": "输出文字", "image": "图像响应", "sound": "声音响应", "text": "文字响应", "embed": "链接响应", "imageOutput": "已上传图像", "noImage": "图像占位", "stop": "停止", "play": "播放", "behaviourCard": "{{name}} 的响应", "loop": "循环" }
++  },
++  "stepper": { "actions": { "next": "下一步" }, "aria": { "step": "实验步骤" } },
++  "webcam": { "aria": { "video": "摄像头实时画面", "flip": "切换摄像头" } },
++  "widget": { "aria": { "editTitle": "修改名称", "editTitleInput": "{{value}} 名称编辑框" }, "labels": { "titlePlaceholder": "名称" } },
++  "fontcolor": { "aria": { "title": "文字颜色" } },
++  "share": { "actions": { "close": "关闭", "share": "分享", "stopShare": "停止分享" }, "labels": { "title": "分享", "includeSamples": "包含样本" } }
++}
+diff --git a/public/locales/zh-CN/translation.json b/public/locales/zh-CN/translation.json
+new file mode 100644
+index 0000000..a9d258f
+--- /dev/null
++++ b/public/locales/zh-CN/translation.json
+@@ -0,0 +1,14 @@
++{
++  "settings": {
++    "title": "设置",
++    "actions": { "save": "保存", "reset": "重置", "cancel": "取消" },
++    "labels": { "language": "语言", "model": "模型", "variant": "界面模式", "advanced": "高级" },
++    "values": { "models": ["图像（MobileNet）", "姿态（PoseNet）", "手势（MediaPipe）", "声音（SpeechCommands）"], "variants": ["通用", "课堂"] }
++  },
++  "widget": { "aria": { "editTitle": "修改名称", "editTitleInput": "{{value}} 名称编辑框" }, "labels": { "titlePlaceholder": "名称" } },
++  "clock": { "hours": "时", "minutes": "分", "seconds": "秒" },
++  "aria": { "close": "关闭", "stop": "停止", "play": "播放" },
++  "about": { "back": "返回", "title": "Generation AI", "privacyTitle": "隐私说明" },
++  "testInput": { "title": "输入" },
++  "deploy": { "actions": { "copy": "复制", "close": "关闭" }, "labels": { "dropHere": "拖入图像", "switch": "启用输入" } }
++}
+diff --git a/src/App.tsx b/src/App.tsx
+index 3353acd..855bd6e 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -4,7 +4,7 @@ import './App.css';
+ import {
+     RouterProvider,
+     Route,
+-    createBrowserRouter,
++    createHashRouter,
+     createRoutesFromElements,
+     useRouteError,
+     Navigate,
+@@ -62,18 +62,6 @@ export const routes = createRoutesFromElements(
+                 />
+             }
+         />
+-        <Route
+-            path="deploy/p/:code"
+-            lazy={() => import('./views/Deployment/PeerDeployment')}
+-        />
+-        <Route
+-            path="collect/:code/:classIndex"
+-            lazy={() => import('./views/Collection/Collection')}
+-        />
+-        <Route
+-            path="input/:code"
+-            lazy={() => import('./views/Input/Input')}
+-        />
+         <Route
+             path="about"
+             element={<About />}
+@@ -101,7 +89,7 @@ export const routes = createRoutesFromElements(
+         </Route>
+     </Route>
+ );
+-const defaultRouter = createBrowserRouter(routes);
++const defaultRouter = createHashRouter(routes);
+ 
+ interface Props {
+     router?: typeof defaultRouter;
+diff --git a/src/components/AppBar/AppBar.tsx b/src/components/AppBar/AppBar.tsx
+index d9e0f42..fa47cee 100644
+--- a/src/components/AppBar/AppBar.tsx
++++ b/src/components/AppBar/AppBar.tsx
+@@ -19,6 +19,7 @@ interface Props {
+ const FEEDBACK_DELAY = 30 * 1000;
+ 
+ export const LANGS = [
++    { name: 'zh-CN', label: '简体中文' },
+     { name: 'de-DE', label: 'Deutsch' },
+     { name: 'en-GB', label: 'English' },
+     { name: 'pt-BR', label: 'Português Brasileiro' },
+@@ -67,13 +68,13 @@ export default function ApplicationBar({ showReminder, onSave }: Props) {
+                 open={showReminder && reminder && showSaveReminder}
+                 anchorEl={saveButtonRef.current}
+             >
+-                Remember to save your classifier.
++                {t('app.reminder')}
+             </Suggestion>
+             <div className={style.toolbar}>
+                 <a
+                     href="/"
+                     className={style.logo}
+-                    title="Home"
++                    title="AI 训练实验室"
+                 >
+                     <img
+                         src="/logo128_bw.png"
+@@ -106,7 +107,7 @@ export default function ApplicationBar({ showReminder, onSave }: Props) {
+                     </BusyButton>
+                 </div>
+                 <div className={showSettings ? style.langBarWithSettings : style.langBar}>
+-                    {showFeedback && (
++                    {showFeedback && import.meta.env.VITE_FEEDBACK_URL && (
+                         <Feedback
+                             application="tm"
+                             variant="contained"
+@@ -127,7 +128,7 @@ export default function ApplicationBar({ showReminder, onSave }: Props) {
+                         onClick={doSettings}
+                         size="large"
+                         color="inherit"
+-                        aria-label="Settings"
++                        aria-label={t('translation:settings.title')}
+                     >
+                         <SettingsIcon fontSize="large" />
+                     </IconButton>
+diff --git a/src/i18n.ts b/src/i18n.ts
+index eee55cc..ff8016a 100644
+--- a/src/i18n.ts
++++ b/src/i18n.ts
+@@ -19,7 +19,9 @@ i18n.use(detector)
+             escapeValue: false,
+         },
+         fallbackLng: 'en-GB',
++        lng: 'zh-CN',
+         supportedLngs: [
++            'zh-CN',
+             'de-DE',
+             'en-GB',
+             'fi-FI',
+diff --git a/src/index.css b/src/index.css
+index 68e2724..ee01b81 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -3,7 +3,7 @@ body {
+     /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+     sans-serif;*/
+-    font-family: 'Andika', sans-serif;
++    font-family: 'Andika', 'Microsoft YaHei', system-ui, sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+ }
+diff --git a/src/state.ts b/src/state.ts
+index 4e09a58..f2b3b8e 100644
+--- a/src/state.ts
++++ b/src/state.ts
+@@ -29,20 +29,10 @@ function applyFeatureOverridesFromUrl(features: FeatureFlags): FeatureFlags {
+     return patched;
+ }
+ 
+-export const featureFlagsAtom = atom(async () => {
+-    try {
+-        const isStagingEnv = !window.location.hostname.endsWith('gen-ai.fi');
+-        const response = await fetch(`${import.meta.env.VITE_APP_API}/features/${isStagingEnv ? 'tm-staging' : 'tm'}`);
+-        const data: { features: FeatureFlags } = await response.json();
+-        const features = data.features as FeatureFlags;
+-        return applyFeatureOverridesFromUrl(features);
+-    } catch {
+-        return {
+-            allowReportProblem: false,
+-            allowTransferLearning: false,
+-        };
+-    }
+-});
++export const featureFlagsAtom = atom(applyFeatureOverridesFromUrl({
++    allowReportProblem: false,
++    allowTransferLearning: true,
++}));
+ 
+ export interface ISample {
+     data: HTMLCanvasElement | AudioExample;
+diff --git a/src/util/TeachableModel.tsx b/src/util/TeachableModel.tsx
+index b7163d7..2dacb29 100644
+--- a/src/util/TeachableModel.tsx
++++ b/src/util/TeachableModel.tsx
+@@ -73,7 +73,7 @@ export function useTeachableModel() {
+                     const isPose = variant === 'pose';
+                     const isMobileNet = variant === 'image';
+ 
+-                    const language = i18n.language;
++                    const language = i18n.language === 'zh-CN' ? 'en-GB' : i18n.language;
+                     const p = await model.predict(image, staticImageMode, language);
+ 
+                     setTransferLearningExplanation(p.transferLearning || null);
+@@ -233,7 +233,7 @@ export function useXAICanvas(active: boolean) {
+     }, [model, active]);
+ }
+ 
+-export type TrainingState = 'none' | 'loading' | 'prepare' | 'training' | 'done';
++export type TrainingState = 'none' | 'loading' | 'prepare' | 'training' | 'done' | 'error';
+ 
+ export interface TrainingSettings {
+     epochs: number;
+@@ -271,7 +271,8 @@ export function useModelTrainer() {
+             async (data: IClassification[], settings: TrainingSettings) => {
+                 if (!model) {
+                     console.error('No model prior to training');
+-                    return;
++                    setStage('error');
++                    return false;
+                 }
+ 
+                 setStage('loading');
+@@ -285,11 +286,14 @@ export function useModelTrainer() {
+                 const modelVariant = model.variant;
+                 const tm = createModel(modelVariant);
+ 
+-                const isReady = await tm.ready();
++                const isReady = await tm.ready().catch((error) => {
++                    console.error('[Training] Model loading failed', error);
++                    return false;
++                });
+                 if (!isReady) {
+                     console.error('[Training] Failed to create new model - model.ready() returned false');
+-                    setStage('none');
+-                    return;
++                    setStage('error');
++                    return false;
+                 }
+ 
+                 setStage('prepare');
+@@ -319,8 +323,9 @@ export function useModelTrainer() {
+                     });
+                 } catch (e) {
+                     console.error('Sample prep failed', e);
+-                    setStage('none');
+-                    return;
++                    tm.dispose();
++                    setStage('error');
++                    return false;
+                 }
+ 
+                 setStage('training');
+@@ -338,7 +343,7 @@ export function useModelTrainer() {
+                         },
+                         {
+                             onEpochEnd: (epoch: number, logs?: Record<string, number>) => {
+-                                setEpochs(epoch / 50);
++                                setEpochs((epoch + 1) / settings.epochs);
+ 
+                                 // Collect training metrics if available
+                                 if (logs) {
+@@ -356,7 +361,9 @@ export function useModelTrainer() {
+                     );
+                 } catch (e) {
+                     console.error('Training failed', e);
+-                    return;
++                    tm.dispose();
++                    setStage('error');
++                    return false;
+                 }
+ 
+                 // Calculate model statistics on validation set
+@@ -367,6 +374,7 @@ export function useModelTrainer() {
+ 
+                 setModel(tm);
+                 setStage('done');
++                return true;
+             },
+             [
+                 model,
+diff --git a/src/views/General/General.tsx b/src/views/General/General.tsx
+index 5e0cde9..1942706 100644
+--- a/src/views/General/General.tsx
++++ b/src/views/General/General.tsx
+@@ -3,8 +3,6 @@ import _settings from './configuration.json';
+ import { useSearchParams, useParams } from 'react-router';
+ import { decompressFromEncodedURIComponent } from 'lz-string';
+ import Classifier from './Classifier';
+-import { Privacy } from '@genai-fi/base';
+-import gitInfo from '../../generatedGitInfo.json';
+ 
+ export type VARIANTS = keyof typeof _settings;
+ export type VariantConfiguration = Record<VARIANTS, IVariantContext>;
+@@ -30,16 +28,20 @@ export function Component() {
+         ...settings[kind as VARIANTS],
+         ...settings[variant as VARIANTS],
+         ...custom,
++        // This vendored deployment runs locally without a signaling/API service.
++        usep2p: false,
++        enabledP2PData: false,
++        enableCollaboration: false,
++        allowModelSharing: false,
++        allowDeploy: false,
++        sampleDatasets: false,
++        embedBehaviours: false,
++        allowSerialUSB: false,
+     };
+ 
+     return (
+         <VariantContext.Provider value={merged}>
+             <Classifier />
+-            <Privacy
+-                position="bottomLeft"
+-                appName="tm"
+-                tag={gitInfo.gitTag || 'notag'}
+-            />
+         </VariantContext.Provider>
+     );
+ }
+diff --git a/src/views/Home/Home.tsx b/src/views/Home/Home.tsx
+index 12194f5..53f329e 100644
+--- a/src/views/Home/Home.tsx
++++ b/src/views/Home/Home.tsx
+@@ -3,8 +3,7 @@ import style from './style.module.css';
+ import Model from './Model';
+ import { useState } from 'react';
+ import { Checkbox, FormControlLabel } from '@mui/material';
+-import { LangSelect, Privacy } from '@genai-fi/base';
+-import gitInfo from '../../generatedGitInfo.json';
++import { LangSelect } from '@genai-fi/base';
+ import { theme } from '@genai-fi/base';
+ import { ThemeProvider } from '@mui/material/styles';
+ import GitHubIcon from '@mui/icons-material/GitHub';
+@@ -17,7 +16,7 @@ export default function Home() {
+     const { t } = useTranslation('image_adv');
+     const [usb, setUsb] = useState(false);
+ 
+-    const hasSerial = 'serial' in navigator;
++    const hasSerial = false;
+ 
+     return (
+         <ThemeProvider theme={theme}>
+@@ -94,11 +93,6 @@ export default function Home() {
+                         </div>
+                     )}
+                 </div>
+-                <Privacy
+-                    position="bottomLeft"
+-                    appName="tm"
+-                    tag={gitInfo.gitTag || 'notag'}
+-                />
+             </main>
+         </ThemeProvider>
+     );
+diff --git a/src/workflow/ImageWorkspace/DeployWrapper.tsx b/src/workflow/ImageWorkspace/DeployWrapper.tsx
+index b7e05ce..f9da594 100644
+--- a/src/workflow/ImageWorkspace/DeployWrapper.tsx
++++ b/src/workflow/ImageWorkspace/DeployWrapper.tsx
+@@ -7,9 +7,11 @@ import Deployer from '@genaitm/components/Deployer/Deployer';
+ import ShareProtocol from '@genaitm/workflow/ImageWorkspace/ShareProtocol';
+ 
+ export default function DeployWrapper() {
+-    const { usep2p } = useVariant();
++    const { usep2p, allowDeploy } = useVariant();
+     const enableP2P = useAtomValue(p2pActive);
+ 
++    if (!allowDeploy) return null;
++
+     return (
+         <React.Suspense fallback="">
+             {usep2p && enableP2P && <PeerDeployer />}
+diff --git a/src/workflow/ImageWorkspace/loader.ts b/src/workflow/ImageWorkspace/loader.ts
+index 8182ecd..1e22cfc 100644
+--- a/src/workflow/ImageWorkspace/loader.ts
++++ b/src/workflow/ImageWorkspace/loader.ts
+@@ -5,6 +5,7 @@ import { useAtom, useSetAtom } from 'jotai';
+ import { useSearchParams } from 'react-router';
+ import ClassifierApp, { TeachableModel } from '@genai-fi/classifier';
+ import { ISample } from '@genai-fi/classifier/main/ClassifierApp';
++import { useVariant } from '../../util/variant';
+ 
+ interface Project {
+     id?: string;
+@@ -41,6 +42,7 @@ function mapToURL(project: string) {
+ }
+ 
+ export function ModelLoader({ onLoaded, onError }: Props) {
++    const { allowModelSharing } = useVariant();
+     const [projectFile, setProjectFile] = useAtom(fileData);
+     const [params] = useSearchParams();
+     const setBehaviours = useSetAtom(behaviourState);
+@@ -50,7 +52,7 @@ export function ModelLoader({ onLoaded, onError }: Props) {
+     const setModel = useSetAtom(modelState);
+ 
+     useEffect(() => {
+-        if (params.has('project')) {
++        if (allowModelSharing && params.has('project')) {
+             const project = params.get('project');
+             if (project) {
+                 setLoading(true);
+@@ -90,7 +92,7 @@ export function ModelLoader({ onLoaded, onError }: Props) {
+                     });
+             }
+         }
+-    }, [params, onLoaded, setData, setBehaviours, onError, setLoading]);
++    }, [allowModelSharing, params, onLoaded, setData, setBehaviours, onError, setLoading]);
+ 
+     useEffect(() => {
+         if (projectFile) {
+diff --git a/src/workflow/ImageWorkspace/OpenDialog.tsx b/src/workflow/ImageWorkspace/OpenDialog.tsx
+index 64612a0..fb5502d 100644
+--- a/src/workflow/ImageWorkspace/OpenDialog.tsx
++++ b/src/workflow/ImageWorkspace/OpenDialog.tsx
+@@ -14,7 +14,7 @@ import { useSearchParams } from 'react-router';
+ import FileOpenIcon from '@mui/icons-material/FileOpen';
+ 
+ export default function OpenDialog() {
+-    const { namespace } = useVariant();
++    const { namespace, allowModelSharing } = useVariant();
+     const { t } = useTranslation(namespace);
+     const [isopen, setShowOpenDialog] = useAtom(showOpenDialog);
+     const setProject = useSetAtom(fileData);
+@@ -72,7 +72,7 @@ export default function OpenDialog() {
+             <DialogTitle>{t('load.title')}</DialogTitle>
+             <DialogContent>
+                 <div className={style.openColumn}>
+-                    <div className={style.padded}>
++                    {allowModelSharing && <div className={style.padded}>
+                         <TextField
+                             label={t('load.code')}
+                             variant="outlined"
+@@ -83,15 +83,15 @@ export default function OpenDialog() {
+                             spellCheck={false}
+                             color={codeValue.length === 8 ? 'success' : codeValue.length > 0 ? 'error' : 'primary'}
+                         />
+-                    </div>
+-                    <Button
++                    </div>}
++                    {allowModelSharing && <Button
+                         variant="contained"
+                         onClick={doOpenCode}
+                         fullWidth
+                         disabled={codeValue.length < 8}
+                     >
+                         {t('load.actions.openCode')}
+-                    </Button>
++                    </Button>}
+                     <div className={style.spacer} />
+                     <Button
+                         variant="contained"
+diff --git a/src/workflow/ImageWorkspace/Workspace.tsx b/src/workflow/ImageWorkspace/Workspace.tsx
+index 27452dc..851dbf5 100644
+--- a/src/workflow/ImageWorkspace/Workspace.tsx
++++ b/src/workflow/ImageWorkspace/Workspace.tsx
+@@ -333,14 +333,14 @@ export default function Workspace({ step, visitedStep, onComplete, saveTrigger,
+                         />
+                         <div className={style.previewActions}>
+                             <BoxButton
+-                                label={'Statistics'}
++                                label={t('underTheHood.statistics')}
+                                 icon={<InsertChartOutlinedIcon />}
+                                 widget={'statistics'}
+                                 onClick={() => doSidebar('statistics')}
+                                 style={{ width: 68, height: 68 }}
+                             />
+                             <BoxButton
+-                                label={'Heatmap'}
++                                label={t('underTheHood.visualization')}
+                                 icon={<LocalFireDepartmentIcon />}
+                                 widget={'heatmap'}
+                                 onClick={() => doSidebar('visualization')}
+@@ -348,7 +348,7 @@ export default function Workspace({ step, visitedStep, onComplete, saveTrigger,
+                             />
+                             {canShowTransferLearning && (
+                                 <BoxButton
+-                                    label={'Transfer Learning'}
++                                    label={t('underTheHood.transferLearning')}
+                                     icon={<DeviceHubIcon />}
+                                     widget={'transferLearning'}
+                                     onClick={() => doSidebar('transferLearning')}
+diff --git a/src/workflow/Input/Input.tsx b/src/workflow/Input/Input.tsx
+index da314ee..4555957 100644
+--- a/src/workflow/Input/Input.tsx
++++ b/src/workflow/Input/Input.tsx
+@@ -25,7 +25,7 @@ interface Props {
+ }
+ 
+ export default function Input(props: Props) {
+-    const { namespace, enableFileInput, sampleDatasets, modelVariant } = useVariant();
++    const { namespace, enableFileInput, sampleDatasets, modelVariant, enabledP2PData } = useVariant();
+     const { t } = useTranslation(namespace);
+     const [enableInputSwitch, setEnableInput] = useAtom(enableCamInput);
+     const [tabIndex, setTabIndex] = useState(0);
+@@ -183,7 +183,7 @@ export default function Input(props: Props) {
+                                 aria-controls="input-panel-1"
+                                 value={1}
+                             />
+-                            {!isAudio && (
++                            {!isAudio && enabledP2PData && (
+                                 <Tab
+                                     disabled={!canPredict || fatal}
+                                     label={t('input.labels.device')}
+diff --git a/src/workflow/Preview/PreviewMenu.tsx b/src/workflow/Preview/PreviewMenu.tsx
+index ead021b..d9373bc 100644
+--- a/src/workflow/Preview/PreviewMenu.tsx
++++ b/src/workflow/Preview/PreviewMenu.tsx
+@@ -35,6 +35,8 @@ export default function PreviewMenu({ disabled, onExport, onClone }: Props) {
+         setAnchorEl(null);
+     };
+ 
++    if (!allowModelSharing) return null;
++
+     return (
+         <div>
+             <IconButton
+diff --git a/src/workflow/Trainer/Trainer.test.tsx b/src/workflow/Trainer/Trainer.test.tsx
+index 8375ec0..4c3b8cd 100644
+--- a/src/workflow/Trainer/Trainer.test.tsx
++++ b/src/workflow/Trainer/Trainer.test.tsx
+@@ -4,10 +4,10 @@ import { render, screen, waitFor } from '@testing-library/react';
+ import Trainer from './Trainer';
+ import TestWrapper from '../../util/TestWrapper';
+ import userEvent from '@testing-library/user-event';
+-import { classState, modelState } from '../../state';
++import { classState, modelState, modelLoaded } from '../../state';
+ import { createStore } from 'jotai';
+ import RecoilObserver from '../../util/Observer';
+-import { type TeachableModel } from '@genai-fi/classifier';
++import { createModel, type TeachableModel } from '@genai-fi/classifier';
+ 
+ vi.mock('@genai-fi/classifier', () => {
+     const obj = {
+@@ -42,6 +42,26 @@ vi.mock('@genai-fi/classifier', () => {
+ });
+ 
+ describe('Trainer component', () => {
++    it('does not report completion when the checkpoint cannot load', async ({ expect }) => {
++        const store = createStore();
++        const model = createModel('image');
++        store.set(modelState, model);
++        store.set(modelLoaded, true);
++        store.set(classState, ['First', 'Second'].map(label => ({
++            label,
++            samples: [0, 1].map(() => ({ data: document.createElement('canvas'), id: '' })),
++        })));
++        const failedModel = { ...model, ready: vi.fn(async () => false) } as TeachableModel;
++        vi.mocked(createModel).mockReturnValueOnce(failedModel);
++        const onTrained = vi.fn();
++        render(<TestWrapper initializeState={store}><Trainer onTrained={onTrained} /></TestWrapper>);
++        await userEvent.setup().click(screen.getByTestId('train-button'));
++        await waitFor(() => expect(screen.getByTestId('alert-training-error')).toBeVisible());
++        expect(onTrained).not.toHaveBeenCalled();
++        expect(screen.queryByTestId('alert-complete')).not.toBeInTheDocument();
++        expect(screen.getByTestId('train-button')).toBeEnabled();
++    });
++
+     it('shows add more message', async ({ expect }) => {
+         const store = createStore();
+         store.set(classState, []);
+@@ -93,6 +113,7 @@ describe('Trainer component', () => {
+ 
+         const store = createStore();
+         store.set(modelState, model);
++        store.set(modelLoaded, true);
+         store.set(classState, [
+             {
+                 label: 'Class 1',
+@@ -153,6 +174,7 @@ describe('Trainer component', () => {
+ 
+         const store = createStore();
+         store.set(modelState, model);
++        store.set(modelLoaded, true);
+         store.set(classState, [
+             {
+                 label: 'Class 1',
+@@ -212,6 +234,7 @@ describe('Trainer component', () => {
+ 
+         const store = createStore();
+         store.set(modelState, model);
++        store.set(modelLoaded, true);
+         store.set(classState, [
+             {
+                 label: 'Class 1',
+@@ -280,6 +303,7 @@ describe('Trainer component', () => {
+ 
+         const store = createStore();
+         store.set(modelState, model);
++        store.set(modelLoaded, true);
+         store.set(classState, [
+             {
+                 label: 'Enabled 1',
+diff --git a/src/workflow/Trainer/Trainer.tsx b/src/workflow/Trainer/Trainer.tsx
+index dc87b67..4a7604f 100644
+--- a/src/workflow/Trainer/Trainer.tsx
++++ b/src/workflow/Trainer/Trainer.tsx
+@@ -1,6 +1,6 @@
+ import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
+ import Accordion from '@mui/material/Accordion';
+-import { activeNodes, classState, modelTraining } from '@genaitm/state';
++import { activeNodes, classState, modelTraining, modelLoaded } from '@genaitm/state';
+ import style from './trainer.module.css';
+ import AccordionDetails from '@mui/material/AccordionDetails';
+ import AccordionSummary from '@mui/material/AccordionSummary';
+@@ -51,6 +51,7 @@ export default function Trainer({ onTrained, editing, ...props }: Props) {
+     const [prompt, setPrompt] = useState(false);
+     const { stage, epochs, clearTraining, train } = useModelTrainer();
+     const data = useAtomValue(classState);
++    const ready = useAtomValue(modelLoaded);
+     const setActive = useSetAtom(activeNodes);
+ 
+     const enabledData = useMemo(() => data.filter((data) => !data.disabled), [data]);
+@@ -79,9 +80,13 @@ export default function Trainer({ onTrained, editing, ...props }: Props) {
+     useEffect(() => {
+         if (training) {
+             train(enabledData, { batchSize: settingBatch, epochs: settingEpochs, learningRate: settingRate }).then(
+-                () => {
++                (success) => {
++                    setTraining(false);
++                    if (success && onTrained) onTrained();
++                },
++                (error) => {
++                    console.error('Training failed', error);
+                     setTraining(false);
+-                    if (onTrained) onTrained();
+                 }
+             );
+         } else {
+@@ -131,10 +136,11 @@ export default function Trainer({ onTrained, editing, ...props }: Props) {
+             <div className={prompt ? style.buttonPrompt : style.buttonContainer}>
+                 <BusyButton
+                     data-testid="train-button"
++                    data-model-ready={ready}
+                     sx={{ flexGrow: 1 }}
+                     variant="contained"
+                     size="large"
+-                    disabled={training || !isTrainable}
++                    disabled={training || !isTrainable || !ready}
+                     onClick={doStartTraining}
+                     busy={training}
+                 >
+@@ -190,6 +196,11 @@ export default function Trainer({ onTrained, editing, ...props }: Props) {
+                             <p>{t('training.labels.complete')}</p>
+                         </Alert>
+                     )}
++                    {stage === 'error' && (
++                        <Alert severity="error" data-testid="alert-training-error">
++                            {t('training.labels.failed', { defaultValue: 'Training failed. Check your samples and retry.' })}
++                        </Alert>
++                    )}
+                 </div>
+             }
+ 
+diff --git a/vite.config.ts b/vite.config.ts
+index e1b742f..0894f44 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -5,8 +5,26 @@ import path from 'path';
+ 
+ // https://vitejs.dev/config/
+ export default defineConfig(({ mode }) => ({
+-    plugins: [react()],
++    plugins: [
++        react(),
++        {
++            name: 'pilotdeck-local-models',
++            enforce: 'pre',
++            transform(code, id) {
++                if (id.includes('@genai-fi/classifier/') && id.endsWith('.js')) {
++                    return code.replace(/(["'])(https:\/\/(?:store\.gen-ai\.fi\/tm\/|tmstore\.blob\.core\.windows\.net\/))([^"']+)\1/g,
++                        (_match, _quote, _origin, asset) => `new URL(${JSON.stringify('/' + asset)}, window.location.origin).href`);
++                }
++                if (id.includes('@genai-fi/base/') && id.endsWith('.css')) {
++                    return code.replace(/@font-face\{[^}]+\}/g, '');
++                }
++                return null;
++            },
++        },
++    ],
+     build: {
++        outDir: '../training-lab',
++        emptyOutDir: true,
+         rollupOptions: {
+             output: {
+                 inlineDynamicImports: mode === 'robot',
+@@ -17,7 +35,6 @@ export default defineConfig(({ mode }) => ({
+         environment: 'jsdom',
+         setupFiles: './src/setupTests.ts',
+         clearMocks: true,
+-        execArgv: ['--no-webstorage'],
+         coverage: {
+             provider: 'v8',
+             reporter: ['cobertura', 'html'],

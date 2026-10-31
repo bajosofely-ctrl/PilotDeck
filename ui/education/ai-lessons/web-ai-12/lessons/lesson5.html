@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第5课：JavaScript 入门 — 变量、函数与事件 | Lesson 5: JavaScript Intro — Variables, Functions & Events">
+  <title>第5课 JavaScript 入门（上）| L5 JavaScript Intro Part 1</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 网站工坊</span>
+      <span class="en">AI Web Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html" class="active"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 5 课</span>
+        <span class="en">Lesson 5</span>
+      </span>
+      <h1>
+        <span class="zh">JavaScript 入门（上）— 变量、函数与事件</span>
+        <span class="en">JavaScript Intro (Part 1) — Variables, Functions &amp; Events</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">学习 JS 基本语法，让按钮点击有反应</span>
+        <span class="en">Learn JS basics — make buttons respond to clicks</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- 5.1 课程目标 -->
+    <section class="section reveal" id="section-5-1">
+      <h2><span class="zh">5.1 课程目标</span><span class="en">5.1 Lesson Objectives</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh">认识 JavaScript</span><span class="en">Meet JavaScript</span></h3>
+          <p><span class="zh">理解 JavaScript 在网页中的作用，学会在 HTML 中引入 JS。</span><span class="en">Understand JavaScript's role in web pages and learn how to include JS in HTML.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">变量与数据类型</span><span class="en">Variables &amp; Data Types</span></h3>
+          <p><span class="zh">使用 <code>let</code> 和 <code>const</code> 声明变量，掌握字符串、数字和布尔值。</span><span class="en">Declare variables with <code>let</code> and <code>const</code>, master strings, numbers, and booleans.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">编写函数</span><span class="en">Write Functions</span></h3>
+          <p><span class="zh">创建可重复使用的函数，理解参数和返回值。</span><span class="en">Create reusable functions, understand parameters and return values.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">事件处理</span><span class="en">Event Handling</span></h3>
+          <p><span class="zh">让网页响应用户操作：按钮点击、鼠标悬停等交互效果。</span><span class="en">Make pages respond to user actions: button clicks, mouse hover, and other interactions.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.2 什么是 JavaScript？ -->
+    <section class="section reveal" id="section-5-2">
+      <h2><span class="zh">5.2 什么是 JavaScript？</span><span class="en">5.2 What Is JavaScript?</span></h2>
+      <p><span class="zh">如果 HTML 是网页的"骨架"，CSS 是"衣服"，那么 JavaScript 就是网页的<strong>"大脑"</strong>。它让网页变得有互动性——按钮可以点击、内容可以动态更新、表单可以验证。</span><span class="en">If HTML is the "skeleton" of a web page and CSS is the "clothing," then JavaScript is the <strong>"brain"</strong>. It makes pages interactive — buttons can be clicked, content can update dynamically, forms can be validated.</span></p>
+
+      <h3><span class="zh">如何引入 JavaScript</span><span class="en">How to Include JavaScript</span></h3>
+      <p><span class="zh">有两种常见方式：</span><span class="en">There are two common ways:</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!-- 方式一：直接在 HTML 中写 JS --&gt;
+&lt;script&gt;
+  console.log("Hello from inline script!");
+&lt;/script&gt;
+
+&lt;!-- 方式二：引入外部 JS 文件（推荐） --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>最佳实践：</strong>把 <code>&lt;script&gt;</code> 标签放在 <code>&lt;/body&gt;</code> 结束标签之前，这样 HTML 内容会先加载完毕，JS 再执行，避免页面空白。</span><span class="en"><strong>Best practice:</strong> Place the <code>&lt;script&gt;</code> tag just before the <code>&lt;/body&gt;</code> closing tag. This ensures HTML loads first, then JS runs, avoiding blank pages.</span></p>
+      </div>
+
+      <h3><span class="zh">console.log() — 你的调试好帮手</span><span class="en">console.log() — Your Debugging Best Friend</span></h3>
+      <p><span class="zh"><code>console.log()</code> 会把信息输出到浏览器的开发者工具控制台。按 <kbd>F12</kbd> 打开开发者工具，切到 Console 标签页就能看到。</span><span class="en"><code>console.log()</code> prints information to the browser's developer tools console. Press <kbd>F12</kbd> to open DevTools and switch to the Console tab to see it.</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>console.log("Hello, World!");      // 输出字符串
+console.log(42);                   // 输出数字
+console.log(10 + 20);              // 输出计算结果: 30
+console.log("My age is", 15);     // 输出多个值</code></pre>
+      </div>
+    </section>
+
+    <!-- 5.3 变量与数据类型 -->
+    <section class="section reveal" id="section-5-3">
+      <h2><span class="zh">5.3 变量与数据类型</span><span class="en">5.3 Variables &amp; Data Types</span></h2>
+      <p><span class="zh">变量就像一个"盒子"，可以存储数据。JavaScript 中用 <code>let</code> 和 <code>const</code> 来声明变量。</span><span class="en">A variable is like a "box" that stores data. In JavaScript, use <code>let</code> and <code>const</code> to declare variables.</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// let — 可以重新赋值
+let score = 0;
+score = 100;         // ✅ 可以改变
+
+// const — 不可重新赋值
+const name = "Alex";
+// name = "Bob";     // ❌ 报错！const 不能改</code></pre>
+      </div>
+
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>let vs const：</strong>如果变量的值之后会变，用 <code>let</code>；如果是固定不变的值，用 <code>const</code>。尽量多用 <code>const</code>，需要改值时才用 <code>let</code>。</span><span class="en"><strong>let vs const:</strong> Use <code>let</code> if the value will change later; use <code>const</code> for values that stay fixed. Prefer <code>const</code> by default, and use <code>let</code> only when you need to reassign.</span></p>
+      </div>
+
+      <h3><span class="zh">三种基本数据类型</span><span class="en">Three Basic Data Types</span></h3>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh">字符串 String</span><span class="en">String</span></h3>
+          <p><span class="zh">文本数据，用引号包裹。</span><span class="en">Text data, wrapped in quotes.</span></p>
+          <code>let greeting = "Hello!";</code>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">数字 Number</span><span class="en">Number</span></h3>
+          <p><span class="zh">整数或小数，不需要引号。</span><span class="en">Integers or decimals, no quotes needed.</span></p>
+          <code>let age = 15;</code>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">布尔值 Boolean</span><span class="en">Boolean</span></h3>
+          <p><span class="zh">只有 <code>true</code> 或 <code>false</code> 两个值。</span><span class="en">Only two values: <code>true</code> or <code>false</code>.</span></p>
+          <code>let isStudent = true;</code>
+        </div>
+      </div>
+
+      <h3><span class="zh">模板字符串</span><span class="en">Template Literals</span></h3>
+      <p><span class="zh">用反引号 <code>`</code> 和 <code>${}</code> 可以在字符串中嵌入变量，比拼接字符串更方便：</span><span class="en">Use backticks <code>`</code> and <code>${}</code> to embed variables in strings — much easier than string concatenation:</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const name = "Alex";
+const age = 15;
+
+// 老方法：字符串拼接
+console.log("Hi, I'm " + name + " and I'm " + age);
+
+// 新方法：模板字符串（推荐！）
+console.log(`Hi, I'm ${name} and I'm ${age}`);</code></pre>
+      </div>
+
+      <h3><span class="zh">常用运算符</span><span class="en">Common Operators</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 算术运算符
+let sum = 10 + 5;    // 15
+let diff = 10 - 5;   // 5
+let product = 10 * 5; // 50
+let quotient = 10 / 3; // 3.333...
+let remainder = 10 % 3; // 1（取余数）
+
+// 比较运算符
+console.log(5 === 5);   // true（严格相等）
+console.log(5 !== 3);   // true（不等于）
+console.log(10 &gt; 5);    // true
+console.log(3 &lt;= 3);    // true</code></pre>
+      </div>
+    </section>
+
+    <!-- 5.4 函数 -->
+    <section class="section reveal" id="section-5-4">
+      <h2><span class="zh">5.4 函数</span><span class="en">5.4 Functions</span></h2>
+      <p><span class="zh">函数是一段可以重复使用的代码块。把常用的逻辑封装成函数，需要时直接调用即可。</span><span class="en">A function is a reusable block of code. Wrap common logic in a function, and call it whenever you need it.</span></p>
+
+      <h3><span class="zh">函数声明</span><span class="en">Function Declaration</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 定义函数
+function greet(name) {
+  return `Hello, ${name}! Welcome to my website.`;
+}
+
+// 调用函数
+let message = greet("Alex");
+console.log(message);  // "Hello, Alex! Welcome to my website."
+
+// 带多个参数的函数
+function add(a, b) {
+  return a + b;
+}
+console.log(add(3, 7));  // 10</code></pre>
+      </div>
+
+      <h3><span class="zh">箭头函数</span><span class="en">Arrow Functions</span></h3>
+      <p><span class="zh">箭头函数是更简洁的函数写法，用 <code>=&gt;</code> 代替 <code>function</code> 关键字：</span><span class="en">Arrow functions are a shorter syntax, using <code>=&gt;</code> instead of the <code>function</code> keyword:</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>// 普通函数
+function double(x) {
+  return x * 2;
+}
+
+// 箭头函数（完整写法）
+const double = (x) =&gt; {
+  return x * 2;
+};
+
+// 箭头函数（简写：一个参数 + 一行代码）
+const double = x =&gt; x * 2;
+
+console.log(double(5));  // 10</code></pre>
+      </div>
+
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>什么时候用箭头函数？</strong>对于简单的、短小的函数，箭头函数更简洁。对于复杂的逻辑，普通函数声明更清晰。两种写法都可以，先掌握普通函数，再慢慢习惯箭头函数。</span><span class="en"><strong>When to use arrow functions?</strong> For simple, short functions, arrow functions are more concise. For complex logic, regular function declarations are clearer. Both work fine — master regular functions first, then get comfortable with arrow functions.</span></p>
+      </div>
+    </section>
+
+    <!-- 5.5 事件处理 -->
+    <section class="section reveal" id="section-5-5">
+      <h2><span class="zh">5.5 事件处理</span><span class="en">5.5 Event Handling</span></h2>
+      <p><span class="zh">事件是用户与网页交互时触发的动作，比如点击按钮、输入文字、移动鼠标等。JavaScript 可以"监听"这些事件并做出反应。</span><span class="en">Events are actions triggered when users interact with a page — clicking buttons, typing text, moving the mouse, etc. JavaScript can "listen" for these events and respond.</span></p>
+
+      <h3><span class="zh">方式一：onclick 属性</span><span class="en">Method 1: onclick Attribute</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML + JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;
+
+&lt;script&gt;
+function sayHello() {
+  alert("Hello! You clicked the button!");
+}
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <h3><span class="zh">方式二：addEventListener（推荐）</span><span class="en">Method 2: addEventListener (Recommended)</span></h3>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;button id="myBtn"&gt;Click Me&lt;/button&gt;
+&lt;p id="output"&gt;&lt;/p&gt;</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>const btn = document.getElementById("myBtn");
+const output = document.getElementById("output");
+
+btn.addEventListener("click", function() {
+  output.textContent = "Button was clicked!";
+});</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <p><span class="zh"><strong>为什么推荐 addEventListener？</strong>因为它可以给同一个元素添加多个事件监听器，而 <code>onclick</code> 属性只能设置一个处理函数。而且把 JS 和 HTML 分开是更好的代码组织方式。</span><span class="en"><strong>Why prefer addEventListener?</strong> It lets you attach multiple listeners to the same element, while <code>onclick</code> can only have one handler. Also, separating JS from HTML is better code organization.</span></p>
+      </div>
+
+      <h3><span class="zh">常用事件类型</span><span class="en">Common Event Types</span></h3>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh"><code>click</code>（点击）</span><span class="en"><code>click</code></span></h3>
+          <p><span class="zh">鼠标点击元素时触发。</span><span class="en">Fires when element is clicked.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh"><code>mouseover</code>（鼠标悬停）</span><span class="en"><code>mouseover</code></span></h3>
+          <p><span class="zh">鼠标移入元素时触发。</span><span class="en">Fires when mouse enters element.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh"><code>keydown</code>（按键）</span><span class="en"><code>keydown</code></span></h3>
+          <p><span class="zh">键盘按键按下时触发。</span><span class="en">Fires when a key is pressed down.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh"><code>input</code>（输入）</span><span class="en"><code>input</code></span></h3>
+          <p><span class="zh">输入框内容变化时触发。</span><span class="en">Fires when an input value changes.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.6 动手实践 -->
+    <section class="section reveal" id="section-5-6">
+      <h2><span class="zh">5.6 动手实践：简易计数器</span><span class="en">5.6 Hands-On: Simple Counter</span></h2>
+      <p><span class="zh">让我们综合运用变量、函数和事件，制作一个点击计数器！</span><span class="en">Let's combine variables, functions, and events to build a click counter!</span></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Click Counter&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+      background: #f0f4f8;
+    }
+    #count {
+      font-size: 80px;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+    .btn-group { display: flex; gap: 12px; margin-top: 20px; }
+    button {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+    .btn-minus { background: #ef4444; }
+    .btn-plus  { background: #22c55e; }
+    .btn-reset { background: #6b7280; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="count"&gt;0&lt;/p&gt;
+  &lt;div class="btn-group"&gt;
+    &lt;button class="btn-minus" id="minusBtn"&gt;- 1&lt;/button&gt;
+    &lt;button class="btn-reset" id="resetBtn"&gt;Reset&lt;/button&gt;
+    &lt;button class="btn-plus" id="plusBtn"&gt;+ 1&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    let count = 0;
+    const countDisplay = document.getElementById("count");
+
+    document.getElementById("plusBtn").addEventListener("click", () =&gt; {
+      count++;
+      countDisplay.textContent = count;
+    });
+
+    document.getElementById("minusBtn").addEventListener("click", () =&gt; {
+      count--;
+      countDisplay.textContent = count;
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () =&gt; {
+      count = 0;
+      countDisplay.textContent = count;
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>试一试：</strong>把上面的代码保存为 <code>counter.html</code>，在浏览器中打开，点击按钮看看效果！</span><span class="en"><strong>Try it:</strong> Save the code above as <code>counter.html</code>, open it in your browser, and click the buttons to see it in action!</span></p>
+      </div>
+    </section>
+
+    <!-- 5.7 挑战任务 -->
+    <section class="section reveal" id="section-5-7">
+      <h2><span class="zh">5.7 挑战任务</span><span class="en">5.7 Challenges</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <h3><span class="zh">挑战 A：颜色切换按钮</span><span class="en">Challenge A: Color Picker Button</span></h3>
+          <p><span class="zh">创建一个按钮，每次点击时页面背景色随机变化。提示：用 <code>Math.random()</code> 生成随机颜色值，然后修改 <code>document.body.style.backgroundColor</code>。</span><span class="en">Create a button that changes the page background to a random color on each click. Hint: Use <code>Math.random()</code> to generate random color values, then modify <code>document.body.style.backgroundColor</code>.</span></p>
+        </div>
+        <div class="card icon-card">
+          <h3><span class="zh">挑战 B：问候语生成器</span><span class="en">Challenge B: Greeting Generator</span></h3>
+          <p><span class="zh">创建一个输入框和按钮。用户输入名字后点击按钮，页面显示 "Hello, [名字]! Welcome to my site!"。使用模板字符串和 <code>addEventListener</code>。</span><span class="en">Create an input field and a button. After the user enters their name and clicks the button, display "Hello, [name]! Welcome to my site!" on the page. Use template literals and <code>addEventListener</code>.</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>随机颜色提示：</strong><code>const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');</code> 这行代码可以生成一个随机十六进制颜色值。</span><span class="en"><strong>Random color hint:</strong> <code>const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');</code> generates a random hex color value.</span></p>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-5">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="web5">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. JavaScript 在网页中的主要作用是什么？</span><span class="en">1. What is JavaScript's main role in a web page?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 定义网页的结构</span><span class="en">A. Define the page structure</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 设置网页的样式</span><span class="en">B. Style the page</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 实现网页的交互功能</span><span class="en">C. Implement interactive functionality</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 管理服务器数据库</span><span class="en">D. Manage server databases</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">JavaScript 是网页的"大脑"，负责实现交互功能，如响应点击、动态更新内容等。HTML 负责结构，CSS 负责样式。</span><span class="en">JavaScript is the "brain" of a web page, responsible for interactive features like responding to clicks and dynamically updating content. HTML handles structure, CSS handles styling.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">2. 以下哪个是声明一个不可重新赋值的变量的正确方式？</span><span class="en">2. Which of the following correctly declares a variable that cannot be reassigned?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. let name = "Alex";</span><span class="en">A. let name = "Alex";</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. const name = "Alex";</span><span class="en">B. const name = "Alex";</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. var name = "Alex";</span><span class="en">C. var name = "Alex";</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. fixed name = "Alex";</span><span class="en">D. fixed name = "Alex";</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>const</code> 声明的变量不能重新赋值。<code>let</code> 可以重新赋值，<code>var</code> 是旧语法也可以重新赋值，<code>fixed</code> 不是 JavaScript 关键字。</span><span class="en"><code>const</code> declares a variable that cannot be reassigned. <code>let</code> allows reassignment, <code>var</code> is old syntax that also allows reassignment, and <code>fixed</code> is not a JavaScript keyword.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 箭头函数 <code>const add = (a, b) =&gt; a + b;</code> 的返回值是什么？</span><span class="en">3. What does the arrow function <code>const add = (a, b) =&gt; a + b;</code> return?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. a 和 b 的和</span><span class="en">A. The sum of a and b</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. undefined</span><span class="en">B. undefined</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 字符串 "a + b"</span><span class="en">C. The string "a + b"</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 报错，语法不正确</span><span class="en">D. Error, syntax is incorrect</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">箭头函数如果只有一行表达式且没有大括号，会自动返回该表达式的值。所以 <code>(a, b) =&gt; a + b</code> 自动返回 a + b 的结果。</span><span class="en">If an arrow function has a single expression without curly braces, it automatically returns the value of that expression. So <code>(a, b) =&gt; a + b</code> automatically returns the result of a + b.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 使用 <code>addEventListener</code> 给按钮添加点击事件的正确写法是？</span><span class="en">4. What is the correct way to add a click event to a button using <code>addEventListener</code>?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. btn.addEvent("click", handler)</span><span class="en">A. btn.addEvent("click", handler)</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. btn.on("click", handler)</span><span class="en">B. btn.on("click", handler)</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. btn.click(handler)</span><span class="en">C. btn.click(handler)</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. btn.addEventListener("click", handler)</span><span class="en">D. btn.addEventListener("click", handler)</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>addEventListener("click", handler)</code> 是标准的 DOM 事件监听方法。第一个参数是事件类型，第二个参数是处理函数。</span><span class="en"><code>addEventListener("click", handler)</code> is the standard DOM event listener method. The first argument is the event type, the second is the handler function.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">5. 模板字符串使用什么符号包裹？</span><span class="en">5. What character is used to wrap template literals?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 单引号 ' '</span><span class="en">A. Single quotes ' '</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 双引号 " "</span><span class="en">B. Double quotes " "</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 反引号 ` `</span><span class="en">C. Backticks ` `</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 括号 ( )</span><span class="en">D. Parentheses ( )</span></button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">模板字符串用反引号 <code>`</code> 包裹，可以在其中用 <code>${}</code> 嵌入变量和表达式。</span><span class="en">Template literals are wrapped in backticks <code>`</code>, and you can embed variables and expressions inside using <code>${}</code>.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Nav Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson4.html"><span class="zh">&larr; 上一课</span><span class="en">&larr; Previous</span></a>
+      <a href="lesson6.html"><span class="zh">下一课 &rarr;</span><span class="en">Next Lesson &rarr;</span></a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

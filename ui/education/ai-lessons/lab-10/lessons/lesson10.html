@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第10课：毕业项目——综合运用所学知识完成 AI 实战项目 | Lesson 10: Final Project">
+  <title>第10课：毕业项目 | Lesson 10: Final Project</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html" class="active"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 10 课</span>
+        <span class="en">Lesson 10</span>
+      </span>
+      <h1>
+        <span class="zh">毕业项目</span>
+        <span class="en">Final Project</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">综合运用全部所学，完成一个完整的 AI 实战项目</span>
+        <span class="en">Apply everything you've learned to build a complete AI project</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <main class="content">
+
+    <!-- ===== Section 10.1: Learning Objectives ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.1 学习目标</span>
+        <span class="en">10.1 Learning Objectives</span>
+      </h2>
+
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 综合运用数据处理、模型训练、评估的完整流程</span>
+          <span class="en">✅ Apply the full pipeline: data processing, model training &amp; evaluation</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 从 3 个项目主题中选择一个完成</span>
+          <span class="en">✅ Choose and complete one of 3 project themes</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 学会撰写项目报告和展示成果</span>
+          <span class="en">✅ Learn to write project reports and present results</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 回顾并巩固整个课程的核心知识</span>
+          <span class="en">✅ Review and solidify core knowledge from the entire course</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Section 10.2: Project Options ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.2 选择你的项目主题</span>
+        <span class="en">10.2 Choose Your Project Theme</span>
+      </h2>
+
+      <p>
+        <span class="zh">从以下 3 个主题中选择一个作为毕业项目。每个项目都需要完成数据准备、模型训练、评估和报告。</span>
+        <span class="en">Choose one of these 3 themes as your final project. Each requires data prep, model training, evaluation, and a report.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">🌸 项目 A：花卉智能分类器</span>
+            <span class="en">🌸 Project A: Smart Flower Classifier</span>
+          </h3>
+          <p>
+            <span class="zh">扩展 Iris 分类实验，对比至少 3 种算法，找出最佳模型并分析原因。</span>
+            <span class="en">Extend the Iris experiment: compare 3+ algorithms, find the best model, and analyze why.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">🔢 项目 B：手写数字识别系统</span>
+            <span class="en">🔢 Project B: Handwriting Recognition System</span>
+          </h3>
+          <p>
+            <span class="zh">优化数字识别模型，尝试不同特征提取方法，实现一个完整的识别流水线。</span>
+            <span class="en">Optimize digit recognition: try different feature extraction methods and build a complete recognition pipeline.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">📊 项目 C：数据故事讲述者</span>
+            <span class="en">📊 Project C: Data Storyteller</span>
+          </h3>
+          <p>
+            <span class="zh">选择一个公开数据集，进行完整的探索分析和可视化，讲述数据背后的故事。</span>
+            <span class="en">Choose a public dataset, perform complete exploratory analysis &amp; visualization, tell the story behind the data.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 10.3: Project Template Code ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.3 项目模板代码</span>
+        <span class="en">10.3 Project Template Code</span>
+      </h2>
+
+      <p>
+        <span class="zh">以下是项目 A（花卉分类器）的完整模板代码。其他项目可以参考类似结构。</span>
+        <span class="en">Below is the complete template for Project A (Flower Classifier). Other projects can follow a similar structure.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># === 毕业项目：花卉智能分类器 ===</span>
+<span class="cm"># === Final Project: Smart Flower Classifier ===</span>
+
+<span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_iris
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split, cross_val_score
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> StandardScaler
+<span class="kw">from</span> sklearn.neighbors <span class="kw">import</span> KNeighborsClassifier
+<span class="kw">from</span> sklearn.tree <span class="kw">import</span> DecisionTreeClassifier
+<span class="kw">from</span> sklearn.svm <span class="kw">import</span> SVC
+<span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> classification_report, confusion_matrix
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="cm"># 步骤1: 加载和准备数据 / Step 1: Load and prepare data</span>
+<span class="fn">print</span>(<span class="str">"="</span> <span class="op">*</span> <span class="num">50</span>)
+<span class="fn">print</span>(<span class="str">"毕业项目：花卉智能分类器"</span>)
+<span class="fn">print</span>(<span class="str">"="</span> <span class="op">*</span> <span class="num">50</span>)
+
+<span class="var">iris</span> <span class="op">=</span> <span class="fn">load_iris</span>()
+<span class="var">X</span>, <span class="var">y</span> <span class="op">=</span> <span class="var">iris</span>.data, <span class="var">iris</span>.target
+
+<span class="cm"># 数据标准化 / Standardize data</span>
+<span class="var">scaler</span> <span class="op">=</span> <span class="fn">StandardScaler</span>()
+<span class="var">X_scaled</span> <span class="op">=</span> <span class="var">scaler</span>.<span class="fn">fit_transform</span>(<span class="var">X</span>)
+
+<span class="cm"># 划分训练集和测试集 / Split train/test</span>
+<span class="var">X_train</span>, <span class="var">X_test</span>, <span class="var">y_train</span>, <span class="var">y_test</span> <span class="op">=</span> <span class="fn">train_test_split</span>(
+    <span class="var">X_scaled</span>, <span class="var">y</span>, test_size<span class="op">=</span><span class="num">0.2</span>, random_state<span class="op">=</span><span class="num">42</span>
+)
+
+<span class="fn">print</span>(<span class="str">f"\n数据集大小: {len(X)} 样本"</span>)
+<span class="fn">print</span>(<span class="str">f"训练集: {len(X_train)} | 测试集: {len(X_test)}"</span>)
+
+<span class="cm"># 步骤2: 定义多个模型 / Step 2: Define multiple models</span>
+<span class="var">models</span> <span class="op">=</span> {
+    <span class="str">"KNN (k=5)"</span>: <span class="fn">KNeighborsClassifier</span>(n_neighbors<span class="op">=</span><span class="num">5</span>),
+    <span class="str">"决策树 / Decision Tree"</span>: <span class="fn">DecisionTreeClassifier</span>(random_state<span class="op">=</span><span class="num">42</span>),
+    <span class="str">"SVM"</span>: <span class="fn">SVC</span>(kernel<span class="op">=</span><span class="str">"rbf"</span>, random_state<span class="op">=</span><span class="num">42</span>),
+    <span class="str">"随机森林 / Random Forest"</span>: <span class="fn">RandomForestClassifier</span>(
+        n_estimators<span class="op">=</span><span class="num">100</span>, random_state<span class="op">=</span><span class="num">42</span>
+    ),
+}
+
+<span class="cm"># 步骤3: 训练和评估 / Step 3: Train and evaluate</span>
+<span class="fn">print</span>(<span class="str">"\n--- 模型对比结果 / Model Comparison ---"</span>)
+<span class="var">results</span> <span class="op">=</span> {}
+<span class="kw">for</span> <span class="var">name</span>, <span class="var">model</span> <span class="kw">in</span> <span class="var">models</span>.<span class="fn">items</span>():
+    <span class="cm"># 交叉验证 / Cross-validation</span>
+    <span class="var">cv_scores</span> <span class="op">=</span> <span class="fn">cross_val_score</span>(<span class="var">model</span>, <span class="var">X_train</span>, <span class="var">y_train</span>, cv<span class="op">=</span><span class="num">5</span>)
+    <span class="var">model</span>.<span class="fn">fit</span>(<span class="var">X_train</span>, <span class="var">y_train</span>)
+    <span class="var">test_score</span> <span class="op">=</span> <span class="var">model</span>.<span class="fn">score</span>(<span class="var">X_test</span>, <span class="var">y_test</span>)
+    <span class="var">results</span>[<span class="var">name</span>] <span class="op">=</span> {<span class="str">"cv"</span>: <span class="var">cv_scores</span>.<span class="fn">mean</span>(), <span class="str">"test"</span>: <span class="var">test_score</span>}
+    <span class="fn">print</span>(<span class="str">f"\n{name}:"</span>)
+    <span class="fn">print</span>(<span class="str">f"  交叉验证: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})"</span>)
+    <span class="fn">print</span>(<span class="str">f"  测试准确率: {test_score:.4f}"</span>)
+
+<span class="cm"># 步骤4: 找出最佳模型 / Step 4: Find the best model</span>
+<span class="var">best_name</span> <span class="op">=</span> <span class="fn">max</span>(<span class="var">results</span>, key<span class="op">=</span><span class="kw">lambda</span> <span class="var">k</span>: <span class="var">results</span>[<span class="var">k</span>][<span class="str">"test"</span>])
+<span class="fn">print</span>(<span class="str">f"\n{'='*50}"</span>)
+<span class="fn">print</span>(<span class="str">f"最佳模型 / Best Model: {best_name}"</span>)
+<span class="fn">print</span>(<span class="str">f"测试准确率 / Test Accuracy: {results[best_name]['test']:.4f}"</span>)
+<span class="fn">print</span>(<span class="str">f"{'='*50}"</span>)
+
+<span class="fn">print</span>(<span class="str">"\n项目完成！/ Project Complete!"</span>)</code></pre>
+        <div class="code-output">
+          <span class="code-output-label"><span class="zh">输出：</span><span class="en">Output:</span></span>
+          <pre>==================================================
+毕业项目：花卉智能分类器
+==================================================
+
+数据集大小: 150 样本
+训练集: 120 | 测试集: 30
+
+--- 模型对比结果 / Model Comparison ---
+
+KNN (k=5):
+  交叉验证: 0.9583 (+/- 0.0333)
+  测试准确率: 1.0000
+
+决策树 / Decision Tree:
+  交叉验证: 0.9417 (+/- 0.0527)
+  测试准确率: 1.0000
+
+SVM:
+  交叉验证: 0.9667 (+/- 0.0211)
+  测试准确率: 1.0000
+
+随机森林 / Random Forest:
+  交叉验证: 0.9583 (+/- 0.0527)
+  测试准确率: 1.0000
+
+==================================================
+最佳模型 / Best Model: SVM
+测试准确率 / Test Accuracy: 1.0000
+==================================================
+
+项目完成！/ Project Complete!</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 10.4: Report Template ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.4 项目报告模板</span>
+        <span class="en">10.4 Project Report Template</span>
+      </h2>
+
+      <p>
+        <span class="zh">完成代码后，请按以下结构撰写项目报告：</span>
+        <span class="en">After completing the code, write your project report following this structure:</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 项目报告生成器 / Project report generator</span>
+
+<span class="kw">def</span> <span class="fn">generate_report</span>(<span class="var">project_name</span>, <span class="var">results</span>):
+    <span class="var">report</span> <span class="op">=</span> <span class="str">f"""
+{'='*60}
+  项目报告 / Project Report: {project_name}
+{'='*60}
+
+1. 项目目标 / Objective
+   描述你要解决的问题和目标...
+   Describe the problem and your goals...
+
+2. 数据描述 / Data Description
+   - 数据来源 / Source: ______
+   - 样本数量 / Samples: ______
+   - 特征数量 / Features: ______
+   - 类别数量 / Classes: ______
+
+3. 方法 / Methodology
+   - 数据预处理 / Preprocessing: ______
+   - 使用的算法 / Algorithms: ______
+   - 评估方法 / Evaluation: ______
+
+4. 结果 / Results
+"""</span>
+    <span class="kw">for</span> <span class="var">name</span>, <span class="var">scores</span> <span class="kw">in</span> <span class="var">results</span>.<span class="fn">items</span>():
+        <span class="var">report</span> <span class="op">+=</span> <span class="str">f"   {name}: CV={scores['cv']:.4f}, Test={scores['test']:.4f}\n"</span>
+
+    <span class="var">report</span> <span class="op">+=</span> <span class="str">"""
+5. 结论 / Conclusion
+   最佳模型是什么？为什么效果好？
+   Which model is best? Why does it perform well?
+
+6. 收获 / What I Learned
+   这个项目让我学到了...
+   From this project I learned...
+"""</span>
+    <span class="kw">return</span> <span class="var">report</span>
+
+<span class="cm"># 示例使用 / Example usage</span>
+<span class="var">sample_results</span> <span class="op">=</span> {
+    <span class="str">"KNN"</span>: {<span class="str">"cv"</span>: <span class="num">0.9583</span>, <span class="str">"test"</span>: <span class="num">1.0</span>},
+    <span class="str">"SVM"</span>: {<span class="str">"cv"</span>: <span class="num">0.9667</span>, <span class="str">"test"</span>: <span class="num">1.0</span>},
+}
+<span class="fn">print</span>(<span class="fn">generate_report</span>(<span class="str">"花卉分类器"</span>, <span class="var">sample_results</span>))</code></pre>
+      </div>
+    </section>
+
+    <!-- ===== Section 10.5: Course Review ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.5 课程总回顾</span>
+        <span class="en">10.5 Course Review</span>
+      </h2>
+
+      <p>
+        <span class="zh">恭喜你完成了整个课程！让我们回顾一下你学到的所有内容：</span>
+        <span class="en">Congratulations on completing the course! Let's review everything you've learned:</span>
+      </p>
+
+      <div class="card-grid cols-2">
+        <div class="card">
+          <h3>
+            <span class="zh">📦 第 1-2 课：基础</span>
+            <span class="en">📦 Lessons 1-2: Foundations</span>
+          </h3>
+          <p>
+            <span class="zh">Python 环境搭建、数据类型、NumPy/Pandas 数据探索、统计分析与可视化</span>
+            <span class="en">Python setup, data types, NumPy/Pandas exploration, statistical analysis &amp; visualization</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">🤖 第 3-5 课：经典 ML</span>
+            <span class="en">🤖 Lessons 3-5: Classic ML</span>
+          </h3>
+          <p>
+            <span class="zh">KNN 分类、决策树、K-Means 聚类——监督学习与无监督学习</span>
+            <span class="en">KNN classification, decision trees, K-Means clustering—supervised &amp; unsupervised learning</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">🧠 第 6-8 课：深度应用</span>
+            <span class="en">🧠 Lessons 6-8: Deep Applications</span>
+          </h3>
+          <p>
+            <span class="zh">手写数字识别、图像分类、文本分析——神经网络与 NLP 基础</span>
+            <span class="en">Handwriting recognition, image classification, text analysis—neural networks &amp; NLP basics</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">🚀 第 9-10 课：进阶</span>
+            <span class="en">🚀 Lessons 9-10: Advanced</span>
+          </h3>
+          <p>
+            <span class="zh">Prompt 工程实战、综合项目——从学习到实践的完整闭环</span>
+            <span class="en">Prompt engineering lab, final project—the complete learning-to-practice loop</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 10.6: Quiz (5 questions) ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">10.6 毕业测验</span>
+        <span class="en">10.6 Final Quiz</span>
+      </h2>
+
+      <div class="quiz" data-quiz-id="lab10">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 在机器学习中，将数据分为训练集和测试集的目的是什么？</span>
+            <span class="en"><strong>Q1.</strong> In ML, why do we split data into training and test sets?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 减少计算时间</span>
+              <span class="en">A. Reduce computation time</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 让数据量看起来更多</span>
+              <span class="en">B. Make the dataset look larger</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 评估模型在未见数据上的泛化能力</span>
+              <span class="en">C. Evaluate model generalization on unseen data</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 加快训练速度</span>
+              <span class="en">D. Speed up training</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">测试集模拟真实世界的新数据，用来检验模型是否真正学到了规律而不是死记硬背。</span>
+              <span class="en">The test set simulates real-world new data, checking if the model truly learned patterns rather than memorizing.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 以下哪种是无监督学习算法？</span>
+            <span class="en"><strong>Q2.</strong> Which of these is an unsupervised learning algorithm?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. KNN 分类</span>
+              <span class="en">A. KNN Classification</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. K-Means 聚类</span>
+              <span class="en">B. K-Means Clustering</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 决策树</span>
+              <span class="en">C. Decision Tree</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 线性回归</span>
+              <span class="en">D. Linear Regression</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">K-Means 是无监督学习——它不需要标签数据，而是自动发现数据中的自然分组。</span>
+              <span class="en">K-Means is unsupervised learning—it doesn't need labeled data, automatically discovering natural groupings.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 交叉验证（cross-validation）相比简单的训练/测试拆分，主要优势是什么？</span>
+            <span class="en"><strong>Q3.</strong> What is the main advantage of cross-validation over a simple train/test split?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 更可靠的性能估计，减少随机性影响</span>
+              <span class="en">A. More reliable performance estimate, less affected by randomness</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 训练速度更快</span>
+              <span class="en">B. Faster training speed</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 不需要测试数据</span>
+              <span class="en">C. No test data needed</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 可以使用更少的数据</span>
+              <span class="en">D. Can use less data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">交叉验证通过多次分组训练和测试，减少了单次拆分的随机性，给出更稳定可靠的性能评估。</span>
+              <span class="en">Cross-validation trains/tests on multiple splits, reducing randomness from a single split, giving more stable performance estimates.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4.</strong> 在文本分析中，TF-IDF 的作用是什么？</span>
+            <span class="en"><strong>Q4.</strong> What does TF-IDF do in text analysis?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 翻译文本</span>
+              <span class="en">A. Translate text</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 纠正拼写错误</span>
+              <span class="en">B. Fix spelling errors</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 生成新文本</span>
+              <span class="en">C. Generate new text</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 将文本转换为数值特征，衡量词语重要性</span>
+              <span class="en">D. Convert text to numerical features, measuring word importance</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">TF-IDF 把文本变成数字向量，同时通过逆文档频率降低常见词的权重，突出有区分度的词语。</span>
+              <span class="en">TF-IDF converts text to numeric vectors while down-weighting common words via inverse document frequency, highlighting distinctive terms.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5.</strong> 一个好的 AI 项目应该包含以下哪些步骤？</span>
+            <span class="en"><strong>Q5.</strong> A good AI project should include which of these steps?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 只写代码就够了</span>
+              <span class="en">A. Just writing code is enough</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 数据准备 → 模型训练 → 评估 → 报告</span>
+              <span class="en">B. Data prep → Model training → Evaluation → Report</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 选择最复杂的算法就对了</span>
+              <span class="en">C. Just pick the most complex algorithm</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 不需要理解数据，直接训练</span>
+              <span class="en">D. No need to understand data, just train</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">完整的 AI 项目流程：理解问题 → 数据准备 → 选择和训练模型 → 评估效果 → 撰写报告。每一步都不可少。</span>
+              <span class="en">Complete AI project pipeline: understand the problem → prepare data → select &amp; train models → evaluate → write report. Every step matters.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ Lesson Nav Footer ============ -->
+    <div class="lesson-nav-footer">
+      <a href="lesson9.html">
+        <span class="zh">← 上一课：Prompt 工程实战</span>
+        <span class="en">← Previous: Prompt Engineering Lab</span>
+      </a>
+      <a href="../index.html">
+        <span class="zh">返回首页 →</span>
+        <span class="en">Back to Home →</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

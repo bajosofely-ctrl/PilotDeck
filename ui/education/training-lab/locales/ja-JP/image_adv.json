@@ -1,0 +1,477 @@
+{
+    "app": {
+        "title": "Teachable Machine",
+        "about": "概要",
+        "save": "保存",
+        "load": "開く",
+        "language": "言語",
+        "reminder": "分類器の保存を忘れないでください。",
+        "models": {
+            "image": "画像",
+            "pose": "ポーズ",
+            "hand": "ジェスチャー",
+            "speech": "音声"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "教材",
+        "selectModel": "何を分類したいですか？",
+        "enableUSB": "USB デバイスを使用",
+        "subtitle": "コーディング不要で、自分のデータを使って分類器を作成"
+    },
+    "load": {
+        "title": "分類器を開く",
+        "code": "共有コードを入力",
+        "actions": {
+            "openFile": "ファイルを開く",
+            "openCode": "コードを使用",
+            "cancel": "キャンセル"
+        }
+    },
+    "save": {
+        "title": "分類器を保存",
+        "noModel": "まずは分類器を作成する必要があります。",
+        "message": "分類器の内容をファイルにダウンロードします。",
+        "saveSamples": "サンプルを保存",
+        "saveClassifier": "分類器を保存",
+        "saveBehaviours": "動作を保存",
+        "name": "名前",
+        "actions": {
+            "save": "保存",
+            "cancel": "キャンセル"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "左揃え",
+            "center": "中央揃え",
+            "right": "右揃え",
+            "align": "テキストの整列"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "文字サイズの変更",
+            "increase": "大きくする",
+            "decrease": "小さくする"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "クラスを追加",
+            "webcam": "ウェブカメラ",
+            "audio": "マイク",
+            "upload": "アップロード",
+            "datasets": "データセット",
+            "cancel": "キャンセル",
+            "deleteClass": "クラスを削除",
+            "disableClass": "クラスを無効にする",
+            "enableClass": "クラスを有効にする",
+            "removeAll": "すべてのサンプルを削除",
+            "capture": "押し続けてキャプチャ",
+            "fileCapture": "抽出",
+            "record": "録音",
+            "collaborate": "共同作業",
+            "use": "使用 ({{count}})",
+            "displayMore": "{{count}}枚の画像を表示"
+        },
+        "labels": {
+            "title": "トレーニングデータ",
+            "addSamples": "画像サンプルを追加",
+            "imageSamples": "{{count}} 個の画像サンプル",
+            "addAudioSamples": "音声サンプルを追加",
+            "audioSamples": "{{count}} 個の音声サンプル",
+            "class": "クラス",
+            "noiseClass": "背景ノイズ",
+            "wait": "キャプチャ中...",
+            "stop": "停止",
+            "dropFiles": "または、ウェブサイトやファイルからの画像をドラッグして入れてください。",
+            "dropAudioFiles": "または、ウェブサイトやファイルから音声ファイルをドラッグして入れてください。",
+            "needsMore": "もっとサンプルが必要です。",
+            "dropError": "ここには画像のみドロップ可能です。",
+            "dropAudioError": "ここには音声ファイルのみドロップ可能です。",
+            "emptyClass": "このクラスには何もありません。",
+            "qrMessage": "画像を追加はスマホやタブレットでも可能です。QRコードをクリックすると拡大できます。",
+            "disabled": "無効",
+            "selectDataset": "データセットを選択",
+            "selectTestData": "画像を選択",
+            "searchDataset": "データセットを検索",
+            "images": "画像",
+            "selected": "選択済み",
+            "loading": "読み込み中...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again."
+        },
+        "aria": {
+            "sample": "アップロードされたサンプル",
+            "delete": "サンプルを消す",
+            "more": "詳細オプション",
+            "close": "閉じる",
+            "classCard": "{{name}}のトレーニングデータ"
+        }
+    },
+    "heatmap": {
+        "title": "説明",
+        "colorScaleHelp": "カラースケールは、モデルが画像のどの部分に注目しているかを示します。赤 = 高い重要度、青 = 低い重要度。",
+        "noPoseDetected": "ポーズなし",
+        "high": "高",
+        "low": "低"
+    },
+    "underTheHood": {
+        "title": "内部の仕組み",
+        "visualization": "可視化",
+        "statistics": "モデル統計",
+        "transferLearning": "転移学習",
+        "on": "オン",
+        "off": "オフ"
+    },
+    "charts": {
+        "accuracyPerClass": "クラス別精度",
+        "accuracyPerClassHelp": "各クラスのテストサンプルをモデルがどれだけ正しく予測したかを示します。1.00 は、そのクラスのテストサンプルがすべて正解だったことを意味します。",
+        "confusionMatrix": "混同行列",
+        "confusionMatrixHelp": "行は正解クラス、列はモデルの予測です。対角線上の値は正解、それ以外の値は取り違えを示します。",
+        "accuracyPerEpoch": "エポック別精度",
+        "accuracyPerEpochHelp": "学習中に予測精度がどう変わるかを示します。精度は 0 から 1 の範囲で、1 が最良です。テスト精度は、モデル更新に使ったトレーニングセットではなく、テストセットのサンプルを使います。",
+        "lossPerEpoch": "エポック別損失",
+        "lossPerEpochHelp": "学習中のモデルの誤差を示します。損失は 0 から始まり、それ以上になることがあり、低いほど良いです。テスト損失は、モデル更新に使ったトレーニングセットではなく、テストセットのサンプルを使います。",
+        "class": "クラス",
+        "accuracy": "精度",
+        "testSamples": "# テストサンプル",
+        "prediction": "予測",
+        "actual": "実際",
+        "predicted": "予測済み",
+        "count": "カウント",
+        "acc": "精度",
+        "testAcc": "テスト精度",
+        "loss": "損失",
+        "testLoss": "テスト損失",
+        "epochs": "エポック",
+        "epoch": "エポック",
+        "transferLearningMatrix": "転移学習マトリクス",
+        "transferLearningMatrixHelp": "クラスごとの ImageNet 概念プロファイル（分類器由来）と、現在の入力がそれらにどれだけ一致するかを示します。",
+        "transferLearningGraph": "転移学習グラフ",
+        "transferLearningGraphHelp": "この図は、モデルが現在の画像を既に学習したクラスにどう関連付けるかを示します。左側は現在の入力と候補クラス、右側は事前学習モデルのクラスです。線が太いほど一致度が高くなります。",
+        "transferLearningFlow": "転移学習フロー",
+        "transferLearningUserClass": "ユーザークラス",
+        "transferLearningCurrentInput": "現在の入力",
+        "transferLearningSimilarity": "類似度",
+        "transferLearningSimilarityHelp": "コサイン類似度は、1000 個すべての ImageNet 確率を使って現在の入力を各ユーザークラスと比較します。値は 0 から 1 で、1 が最も似ています。",
+        "transferLearningSamples": "{{count}} サンプル",
+        "transferLearningStages": "転移学習の段階",
+        "transferLearningStageConcepts": "概念",
+        "transferLearningStageConnections": "つながり",
+        "transferLearningStageAdvanced": "発展",
+        "pretrainedConceptsTitle": "事前学習モデルが認識しているもの",
+        "pretrainedConceptsHelp": "これは、事前学習モデルが現在の入力に当てはめている ImageNet の既知の概念です。% が高いほど一致が強いことを意味します。",
+        "pretrainedModelLayers": "事前学習済みモデル",
+        "pretrainedModelSubtitle": "ImageNet の概念を認識",
+        "pretrainedSampleAlt": "{{label}} サンプル {{index}}",
+        "transferLearningBarChart": "テスト入力との類似度",
+        "transferLearningBarChartHelp": "事前学習済みモデルは、現在の入力と各学習済みクラスを ImageNet 概念スコアの長いリストとして表します。コサイン類似度は、その2つのリストの形を比べます。高いスコアと低いスコアの並び方が似ているほど、類似度は高くなります。値は 0% から 100% です。棒が高いほど、その入力はそのクラスにより似ています。"
+    },
+    "training": {
+        "actions": {
+            "train": "分類器をトレーニング"
+        },
+        "labels": {
+            "title": "トレーニング",
+            "addMore": "最初にサンプルやクラスを追加してください。",
+            "needsTraining": "分類器にはトレーニングが必要です。",
+            "advanced": "詳細設定",
+            "epochs": "エポック数",
+            "learningRate": "学習率",
+            "batchSize": "バッチサイズ",
+            "loading": "分類器を読み込み中",
+            "prepairing": "サンプルを準備中...",
+            "training": "分類器のトレーニング中・・",
+            "complete": "トレーニング完了"
+        },
+        "tooltips": {
+            "epochs": "各サンプルがトレーニングに使われる回数です。",
+            "learningRate": "微調整が推奨です。0.1未満にしてください。",
+            "batchSize": "トレーニングごとのサンプル数です。影響は比較的少なめです。"
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "入力",
+            "webcam": "ウェブカメラ",
+            "audio": "マイク",
+            "file": "ファイル",
+            "device": "デバイス",
+            "dataset": "データセット",
+            "switchOn": "オン",
+            "switchOff": "オフ",
+            "upload": "ファイルをアップロード、または、ここにドロップ"
+        },
+        "aria": {
+            "switch": "入力ソースを有効にする"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "外部ツール用にエクスポート",
+            "clone": "コピーを共有"
+        },
+        "labels": {
+            "title": "分類器",
+            "mustTrain": "最初に分類器のトレーニングをしてください。",
+            "mustInput": "分類器を使用するには入力を提供する必要があります"
+        },
+        "aria": {
+            "more": "詳細オプション"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "出力",
+            "deploy": "デプロイ"
+        },
+        "aria": {
+            "volume": "音量",
+            "image": "クラス{{index}} の出力",
+            "display": "クラス {{index}}の出力内容",
+            "expand": "ウィンドウサイズを拡大"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "アップロード",
+            "dataset": "データセット",
+            "delete": "削除",
+            "record": "記録",
+            "stop": "停止"
+        },
+        "labels": {
+            "title": "アクション",
+            "message": "メッセージ",
+            "link": "リンク",
+            "linkError": "このリンクはサポートされていません。",
+            "embedInfo": "リンク先の動画や画像を表示します。対応するのは一部のリンクのみで、例えば YouTube、Vimeo、SoundCloud、動画ファイル、音声ファイル、画像などです。詳しくは <l>react-player</l> のドキュメントをご覧ください。",
+            "voiceRecording": "音声録音",
+            "dropError": "ここには画像または音声のみドロップ可能です。",
+            "loop": "ループ"
+        },
+        "aria": {
+            "message": "出力用テキスト",
+            "image": "画像の動作",
+            "sound": "音声の動作",
+            "text": "テキストの動作",
+            "embed": "リンク埋め込みの動作",
+            "imageOutput": "アップロードされた画像",
+            "noImage": "画像プレースホルダー",
+            "stop": "停止",
+            "play": "再生",
+            "behaviourCard": "{{name}}の動作設定",
+            "loop": "ループ"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "次へ"
+        },
+        "aria": {
+            "step": "タスクのステップ"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "ライブのウェブカメラ映像",
+            "flip": "別のカメラに切り替える"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "タイトルを編集",
+            "editTitleInput": "{{value}} の編集ボックス"
+        },
+        "labels": {
+            "titlePlaceholder": "名前"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "文字色を選択"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "閉じる",
+            "share": "共有",
+            "stopShare": "共有を停止"
+        },
+        "labels": {
+            "title": "共有",
+            "includeSamples": "サンプル画像を含める",
+            "codeInstructions": "以下のコードを使って、他の人が分類器のコピーを開けるようにします。",
+            "linkInstructions": "このリンクをコピーすると、<scratchLink>Scratch</scratchLink>など他のアプリで分類器を使用できます（ただし、このブラウザタブを開いたままにするか、プロジェクトを保存して再度開かないとリンクは機能しないので注意）。"
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "動物",
+            "nature": "自然",
+            "colors": "色",
+            "fruits": "果物",
+            "human": "人間",
+            "studyTools": "学用品",
+            "recyclingMaterials": "リサイクル素材",
+            "transportation": "交通機関"
+        },
+        "cats": {
+            "name": "猫",
+            "description": "猫の画像コレクション"
+        },
+        "dogs": {
+            "name": "犬",
+            "description": "犬の画像コレクション"
+        },
+        "birds": {
+            "name": "鳥",
+            "description": "鳥の画像コレクション"
+        },
+        "flowers": {
+            "name": "花",
+            "description": "花の画像コレクション"
+        },
+        "trees": {
+            "name": "木",
+            "description": "木の画像コレクション"
+        },
+        "white": {
+            "name": "白",
+            "description": "白色の画像コレクション"
+        },
+        "black": {
+            "name": "黒",
+            "description": "黒色の画像コレクション"
+        },
+        "gray": {
+            "name": "灰色",
+            "description": "灰色の画像コレクション"
+        },
+        "blue": {
+            "name": "青",
+            "description": "青色の画像コレクション"
+        },
+        "green": {
+            "name": "緑",
+            "description": "緑色の画像コレクション"
+        },
+        "red": {
+            "name": "赤",
+            "description": "赤色の画像コレクション"
+        },
+        "pink": {
+            "name": "ピンク",
+            "description": "ピンク色の画像コレクション"
+        },
+        "orange": {
+            "name": "オレンジ",
+            "description": "オレンジ色の画像コレクション"
+        },
+        "purple": {
+            "name": "紫",
+            "description": "紫色の画像コレクション"
+        },
+        "yellow": {
+            "name": "黄色",
+            "description": "黄色の画像コレクション"
+        },
+        "apple": {
+            "name": "りんご",
+            "description": "りんごの画像コレクション"
+        },
+        "pear": {
+            "name": "梨",
+            "description": "梨の画像コレクション"
+        },
+        "orangeFruit": {
+            "name": "オレンジ",
+            "description": "オレンジの画像コレクション"
+        },
+        "men": {
+            "name": "男性",
+            "description": "男性の画像コレクション"
+        },
+        "women": {
+            "name": "女性",
+            "description": "女性の画像コレクション"
+        },
+        "handPalm": {
+            "name": "手のひら",
+            "description": "手のひらの画像コレクション"
+        },
+        "pencils": {
+            "name": "鉛筆",
+            "description": "鉛筆の画像コレクション"
+        },
+        "pens": {
+            "name": "ペン",
+            "description": "ペンの画像コレクション"
+        },
+        "humanPose": {
+            "name": "人間のポーズ",
+            "description": "人間のポーズの画像コレクション"
+        },
+        "erasers": {
+            "name": "消しゴム",
+            "description": "消しゴムの画像コレクション"
+        },
+        "batteries": {
+            "name": "電池",
+            "description": "電池の画像コレクション"
+        },
+        "cardboard": {
+            "name": "段ボール",
+            "description": "段ボールの画像コレクション"
+        },
+        "glass": {
+            "name": "ガラス",
+            "description": "ガラスの画像コレクション"
+        },
+        "paper": {
+            "name": "紙",
+            "description": "紙の画像コレクション"
+        },
+        "plastics": {
+            "name": "プラスチック",
+            "description": "プラスチックの画像コレクション"
+        },
+        "airplanes": {
+            "name": "飛行機",
+            "description": "飛行機の画像コレクション"
+        },
+        "buses": {
+            "name": "バス",
+            "description": "バスの画像コレクション"
+        },
+        "bicycles": {
+            "name": "自転車",
+            "description": "自転車の画像コレクション"
+        },
+        "cars": {
+            "name": "自動車",
+            "description": "自動車の画像コレクション"
+        },
+        "mopeds": {
+            "name": "原付バイク",
+            "description": "原付バイクの画像コレクション"
+        },
+        "motorcycles": {
+            "name": "オートバイ",
+            "description": "オートバイの画像コレクション"
+        },
+        "pedestrians": {
+            "name": "歩行者",
+            "description": "歩行者の画像コレクション"
+        },
+        "ships": {
+            "name": "船",
+            "description": "船の画像コレクション"
+        },
+        "trains": {
+            "name": "電車",
+            "description": "電車の画像コレクション"
+        }
+    }
+}

@@ -1,0 +1,477 @@
+{
+    "app": {
+        "title": "학습 머신",
+        "about": "대하여여",
+        "save": "저장",
+        "load": "열기",
+        "language": "언어",
+        "reminder": "분류기를 저장하는 것을 기억하세요.",
+        "models": {
+            "image": "이미지",
+            "pose": "자세",
+            "hand": "제스처",
+            "speech": "음성"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "학습 자료",
+        "selectModel": "무엇을 분류하고 싶나요?",
+        "enableUSB": "USB 장치 사용",
+        "subtitle": "코딩 없이 나만의 데이터로 분류기를 만들어 보세요"
+    },
+    "load": {
+        "title": "분류기 열기",
+        "code": "공유된 코드를 입력하세요",
+        "actions": {
+            "openFile": "파일 열기",
+            "openCode": "코드 사용",
+            "cancel": "취소"
+        }
+    },
+    "save": {
+        "title": "분류기 저장하기",
+        "noModel": "먼저 분류기를 생성해야 합니다.",
+        "message": "분류기 콘텐츠를 파일로 내려받기",
+        "saveSamples": "샘플 저장",
+        "saveClassifier": "분류기 저장",
+        "saveBehaviours": "행동 저장장",
+        "name": "이름",
+        "actions": {
+            "save": "저장",
+            "cancel": "취소"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "좌측 정렬",
+            "center": "중앙 정렬",
+            "right": "우측 정렬",
+            "align": "글자 정렬"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "글자 크기 변경",
+            "increase": "크게",
+            "decrease": "작게"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "클래스 추가",
+            "webcam": "웹캡",
+            "audio": "마이크",
+            "upload": "업로드",
+            "datasets": "데이터셋",
+            "cancel": "취소",
+            "deleteClass": "클래스 삭제",
+            "disableClass": "클래스 비활성화",
+            "enableClass": "클래스 활성화",
+            "removeAll": "모든 샘플 삭제",
+            "capture": "캡처를 위해 홀드하세요요",
+            "fileCapture": "추출",
+            "record": "녹음",
+            "collaborate": "협업업",
+            "use": "사용 ({{count}})",
+            "displayMore": "{{count}}개 이미지 표시"
+        },
+        "labels": {
+            "title": "데이터 학습시키기",
+            "addSamples": "이미지 샘플 추가",
+            "imageSamples": "{{count}} 이미지 샘플",
+            "addAudioSamples": "오디오 샘플 추가",
+            "audioSamples": "{{count}} 오디오 샘플",
+            "class": "클래스",
+            "noiseClass": "배경 소음",
+            "wait": "진행 중...",
+            "stop": "중지",
+            "dropFiles": "웹사이트나 파일에서 이미지 파일을 드래그하세요",
+            "dropAudioFiles": "웹사이트나 파일에서 오디오 파일을 드래그하세요",
+            "needsMore": "더 많은 샘플이 필요합니다",
+            "dropError": "이미지만 가능합니다",
+            "dropAudioError": "오디오 파일만 여기에 드롭할 수 있습니다",
+            "qrMessage": "이미지를 추가하기 위해 휴대폰이나 태블릿을 사용할 수 있습니다. QR 코드를 누르면 확장됩니다.",
+            "disabled": "비활성화됨",
+            "selectDataset": "데이터셋 선택",
+            "selectTestData": "이미지를 선택",
+            "searchDataset": "데이터셋 검색",
+            "images": "이미지",
+            "selected": "선택됨",
+            "loading": "로딩 중...",
+            "loadingDataset": "Loading images {{loaded}}/{{total}}...",
+            "datasetLoadError": "Failed to load dataset images. Please try again.",
+            "emptyClass": "이 클래스는 비어 있습니다."
+        },
+        "aria": {
+            "sample": "업로드 된 샘플",
+            "delete": "샘플 삭제",
+            "more": "추가 옵션",
+            "close": "닫기",
+            "classCard": "{{name}}을 위해 데이터 학습시키기"
+        }
+    },
+    "heatmap": {
+        "title": "설명",
+        "colorScaleHelp": "색상 척도는 모델이 이미지의 어느 부분에 집중하는지 보여줍니다. 빨강 = 높은 중요도, 파랑 = 낮은 중요도.",
+        "noPoseDetected": "포즈 없음",
+        "high": "높음",
+        "low": "낮음"
+    },
+    "underTheHood": {
+        "title": "내부 작동 방식",
+        "visualization": "시각화",
+        "statistics": "모델 통계",
+        "transferLearning": "전이 학습",
+        "on": "켜기",
+        "off": "끄기"
+    },
+    "charts": {
+        "accuracyPerClass": "클래스별 정확도",
+        "accuracyPerClassHelp": "모델이 각 클래스를 테스트 샘플에서 얼마나 자주 올바르게 예측했는지 보여줍니다. 1.00은 해당 클래스의 테스트 샘플이 모두 맞았다는 뜻입니다.",
+        "confusionMatrix": "혼동 행렬",
+        "confusionMatrixHelp": "행은 정답 클래스이고 열은 모델의 예측입니다. 대각선 값은 정답이고, 나머지 값은 혼동된 경우입니다.",
+        "accuracyPerEpoch": "에포크별 정확도",
+        "accuracyPerEpochHelp": "학습 중 예측 정확도가 어떻게 변하는지 보여줍니다. 정확도는 0에서 1 사이이며 1이 가장 좋습니다. 테스트 정확도는 모델 업데이트에 사용한 훈련 세트가 아니라 테스트 세트의 샘플을 사용합니다.",
+        "lossPerEpoch": "에포크별 손실",
+        "lossPerEpochHelp": "학습 중 모델의 오류를 보여줍니다. 손실은 0에서 시작해 더 커질 수 있으며 낮을수록 좋습니다. 테스트 손실은 모델 업데이트에 사용한 훈련 세트가 아니라 테스트 세트의 샘플을 사용합니다.",
+        "class": "클래스",
+        "accuracy": "정확도",
+        "testSamples": "# 테스트 샘플",
+        "prediction": "예측",
+        "actual": "실제",
+        "predicted": "예측됨",
+        "count": "개수",
+        "acc": "정확도",
+        "testAcc": "테스트 정확도",
+        "loss": "손실",
+        "testLoss": "테스트 손실",
+        "epochs": "에포크",
+        "epoch": "에포크",
+        "transferLearningMatrix": "전이 학습 행렬",
+        "transferLearningMatrixHelp": "클래스별 ImageNet 개념 프로필(분류기 기준)과 현재 입력이 얼마나 일치하는지 보여줍니다.",
+        "transferLearningGraph": "전이 학습 그래프",
+        "transferLearningGraphHelp": "이 다이어그램은 모델이 현재 이미지를 이미 학습한 클래스와 어떻게 연결하는지 보여줍니다. 왼쪽: 현재 입력과 후보 클래스. 오른쪽: 사전 학습 모델 클래스. 선이 두꺼울수록 일치도가 높습니다.",
+        "transferLearningFlow": "전이 학습 흐름",
+        "transferLearningUserClass": "사용자 클래스",
+        "transferLearningCurrentInput": "현재 입력",
+        "transferLearningSimilarity": "유사도",
+        "transferLearningSimilarityHelp": "코사인 유사도는 1000개의 ImageNet 확률을 모두 사용해 현재 입력을 각 사용자 클래스와 비교합니다. 값은 0부터 1까지이며, 1은 가장 비슷함을 뜻합니다.",
+        "transferLearningSamples": "{{count}}개 샘플",
+        "transferLearningStages": "전이 학습 단계",
+        "transferLearningStageConcepts": "개념",
+        "transferLearningStageConnections": "연결",
+        "transferLearningStageAdvanced": "고급",
+        "pretrainedConceptsTitle": "사전 학습 모델이 인식하는 것",
+        "pretrainedConceptsHelp": "사전 학습 모델이 현재 입력과 연결하는 익숙한 ImageNet 개념입니다. %가 높을수록 더 강하게 일치합니다.",
+        "pretrainedModelLayers": "사전 학습된 모델",
+        "pretrainedModelSubtitle": "ImageNet 개념 인식",
+        "pretrainedSampleAlt": "{{label}} 샘플 {{index}}",
+        "transferLearningBarChart": "테스트 입력 유사도",
+        "transferLearningBarChartHelp": "사전 학습 모델은 현재 입력과 각 학습된 클래스를 ImageNet 개념 점수의 긴 목록으로 설명합니다. 코사인 유사도는 이 두 목록의 모양을 비교합니다. 높은 점수와 낮은 점수가 비슷하게 맞아떨어지면 유사도가 높습니다. 값은 0%부터 100%까지입니다. 막대가 높을수록 입력이 그 클래스와 더 비슷합니다."
+    },
+    "training": {
+        "actions": {
+            "train": "분류기 학습"
+        },
+        "labels": {
+            "title": "학습",
+            "addMore": "먼저 샘플이나 클래스를 추가하세요",
+            "needsTraining": "분류기는 학습되어야 합니다.",
+            "advanced": "향상된",
+            "epochs": "Epochs",
+            "learningRate": "Learning Rate",
+            "batchSize": "Batch Size",
+            "loading": "분류기 로딩",
+            "prepairing": "예시 준비 중...",
+            "training": "분류기 학습",
+            "complete": "학습 완료"
+        },
+        "tooltips": {
+            "epochs": "각 샘플이 학습에 사용되는 횟수.",
+            "learningRate": "이 값은 0.1보다 작은 범위 내에서 약간만 조정하세요.",
+            "batchSize": "학습에 최소한의 영향을 줍니다. 학습 내 각 iteration(반복)에 사용되는 샘플의 수."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "입력",
+            "webcam": "웹캠",
+            "audio": "마이크",
+            "file": "파일",
+            "device": "기기",
+            "dataset": "데이터셋",
+            "switchOn": "켜기",
+            "switchOff": "끄기",
+            "upload": "이곳에 파일을 업로드하거나 드래그 하세요"
+        },
+        "aria": {
+            "switch": "입력 소스 허용"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "외부 도구용으로 내보내기",
+            "clone": "복사본 공유"
+        },
+        "labels": {
+            "title": "분류기",
+            "mustTrain": "분류기를 먼저 학습시켜야 합니다",
+            "mustInput": "분류기를 사용하려면 입력을 제공해야 합니다"
+        },
+        "aria": {
+            "more": "추가 옵션"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "결과",
+            "deploy": "배포"
+        },
+        "aria": {
+            "volume": "부피",
+            "image": "클래스 {{index}} 결과",
+            "display": "클래스 {{index}} 결과",
+            "expand": "창 넓히기"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "업로드",
+            "dataset": "데이터셋",
+            "delete": "삭제",
+            "record": "녹화",
+            "stop": "중단"
+        },
+        "labels": {
+            "title": "Actions",
+            "message": "메세지",
+            "link": "링크",
+            "linkError": "지원되지 않는 링크입니다",
+            "embedInfo": "링크에서 비디오와 이미지를 표시합니다. YouTube, Vimeo, SoundCloud, 비디오 파일, 오디오 파일 또는 이미지 등 일부 링크만 작동합니다.<br/><br/>자세한 내용은 <l>react-player</l> 문서를 참고하세요.",
+            "voiceRecording": "음성 녹음",
+            "dropError": "이미지나 소리만 놓을 수 있습니다",
+            "loop": "반복"
+        },
+        "aria": {
+            "message": "결과를 위한 텍스트",
+            "image": "이미지 동작",
+            "sound": "소리 동작",
+            "text": "글 동작",
+            "embed": "임베드 링크 동작",
+            "imageOutput": "업로드 된 이미지",
+            "noImage": "이미지 자리 표시자",
+            "stop": "중단",
+            "play": "시작",
+            "behaviourCard": "{{name}}를 위한 동작",
+            "loop": "반복"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "다음"
+        },
+        "aria": {
+            "step": "작업 단계"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "실시간 웹캠 비디오",
+            "flip": "다른 카메라로 전환"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "제목 수정",
+            "editTitleInput": "{{value}} 박스 수정"
+        },
+        "labels": {
+            "titlePlaceholder": "이름"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "폰트 색 선택"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "닫기",
+            "share": "공유",
+            "stopShare": "공유 중지"
+        },
+        "labels": {
+            "title": "공유",
+            "includeSamples": "샘플 이미지 포함",
+            "codeInstructions": "하단의 코드를 통해 다른 사람들이 내 분류기의 복사본을 열 수 있도록 허가.",
+            "linkInstructions": "<scratchLink>Scratch</scratchLink>와 같은 다른 어플리케이션에서 분류기를 이용할 수 있는 링크 복사하기. 이 브라우저 탭을 열어두거나, 프로젝트를 저장한 후 나중에 다시 열 경우에만 링크가 작동합니다."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "동물",
+            "nature": "자연",
+            "colors": "색상",
+            "fruits": "과일",
+            "human": "인간",
+            "studyTools": "학용품",
+            "recyclingMaterials": "재활용 재료",
+            "transportation": "교통"
+        },
+        "cats": {
+            "name": "고양이",
+            "description": "고양이 이미지 모음"
+        },
+        "dogs": {
+            "name": "개",
+            "description": "개 이미지 모음"
+        },
+        "birds": {
+            "name": "새",
+            "description": "새 이미지 모음"
+        },
+        "flowers": {
+            "name": "꽃",
+            "description": "꽃 이미지 모음"
+        },
+        "trees": {
+            "name": "나무",
+            "description": "나무 이미지 모음"
+        },
+        "white": {
+            "name": "흰색",
+            "description": "흰색 이미지 모음"
+        },
+        "black": {
+            "name": "검은색",
+            "description": "검은색 이미지 모음"
+        },
+        "gray": {
+            "name": "회색",
+            "description": "회색 이미지 모음"
+        },
+        "blue": {
+            "name": "파란색",
+            "description": "파란색 이미지 모음"
+        },
+        "green": {
+            "name": "초록색",
+            "description": "초록색 이미지 모음"
+        },
+        "red": {
+            "name": "빨간색",
+            "description": "빨간색 이미지 모음"
+        },
+        "pink": {
+            "name": "분홍색",
+            "description": "분홍색 이미지 모음"
+        },
+        "orange": {
+            "name": "주황색",
+            "description": "주황색 이미지 모음"
+        },
+        "purple": {
+            "name": "보라색",
+            "description": "보라색 이미지 모음"
+        },
+        "yellow": {
+            "name": "노란색",
+            "description": "노란색 이미지 모음"
+        },
+        "apple": {
+            "name": "사과",
+            "description": "사과 이미지 모음"
+        },
+        "pear": {
+            "name": "배",
+            "description": "배 이미지 모음"
+        },
+        "orangeFruit": {
+            "name": "오렌지",
+            "description": "오렌지 이미지 모음"
+        },
+        "men": {
+            "name": "남성",
+            "description": "남성 이미지 모음"
+        },
+        "women": {
+            "name": "여성",
+            "description": "여성 이미지 모음"
+        },
+        "handPalm": {
+            "name": "손바닥",
+            "description": "손바닥 이미지 모음"
+        },
+        "pencils": {
+            "name": "연필",
+            "description": "연필 이미지 모음"
+        },
+        "pens": {
+            "name": "펜",
+            "description": "펜 이미지 모음"
+        },
+        "humanPose": {
+            "name": "인체 자세",
+            "description": "인체 자세 이미지 모음"
+        },
+        "erasers": {
+            "name": "지우개",
+            "description": "지우개 이미지 모음"
+        },
+        "batteries": {
+            "name": "배터리",
+            "description": "배터리 이미지 모음"
+        },
+        "cardboard": {
+            "name": "골판지",
+            "description": "골판지 이미지 모음"
+        },
+        "glass": {
+            "name": "유리",
+            "description": "유리 이미지 모음"
+        },
+        "paper": {
+            "name": "종이",
+            "description": "종이 이미지 모음"
+        },
+        "plastics": {
+            "name": "플라스틱",
+            "description": "플라스틱 이미지 모음"
+        },
+        "airplanes": {
+            "name": "비행기",
+            "description": "비행기 이미지 모음"
+        },
+        "buses": {
+            "name": "버스",
+            "description": "버스 이미지 모음"
+        },
+        "bicycles": {
+            "name": "자전거",
+            "description": "자전거 이미지 모음"
+        },
+        "cars": {
+            "name": "자동차",
+            "description": "자동차 이미지 모음"
+        },
+        "mopeds": {
+            "name": "모페드",
+            "description": "모페드 이미지 모음"
+        },
+        "motorcycles": {
+            "name": "오토바이",
+            "description": "오토바이 이미지 모음"
+        },
+        "pedestrians": {
+            "name": "보행자",
+            "description": "보행자 이미지 모음"
+        },
+        "ships": {
+            "name": "배",
+            "description": "배 이미지 모음"
+        },
+        "trains": {
+            "name": "기차",
+            "description": "기차 이미지 모음"
+        }
+    }
+}

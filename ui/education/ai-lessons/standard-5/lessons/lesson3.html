@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第3课：神经网络与深度学习 | Lesson 3: Neural Networks & Deep Learning — AI 探索之旅 | AI Explorer">
+  <title>神经网络与深度学习 | Neural Networks & Deep Learning — AI 探索之旅</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html" class="active"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 3 课</span>
+        <span class="en">Lesson 3</span>
+      </span>
+      <h1>
+        <span class="zh">神经网络与深度学习</span>
+        <span class="en">Neural Networks &amp; Deep Learning</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">探索大脑启发的AI架构</span>
+        <span class="en">Explore brain-inspired AI architectures</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <main class="content">
+
+    <!-- ======== 3.1 From Brain to Artificial Neurons ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.1 从大脑到人工神经元</span>
+        <span class="en">3.1 From Brain to Artificial Neurons</span>
+      </h2>
+
+      <p>
+        <span class="zh">人脑有约860亿个神经元，它们通过突触相互连接，构成了思考的基础。科学家从中获得灵感，创造了人工神经元。</span>
+        <span class="en">The brain has ~86 billion neurons connected by synapses, forming the basis of thought. Scientists drew inspiration to create artificial neurons.</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col">
+          <h4>
+            <span class="zh">生物神经元</span>
+            <span class="en">Biological Neuron</span>
+          </h4>
+          <ul>
+            <li>
+              <span class="zh">接收信号 → 处理信号 → 决定是否传递 → 输出信号</span>
+              <span class="en">Receive signals → Process → Decide whether to pass on → Output</span>
+            </li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <h4>
+            <span class="zh">人工神经元</span>
+            <span class="en">Artificial Neuron</span>
+          </h4>
+          <ul>
+            <li>
+              <span class="zh">输入 × 权重 → 求和 → 激活函数 → 输出</span>
+              <span class="en">Inputs × Weights → Sum → Activation function → Output</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <span class="box-icon">💡</span>
+        <div>
+          <p>
+            <span class="zh"><strong>类比：</strong>想象你和朋友投票决定去哪吃饭。每个人的意见（输入）有不同的影响力（权重），最终投票结果超过某个门槛（激活函数），就做出决定（输出）。</span>
+            <span class="en"><strong>Analogy:</strong> Imagine you and friends voting on where to eat. Each opinion (input) has different influence (weight), the vote exceeds a threshold (activation function), and a decision is made (output).</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 3.2 Structure of Neural Networks ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.2 神经网络的结构</span>
+        <span class="en">3.2 Structure of Neural Networks</span>
+      </h2>
+
+      <p>
+        <span class="zh">多个人工神经元连接在一起，就形成了神经网络。</span>
+        <span class="en">Multiple artificial neurons connected together form a neural network.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">输入层</span>
+            <span class="en">Input Layer</span>
+          </h3>
+          <p>
+            <span class="zh">接收原始数据（如图片的像素值）</span>
+            <span class="en">Receives raw data (e.g., pixel values of an image)</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">隐藏层</span>
+            <span class="en">Hidden Layer(s)</span>
+          </h3>
+          <p>
+            <span class="zh">处理和提取特征（深度学习 = 更多隐藏层）</span>
+            <span class="en">Process and extract features (deep learning = more hidden layers)</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">输出层</span>
+            <span class="en">Output Layer</span>
+          </h3>
+          <p>
+            <span class="zh">给出最终结果（如"这是一只猫"）</span>
+            <span class="en">Gives the final result (e.g., "this is a cat")</span>
+          </p>
+        </div>
+      </div>
+
+      <p class="mt-lg">
+        <span class="zh">深度学习之所以叫"深度"，就是因为它有很多隐藏层。层数越多，能学到的特征越复杂。<strong>类比：</strong>流水线加工——每一层做一道工序，最终产出成品。</span>
+        <span class="en">Deep learning is called "deep" because it has many hidden layers. More layers = more complex features. <strong>Analogy:</strong> assembly line—each layer does one step, producing the final product.</span>
+      </p>
+    </section>
+
+    <!-- ======== 3.3 How AI "Sees" Things ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.3 AI 怎么"看"东西</span>
+        <span class="en">3.3 How AI "Sees" Things</span>
+      </h2>
+
+      <p>
+        <span class="zh">对于计算机来说，图片就是一堆数字。一张100×100的灰度图片就是10000个0-255之间的数字。</span>
+        <span class="en">For computers, images are just numbers. A 100×100 grayscale image is 10,000 numbers between 0-255.</span>
+      </p>
+
+      <div class="info-box info">
+        <span class="box-icon">ℹ️</span>
+        <div>
+          <p>
+            <span class="zh">彩色图片有3个通道（红、绿、蓝），所以100×100的彩色图片 = 30000个数字！</span>
+            <span class="en">Color images have 3 channels (R, G, B), so a 100×100 color image = 30,000 numbers!</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Expandable Card 1: Convolution Layer -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">卷积层——特征提取器</span>
+            <span class="en">Convolution Layer—Feature Extractor</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">用小窗口（滤波器）在图片上滑动，提取局部特征。第一层提取边缘，第二层提取纹理，更深的层提取更复杂的特征（眼睛、耳朵等）。</span>
+              <span class="en">A small window (filter) slides across the image extracting local features. First layer extracts edges, second extracts textures, deeper layers extract complex features (eyes, ears, etc.).</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 2: Pooling Layer -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">池化层——信息压缩</span>
+            <span class="en">Pooling Layer—Information Compression</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">把特征图缩小，保留最重要的信息，减少计算量。就像把高清照片缩成缩略图，主体信息还在。</span>
+              <span class="en">Shrinks feature maps, keeping the most important info and reducing computation. Like shrinking a HD photo to a thumbnail—key info remains.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expandable Card 3: Fully Connected Layer -->
+      <div class="expandable-card">
+        <div class="ec-header" role="button" tabindex="0" aria-expanded="false">
+          <h3>
+            <span class="zh">全连接层——做决策</span>
+            <span class="en">Fully Connected Layer—Making Decisions</span>
+          </h3>
+          <span class="ec-toggle">+</span>
+        </div>
+        <div class="ec-body">
+          <div class="ec-body-inner">
+            <p>
+              <span class="zh">把提取到的所有特征综合起来，做出最终判断："这是一只猫！"</span>
+              <span class="en">Combines all extracted features to make the final judgment: "This is a cat!"</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 3.4 The Secret of Training ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.4 训练的秘密</span>
+        <span class="en">3.4 The Secret of Training</span>
+      </h2>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">前向传播</span>
+              <span class="en">Forward Propagation</span>
+            </h4>
+            <p>
+              <span class="zh">数据从输入层经过各层传到输出层，得到一个预测结果。</span>
+              <span class="en">Data passes through layers from input to output, producing a prediction.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">计算误差</span>
+              <span class="en">Calculate Error</span>
+            </h4>
+            <p>
+              <span class="zh">比较预测结果和正确答案，计算差距有多大。</span>
+              <span class="en">Compare prediction with the correct answer, calculate how far off it is.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">反向传播</span>
+              <span class="en">Backpropagation</span>
+            </h4>
+            <p>
+              <span class="zh">把误差信号从输出层往回传，找出每个权重对误差的"贡献"。</span>
+              <span class="en">Pass error signal backward through layers, finding each weight's "contribution" to the error.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">更新权重</span>
+              <span class="en">Update Weights</span>
+            </h4>
+            <p>
+              <span class="zh">调整权重，让下次预测更准确。这个过程重复成千上万次。</span>
+              <span class="en">Adjust weights to make the next prediction more accurate. This repeats thousands of times.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <span class="box-icon">💡</span>
+        <div>
+          <p>
+            <span class="zh">就像考试 → 对答案 → 找到错误原因 → 下次改正。AI就是在不断地"考试、纠错、进步"中学会的！</span>
+            <span class="en">Like taking a test → checking answers → finding errors → correcting next time. AI learns through continuous "test, correct, improve"!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 3.5 Experience Neural Networks ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.5 体验神经网络</span>
+        <span class="en">3.5 Experience Neural Networks</span>
+      </h2>
+
+      <p>
+        <span class="zh">TensorFlow Playground 是一个可视化神经网络的在线工具，你可以调整网络结构并实时看到效果。</span>
+        <span class="en">TensorFlow Playground is an online tool to visualize neural networks—adjust the structure and see results in real time.</span>
+      </p>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">打开 TensorFlow Playground</span>
+              <span class="en">Open TensorFlow Playground</span>
+            </h4>
+            <p>
+              <span class="zh">访问 <a href="https://playground.tensorflow.org" target="_blank" rel="noopener noreferrer">playground.tensorflow.org</a></span>
+              <span class="en">Visit <a href="https://playground.tensorflow.org" target="_blank" rel="noopener noreferrer">playground.tensorflow.org</a></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">选择一个数据集</span>
+              <span class="en">Choose a Dataset</span>
+            </h4>
+            <p>
+              <span class="zh">试试右下角的螺旋形数据集</span>
+              <span class="en">Try the spiral dataset in the bottom right</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">点击播放按钮</span>
+              <span class="en">Click the Play Button</span>
+            </h4>
+            <p>
+              <span class="zh">观察网络如何学习分类</span>
+              <span class="en">Watch the network learn to classify</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">调整网络结构</span>
+              <span class="en">Adjust the Network</span>
+            </h4>
+            <p>
+              <span class="zh">试试增加或减少隐藏层和神经元数量，看看效果有什么不同</span>
+              <span class="en">Try adding/removing hidden layers and neurons, see what changes</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <span class="box-icon">💡</span>
+        <div>
+          <p>
+            <span class="zh"><strong>注意观察：</strong>层数越多、神经元越多，分类边界越复杂精确！</span>
+            <span class="en"><strong>Notice:</strong> more layers and neurons = more complex and precise classification boundaries!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 3.6 Hands-on: Teachable Machine ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.6 动手试试：Teachable Machine</span>
+        <span class="en">3.6 Hands-on: Teachable Machine</span>
+      </h2>
+
+      <p>
+        <span class="zh">Google Teachable Machine 让你无需写代码就能训练自己的AI模型。我们来训练一个石头剪刀布分类器！</span>
+        <span class="en">Google Teachable Machine lets you train your own AI model without code. Let's train a rock-paper-scissors classifier!</span>
+      </p>
+
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">打开 Teachable Machine</span>
+              <span class="en">Open Teachable Machine</span>
+            </h4>
+            <p>
+              <span class="zh">访问 <a href="https://teachablemachine.withgoogle.com" target="_blank" rel="noopener noreferrer">teachablemachine.withgoogle.com</a></span>
+              <span class="en">Visit <a href="https://teachablemachine.withgoogle.com" target="_blank" rel="noopener noreferrer">teachablemachine.withgoogle.com</a></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">选择"图像项目"</span>
+              <span class="en">Choose "Image Project"</span>
+            </h4>
+            <p>
+              <span class="zh">点击"开始使用"后选择图像项目</span>
+              <span class="en">Click "Get Started" then select Image Project</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">创建三个类别</span>
+              <span class="en">Create Three Classes</span>
+            </h4>
+            <p>
+              <span class="zh">石头、剪刀、布</span>
+              <span class="en">Rock, Scissors, Paper</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">录制样本</span>
+              <span class="en">Record Samples</span>
+            </h4>
+            <p>
+              <span class="zh">对着摄像头录制每个手势的样本（每个至少50张）</span>
+              <span class="en">Record samples of each gesture via webcam (at least 50 each)</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">训练模型</span>
+              <span class="en">Train the Model</span>
+            </h4>
+            <p>
+              <span class="zh">点击"训练模型"，等待几秒</span>
+              <span class="en">Click "Train Model" and wait a few seconds</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h4>
+              <span class="zh">测试模型</span>
+              <span class="en">Test the Model</span>
+            </h4>
+            <p>
+              <span class="zh">对着摄像头做手势，看AI能否正确识别</span>
+              <span class="en">Make gestures at the webcam and see if AI recognizes them</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info">
+        <span class="box-icon">🎉</span>
+        <div>
+          <p>
+            <span class="zh"><strong>恭喜！</strong>你刚刚训练了一个真正的卷积神经网络（CNN）！</span>
+            <span class="en"><strong>Congratulations!</strong> You just trained a real Convolutional Neural Network (CNN)!</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== 3.7 Quiz ======== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">3.7 小测验</span>
+        <span class="en">3.7 Quiz</span>
+      </h2>
+
+      <div class="quiz" data-quiz-id="lesson3">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1:</strong> 人工神经元的灵感来源是什么？</span>
+            <span class="en"><strong>Q1:</strong> What inspired artificial neurons?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 计算机芯片</span>
+              <span class="en">A. Computer chips</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 生物大脑中的神经元</span>
+              <span class="en">B. Neurons in the biological brain</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 数学公式</span>
+              <span class="en">C. Mathematical formulas</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 互联网的结构</span>
+              <span class="en">D. The structure of the internet</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">人工神经网络的设计灵感直接来源于生物大脑中神经元的工作方式。</span>
+              <span class="en">Artificial neural networks are directly inspired by how neurons work in the biological brain.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2:</strong> "深度学习"中的"深度"指的是什么？</span>
+            <span class="en"><strong>Q2:</strong> What does "deep" in "deep learning" refer to?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 学习的内容很深奥</span>
+              <span class="en">A. The learning content is profound</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 神经网络有很多隐藏层</span>
+              <span class="en">B. The neural network has many hidden layers</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 需要很长时间训练</span>
+              <span class="en">C. It takes a long time to train</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 需要很多数据</span>
+              <span class="en">D. It needs lots of data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">深度学习的"深度"指的是神经网络中隐藏层的数量。更多层意味着可以学习更复杂的特征。</span>
+              <span class="en">"Deep" refers to the number of hidden layers. More layers means learning more complex features.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3:</strong> 卷积神经网络（CNN）主要用于处理什么类型的数据？</span>
+            <span class="en"><strong>Q3:</strong> What type of data is CNN mainly used for?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 文字</span>
+              <span class="en">A. Text</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 声音</span>
+              <span class="en">B. Audio</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 图像</span>
+              <span class="en">C. Images</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 数字表格</span>
+              <span class="en">D. Numerical tables</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">CNN专门为处理图像数据而设计，通过卷积操作提取图像中的空间特征。</span>
+              <span class="en">CNNs are designed for image data, extracting spatial features through convolution operations.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q4:</strong> 在训练过程中，反向传播的作用是什么？</span>
+            <span class="en"><strong>Q4:</strong> What is the role of backpropagation in training?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 把数据输入到网络</span>
+              <span class="en">A. Input data into the network</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 找出每个权重对误差的贡献并调整</span>
+              <span class="en">B. Find each weight's contribution to error and adjust</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 生成最终输出</span>
+              <span class="en">C. Generate final output</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 收集更多训练数据</span>
+              <span class="en">D. Collect more training data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">反向传播通过计算误差对每个权重的梯度，指导权重的调整方向和幅度。</span>
+              <span class="en">Backpropagation calculates error gradients for each weight, guiding adjustment direction and magnitude.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q5:</strong> 下面哪个说法关于图片在计算机中的表示是正确的？</span>
+            <span class="en"><strong>Q5:</strong> Which statement about how computers represent images is correct?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 计算机直接看到图片的内容</span>
+              <span class="en">A. Computers directly see image content</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 图片被转换成一组数字（像素值）</span>
+              <span class="en">B. Images are converted to a set of numbers (pixel values)</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 计算机用文字描述来理解图片</span>
+              <span class="en">C. Computers use text descriptions to understand images</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 计算机只能处理黑白图片</span>
+              <span class="en">D. Computers can only process black and white images</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">对计算机来说，图片就是数字矩阵。每个像素用数字表示颜色和亮度。</span>
+              <span class="en">For computers, images are number matrices. Each pixel is a number representing color and brightness.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">5</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======== Lesson Navigation Footer ======== -->
+    <div class="lesson-nav-footer">
+      <a href="lesson2.html">
+        <span class="zh">← 上一课：机器是怎么"学习"的</span>
+        <span class="en">← Previous: How Do Machines Learn?</span>
+      </a>
+      <a href="lesson4.html">
+        <span class="zh">下一课：大语言模型与AIGC →</span>
+        <span class="en">Next: LLMs &amp; AI-Generated Content →</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

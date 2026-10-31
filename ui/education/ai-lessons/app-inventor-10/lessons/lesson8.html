@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第8课：综合设计：规划你的 AI App | Lesson 8: Design Workshop: Plan Your AI App">
+  <title>第8课：综合设计：规划你的 AI App | Lesson 8: Design Workshop: Plan Your AI App</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html" class="active"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 8 课</span>
+        <span class="en">Lesson 8</span>
+      </span>
+      <h1>
+        <span class="zh">综合设计：规划你的 AI App</span>
+        <span class="en">Design Workshop: Plan Your AI App</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">选择主题、设计原型、规划功能，开始你的独立项目</span>
+        <span class="en">Choose a topic, design prototypes, plan features for your independent project</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 8.1 Course Goal -->
+    <section class="section reveal" id="section-8-1">
+      <h2><span class="zh">8.1 课程目标</span><span class="en">8.1 Course Goal</span></h2>
+      <p>
+        <span class="zh">前面七节课中，你已经学会了 App Inventor 基础、API 调用、ChatGPT 接入、图像识别和语音 AI。现在，是时候把这些技能融合在一起，设计并规划<strong>你自己的独立 AI App 项目</strong>了！本节课你将选择一个项目主题、在纸上画出界面草图（Wireframe）、规划需要使用的 AI API，并为接下来的开发做好准备——你的作品还可以参加 MIT App Inventor Hackathon 竞赛！</span>
+        <span class="en">In the first seven lessons, you've mastered App Inventor basics, API calls, ChatGPT integration, image recognition, and voice AI. Now it's time to combine all these skills and design <strong>your own independent AI App project</strong>! In this lesson, you'll choose a project theme, sketch wireframes on paper, plan which AI APIs you'll need, and get ready for development — your project can even be entered into the MIT App Inventor Hackathon!</span>
+      </p>
+
+      <div class="card-grid cols-4 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">选主题</span><span class="en">Choose Theme</span></h3>
+          <p><span class="zh">挑选一个你感兴趣的 AI App 创意</span><span class="en">Pick an AI App idea that excites you</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">画草图</span><span class="en">Sketch UI</span></h3>
+          <p><span class="zh">用纸笔画出 App 的界面草图</span><span class="en">Draw your App's screen layouts on paper</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">选 API</span><span class="en">Pick APIs</span></h3>
+          <p><span class="zh">规划项目需要哪些 AI API</span><span class="en">Plan which AI APIs your project needs</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">做计划</span><span class="en">Make Plan</span></h3>
+          <p><span class="zh">制定开发时间表和步骤</span><span class="en">Create a development timeline and steps</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8.2 Project Ideas -->
+    <section class="section reveal" id="section-8-2">
+      <h2><span class="zh">8.2 项目创意灵感</span><span class="en">8.2 Project Ideas &amp; Inspiration</span></h2>
+
+      <p>
+        <span class="zh">不知道做什么？没关系！下面是 8 个精选的 AI App 创意，每一个都可以用你学过的技术来实现。选一个你最感兴趣的，或者结合几个创意发明属于你自己的新点子！</span>
+        <span class="en">Not sure what to build? No worries! Here are 8 curated AI App ideas — each can be built with the skills you've learned. Pick the one that excites you most, or combine ideas to invent something totally new!</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">AI 拍照识植物</span><span class="en">AI Plant Identifier</span></h3>
+          <p><span class="zh">拍张照片，AI 告诉你这是什么植物、它的特点和养护方法。使用相机 + 图像识别 API + ChatGPT。非常适合喜欢大自然的你！</span><span class="en">Take a photo and AI tells you what plant it is, its features, and care tips. Uses Camera + Image Recognition API + ChatGPT. Perfect for nature lovers!</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">AI 语言导师</span><span class="en">AI Language Tutor</span></h3>
+          <p><span class="zh">一个帮你练习外语的 AI 老师。你可以和它用英文/日文/法文对话，它会纠正你的语法并教你新单词。使用语音识别 + ChatGPT + TTS。</span><span class="en">An AI teacher that helps you practice foreign languages. Chat with it in English/Japanese/French — it corrects your grammar and teaches new words. Uses Speech Recognition + ChatGPT + TTS.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">AI 故事生成器</span><span class="en">AI Story Generator</span></h3>
+          <p><span class="zh">选择故事类型（科幻、童话、冒险），输入几个关键词，AI 帮你生成一个完整的故事！还可以用 TTS 把故事读给你听。使用 ChatGPT API + TTS。</span><span class="en">Choose a genre (sci-fi, fairy tale, adventure), type a few keywords, and AI generates a complete story! TTS can even read it aloud. Uses ChatGPT API + TTS.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">智能食谱查找</span><span class="en">Smart Recipe Finder</span></h3>
+          <p><span class="zh">拍下你冰箱里的食材，AI 识别食材后推荐可以做的菜谱，还能告诉你详细步骤和营养信息。使用相机 + 图像识别 + ChatGPT。</span><span class="en">Snap a photo of ingredients in your fridge, AI identifies them and suggests recipes with step-by-step instructions and nutrition info. Uses Camera + Image Recognition + ChatGPT.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">5</div>
+          <h3><span class="zh">AI 作业助手</span><span class="en">AI Homework Helper</span></h3>
+          <p><span class="zh">遇到不会的题目？拍张照片或语音提问，AI 不会直接给答案，而是一步步引导你思考，帮你理解解题方法。使用相机/语音 + ChatGPT（设置引导式 Prompt）。</span><span class="en">Stuck on a problem? Take a photo or ask by voice — AI won't give the answer directly but guides you step-by-step to understand the solution method. Uses Camera/Voice + ChatGPT (with guided prompts).</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">6</div>
+          <h3><span class="zh">语音翻译助手</span><span class="en">Voice Translation Assistant</span></h3>
+          <p><span class="zh">说中文，AI 翻译成英文并用语音播出；说英文，翻译成中文。旅行必备神器！使用语音识别 + ChatGPT 翻译 + TTS 多语言播报。</span><span class="en">Speak Chinese, AI translates to English and reads it aloud; speak English, get Chinese. A must-have travel companion! Uses Speech Recognition + ChatGPT Translation + TTS multilingual output.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">7</div>
+          <h3><span class="zh">AI 宠物顾问</span><span class="en">AI Pet Advisor</span></h3>
+          <p><span class="zh">拍下你的宠物照片，AI 识别品种并提供专业的饲养建议、健康提示和训练技巧。使用相机 + 图像识别 + ChatGPT。</span><span class="en">Snap a photo of your pet, AI identifies the breed and provides professional care advice, health tips, and training tricks. Uses Camera + Image Recognition + ChatGPT.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">8</div>
+          <h3><span class="zh">AI 情绪日记</span><span class="en">Mood Journal with AI Analysis</span></h3>
+          <p><span class="zh">每天用语音或文字记录你的心情，AI 分析你的情绪变化趋势，给出正能量建议和鼓励。使用语音识别/文字输入 + ChatGPT 情感分析 + TinyDB 存储。</span><span class="en">Record your mood daily by voice or text. AI analyzes your emotion trends over time and gives positive suggestions and encouragement. Uses Speech Recognition/Text Input + ChatGPT Sentiment Analysis + TinyDB Storage.</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>选择秘诀：</strong>选项目时问自己三个问题：① 这个 App 解决了什么真实问题？② 谁会用这个 App？③ 我对这个主题感兴趣吗？最好的项目是你真心想做的项目！</span>
+          <span class="en"><strong>Selection tip:</strong> When choosing a project, ask yourself three questions: (1) What real problem does this App solve? (2) Who would use this App? (3) Am I genuinely interested in this topic? The best project is one you truly want to build!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 8.3 Design Process -->
+    <section class="section reveal" id="section-8-3">
+      <h2><span class="zh">8.3 设计流程</span><span class="en">8.3 Design Process</span></h2>
+
+      <p>
+        <span class="zh">选好创意后，不要急着打开 App Inventor 写代码！好的 App 都是先设计、再开发的。跟着下面 5 个步骤，把你的想法变成一份清晰的项目计划：</span>
+        <span class="en">After picking your idea, don't rush to open App Inventor and start coding! Great apps are designed first, then built. Follow these 5 steps to turn your idea into a clear project plan:</span>
+      </p>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">步骤 1：确定你的创意——它解决什么问题？</span><span class="en">Step 1: Define Your Idea — What Problem Does It Solve?</span></h3>
+          <p>
+            <span class="zh">用一句话描述你的 App：<strong>"我的 App 可以帮助 [谁] 解决 [什么问题]，通过 [什么方式]。"</strong> 例如："我的 App 可以帮助小学生解决不认识植物的问题，通过拍照让 AI 识别植物并介绍。" 写下来，贴在你的桌子上！</span>
+            <span class="en">Describe your App in one sentence: <strong>"My App helps [who] solve [what problem] by [how]."</strong> For example: "My App helps elementary students learn about plants by letting AI identify them from photos." Write it down and stick it on your desk!</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">步骤 2：确定你的用户——谁会用它？</span><span class="en">Step 2: Identify Your Audience — Who Will Use It?</span></h3>
+          <p>
+            <span class="zh">想象一下使用你 App 的人是谁。是和你一样的中学生？是忙碌的家长？还是不太会用电脑的爷爷奶奶？不同的用户需要不同的界面设计。为小朋友做 App 要用大按钮和鲜艳颜色；为老人做 App 要用大字体和简单操作。</span>
+            <span class="en">Imagine who will use your App. Middle school students like you? Busy parents? Grandparents who aren't tech-savvy? Different users need different interface designs. Apps for young kids need big buttons and bright colors; apps for older adults need large fonts and simple navigation.</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">步骤 3：画出线框图——在纸上画 3-5 个屏幕</span><span class="en">Step 3: Sketch Wireframes — Draw 3-5 Screens on Paper</span></h3>
+          <p>
+            <span class="zh">拿出纸和笔，画出你 App 的每个页面。不需要画得漂亮，重点是布局和功能。每个屏幕画一个方框（代表手机屏幕），在里面画出按钮、文字、图片的位置。用箭头标注页面之间的跳转关系。建议画出：① 主页 / 欢迎页，② 核心功能页（拍照 / 对话 / 输入），③ 结果展示页，④ 设置页（可选），⑤ 关于页（可选）。</span>
+            <span class="en">Grab paper and a pen, and draw each page of your App. It doesn't need to look pretty — focus on layout and features. Draw a rectangle for each screen (representing the phone), and sketch where buttons, text, and images go. Use arrows to show how pages connect. Suggested screens: (1) Home / Welcome page, (2) Core feature page (photo / chat / input), (3) Results display page, (4) Settings page (optional), (5) About page (optional).</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">步骤 4：列出所需组件和 API</span><span class="en">Step 4: List Required Components and APIs</span></h3>
+          <p>
+            <span class="zh">根据你的设计，列出需要用到的所有 App Inventor 组件和 API。制作一个清单表格：</span>
+            <span class="en">Based on your design, list all the App Inventor components and APIs you'll need. Create a checklist table:</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">界面组件</span><span class="en">UI Components</span></h3>
+          <p><span class="zh">Button、Label、TextBox、Image、ListView、Spinner、HorizontalArrangement、VerticalArrangement 等。记下每个屏幕需要哪些。</span><span class="en">Button, Label, TextBox, Image, ListView, Spinner, HorizontalArrangement, VerticalArrangement, etc. Note which ones each screen needs.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">功能组件</span><span class="en">Functional Components</span></h3>
+          <p><span class="zh">Camera、Web（API 调用）、SpeechRecognizer、TextToSpeech、TinyDB（本地存储）、Clock（计时器）、Notifier（提示框）等。</span><span class="en">Camera, Web (API calls), SpeechRecognizer, TextToSpeech, TinyDB (local storage), Clock (timer), Notifier (alerts), etc.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">AI API</span><span class="en">AI APIs</span></h3>
+          <p><span class="zh">ChatGPT API（文字对话 / 翻译 / 分析）、图像识别 API（识别物体 / 植物 / 宠物）、或其他第三方 API（天气、新闻等）。</span><span class="en">ChatGPT API (text chat / translation / analysis), Image Recognition API (identify objects / plants / pets), or other third-party APIs (weather, news, etc.).</span></p>
+        </div>
+      </div>
+
+      <div class="card-grid cols-1 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">5</div>
+          <h3><span class="zh">步骤 5：制定开发时间表——先做什么？</span><span class="en">Step 5: Create a Development Timeline — What to Build First?</span></h3>
+          <p>
+            <span class="zh">把你的项目分成几个小阶段，每个阶段完成一个核心功能。推荐顺序：<br>
+            <strong>第一阶段（第 9 课前半）：</strong>搭建基础界面 + 实现最核心的一个功能（比如拍照识别或语音问答）<br>
+            <strong>第二阶段（第 9 课后半）：</strong>连接 AI API，让 App 真正"智能"起来<br>
+            <strong>第三阶段（课后完善）：</strong>美化界面、添加错误处理、完善用户体验<br>
+            <strong>第四阶段（Demo Day 前）：</strong>测试、修复 bug、准备演示幻灯片</span>
+            <span class="en">Break your project into small phases, each completing one core feature. Recommended order:<br>
+            <strong>Phase 1 (first half of Lesson 9):</strong> Build the basic UI + implement the single most important feature (like photo recognition or voice Q&A)<br>
+            <strong>Phase 2 (second half of Lesson 9):</strong> Connect AI API, make the App truly "smart"<br>
+            <strong>Phase 3 (after class refinement):</strong> Polish the UI, add error handling, improve UX<br>
+            <strong>Phase 4 (before Demo Day):</strong> Test, fix bugs, prepare your demo presentation slides</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8.4 Competition Prep -->
+    <section class="section reveal" id="section-8-4">
+      <h2><span class="zh">8.4 竞赛准备</span><span class="en">8.4 Competition Prep</span></h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>MIT App Inventor Hackathon</strong> 是一个面向全球青少年的 App 开发竞赛。你用 App Inventor 制作的项目可以直接提交参赛！评委会从以下几个维度来评分：</span>
+          <span class="en"><strong>MIT App Inventor Hackathon</strong> is a global app development competition for young people. Your App Inventor project can be submitted directly! Judges evaluate projects on these dimensions:</span>
+        </p>
+      </div>
+
+      <div class="card-grid cols-4 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">A</div>
+          <h3><span class="zh">创意性</span><span class="en">Creativity</span></h3>
+          <p><span class="zh">你的 App 创意是否新颖独特？是否有与众不同的功能或解决问题的角度？评委喜欢看到有"啊哈！"瞬间的作品。</span><span class="en">Is your App idea fresh and unique? Does it have a distinctive feature or a new angle on problem-solving? Judges love projects that create "aha!" moments.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">B</div>
+          <h3><span class="zh">功能性</span><span class="en">Functionality</span></h3>
+          <p><span class="zh">App 是否能正常运行？核心功能是否完整？不一定要做很多功能，但已有的功能必须稳定可靠、没有明显 bug。</span><span class="en">Does the App work properly? Are core features complete? You don't need many features, but what you have must be stable, reliable, and bug-free.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">C</div>
+          <h3><span class="zh">设计感</span><span class="en">Design</span></h3>
+          <p><span class="zh">界面是否美观、易用？颜色搭配是否和谐？按钮和文字是否布局合理？好的设计让用户用起来很舒服。</span><span class="en">Is the interface visually appealing and easy to use? Are colors harmonious? Are buttons and text well-arranged? Good design makes users feel comfortable.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">D</div>
+          <h3><span class="zh">社会影响</span><span class="en">Social Impact</span></h3>
+          <p><span class="zh">你的 App 对社会有正面影响吗？它帮助了哪些人？解决了什么真实问题？有社会价值的作品更容易获得高分。</span><span class="en">Does your App have positive social impact? Who does it help? What real problem does it solve? Projects with social value score higher.</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>作品集建议（DSA Portfolio Tips）：</strong>你的 AI App 项目是很好的作品集素材！在准备作品集时，记录以下内容：① 你为什么选择这个项目（动机），② 你遇到了什么困难以及如何解决的（问题解决能力），③ 你学到了什么（成长与反思），④ 项目的截图和演示视频。这些都能展示你的编程能力、创造力和独立思考能力。</span>
+          <span class="en"><strong>DSA Portfolio Tips:</strong> Your AI App project makes excellent portfolio material! When preparing your portfolio, document: (1) Why you chose this project (motivation), (2) What challenges you faced and how you solved them (problem-solving skills), (3) What you learned (growth & reflection), (4) Screenshots and demo videos. These showcase your coding ability, creativity, and independent thinking.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 8.5 Challenge -->
+    <section class="section reveal" id="section-8-5">
+      <h2><span class="zh">8.5 挑战任务</span><span class="en">8.5 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：完成项目规划文档</span><span class="en">Challenge A: Complete Your Project Plan</span></h3>
+          <p><span class="zh">按照 8.3 的设计流程，完成你的项目规划文档。包含以下内容：① 一句话描述你的 App，② 目标用户是谁，③ 至少 3 个屏幕的线框图（可以拍照上传），④ 需要的组件和 API 清单，⑤ 开发时间表（分 4 个阶段）。把文档保存好，下节课你将根据这份计划开始开发！</span><span class="en">Follow the design process from Section 8.3 and complete your project plan document. Include: (1) One-sentence App description, (2) Who your target users are, (3) Wireframes for at least 3 screens (you can take photos), (4) List of required components and APIs, (5) Development timeline (4 phases). Save your document — next lesson you'll start building based on this plan!</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：一分钟电梯演讲</span><span class="en">Challenge B: 1-Minute Elevator Pitch</span></h3>
+          <p><span class="zh">准备一段 1 分钟的"电梯演讲"（Elevator Pitch），用来向别人介绍你的 App 创意。要求包含：① 你的 App 叫什么名字？② 它解决什么问题？③ 谁会用它？④ 它用了什么 AI 技术？⑤ 为什么它很酷？练习对着镜子说三遍，然后尝试在下次课上向同学们展示。好的演讲能让别人一听就想用你的 App！</span><span class="en">Prepare a 1-minute "Elevator Pitch" to introduce your App idea to others. Include: (1) What's your App called? (2) What problem does it solve? (3) Who will use it? (4) What AI technology does it use? (5) Why is it cool? Practice saying it in front of a mirror three times, then try presenting it to classmates next lesson. A great pitch makes people want to try your App immediately!</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-8">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="app8">
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">1. 在开始写代码之前，应该先做什么？</span><span class="en">1. What should you do before starting to write code?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">直接打开 App Inventor 开始拼积木</span>
+              <span class="en">Jump right into App Inventor and start building blocks</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">先做一个完美的图标</span>
+              <span class="en">Design a perfect icon first</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">选择创意、画线框图、规划组件和时间表</span>
+              <span class="en">Choose an idea, sketch wireframes, plan components and timeline</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">先学完所有编程语言</span>
+              <span class="en">Learn all programming languages first</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">好的 App 都是先设计、再开发。在写代码之前，应该先确定创意、画出界面草图、列出需要的组件和 API，并制定开发时间表。这样开发时才有明确方向。</span><span class="en">Great apps are designed first, then built. Before coding, you should define your idea, sketch wireframes, list required components and APIs, and create a development timeline. This gives you clear direction during development.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">2. 什么是线框图（Wireframe）？</span><span class="en">2. What is a Wireframe?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">一种高清的 App 截图</span>
+              <span class="en">A high-resolution App screenshot</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">App 界面布局的简单草图</span>
+              <span class="en">A simple sketch of the App's interface layout</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">App 的源代码文件</span>
+              <span class="en">The App's source code file</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">一种网络连接方式</span>
+              <span class="en">A type of network connection</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">线框图（Wireframe）是用简单的线条和形状画出的 App 界面草图。它帮助你在写代码之前就规划好每个页面的布局、按钮位置和功能。用纸笔就能画。</span><span class="en">A wireframe is a simple sketch of an App's interface using basic lines and shapes. It helps you plan each page's layout, button positions, and features before writing any code. Paper and pen is all you need.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. MIT App Inventor Hackathon 的评判标准包括以下哪些？</span><span class="en">3. Which of the following are judging criteria for the MIT App Inventor Hackathon?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">创意性、功能性、设计感、社会影响</span>
+              <span class="en">Creativity, Functionality, Design, Social Impact</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">代码行数、运行速度、文件大小</span>
+              <span class="en">Lines of code, speed, file size</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">使用了多少个 API、动画效果多不多</span>
+              <span class="en">Number of APIs used, how many animations</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">App 的名字是否好听</span>
+              <span class="en">Whether the App has a catchy name</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">Hackathon 评委通常从创意性（是否新颖）、功能性（是否能用）、设计感（是否美观易用）和社会影响（是否有价值）四个维度来评判作品。</span><span class="en">Hackathon judges typically evaluate projects across four dimensions: Creativity (is it novel), Functionality (does it work), Design (is it user-friendly), and Social Impact (does it provide value).</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 用一句话描述 App 时，推荐的格式是什么？</span><span class="en">4. What is the recommended format for describing your App in one sentence?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">"我的 App 使用了 [技术] 和 [技术]"</span>
+              <span class="en">"My App uses [technology] and [technology]"</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">"我的 App 很酷因为 [原因]"</span>
+              <span class="en">"My App is cool because [reason]"</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">"我的 App 有 [数量] 个功能"</span>
+              <span class="en">"My App has [number] features"</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">"我的 App 帮助 [谁] 解决 [什么问题]，通过 [什么方式]"</span>
+              <span class="en">"My App helps [who] solve [what problem] by [how]"</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">好的一句话描述应该包含三个要素：谁会用（目标用户）、解决什么问题（价值）、用什么方式解决（方法）。这样别人一听就能理解你的 App 是做什么的。</span><span class="en">A good one-sentence description should include three elements: who will use it (target users), what problem it solves (value), and how it solves it (method). This helps others instantly understand what your App does.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. 开发项目时，推荐的第一步是什么？</span><span class="en">5. What is the recommended first step when developing your project?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">先把所有功能都做完，最后再调界面</span>
+              <span class="en">Build all features first, then adjust the interface last</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">先搭建基础界面，实现最核心的一个功能</span>
+              <span class="en">Build the basic interface first and implement one core feature</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">先做一个炫酷的启动动画</span>
+              <span class="en">Create a cool startup animation first</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">先写一份 100 页的计划书</span>
+              <span class="en">Write a 100-page project plan first</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">开发项目的推荐第一步是搭建基础界面并实现最核心的功能。先让 App "能用"，再慢慢添加更多功能和美化界面。这叫做"MVP（最小可行产品）"开发方法。</span><span class="en">The recommended first step is to build the basic interface and implement the single most important feature. Get the App "working" first, then gradually add more features and polish the UI. This is called the "MVP (Minimum Viable Product)" development approach.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson7.html"><span class="zh">← 上一课</span><span class="en">← Previous Lesson</span></a>
+      <a href="lesson9.html"><span class="zh">下一课 →</span><span class="en">Next Lesson →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

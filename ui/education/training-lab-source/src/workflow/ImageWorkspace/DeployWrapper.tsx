@@ -1,0 +1,22 @@
+import React from 'react';
+import { useAtomValue } from 'jotai';
+import { p2pActive } from '../../state';
+import { useVariant } from '../../util/variant';
+import PeerDeployer from '@genaitm/components/PeerDeployer/PeerDeployer';
+import Deployer from '@genaitm/components/Deployer/Deployer';
+import ShareProtocol from '@genaitm/workflow/ImageWorkspace/ShareProtocol';
+
+export default function DeployWrapper() {
+    const { usep2p, allowDeploy } = useVariant();
+    const enableP2P = useAtomValue(p2pActive);
+
+    if (!allowDeploy) return null;
+
+    return (
+        <React.Suspense fallback="">
+            {usep2p && enableP2P && <PeerDeployer />}
+            {!usep2p && <Deployer />}
+            <ShareProtocol />
+        </React.Suspense>
+    );
+}

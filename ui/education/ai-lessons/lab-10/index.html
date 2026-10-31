@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI 实验室 — 10个动手AI实验项目 | AI Lab — 10 Hands-On AI Lab Projects">
+  <title>AI 实验室 | AI Lab</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 实验室</span>
+      <span class="en">AI Lab</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lessons/lesson1.html"><span class="zh">实验1</span><span class="en">Lab1</span></a>
+      <a href="lessons/lesson2.html"><span class="zh">实验2</span><span class="en">Lab2</span></a>
+      <a href="lessons/lesson3.html"><span class="zh">实验3</span><span class="en">Lab3</span></a>
+      <a href="lessons/lesson4.html"><span class="zh">实验4</span><span class="en">Lab4</span></a>
+      <a href="lessons/lesson5.html"><span class="zh">实验5</span><span class="en">Lab5</span></a>
+      <a href="lessons/lesson6.html"><span class="zh">实验6</span><span class="en">Lab6</span></a>
+      <a href="lessons/lesson7.html"><span class="zh">实验7</span><span class="en">Lab7</span></a>
+      <a href="lessons/lesson8.html"><span class="zh">实验8</span><span class="en">Lab8</span></a>
+      <a href="lessons/lesson9.html"><span class="zh">实验9</span><span class="en">Lab9</span></a>
+      <a href="lessons/lesson10.html"><span class="zh">实验10</span><span class="en">Lab10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="zh">AI 实验室</span>
+        <span class="en">AI Lab</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span class="zh">10 个动手实验，从零开始构建真实的 AI 项目</span>
+        <span class="en">10 hands-on labs — build real AI projects from scratch</span>
+      </p>
+      <a href="lessons/lesson1.html" class="hero-cta">
+        <span class="zh">开始实验</span>
+        <span class="en">Start Labs</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Features Section ============ -->
+  <section class="features">
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">动手实践</span>
+          <span class="en">Hands-On</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">每节课都有完整的项目，边做边学</span>
+          <span class="en">Every lab builds a complete project — learn by doing</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">真实代码</span>
+          <span class="en">Real Code</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">使用 Python 和在线工具编写真正的 AI 程序</span>
+          <span class="en">Write real AI programs with Python and online tools</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">本地运行</span>
+          <span class="en">Run Locally</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">使用本地 Jupyter Notebook 环境，交互式运行代码</span>
+          <span class="en">Use local Jupyter Notebook for interactive coding</span>
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="feature-title">
+          <span class="zh">10 个项目</span>
+          <span class="en">10 Projects</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="zh">从图像识别到游戏AI，涵盖多个热门方向</span>
+          <span class="en">From image recognition to game AI — covering hot topics</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Lesson List Section ============ -->
+  <section class="lessons">
+    <h2 class="lessons-heading">
+      <span class="zh">实验目录</span>
+      <span class="en">Lab Directory</span>
+    </h2>
+
+    <div class="lessons-grid">
+
+      <!-- Lab 1 -->
+      <div class="lesson-card" data-lesson="lesson1">
+        <span class="lesson-number">01</span>
+        <h3 class="lesson-title">
+          <span class="zh">AI实验入门</span>
+          <span class="en">Getting Started with AI Labs</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">搭建工具环境，完成你的第一次 API 调用</span>
+          <span class="en">Set up your tools and make your first API call</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson1.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 2 -->
+      <div class="lesson-card" data-lesson="lesson2">
+        <span class="lesson-number">02</span>
+        <h3 class="lesson-title">
+          <span class="zh">图像识别实验</span>
+          <span class="en">Image Recognition Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">构建一个能识别图片内容的图像分类器</span>
+          <span class="en">Build an image classifier that recognizes pictures</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson2.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 3 -->
+      <div class="lesson-card" data-lesson="lesson3">
+        <span class="lesson-number">03</span>
+        <h3 class="lesson-title">
+          <span class="zh">文本分析实验</span>
+          <span class="en">Text Analysis Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">打造一个情感分析工具，让AI读懂文字背后的情绪</span>
+          <span class="en">Build a sentiment analysis tool — let AI read emotions in text</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson3.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 4 -->
+      <div class="lesson-card" data-lesson="lesson4">
+        <span class="lesson-number">04</span>
+        <h3 class="lesson-title">
+          <span class="zh">聊天机器人实验</span>
+          <span class="en">Chatbot Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">构建一个能对话的简易聊天机器人</span>
+          <span class="en">Build a simple chatbot that can hold conversations</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson4.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 5 -->
+      <div class="lesson-card" data-lesson="lesson5">
+        <span class="lesson-number">05</span>
+        <h3 class="lesson-title">
+          <span class="zh">AI绘画实验</span>
+          <span class="en">AI Art Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">用AI生成独一无二的艺术作品</span>
+          <span class="en">Generate unique artwork with AI</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson5.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 6 -->
+      <div class="lesson-card" data-lesson="lesson6">
+        <span class="lesson-number">06</span>
+        <h3 class="lesson-title">
+          <span class="zh">语音识别实验</span>
+          <span class="en">Speech Recognition Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">制作一个语音指令应用，让电脑听懂你说的话</span>
+          <span class="en">Create a voice command app — make your computer understand you</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson6.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 7 -->
+      <div class="lesson-card" data-lesson="lesson7">
+        <span class="lesson-number">07</span>
+        <h3 class="lesson-title">
+          <span class="zh">推荐系统实验</span>
+          <span class="en">Recommendation System Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">构建一个音乐推荐系统，像Spotify一样推荐歌曲</span>
+          <span class="en">Build a music recommender — recommend songs like Spotify</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson7.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 8 -->
+      <div class="lesson-card" data-lesson="lesson8">
+        <span class="lesson-number">08</span>
+        <h3 class="lesson-title">
+          <span class="zh">数据可视化实验</span>
+          <span class="en">Data Visualization Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">用图表展示AI数据集，让数据会说话</span>
+          <span class="en">Visualize AI datasets with charts — make data speak</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson8.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 9 -->
+      <div class="lesson-card" data-lesson="lesson9">
+        <span class="lesson-number">09</span>
+        <h3 class="lesson-title">
+          <span class="zh">AI游戏实验</span>
+          <span class="en">AI Game Lab</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">训练一个AI游戏代理，让AI学会玩游戏</span>
+          <span class="en">Train an AI game agent — teach AI to play games</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson9.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+      <!-- Lab 10 -->
+      <div class="lesson-card" data-lesson="lesson10">
+        <span class="lesson-number">10</span>
+        <h3 class="lesson-title">
+          <span class="zh">综合项目展示</span>
+          <span class="en">Final Project Showcase</span>
+        </h3>
+        <p class="lesson-desc">
+          <span class="zh">综合所有技能，完成你的AI毕业项目</span>
+          <span class="en">Combine all skills in your final AI capstone project</span>
+        </p>
+        <span class="lesson-status hidden"><span class="zh"></span><span class="en"></span></span>
+        <a href="lessons/lesson10.html" class="lesson-btn">
+          <span class="zh">开始实验</span>
+          <span class="en">Start Lab</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

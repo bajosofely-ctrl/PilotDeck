@@ -1,0 +1,118 @@
+{
+  "app": {
+    "title": "AI 训练实验室",
+    "about": "关于",
+    "save": "保存",
+    "load": "打开",
+    "language": "语言",
+    "reminder": "请记得保存你的分类器。",
+    "models": { "image": "图像", "pose": "身体姿态", "hand": "手势", "speech": "声音" },
+    "github": "源代码",
+    "teachingMaterials": "教学材料",
+    "selectModel": "你想识别什么？",
+    "enableUSB": "使用 USB 设备",
+    "subtitle": "用自己的样本训练分类器"
+  },
+  "load": {
+    "title": "打开分类器",
+    "code": "输入分享码",
+    "actions": { "openFile": "打开文件", "openCode": "使用分享码", "cancel": "取消" }
+  },
+  "save": {
+    "title": "保存分类器",
+    "noModel": "请先创建分类器。",
+    "message": "将分类器保存到本地文件。",
+    "saveSamples": "保存样本",
+    "saveClassifier": "保存分类器",
+    "saveBehaviours": "保存响应动作",
+    "name": "名称",
+    "actions": { "save": "保存", "cancel": "取消" }
+  },
+  "alignment": { "aria": { "left": "左对齐", "center": "居中", "right": "右对齐", "align": "文字对齐" } },
+  "fontsize": { "aria": { "title": "字号", "increase": "增大", "decrease": "减小" } },
+  "trainingdata": {
+    "actions": {
+      "addClass": "添加类别", "webcam": "摄像头", "audio": "麦克风", "upload": "上传",
+      "datasets": "数据集", "deleteClass": "删除类别", "disableClass": "停用类别",
+      "enableClass": "启用类别", "removeAll": "清空样本", "capture": "按住采集",
+      "fileCapture": "提取", "record": "录制", "collaborate": "协作", "cancel": "取消",
+      "use": "使用（{{count}}）", "displayMore": "显示 {{count}} 张图像"
+    },
+    "labels": {
+      "title": "训练数据", "addSamples": "添加图像样本", "imageSamples": "{{count}} 个图像样本",
+      "addAudioSamples": "添加声音样本", "audioSamples": "{{count}} 个声音样本",
+      "class": "类别", "noiseClass": "背景噪声", "wait": "正在采集…", "stop": "停止",
+      "dropFiles": "或拖入图像文件", "dropAudioFiles": "或拖入音频文件",
+      "needsMore": "需要更多样本", "dropError": "只能拖入图像", "dropAudioError": "只能拖入音频",
+      "emptyClass": "此类别还没有样本。", "disabled": "已停用",
+      "selectDataset": "选择数据集", "selectTestData": "选择图像", "searchDataset": "搜索数据集",
+      "images": "图像", "selected": "已选", "loading": "正在加载…",
+      "loadingDataset": "正在加载图像 {{loaded}}/{{total}}…", "datasetLoadError": "图像加载失败，请重试。"
+    },
+    "aria": { "sample": "已上传样本", "delete": "删除样本", "more": "更多选项", "close": "关闭", "classCard": "{{name}} 的训练数据" }
+  },
+  "heatmap": {
+    "title": "识别解释", "colorScaleHelp": "红色表示模型更关注的区域，蓝色表示关注较少的区域。",
+    "noPoseDetected": "未检测到姿态", "high": "高", "low": "低"
+  },
+  "underTheHood": { "title": "模型内部", "visualization": "热力图", "statistics": "模型统计", "transferLearning": "迁移学习", "on": "开", "off": "关" },
+  "charts": {
+    "accuracyPerClass": "各类别准确率",
+    "accuracyPerClassHelp": "显示模型正确预测各类别样本的比例。1.00 表示全部正确。",
+    "confusionMatrix": "混淆矩阵", "confusionMatrixHelp": "行是真实类别，列是预测类别。对角线为正确预测。",
+    "accuracyPerEpoch": "每轮准确率", "accuracyPerEpochHelp": "准确率范围为 0 到 1。数值越高，正确预测的比例越大。",
+    "lossPerEpoch": "每轮损失", "lossPerEpochHelp": "损失反映模型在训练中的误差，通常越低越好。",
+    "transferLearningMatrix": "迁移学习矩阵", "transferLearningGraph": "迁移学习图",
+    "transferLearningFlow": "迁移学习流程", "transferLearningUserClass": "自定义类别",
+    "transferLearningCurrentInput": "当前输入", "transferLearningSimilarity": "相似度",
+    "transferLearningSamples": "{{count}} 个样本", "transferLearningStages": "迁移学习阶段",
+    "transferLearningStageConcepts": "概念", "transferLearningStageConnections": "连接",
+    "transferLearningStageAdvanced": "高级", "pretrainedConceptsTitle": "预训练模型识别的概念",
+    "pretrainedConceptsHelp": "预训练模型从 ImageNet 中学到的概念，百分比越高表示匹配程度越高。",
+    "pretrainedModelLayers": "预训练模型", "pretrainedModelSubtitle": "识别 ImageNet 概念",
+    "pretrainedSampleAlt": "{{label}} 样本 {{index}}", "class": "类别", "accuracy": "准确率",
+    "testSamples": "测试样本数", "prediction": "预测", "actual": "实际", "predicted": "预测",
+    "count": "数量", "acc": "准确率", "testAcc": "验证准确率", "loss": "损失",
+    "testLoss": "验证损失", "epochs": "训练轮数", "epoch": "轮次",
+    "neuronExplanationTitle": "神经元解释", "neuronCrossClass": "类别平均激活值",
+    "neuronTopN": "显示前 {{n}} 个神经元", "transferLearningBarChart": "输入相似度",
+    "transferLearningBarChartHelp": "比较当前输入与各类别的 ImageNet 概念分数分布，柱形越高表示越相似。"
+  },
+  "training": {
+    "actions": { "train": "训练分类器" },
+    "labels": {
+      "title": "训练", "addMore": "至少添加两个类别，每类至少两个样本。声音训练还需要至少 20 个背景噪声样本。",
+      "needsTraining": "样本已就绪，可以开始训练。", "advanced": "高级参数",
+      "epochs": "训练轮数", "learningRate": "学习率", "batchSize": "批次大小",
+      "loading": "正在加载分类器", "prepairing": "正在处理样本…",
+      "training": "正在训练分类器", "complete": "训练完成", "failed": "训练失败，请检查样本后重试。"
+    },
+    "tooltips": {
+      "epochs": "每个样本参与训练的次数。", "learningRate": "每次更新参数的幅度，建议小于 0.1。",
+      "batchSize": "每次训练更新所使用的样本数量。"
+    }
+  },
+  "input": {
+    "labels": { "title": "测试输入", "webcam": "摄像头", "audio": "麦克风", "file": "文件", "device": "其他设备", "dataset": "数据集", "switchOn": "开", "switchOff": "关", "upload": "上传或拖入文件" },
+    "aria": { "switch": "启用输入" }
+  },
+  "model": {
+    "actions": { "export": "导出到外部工具", "clone": "分享副本", "bm": "在 Breakable Machine 中使用" },
+    "labels": { "title": "分类器", "mustTrain": "请先训练分类器", "mustInput": "请添加测试输入", "failedTensorflow": "设备或浏览器无法运行此分类器" },
+    "aria": { "more": "更多选项" }
+  },
+  "output": {
+    "labels": { "title": "输出", "deploy": "部署", "serialdevice": "USB 设备", "connect": "连接", "disconnect": "断开" },
+    "aria": { "volume": "音量", "image": "类别 {{index}} 输出", "display": "类别 {{index}} 输出", "expand": "放大窗口", "serialdevice": "串口设备" }
+  },
+  "behaviours": {
+    "actions": { "upload": "上传", "dataset": "数据集", "delete": "删除", "record": "录制", "stop": "停止" },
+    "labels": { "title": "响应动作", "message": "文字", "link": "链接", "linkError": "不支持此链接", "voiceRecording": "声音录制", "dropError": "只能拖入图像或声音", "loop": "循环" },
+    "aria": { "message": "输出文字", "image": "图像响应", "sound": "声音响应", "text": "文字响应", "embed": "链接响应", "imageOutput": "已上传图像", "noImage": "图像占位", "stop": "停止", "play": "播放", "behaviourCard": "{{name}} 的响应", "loop": "循环" }
+  },
+  "stepper": { "actions": { "next": "下一步" }, "aria": { "step": "实验步骤" } },
+  "webcam": { "aria": { "video": "摄像头实时画面", "flip": "切换摄像头" } },
+  "widget": { "aria": { "editTitle": "修改名称", "editTitleInput": "{{value}} 名称编辑框" }, "labels": { "titlePlaceholder": "名称" } },
+  "fontcolor": { "aria": { "title": "文字颜色" } },
+  "share": { "actions": { "close": "关闭", "share": "分享", "stopShare": "停止分享" }, "labels": { "title": "分享", "includeSamples": "包含样本" } }
+}

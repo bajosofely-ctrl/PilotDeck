@@ -1,0 +1,157 @@
+/* ── Colour tokens from @genai-fi/base ─────────────────────────────────── */
+@value primary, primaryHover, bgSubdued1, textDark from "@genai-fi/base/css/colours.module.css";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    transition: height 0.5s;
+    max-width: calc(224px + 2rem);
+}
+
+.container :global .MuiTabs-root {
+    min-height: 34px;
+}
+
+.container :global .MuiTabs-scroller {
+    height: 34px;
+}
+
+/*.container[data-variant='image'] :global .MuiTabs-root {
+    max-width: 280px;
+}
+
+.container[data-variant='image'] :global .MuiTabs-flexContainer {
+    gap: 2px;
+}
+
+.container[data-variant='pose'] :global .MuiTabs-root {
+    max-width: 289px;
+}
+
+.container[data-variant='pose'] :global .MuiTabs-flexContainer {
+    gap: 4px;
+}
+
+.container[data-variant='hand'] :global .MuiTabs-root {
+    max-width: 289px;
+}
+
+.container[data-variant='hand'] :global .MuiTabs-flexContainer {
+    gap: 4px;
+}*/
+
+.container :global .MuiTabs-root .MuiTab-root {
+    text-transform: none;
+    min-width: 60px;
+    min-height: 34px;
+    padding: 5px 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: textDark;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.container :global .MuiTabs-root .MuiTab-root:hover:not(.Mui-disabled) {
+    background-color: primaryHover;
+    opacity: 1;
+}
+
+.container :global .MuiTabs-root .MuiTab-root.Mui-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: auto;
+}
+
+.container :global .MuiTabs-root .MuiTab-root.Mui-selected {
+    background-color: bgSubdued1;
+    color: primary;
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* Hide the underline indicator — selection is shown via background instead */
+.container :global .MuiTabs-indicator {
+    display: none;
+}
+
+.container :global .MuiTabScrollButton-root {
+    font-size: 1.5rem;
+}
+
+.inputContainer {
+    border-radius: 6px;
+    overflow: hidden;
+    align-self: center;
+    margin: 1rem;
+    transition: filter 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputContainerDisable {
+    composes: inputContainer;
+    filter: grayscale(0.8);
+}
+
+.filesButton {
+    padding: 1rem;
+    border-radius: 6px;
+    border-style: dashed;
+}
+
+.filesButtonHighlight {
+    composes: filesButton;
+    background: bgSubdued1;
+}
+
+.fileImage canvas {
+    margin-top: 1rem;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.qrcode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fileActionsRow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.datasetActionsRow {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.canvasContainer {
+    max-width: 200px;
+    background: rgb(71, 0, 77);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #bbb;
+    display: flex;
+    margin: 0.5rem;
+}
+
+.fileInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.webcamcontainer canvas {
+    width: 224px;
+    height: 224px;
+}

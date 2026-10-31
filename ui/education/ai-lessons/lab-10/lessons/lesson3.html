@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="实验3：文本分析实验 | Lab 3: Text Analysis Lab">
+  <title>实验3：文本分析实验 | Lab 3: Text Analysis Lab</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 实验室</span>
+      <span class="en">AI Lab</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">实验1</span><span class="en">Lab1</span></a>
+      <a href="lesson2.html"><span class="zh">实验2</span><span class="en">Lab2</span></a>
+      <a href="lesson3.html" class="active"><span class="zh">实验3</span><span class="en">Lab3</span></a>
+      <a href="lesson4.html"><span class="zh">实验4</span><span class="en">Lab4</span></a>
+      <a href="lesson5.html"><span class="zh">实验5</span><span class="en">Lab5</span></a>
+      <a href="lesson6.html"><span class="zh">实验6</span><span class="en">Lab6</span></a>
+      <a href="lesson7.html"><span class="zh">实验7</span><span class="en">Lab7</span></a>
+      <a href="lesson8.html"><span class="zh">实验8</span><span class="en">Lab8</span></a>
+      <a href="lesson9.html"><span class="zh">实验9</span><span class="en">Lab9</span></a>
+      <a href="lesson10.html"><span class="zh">实验10</span><span class="en">Lab10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">实验 3</span>
+        <span class="en">Lab 3</span>
+      </span>
+      <h1>
+        <span class="zh">文本分析实验</span>
+        <span class="en">Text Analysis Lab</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">打造一个情感分析工具，让AI读懂文字背后的情绪</span>
+        <span class="en">Build a sentiment analysis tool that reads emotions behind text</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 3.1 Lab Goal -->
+    <section class="section reveal" id="section-3-1">
+      <h2><span class="zh">3.1 实验目标</span><span class="en">3.1 Lab Goal</span></h2>
+      <p>
+        <span class="zh">在这个实验中，你将构建一个完整的文本情感分析工具。它能分析一段文字是积极的、消极的还是中性的。你还会学习如何对电影评论和社交媒体帖子进行自动分析。</span>
+        <span class="en">In this lab, you'll build a complete text sentiment analysis tool. It can determine whether a piece of text is positive, negative, or neutral. You'll also learn to automatically analyze movie reviews and social media posts.</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">理解 NLP</span><span class="en">Understand NLP</span></h3>
+          <p><span class="zh">了解自然语言处理基础</span><span class="en">Learn NLP fundamentals</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">情感分析</span><span class="en">Sentiment Analysis</span></h3>
+          <p><span class="zh">分析文本情绪倾向</span><span class="en">Analyze text sentiment</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">批量处理</span><span class="en">Batch Processing</span></h3>
+          <p><span class="zh">一次分析多条评论</span><span class="en">Analyze multiple reviews at once</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3.2 Background -->
+    <section class="section reveal" id="section-3-2">
+      <h2><span class="zh">3.2 背景知识</span><span class="en">3.2 Background</span></h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>什么是 NLP？</strong> NLP（Natural Language Processing，自然语言处理）是 AI 的一个分支，专门研究如何让计算机理解和处理人类语言。你每天用的搜索引擎、翻译工具、语音助手背后都有 NLP 技术。</span>
+          <span class="en"><strong>What is NLP?</strong> NLP (Natural Language Processing) is a branch of AI focused on helping computers understand and process human language. Search engines, translation tools, and voice assistants all use NLP behind the scenes.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh"><strong>情感分析</strong>是 NLP 中最常见的应用之一。商家用它来分析用户评论，社交媒体用它来检测有害内容，新闻机构用它来了解公众情绪。</span>
+        <span class="en"><strong>Sentiment analysis</strong> is one of the most common NLP applications. Businesses use it to analyze reviews, social media platforms use it to detect harmful content, and news agencies use it to gauge public opinion.</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">积极情感</span><span class="en">Positive Sentiment</span></h3>
+          <p><span class="zh">"这部电影太棒了！剧情引人入胜，演员演技精湛。"</span><span class="en">"This movie was amazing! The plot was captivating and the acting was brilliant."</span></p>
+        </div>
+        <div class="compare-col highlight-bad">
+          <h3><span class="zh">消极情感</span><span class="en">Negative Sentiment</span></h3>
+          <p><span class="zh">"这部电影太无聊了，剧情拖沓，浪费了我两个小时。"</span><span class="en">"This movie was so boring. The plot dragged on and wasted two hours of my life."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3.3 Hands-On -->
+    <section class="section reveal" id="section-3-3">
+      <h2><span class="zh">3.3 动手实验</span><span class="en">3.3 Hands-On</span></h2>
+
+      <h3><span class="zh">步骤 1：安装工具</span><span class="en">Step 1: Install Tools</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 安装所需库 / Install required libraries</span>
+<span class="cm"># Install required libraries</span>
+<span class="op">!</span><span class="var">pip</span> <span class="var">install</span> <span class="var">transformers</span> <span class="var">textblob</span>
+<span class="kw">import</span> <span class="var">nltk</span>
+<span class="var">nltk</span>.<span class="fn">download</span>(<span class="str">&#x27;punkt_tab&#x27;</span>)</code></pre>
+      </div>
+
+      <h3><span class="zh">步骤 2：使用 TextBlob 进行简单情感分析</span><span class="en">Step 2: Simple Sentiment Analysis with TextBlob</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="kw">from</span> <span class="var">textblob</span> <span class="kw">import</span> <span class="var">TextBlob</span>
+
+<span class="cm"># 创建一个简单的情感分析函数</span>
+<span class="cm"># Create a simple sentiment analysis function</span>
+<span class="kw">def</span> <span class="fn">analyze</span>(<span class="var">text</span>):
+    <span class="var">blob</span> <span class="op">=</span> <span class="fn">TextBlob</span>(<span class="var">text</span>)
+    <span class="var">polarity</span> <span class="op">=</span> <span class="var">blob</span>.<span class="var">sentiment</span>.<span class="var">polarity</span>  <span class="cm"># -1 (negative) to 1 (positive)</span>
+
+    <span class="kw">if</span> <span class="var">polarity</span> <span class="op">&gt;</span> <span class="num">0.1</span>:
+        <span class="var">mood</span> <span class="op">=</span> <span class="str">&quot;Positive&quot;</span>
+    <span class="kw">elif</span> <span class="var">polarity</span> <span class="op">&lt;</span> <span class="op">-</span><span class="num">0.1</span>:
+        <span class="var">mood</span> <span class="op">=</span> <span class="str">&quot;Negative&quot;</span>
+    <span class="kw">else</span>:
+        <span class="var">mood</span> <span class="op">=</span> <span class="str">&quot;Neutral&quot;</span>
+
+    <span class="kw">return</span> <span class="var">mood</span>, <span class="var">polarity</span>
+
+<span class="cm"># 测试不同的句子 / Test different sentences</span>
+<span class="var">test_sentences</span> <span class="op">=</span> [
+    <span class="str">&quot;I absolutely love this new game! It&#x27;s so much fun!&quot;</span>,
+    <span class="str">&quot;The weather today is terrible and I feel awful.&quot;</span>,
+    <span class="str">&quot;I went to the store to buy some milk.&quot;</span>,
+    <span class="str">&quot;This is the best day of my life!&quot;</span>,
+    <span class="str">&quot;I&#x27;m so disappointed with this product.&quot;</span>
+]
+
+<span class="fn">print</span>(<span class="str">&quot;=== Sentiment Analysis Results ===\n&quot;</span>)
+<span class="kw">for</span> <span class="var">sentence</span> <span class="kw">in</span> <span class="var">test_sentences</span>:
+    <span class="var">mood</span>, <span class="var">score</span> <span class="op">=</span> <span class="fn">analyze</span>(<span class="var">sentence</span>)
+    <span class="fn">print</span>(<span class="str">f&quot;Text: {sentence}&quot;</span>)
+    <span class="fn">print</span>(<span class="str">f&quot;Mood: {mood} (score: {score:.2f})&quot;</span>)
+    <span class="fn">print</span>()</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>提示：</strong>情感分数范围是 -1 到 1。接近 1 表示非常积极，接近 -1 表示非常消极，接近 0 表示中性。</span>
+          <span class="en"><strong>Tip:</strong> The sentiment score ranges from -1 to 1. Close to 1 = very positive, close to -1 = very negative, close to 0 = neutral.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 3：使用 AI 模型进行高级情感分析</span><span class="en">Step 3: Advanced Sentiment Analysis with an AI Model</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="kw">from</span> <span class="var">transformers</span> <span class="kw">import</span> <span class="var">pipeline</span>
+
+<span class="cm"># 加载预训练的情感分析模型</span>
+<span class="cm"># Load a pre-trained sentiment analysis model</span>
+<span class="var">sentiment_model</span> <span class="op">=</span> <span class="fn">pipeline</span>(<span class="str">&quot;sentiment-analysis&quot;</span>)
+
+<span class="cm"># 分析电影评论 / Analyze movie reviews</span>
+<span class="var">reviews</span> <span class="op">=</span> [
+    <span class="str">&quot;The special effects were incredible and the story kept me on the edge of my seat!&quot;</span>,
+    <span class="str">&quot;Waste of money. The acting was wooden and the plot made no sense.&quot;</span>,
+    <span class="str">&quot;It was okay, nothing special but not bad either.&quot;</span>,
+    <span class="str">&quot;A masterpiece! One of the best films I&#x27;ve ever seen.&quot;</span>,
+    <span class="str">&quot;I fell asleep halfway through. So boring!&quot;</span>
+]
+
+<span class="fn">print</span>(<span class="str">&quot;=== Movie Review Analysis ===\n&quot;</span>)
+<span class="kw">for</span> <span class="var">review</span> <span class="kw">in</span> <span class="var">reviews</span>:
+    <span class="var">result</span> <span class="op">=</span> <span class="fn">sentiment_model</span>(<span class="var">review</span>)[<span class="num">0</span>]
+    <span class="var">label</span> <span class="op">=</span> <span class="var">result</span>[<span class="str">&quot;label&quot;</span>]
+    <span class="var">score</span> <span class="op">=</span> <span class="var">result</span>[<span class="str">&quot;score&quot;</span>]
+    <span class="var">emoji</span> <span class="op">=</span> <span class="str">&quot;👍&quot;</span> <span class="kw">if</span> <span class="var">label</span> <span class="op">==</span> <span class="str">&quot;POSITIVE&quot;</span> <span class="kw">else</span> <span class="str">&quot;👎&quot;</span>
+    <span class="fn">print</span>(<span class="str">f&quot;{emoji} [{label} {score:.1%}]&quot;</span>)
+    <span class="fn">print</span>(<span class="str">f&quot;   \&quot;{review}\&quot;&quot;</span>)
+    <span class="fn">print</span>()</code></pre>
+      </div>
+
+      <h3><span class="zh">步骤 4：创建评论分析报告</span><span class="en">Step 4: Create a Review Analysis Report</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 批量分析并生成报告 / Batch analyze and generate a report</span>
+<span class="var">all_reviews</span> <span class="op">=</span> [
+    <span class="str">&quot;Great product, works perfectly!&quot;</span>,
+    <span class="str">&quot;Terrible quality, broke after one day.&quot;</span>,
+    <span class="str">&quot;Exactly what I expected, good value.&quot;</span>,
+    <span class="str">&quot;Don&#x27;t buy this! Total waste of money.&quot;</span>,
+    <span class="str">&quot;My kids love it! Best purchase this year.&quot;</span>,
+    <span class="str">&quot;Average product, nothing impressive.&quot;</span>,
+    <span class="str">&quot;Absolutely fantastic! Highly recommend!&quot;</span>,
+    <span class="str">&quot;Poor customer service, very disappointed.&quot;</span>
+]
+
+<span class="var">positive</span> <span class="op">=</span> <span class="num">0</span>
+<span class="var">negative</span> <span class="op">=</span> <span class="num">0</span>
+
+<span class="kw">for</span> <span class="var">review</span> <span class="kw">in</span> <span class="var">all_reviews</span>:
+    <span class="var">result</span> <span class="op">=</span> <span class="fn">sentiment_model</span>(<span class="var">review</span>)[<span class="num">0</span>]
+    <span class="kw">if</span> <span class="var">result</span>[<span class="str">&quot;label&quot;</span>] <span class="op">==</span> <span class="str">&quot;POSITIVE&quot;</span>:
+        <span class="var">positive</span> <span class="op">+=</span> <span class="num">1</span>
+    <span class="kw">else</span>:
+        <span class="var">negative</span> <span class="op">+=</span> <span class="num">1</span>
+
+<span class="var">total</span> <span class="op">=</span> <span class="fn">len</span>(<span class="var">all_reviews</span>)
+<span class="fn">print</span>(<span class="str">&quot;=== Product Review Report ===&quot;</span>)
+<span class="fn">print</span>(<span class="str">f&quot;Total reviews analyzed: {total}&quot;</span>)
+<span class="fn">print</span>(<span class="str">f&quot;Positive: {positive} ({positive/total:.0%})&quot;</span>)
+<span class="fn">print</span>(<span class="str">f&quot;Negative: {negative} ({negative/total:.0%})&quot;</span>)
+<span class="fn">print</span>(<span class="str">f&quot;\nOverall sentiment: {&#x27;Mostly Positive&#x27; if positive &gt; negative else &#x27;Mostly Negative&#x27;}&quot;</span>)</code></pre>
+      </div>
+    </section>
+
+    <!-- Section 3.4 Challenge -->
+    <section class="section reveal" id="section-3-4">
+      <h2><span class="zh">3.4 挑战任务</span><span class="en">3.4 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：反讽检测</span><span class="en">Challenge A: Sarcasm Detection</span></h3>
+          <p><span class="zh">试试反讽的句子，比如"Oh great, another rainy day. Just what I needed."AI 能分辨反讽吗？试 5 个反讽句子并记录结果。</span><span class="en">Try sarcastic sentences like "Oh great, another rainy day. Just what I needed." Can the AI detect sarcasm? Test 5 sarcastic sentences and record results.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：多语言对比</span><span class="en">Challenge B: Multi-Language Test</span></h3>
+          <p><span class="zh">用 TextBlob 分析同一句话的英文和中文版本。比较两个版本的情感分数是否一致。AI 在哪种语言上更准确？</span><span class="en">Use TextBlob to analyze the same sentence in English and Chinese. Compare scores. In which language is AI more accurate?</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-3">
+      <h2><span class="zh">实验检查</span><span class="en">Lab Check</span></h2>
+      <div class="quiz" data-quiz-id="lab3">
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">1. NLP 代表什么？</span><span class="en">1. What does NLP stand for?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">自然语言处理</span>
+              <span class="en">Natural Language Processing</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">网络语言协议</span>
+              <span class="en">Network Language Protocol</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">新学习平台</span>
+              <span class="en">New Learning Platform</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">下一级编程</span>
+              <span class="en">Next Level Programming</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">NLP 是 Natural Language Processing（自然语言处理）的缩写，是 AI 中处理人类语言的分支。</span><span class="en">NLP stands for Natural Language Processing — the AI branch that deals with human language.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">2. 情感分析中，分数接近 0 表示什么？</span><span class="en">2. In sentiment analysis, what does a score near 0 mean?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">非常积极</span>
+              <span class="en">Very positive</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">非常消极</span>
+              <span class="en">Very negative</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">中性/没有强烈情感</span>
+              <span class="en">Neutral / no strong emotion</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">AI 出错了</span>
+              <span class="en">The AI made an error</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">情感分数接近 0 表示文本是中性的，没有明显的积极或消极情感。</span><span class="en">A sentiment score near 0 means the text is neutral — no strong positive or negative emotion.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">3. 情感分析的常见应用场景是什么？</span><span class="en">3. What is a common use case for sentiment analysis?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">识别图片中的物体</span>
+              <span class="en">Identifying objects in images</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">分析用户产品评论</span>
+              <span class="en">Analyzing user product reviews</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">播放音乐</span>
+              <span class="en">Playing music</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">控制机器人</span>
+              <span class="en">Controlling robots</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">企业经常使用情感分析来自动分析大量的用户产品评论，了解客户满意度。</span><span class="en">Businesses frequently use sentiment analysis to automatically process large volumes of product reviews and gauge customer satisfaction.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. TextBlob 的 polarity 值范围是什么？</span><span class="en">4. What is the range of TextBlob's polarity value?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">0 到 100</span>
+              <span class="en">0 to 100</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">0 到 1</span>
+              <span class="en">0 to 1</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">-100 到 100</span>
+              <span class="en">-100 to 100</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">-1 到 1</span>
+              <span class="en">-1 to 1</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">TextBlob 的 polarity 值范围是 -1（最消极）到 1（最积极）。</span><span class="en">TextBlob's polarity ranges from -1 (most negative) to 1 (most positive).</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">5. 对 AI 情感分析来说，以下哪种情况最难处理？</span><span class="en">5. Which is the hardest for AI sentiment analysis to handle?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">反讽和讽刺</span>
+              <span class="en">Irony and sarcasm</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">非常积极的评论</span>
+              <span class="en">Very positive reviews</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">非常消极的评论</span>
+              <span class="en">Very negative reviews</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">短句子</span>
+              <span class="en">Short sentences</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">反讽和讽刺是情感分析中最难处理的，因为字面意思和真实意思是相反的。</span><span class="en">Irony and sarcasm are hardest for sentiment analysis because the literal meaning is opposite to the intended meaning.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson2.html"><span class="zh">← 上一个实验</span><span class="en">← Previous Lab</span></a>
+      <a href="lesson4.html"><span class="zh">下一个实验 →</span><span class="en">Next Lab →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第5课：监督学习 — 分类与回归 | Lesson 5: Supervised Learning">
+  <title>第5课：监督学习 | Lesson 5: Supervised Learning</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html" class="active"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 5 课</span><span class="en">Lesson 5</span></span>
+      <h1><span class="zh">监督学习</span><span class="en">Supervised Learning</span></h1>
+      <p class="subtitle"><span class="zh">给 AI 带上"老师"——用标注好的数据教它学习</span><span class="en">Giving AI a "teacher" — training it with labeled data</span></p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-5-1">
+      <h2><span class="zh">5.1 什么是监督学习？</span><span class="en">5.1 What Is Supervised Learning?</span></h2>
+      <p><span class="zh"><strong>监督学习（Supervised Learning）</strong>是机器学习中最常用的方法。"监督"的意思是有<strong>老师</strong>——在这里，"老师"就是带有<strong>标签</strong>（正确答案）的数据。</span><span class="en"><strong>Supervised Learning</strong> is the most commonly used method in machine learning. "Supervised" means there's a <strong>teacher</strong> — here, the "teacher" is data with <strong>labels</strong> (correct answers).</span></p>
+      <p><span class="zh">就像学生做练习题时有参考答案一样，AI 通过对比自己的预测和正确答案，不断纠正自己的错误，逐渐变得越来越准确。</span><span class="en">Just like students doing practice problems with answer keys, AI compares its predictions with correct answers, constantly correcting its mistakes, and gradually becoming more accurate.</span></p>
+      <p><span class="zh">监督学习的过程可以概括为三步：</span><span class="en">The supervised learning process can be summarized in three steps:</span></p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg></div>
+          <h4><span class="zh">1. 输入数据</span><span class="en">1. Input Data</span></h4>
+          <p><span class="zh">把带标签的训练数据（如猫/狗图片+标签）输入模型</span><span class="en">Feed labeled training data (e.g., cat/dog images + labels) into the model</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></div>
+          <h4><span class="zh">2. 学习规律</span><span class="en">2. Learn Patterns</span></h4>
+          <p><span class="zh">模型对比预测与标签的差异，自动调整内部参数来减少误差</span><span class="en">Model compares predictions vs labels, auto-adjusting parameters to reduce errors</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h4><span class="zh">3. 预测新数据</span><span class="en">3. Predict New Data</span></h4>
+          <p><span class="zh">训练完成后，模型就能对从未见过的新数据做出准确预测</span><span class="en">After training, the model can accurately predict unseen new data</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-5-2">
+      <h2><span class="zh">5.2 分类：这是猫还是狗？</span><span class="en">5.2 Classification: Cat or Dog?</span></h2>
+      <p><span class="zh">监督学习最常见的任务之一是<strong>分类（Classification）</strong>——把数据归入不同的类别。</span><span class="en">One of the most common supervised learning tasks is <strong>classification</strong> — assigning data to different categories.</span></p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>
+          <h4><span class="zh">二分类</span><span class="en">Binary Classification</span></h4>
+          <p><span class="zh">只有两个类别。例如：邮件是"垃圾邮件"还是"正常邮件"？评论是"积极"还是"消极"？照片中是"猫"还是"狗"？</span><span class="en">Only two categories. Examples: Is an email "spam" or "not spam"? Is a review "positive" or "negative"? Is the photo a "cat" or "dog"?</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg></div>
+          <h4><span class="zh">多分类</span><span class="en">Multi-class Classification</span></h4>
+          <p><span class="zh">多个类别。例如：这张图片是"猫"、"狗"、"鸟"还是"鱼"？这首歌是"流行"、"摇滚"、"古典"还是"嘻哈"？</span><span class="en">Multiple categories. Examples: Is this image a "cat," "dog," "bird," or "fish"? Is this song "pop," "rock," "classical," or "hip-hop"?</span></p>
+        </div>
+      </div>
+      <p><span class="zh"><strong>生活中的分类：</strong>你的手机相册自动将照片按"人物"、"风景"、"美食"分类，这就是 AI 分类在起作用。社交媒体检测和过滤不当言论，也是文本分类的应用。</span><span class="en"><strong>Classification in real life:</strong> Your phone gallery automatically sorts photos into "people," "scenery," "food" — that's AI classification at work. Social media detecting and filtering inappropriate comments is also a text classification application.</span></p>
+    </section>
+
+    <section class="section reveal" id="section-5-3">
+      <h2><span class="zh">5.3 回归：预测一个数字</span><span class="en">5.3 Regression: Predicting a Number</span></h2>
+      <p><span class="zh">分类是预测<strong>类别</strong>（离散的），而<strong>回归（Regression）</strong>是预测一个<strong>连续的数值</strong>。</span><span class="en">Classification predicts <strong>categories</strong> (discrete), while <strong>regression</strong> predicts a <strong>continuous numerical value</strong>.</span></p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg></div>
+          <h4><span class="zh">房价预测</span><span class="en">House Price Prediction</span></h4>
+          <p><span class="zh">根据面积、地段、楼层等特征，预测房子的价格（比如 350 万元）</span><span class="en">Based on area, location, floor, etc., predict house price (e.g., $350,000)</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg></div>
+          <h4><span class="zh">温度预测</span><span class="en">Temperature Prediction</span></h4>
+          <p><span class="zh">根据历史气象数据，预测明天的气温（比如 28.5°C）</span><span class="en">Based on historical weather data, predict tomorrow's temperature (e.g., 28.5°C)</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
+          <h4><span class="zh">股票预测</span><span class="en">Stock Prediction</span></h4>
+          <p><span class="zh">根据市场数据，预测股票的价格走势（注意：AI 也不能保证准确！）</span><span class="en">Based on market data, predict stock price trends (Note: AI can't guarantee accuracy either!)</span></p>
+        </div>
+      </div>
+      <p><span class="zh"><strong>分类 vs 回归的关键区别：</strong>分类的输出是<strong>类别</strong>（"猫"或"狗"），回归的输出是<strong>数字</strong>（28.5°C 或 350万元）。记住这个区别，你就掌握了监督学习的两大核心任务！</span><span class="en"><strong>Key difference between classification and regression:</strong> Classification outputs <strong>categories</strong> ("cat" or "dog"), regression outputs <strong>numbers</strong> (28.5°C or $350,000). Remember this distinction and you've mastered the two core tasks of supervised learning!</span></p>
+    </section>
+
+    <section class="section reveal" id="section-5-4">
+      <h2><span class="zh">5.4 过拟合与欠拟合</span><span class="en">5.4 Overfitting & Underfitting</span></h2>
+      <p><span class="zh">AI 的学习也可能"出问题"。最常见的两种情况是<strong>过拟合</strong>和<strong>欠拟合</strong>。</span><span class="en">AI's learning can also go wrong. The two most common problems are <strong>overfitting</strong> and <strong>underfitting</strong>.</span></p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">📖 过拟合 (Overfitting)</span><span class="en">📖 Overfitting</span></h4>
+          <p><span class="zh">AI "死记硬背"了训练数据，在训练集上表现完美，但面对新数据就"翻车"。</span><span class="en">AI "memorized" the training data, performs perfectly on training set but fails on new data.</span></p>
+          <ul>
+            <li><span class="zh">就像一个学生只背答案，不理解原理</span><span class="en">Like a student who only memorizes answers without understanding</span></li>
+            <li><span class="zh">训练成绩 99%，测试成绩 50%</span><span class="en">Training score 99%, test score 50%</span></li>
+          </ul>
+        </div>
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">💤 欠拟合 (Underfitting)</span><span class="en">💤 Underfitting</span></h4>
+          <p><span class="zh">AI 连训练数据都没学好，在哪里都表现很差。</span><span class="en">AI hasn't even learned the training data well, performing poorly everywhere.</span></p>
+          <ul>
+            <li><span class="zh">就像一个完全没复习的学生</span><span class="en">Like a student who didn't study at all</span></li>
+            <li><span class="zh">训练成绩 50%，测试成绩 45%</span><span class="en">Training score 50%, test score 45%</span></li>
+          </ul>
+        </div>
+      </div>
+      <p><span class="zh"><strong>理想状态：</strong>AI 在训练集和测试集上都表现良好——这说明它真正"学会"了，而不是死记硬背。就像一个学生真正理解了知识，无论遇到什么样的考题都能灵活应对。</span><span class="en"><strong>Ideal state:</strong> AI performs well on both training and test sets — this means it truly "learned," not just memorized. Like a student who truly understood the material and can handle any exam question flexibly.</span></p>
+    </section>
+
+    <section class="section reveal" id="section-5-5">
+      <h2><span class="zh">5.5 小测验</span><span class="en">5.5 Quiz</span></h2>
+      <p><span class="zh">让我们来检验一下你在本课中学到的知识！</span><span class="en">Let's test what you've learned in this lesson!</span></p>
+      <div class="quiz" data-quiz-id="lesson5">
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 监督学习中的"监督"是什么意思？</span><span class="en"><strong>Q1.</strong> What does "supervised" mean in supervised learning?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 用带标签的数据来指导 AI 学习</span><span class="en">A. Using labeled data to guide AI learning</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 有人类全程监视 AI 运行</span><span class="en">B. Humans monitoring AI's operation the whole time</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. AI 监督其他程序的运行</span><span class="en">C. AI supervising other programs</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 政府监管 AI 的使用</span><span class="en">D. Government regulating AI usage</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">"监督"指的是用带有正确答案（标签）的数据来训练 AI，就像老师用带答案的练习题来教学生。</span><span class="en">"Supervised" means using data with correct answers (labels) to train AI, like a teacher using practice problems with answer keys to teach students.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 以下哪个是"回归"任务？</span><span class="en"><strong>Q2.</strong> Which of the following is a "regression" task?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 判断邮件是否为垃圾邮件</span><span class="en">A. Determining if an email is spam</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 识别图片中的动物种类</span><span class="en">B. Identifying animal species in images</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 预测明天的最高气温</span><span class="en">C. Predicting tomorrow's high temperature</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 把评论分为"好评"和"差评"</span><span class="en">D. Classifying reviews as "positive" or "negative"</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">预测气温是预测一个连续数值（如28.5°C），属于回归任务。其他三个都是分类任务（输出是类别）。</span><span class="en">Predicting temperature is predicting a continuous value (e.g., 28.5°C), which is a regression task. The other three are classification tasks (outputs are categories).</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> "过拟合"是什么现象？</span><span class="en"><strong>Q3.</strong> What is "overfitting"?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AI 在训练集和测试集上表现都很差</span><span class="en">A. AI performs poorly on both training and test sets</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. AI 在训练集上表现很好，但在测试集上表现很差</span><span class="en">B. AI performs well on training set but poorly on test set</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. AI 训练时间太长</span><span class="en">C. AI trains for too long</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. AI 需要更多的 GPU</span><span class="en">D. AI needs more GPUs</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">过拟合就是 AI "死记硬背"了训练数据，在训练集上成绩很好，但面对新数据（测试集）就不行了。就像学生只背答案不理解原理。</span><span class="en">Overfitting means AI "memorized" the training data — great scores on training set but fails on new data (test set). Like a student who memorizes answers without understanding.</span></p>
+        </div>
+        <div class="quiz-result hidden">
+          <p class="score"><span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span><span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span></p>
+          <p><span class="zh">完成测验！继续学习下一课吧。</span><span class="en">Quiz complete! Continue to the next lesson.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson4.html"><span class="zh">← 上一课：数据：AI 的粮食</span><span class="en">← Previous: Data: AI's Food</span></a>
+      <a href="lesson6.html"><span class="zh">下一课：无监督学习与强化学习 →</span><span class="en">Next: Unsupervised & Reinforcement Learning →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text"><span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span><span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span></p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

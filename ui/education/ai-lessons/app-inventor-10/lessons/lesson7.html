@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第7课：语音 AI：智能语音助手 App | Lesson 7: Voice AI: Smart Voice Assistant App">
+  <title>第7课：语音 AI：智能语音助手 App | Lesson 7: Voice AI: Smart Voice Assistant App</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html" class="active"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 7 课</span>
+        <span class="en">Lesson 7</span>
+      </span>
+      <h1>
+        <span class="zh">语音 AI：智能语音助手 App</span>
+        <span class="en">Voice AI: Smart Voice Assistant App</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">语音识别 + 文字转语音 + AI，做一个能听能说的助手</span>
+        <span class="en">Speech recognition + text-to-speech + AI — build an assistant that listens and speaks</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 7.1 Course Goal -->
+    <section class="section reveal" id="section-7-1">
+      <h2><span class="zh">7.1 课程目标</span><span class="en">7.1 Course Goal</span></h2>
+      <p>
+        <span class="zh">在这节课中，你将学习如何使用 App Inventor 内置的 <strong>SpeechRecognizer</strong>（语音识别）和 <strong>TextToSpeech</strong>（文字转语音）组件，并结合 ChatGPT API，打造一个能"听懂"你说话、"思考"问题、然后"说出"答案的智能语音助手 App。就像你口袋里的 Siri 或小爱同学一样！</span>
+        <span class="en">In this lesson, you'll learn to use App Inventor's built-in <strong>SpeechRecognizer</strong> (speech-to-text) and <strong>TextToSpeech</strong> (text-to-speech) components, combined with the ChatGPT API, to build a smart voice assistant App that can "hear" your speech, "think" about your question, and "speak" the answer back. Just like having your own Siri or Alexa in your pocket!</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">语音识别</span><span class="en">Speech Recognition</span></h3>
+          <p><span class="zh">用 SpeechRecognizer 把你说的话变成文字</span><span class="en">Use SpeechRecognizer to turn your voice into text</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">AI 思考</span><span class="en">AI Thinking</span></h3>
+          <p><span class="zh">把文字发给 ChatGPT API，获取智能回答</span><span class="en">Send text to ChatGPT API and get a smart response</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">语音播报</span><span class="en">Voice Output</span></h3>
+          <p><span class="zh">用 TextToSpeech 把 AI 回答"读"出来</span><span class="en">Use TextToSpeech to "read" the AI answer aloud</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7.2 Voice Technology Basics -->
+    <section class="section reveal" id="section-7-2">
+      <h2><span class="zh">7.2 语音技术入门</span><span class="en">7.2 Voice Technology Basics</span></h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>你知道吗？</strong>全球每天有超过 10 亿次语音搜索！从 Siri、Alexa、小爱同学到 Google Assistant，语音助手已经成为我们日常生活的一部分。而这些助手的核心技术，就是 STT（语音转文字）和 TTS（文字转语音）。</span>
+          <span class="en"><strong>Did you know?</strong> Over 1 billion voice searches happen every day worldwide! From Siri, Alexa, and XiaoAi to Google Assistant, voice assistants are now part of our daily lives. The core technologies powering them are STT (Speech-to-Text) and TTS (Text-to-Speech).</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh"><strong>语音助手是怎么工作的？</strong>想象一下你和 Siri 说"今天天气怎么样"。Siri 的工作过程其实就像一条流水线：</span>
+        <span class="en"><strong>How do voice assistants work?</strong> Imagine you ask Siri "What's the weather today?" Siri's process works just like an assembly line:</span>
+      </p>
+
+      <div class="card-grid cols-4 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">听 (Listen)</span><span class="en">Listen</span></h3>
+          <p><span class="zh">麦克风录下你的声音，STT 技术把声音波形转换成文字："今天天气怎么样"</span><span class="en">The mic records your voice, STT converts the sound waves into text: "What's the weather today"</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">理解 (Understand)</span><span class="en">Understand</span></h3>
+          <p><span class="zh">AI 分析文字的意思，理解你在问天气信息</span><span class="en">AI analyzes the text meaning and understands you're asking for weather info</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">回答 (Respond)</span><span class="en">Respond</span></h3>
+          <p><span class="zh">AI 生成回答文字："今天晴天，最高温度 25 度"</span><span class="en">AI generates a text answer: "It's sunny today, high of 25°C"</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">说 (Speak)</span><span class="en">Speak</span></h3>
+          <p><span class="zh">TTS 技术把文字转成自然的语音播放出来</span><span class="en">TTS converts the text into natural speech and plays it out loud</span></p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">STT — 语音转文字</span><span class="en">STT — Speech-to-Text</span></h3>
+          <p><span class="zh"><strong>作用：</strong>把人说的话转换为文字<br><strong>App Inventor 组件：</strong>SpeechRecognizer<br><strong>原理：</strong>分析声音频率和模式，与语言模型匹配<br><strong>例子：</strong>你对手机说"你好"→ 屏幕显示文字"你好"</span><span class="en"><strong>Purpose:</strong> Converts human speech into text<br><strong>App Inventor Component:</strong> SpeechRecognizer<br><strong>How it works:</strong> Analyzes sound frequencies and patterns, matches with language models<br><strong>Example:</strong> You say "Hello" → screen shows text "Hello"</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">TTS — 文字转语音</span><span class="en">TTS — Text-to-Speech</span></h3>
+          <p><span class="zh"><strong>作用：</strong>把文字转换为自然的语音<br><strong>App Inventor 组件：</strong>TextToSpeech<br><strong>原理：</strong>将文字拆分成音素，合成自然语音<br><strong>例子：</strong>文字"今天天气很好"→ 手机用语音读出来</span><span class="en"><strong>Purpose:</strong> Converts text into natural speech<br><strong>App Inventor Component:</strong> TextToSpeech<br><strong>How it works:</strong> Breaks text into phonemes and synthesizes natural speech<br><strong>Example:</strong> Text "The weather is nice today" → phone reads it aloud</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7.3 Hands-On -->
+    <section class="section reveal" id="section-7-3">
+      <h2><span class="zh">7.3 动手实践：搭建语音助手</span><span class="en">7.3 Hands-On: Build the Voice Assistant</span></h2>
+
+      <h3><span class="zh">步骤 1：添加 SpeechRecognizer 组件</span><span class="en">Step 1: Add the SpeechRecognizer Component</span></h3>
+      <p>
+        <span class="zh">在 App Inventor 的 <strong>Designer</strong> 界面中，从左侧组件面板找到 <strong>Media</strong>（媒体）分类，拖拽 <strong>SpeechRecognizer</strong> 到屏幕上。它是一个"不可见组件"（non-visible），会出现在屏幕下方的区域。</span>
+        <span class="en">In the App Inventor <strong>Designer</strong> view, find the <strong>Media</strong> category in the left component panel and drag <strong>SpeechRecognizer</strong> onto the screen. It's a "non-visible component" and will appear in the area below the screen.</span>
+      </p>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>小提示：</strong>SpeechRecognizer 不会在屏幕上显示任何东西，但它在后台默默工作。当你调用它时，手机会弹出一个语音输入窗口，等你说完就自动返回识别结果。</span>
+          <span class="en"><strong>Tip:</strong> SpeechRecognizer won't display anything on screen, but it works quietly in the background. When you call it, your phone shows a voice input popup, and after you finish speaking, it automatically returns the recognized text.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 2：添加 TextToSpeech 组件</span><span class="en">Step 2: Add the TextToSpeech Component</span></h3>
+      <p>
+        <span class="zh">同样在 <strong>Media</strong> 分类中，拖拽 <strong>TextToSpeech</strong> 到屏幕上。这也是一个不可见组件。在它的属性面板中，你可以设置：</span>
+        <span class="en">Also in the <strong>Media</strong> category, drag <strong>TextToSpeech</strong> onto the screen. This is also a non-visible component. In its properties panel, you can set:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">Language（语言）</span><span class="en">Language</span></h3>
+          <p><span class="zh">设置语音播报的语言。例如 <code>zh-CN</code> 代表中文，<code>en-US</code> 代表英文。</span><span class="en">Set the language for speech output. For example, <code>zh-CN</code> for Chinese, <code>en-US</code> for English.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">Pitch & SpeechRate（音调和语速）</span><span class="en">Pitch & Speech Rate</span></h3>
+          <p><span class="zh">Pitch 控制声音高低（1.0 正常），SpeechRate 控制说话快慢（1.0 正常）。试试调到 2.0 会变成什么样？</span><span class="en">Pitch controls how high/low the voice is (1.0 = normal). SpeechRate controls how fast it talks (1.0 = normal). Try setting it to 2.0 — what happens?</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 3：设计用户界面</span><span class="en">Step 3: Design the User Interface</span></h3>
+      <p>
+        <span class="zh">现在来设计 App 的界面。我们需要以下可见组件：</span>
+        <span class="en">Now let's design the App's interface. We need these visible components:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">A</div>
+          <h3><span class="zh">麦克风按钮</span><span class="en">Mic Button</span></h3>
+          <p><span class="zh">一个大大的圆形按钮，用来启动语音识别。可以放一个麦克风图标或文字"点击说话"。设置背景色为亮色（如蓝色），让用户一眼就能看到。</span><span class="en">A big round button to start voice recognition. Add a mic icon or text "Tap to Speak." Set a bright background color (like blue) so users notice it immediately.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">B</div>
+          <h3><span class="zh">状态标签</span><span class="en">Status Label</span></h3>
+          <p><span class="zh">显示当前状态的文字标签。比如"准备就绪"、"正在听..."、"思考中..."、"正在说..."。帮助用户了解 App 正在做什么。</span><span class="en">A text label showing current status, like "Ready," "Listening...," "Thinking...," or "Speaking..." This helps users understand what the App is doing.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">C</div>
+          <h3><span class="zh">用户语音文字</span><span class="en">User Speech Text</span></h3>
+          <p><span class="zh">一个 Label，用来显示语音识别的结果——你说了什么。让用户确认 App 是否听对了。</span><span class="en">A Label to display what the speech recognizer heard — what you said. This lets users confirm the App heard them correctly.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">D</div>
+          <h3><span class="zh">AI 回答区域</span><span class="en">AI Response Area</span></h3>
+          <p><span class="zh">一个 Label 或 TextBox，用来显示 AI 回答的文字内容。可以设置稍大的字体，方便阅读。</span><span class="en">A Label or TextBox to display the AI's text response. Use a slightly larger font for easy reading.</span></p>
+        </div>
+      </div>
+
+      <h3><span class="zh">步骤 4：点击麦克风 → 开始语音识别</span><span class="en">Step 4: Click Mic → Start Speech Recognition</span></h3>
+      <p>
+        <span class="zh">切换到 <strong>Blocks</strong>（积木）编辑器，创建以下逻辑：</span>
+        <span class="en">Switch to the <strong>Blocks</strong> editor and create this logic:</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>积木逻辑：</strong><br>
+          <code>当 MicButton.Click 被触发</code><br>
+          &nbsp;&nbsp;→ 设置 StatusLabel.Text = "正在听..."<br>
+          &nbsp;&nbsp;→ 调用 SpeechRecognizer1.GetText<br><br>
+          这段逻辑的意思是：当用户按下麦克风按钮时，更新状态文字为"正在听..."，然后启动语音识别器，等待用户说话。</span>
+          <span class="en"><strong>Block Logic:</strong><br>
+          <code>when MicButton.Click</code><br>
+          &nbsp;&nbsp;→ set StatusLabel.Text = "Listening..."<br>
+          &nbsp;&nbsp;→ call SpeechRecognizer1.GetText<br><br>
+          This means: when the user presses the mic button, update the status to "Listening..." and start the speech recognizer, waiting for the user to speak.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 5：语音识别完成 → 发送到 ChatGPT</span><span class="en">Step 5: Speech Recognized → Send to ChatGPT</span></h3>
+      <p>
+        <span class="zh">当语音识别完成后，SpeechRecognizer 会触发 <code>AfterGettingText</code> 事件，返回识别出的文字。我们把这段文字发送给 ChatGPT API：</span>
+        <span class="en">When speech recognition finishes, SpeechRecognizer triggers the <code>AfterGettingText</code> event and returns the recognized text. We send this text to the ChatGPT API:</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>积木逻辑：</strong><br>
+          <code>当 SpeechRecognizer1.AfterGettingText (result)</code><br>
+          &nbsp;&nbsp;→ 设置 UserTextLabel.Text = result<br>
+          &nbsp;&nbsp;→ 设置 StatusLabel.Text = "思考中..."<br>
+          &nbsp;&nbsp;→ 设置 Web1.Url = "https://api.openai.com/v1/chat/completions"<br>
+          &nbsp;&nbsp;→ 设置 Web1.RequestHeaders = [Authorization: Bearer YOUR_API_KEY]<br>
+          &nbsp;&nbsp;→ 调用 Web1.PostText，发送 JSON 请求体（包含 model、messages 等参数，message 内容为 result）<br><br>
+          <strong>关键：</strong>记得把请求体中的 <code>content</code> 设为 result（用户说的话），这样 ChatGPT 就会根据用户的语音内容来回答。</span>
+          <span class="en"><strong>Block Logic:</strong><br>
+          <code>when SpeechRecognizer1.AfterGettingText (result)</code><br>
+          &nbsp;&nbsp;→ set UserTextLabel.Text = result<br>
+          &nbsp;&nbsp;→ set StatusLabel.Text = "Thinking..."<br>
+          &nbsp;&nbsp;→ set Web1.Url = "https://api.openai.com/v1/chat/completions"<br>
+          &nbsp;&nbsp;→ set Web1.RequestHeaders = [Authorization: Bearer YOUR_API_KEY]<br>
+          &nbsp;&nbsp;→ call Web1.PostText with the JSON request body (including model, messages parameters, with message content = result)<br><br>
+          <strong>Key point:</strong> Remember to set the <code>content</code> in the request body to result (what the user said), so ChatGPT will respond based on the user's spoken question.</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 6：收到 AI 回复 → 显示并朗读</span><span class="en">Step 6: AI Response Received → Display and Speak</span></h3>
+      <p>
+        <span class="zh">当 ChatGPT 返回回答后，我们把回答文字显示到屏幕上，同时让 TextToSpeech 朗读出来：</span>
+        <span class="en">When ChatGPT returns a response, we display the answer text on screen and have TextToSpeech read it aloud:</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>积木逻辑：</strong><br>
+          <code>当 Web1.GotText (responseContent)</code><br>
+          &nbsp;&nbsp;→ 用 JSON 解析从 responseContent 中提取 AI 回复文字<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;（路径：choices → 第一项 → message → content）<br>
+          &nbsp;&nbsp;→ 设置 AIResponseLabel.Text = 解析出的回复文字<br>
+          &nbsp;&nbsp;→ 设置 StatusLabel.Text = "正在说..."<br>
+          &nbsp;&nbsp;→ 调用 TextToSpeech1.Speak (message = 解析出的回复文字)<br><br>
+          <strong>魔法时刻：</strong>你会听到手机用语音把 AI 的回答"念"出来，就像真人在和你对话！</span>
+          <span class="en"><strong>Block Logic:</strong><br>
+          <code>when Web1.GotText (responseContent)</code><br>
+          &nbsp;&nbsp;→ Use JSON parsing to extract the AI reply text from responseContent<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;(path: choices → first item → message → content)<br>
+          &nbsp;&nbsp;→ set AIResponseLabel.Text = parsed reply text<br>
+          &nbsp;&nbsp;→ set StatusLabel.Text = "Speaking..."<br>
+          &nbsp;&nbsp;→ call TextToSpeech1.Speak (message = parsed reply text)<br><br>
+          <strong>Magic moment:</strong> You'll hear your phone "read" the AI's answer out loud — just like a real person talking to you!</span>
+        </p>
+      </div>
+
+      <h3><span class="zh">步骤 7：添加语言选择功能</span><span class="en">Step 7: Add Language Selection</span></h3>
+      <p>
+        <span class="zh">让你的语音助手支持多种语言！添加一个 <strong>ListPicker</strong> 或 <strong>Spinner</strong>（下拉选择器），让用户选择 TTS 的朗读语言：</span>
+        <span class="en">Make your voice assistant support multiple languages! Add a <strong>ListPicker</strong> or <strong>Spinner</strong> (dropdown selector) so users can choose the TTS language:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">中文模式</span><span class="en">Chinese Mode</span></h3>
+          <p><span class="zh">设置 <code>TextToSpeech1.Language = "zh-CN"</code>，AI 回复会用中文朗读。同时可以设置 System Prompt 让 ChatGPT 用中文回答。</span><span class="en">Set <code>TextToSpeech1.Language = "zh-CN"</code>, and the AI reply will be spoken in Chinese. You can also set the System Prompt to have ChatGPT respond in Chinese.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">英文模式</span><span class="en">English Mode</span></h3>
+          <p><span class="zh">设置 <code>TextToSpeech1.Language = "en-US"</code>，AI 回复会用英文朗读。让 ChatGPT 用英文回答。</span><span class="en">Set <code>TextToSpeech1.Language = "en-US"</code>, and the AI reply will be spoken in English. Have ChatGPT respond in English.</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>进阶技巧：</strong>在积木中使用 <code>if/else</code> 逻辑块来根据用户的语言选择动态切换。当用户选择"中文"时，把 System Prompt 设为"请用中文回答"，并把 TTS 语言设为 zh-CN；选择"English"时则相反。</span>
+          <span class="en"><strong>Advanced tip:</strong> Use <code>if/else</code> logic blocks to dynamically switch based on the user's language choice. When the user selects "Chinese," set the System Prompt to "Please respond in Chinese" and TTS language to zh-CN; when "English" is selected, do the opposite.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 7.4 Improving UX -->
+    <section class="section reveal" id="section-7-4">
+      <h2><span class="zh">7.4 改进体验</span><span class="en">7.4 Improving UX</span></h2>
+
+      <p>
+        <span class="zh">一个好的语音助手不仅要功能正确，还要让用户用起来舒服。以下是一些改进用户体验的技巧：</span>
+        <span class="en">A great voice assistant needs to feel good to use, not just work correctly. Here are some tips for improving the user experience:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">A</div>
+          <h3><span class="zh">视觉反馈：麦克风动画</span><span class="en">Visual Feedback: Mic Animation</span></h3>
+          <p><span class="zh">当用户按下麦克风按钮时，改变按钮颜色（例如变成红色）并更新文字为"正在听..."。当语音识别完成后恢复原来的颜色。这样用户就知道 App 正在认真"听"他说话。可以用 <code>MicButton.BackgroundColor</code> 积木来实现。</span><span class="en">When the user presses the mic button, change its color (e.g., to red) and update text to "Listening..." When recognition is done, restore the original color. This tells users the App is actively "listening." Use the <code>MicButton.BackgroundColor</code> block to implement this.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">B</div>
+          <h3><span class="zh">错误处理：没听到怎么办</span><span class="en">Error Handling: What If No Speech?</span></h3>
+          <p><span class="zh">有时语音识别可能没有听到任何内容（用户没说话或环境太吵）。用 <code>if result = ""</code> 来判断，如果结果为空，显示友好的提示"抱歉没听清，请再说一次"，而不是让 App 崩溃或发送空消息给 AI。</span><span class="en">Sometimes speech recognition might not hear anything (user didn't speak or too noisy). Use <code>if result = ""</code> to check — if the result is empty, show a friendly message like "Sorry, I didn't catch that. Please try again" instead of crashing or sending an empty message to the AI.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">C</div>
+          <h3><span class="zh">状态管理</span><span class="en">State Management</span></h3>
+          <p><span class="zh">在 AI 思考时禁用麦克风按钮（设置 <code>MicButton.Enabled = false</code>），防止用户重复点击。AI 回答播报完成后再重新启用按钮，准备下一轮对话。</span><span class="en">Disable the mic button while AI is thinking (set <code>MicButton.Enabled = false</code>) to prevent repeated taps. Re-enable it after the AI finishes speaking, ready for the next conversation round.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">D</div>
+          <h3><span class="zh">对话历史</span><span class="en">Conversation History</span></h3>
+          <p><span class="zh">用一个列表保存之前的对话内容，这样用户可以向上滚动查看之前问过什么。可以用 <code>ListView</code> 组件来展示对话记录，就像微信聊天界面一样。</span><span class="en">Use a list to save previous conversation content so users can scroll up to see what they asked before. You can use the <code>ListView</code> component to display chat history, just like a WeChat chat interface.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7.5 Challenge -->
+    <section class="section reveal" id="section-7-5">
+      <h2><span class="zh">7.5 挑战任务</span><span class="en">7.5 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：语音翻译 App</span><span class="en">Challenge A: Voice Translation App</span></h3>
+          <p><span class="zh">制作一个语音翻译 App：用户说英文 → SpeechRecognizer 转成英文文字 → 发送给 ChatGPT 并要求它翻译成中文 → 把中文翻译结果用 TextToSpeech 朗读出来（设置语言为 zh-CN）。反过来也可以，说中文翻译成英文！这就是一个口袋里的翻译官。</span><span class="en">Build a voice translation App: user speaks English → SpeechRecognizer converts to text → send to ChatGPT asking it to translate to Chinese → TextToSpeech reads the Chinese translation aloud (language set to zh-CN). It works the other way too — speak Chinese and get English! It's like having a translator in your pocket.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：添加"唤醒词"检测</span><span class="en">Challenge B: Add "Wake Word" Detection</span></h3>
+          <p><span class="zh">让你的助手像真正的 Siri 一样，支持"唤醒词"功能！使用 <code>Clock</code>（时钟）组件每隔几秒自动调用一次 SpeechRecognizer，监听用户是否说了特定的唤醒词（比如"你好助手"）。如果检测到唤醒词，才开始正式的语音问答流程。提示：用 <code>contains</code> 积木来检查识别文字中是否包含唤醒词。</span><span class="en">Make your assistant work like real Siri with "wake word" support! Use the <code>Clock</code> component to automatically call SpeechRecognizer every few seconds, listening for a specific wake word (like "Hey Assistant"). Only start the full voice Q&A flow when the wake word is detected. Hint: Use the <code>contains</code> block to check if the recognized text includes the wake word.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-7">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="app7">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. STT 技术的全称是什么？</span><span class="en">1. What does STT stand for?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">Sound To Text（声音到文字）</span>
+              <span class="en">Sound To Text</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">Speech To Text（语音到文字）</span>
+              <span class="en">Speech To Text</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">Signal To Text（信号到文字）</span>
+              <span class="en">Signal To Text</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">String To Text（字符串到文字）</span>
+              <span class="en">String To Text</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">STT 是 Speech To Text 的缩写，意思是"语音转文字"。它是语音助手能"听懂"你说话的核心技术。</span><span class="en">STT stands for Speech To Text. It's the core technology that allows voice assistants to "understand" what you say by converting spoken words into text.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">2. 在 App Inventor 中，TextToSpeech 组件属于哪个分类？</span><span class="en">2. In App Inventor, which category does the TextToSpeech component belong to?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">User Interface（用户界面）</span>
+              <span class="en">User Interface</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">Sensors（传感器）</span>
+              <span class="en">Sensors</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">Media（媒体）</span>
+              <span class="en">Media</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">Connectivity（连接）</span>
+              <span class="en">Connectivity</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">TextToSpeech 和 SpeechRecognizer 都属于 Media（媒体）分类。在 App Inventor 的组件面板中，找到 Media 就能看到它们。</span><span class="en">Both TextToSpeech and SpeechRecognizer belong to the Media category. In App Inventor's component panel, look under Media to find them.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">3. 语音助手的工作流程顺序是什么？</span><span class="en">3. What is the correct workflow order for a voice assistant?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">听 → 理解 → 回答 → 说</span>
+              <span class="en">Listen → Understand → Respond → Speak</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">说 → 听 → 回答 → 理解</span>
+              <span class="en">Speak → Listen → Respond → Understand</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">理解 → 听 → 说 → 回答</span>
+              <span class="en">Understand → Listen → Speak → Respond</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">回答 → 说 → 听 → 理解</span>
+              <span class="en">Respond → Speak → Listen → Understand</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">语音助手的正确流程是：先"听"用户说话（STT），然后"理解"语义（AI 分析），接着"回答"问题（生成文字），最后"说"出来（TTS）。</span><span class="en">The correct flow is: "Listen" to the user (STT), then "Understand" the meaning (AI analysis), then "Respond" to the question (generate text), and finally "Speak" the answer (TTS).</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 当 SpeechRecognizer 识别完成后，会触发哪个事件？</span><span class="en">4. When SpeechRecognizer finishes recognizing, which event is triggered?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">SpeechRecognizer.GotResult</span>
+              <span class="en">SpeechRecognizer.GotResult</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">SpeechRecognizer.TextReady</span>
+              <span class="en">SpeechRecognizer.TextReady</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">SpeechRecognizer.SpeechDone</span>
+              <span class="en">SpeechRecognizer.SpeechDone</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">SpeechRecognizer.AfterGettingText</span>
+              <span class="en">SpeechRecognizer.AfterGettingText</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">SpeechRecognizer 识别完成后会触发 <code>AfterGettingText</code> 事件，并把识别出的文字作为参数 <code>result</code> 传递给你。</span><span class="en">After SpeechRecognizer finishes, it triggers the <code>AfterGettingText</code> event and passes the recognized text as the <code>result</code> parameter.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. 如果语音识别没有听到任何内容，最佳的处理方式是什么？</span><span class="en">5. What is the best way to handle it when speech recognition doesn't hear anything?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">什么都不做，忽略错误</span>
+              <span class="en">Do nothing, ignore the error</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">显示友好提示，请用户再说一次</span>
+              <span class="en">Show a friendly message asking the user to try again</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">关闭 App</span>
+              <span class="en">Close the App</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">发送空消息给 ChatGPT</span>
+              <span class="en">Send an empty message to ChatGPT</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">好的用户体验需要优雅地处理错误。当没有识别到语音时，应该显示友好的提示信息（如"抱歉没听清，请再说一次"），而不是忽略错误或崩溃。</span><span class="en">Good UX means handling errors gracefully. When no speech is detected, show a friendly message (like "Sorry, I didn't catch that. Please try again") instead of ignoring the error or crashing.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson6.html"><span class="zh">← 上一课</span><span class="en">← Previous Lesson</span></a>
+      <a href="lesson8.html"><span class="zh">下一课 →</span><span class="en">Next Lesson →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

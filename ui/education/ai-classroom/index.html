@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 使用小课堂</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="local.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <h1>AI 使用小课堂</h1>
+      <div class="header-actions">
+        <span id="progress" role="status">已学 0 / 7</span>
+        <button class="btn btn-outline icon-button" id="settings" aria-label="模型设置" title="模型设置"><img src="icons/settings.svg" alt="" width="18" height="18"></button>
+      </div>
+    </div>
+  </header>
+  <div class="main-content">
+    <nav class="sidebar" aria-label="课程目录">
+      <div class="nav-section"><h2>学习目录</h2><ul class="nav-list" id="lessons"></ul></div>
+      <div class="nav-section source-links">
+        <a href="https://github.com/idsulik/apeit" target="_blank" rel="noopener noreferrer">来源：idsulik/apeit</a>
+        <span>本地中文教学改编</span>
+      </div>
+    </nav>
+    <main class="content" id="main">
+      <div id="content-area"></div>
+      <div class="content-navigation">
+        <button class="btn btn-outline" id="previous" aria-label="上一课" title="上一课"><img src="icons/previous.svg" alt="" width="18" height="18">上一课</button>
+        <button class="btn btn-outline" id="complete">标记已学</button>
+        <button class="btn btn-outline" id="next" aria-label="下一课" title="下一课">下一课<img src="icons/next.svg" alt="" width="18" height="18"></button>
+      </div>
+    </main>
+  </div>
+  <dialog id="settings-dialog" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <div class="dialog-heading"><h2 id="settings-title">练习模型设置</h2><button type="button" id="close-settings" aria-label="关闭设置" title="关闭设置"><img src="icons/close.svg" alt="" width="18" height="18"></button></div>
+      <p id="managed-status" role="status">正在读取模型设置…</p>
+      <button class="btn btn-outline" id="managed-refresh" type="button">刷新模型设置</button>
+      <div id="managed-settings" hidden>
+        <label for="managed-model">可用模型</label>
+        <select id="managed-model"></select>
+        <p id="managed-price" class="settings-note" aria-live="polite"></p>
+      </div>
+      <fieldset id="local-settings" hidden disabled>
+      <label for="provider">服务商</label>
+      <select id="provider"><option value="deepseek">DeepSeek</option><option value="bailian">阿里云百炼</option><option value="anthropic">Anthropic Claude</option></select>
+      <label for="model">模型名称</label>
+      <input id="model" value="deepseek-chat" required maxlength="128" autocomplete="off" placeholder="填写服务商提供的模型 ID">
+      <label for="api-key">API Key</label>
+      <input id="api-key" type="password" required maxlength="512" autocomplete="off">
+      <p class="settings-note">课程可直接阅读。在线练习需要独立 API Key，会向所选服务商发送提示词，并可能产生费用。请由老师或家长配置；密钥仅保留在当前页面，关闭或刷新后清除。</p>
+      </fieldset>
+      <div class="dialog-actions"><button class="btn btn-outline" type="button" id="clear-key">清除配置</button><button id="settings-apply" class="btn btn-primary" type="submit" disabled>应用设置</button></div>
+    </form>
+  </dialog>
+  <p id="notice" role="status" aria-live="polite"></p>
+  <script type="module" src="local-app.js"></script>
+</body>
+</html>

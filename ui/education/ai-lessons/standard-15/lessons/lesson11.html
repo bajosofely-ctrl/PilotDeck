@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第11课：计算机视觉 | Lesson 11: Computer Vision">
+  <title>第11课：计算机视觉 | Lesson 11: Computer Vision</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a><a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a><a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a><a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a><a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a><a href="lesson6.html"><span class="zh">6</span><span class="en">L6</span></a><a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a><a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a><a href="lesson9.html"><span class="zh">9</span><span class="en">L9</span></a><a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a>
+      <a href="lesson11.html" class="active"><span class="zh">11</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">12</span><span class="en">L12</span></a><a href="lesson13.html"><span class="zh">13</span><span class="en">L13</span></a><a href="lesson14.html"><span class="zh">14</span><span class="en">L14</span></a><a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 11 课</span><span class="en">Lesson 11</span></span>
+      <h1><span class="zh">计算机视觉</span><span class="en">Computer Vision</span></h1>
+      <p class="subtitle">
+        <span class="zh">教机器"看"世界——从人脸识别到自动驾驶的视觉AI</span>
+        <span class="en">Teaching machines to "see" — from face recognition to self-driving visual AI</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-11-1">
+      <h2><span class="zh">11.1 什么是计算机视觉？</span><span class="en">11.1 What is Computer Vision?</span></h2>
+      <p>
+        <span class="zh"><strong>计算机视觉（CV）</strong>让机器能像人类一样"看"并理解图像和视频。但对机器来说，一张图片只是一堆数字——每个像素都是一个RGB颜色值。CV的任务就是从这些数字中提取出有意义的信息。</span>
+        <span class="en"><strong>Computer Vision (CV)</strong> enables machines to "see" and understand images and videos like humans. But to machines, an image is just a bunch of numbers — each pixel is an RGB color value. CV's job is extracting meaningful information from these numbers.</span>
+      </p>
+      <div class="callout callout-info">
+        <p><span class="zh"><strong>想象一下：</strong>一张1080p的照片包含约200万个像素，每个像素有红绿蓝三个值。计算机看到的就是600万个数字！它需要从这些数字中理解"这是一只正在奔跑的金毛犬"。</span><span class="en"><strong>Imagine:</strong> A 1080p photo contains about 2 million pixels, each with red, green, blue values. The computer sees 6 million numbers! It needs to understand from these numbers that "this is a golden retriever running."</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-11-2">
+      <h2><span class="zh">11.2 CV 的核心任务</span><span class="en">11.2 Core CV Tasks</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">图像分类</span><span class="en">Image Classification</span></h4>
+          <p><span class="zh">告诉你图片里是什么："这是猫"、"这是飞机"。整张图片给出一个分类标签。是CV最基础的任务。</span><span class="en">Tells you what's in the image: "this is a cat," "this is a plane." Assigns one label to the whole image. The most basic CV task.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">目标检测</span><span class="en">Object Detection</span></h4>
+          <p><span class="zh">找到图片中所有物体的位置并识别。用方框标出每个物体："这里有一只猫，那里有一条狗"。自动驾驶和安防监控的核心技术。</span><span class="en">Find and identify all objects with bounding boxes: "here's a cat, there's a dog." Core tech for self-driving and security surveillance.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">语义分割</span><span class="en">Semantic Segmentation</span></h4>
+          <p><span class="zh">精确到每个像素！标出图片中每个像素属于什么类别：天空、道路、建筑、行人。医学影像分析用这个来找出肿瘤的精确边界。</span><span class="en">Pixel-level precision! Label each pixel's category: sky, road, building, pedestrian. Medical imaging uses this to find exact tumor boundaries.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">姿态估计</span><span class="en">Pose Estimation</span></h4>
+          <p><span class="zh">识别人体关节的位置：头、肩、肘、手、膝等。用于运动分析、舞蹈教学、体感游戏和手语识别。</span><span class="en">Detect body joint positions: head, shoulders, elbows, hands, knees. Used in sports analysis, dance teaching, motion games, and sign language recognition.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-11-3">
+      <h2><span class="zh">11.3 人脸识别技术</span><span class="en">11.3 Face Recognition Technology</span></h2>
+      <p>
+        <span class="zh">人脸识别是计算机视觉中最广泛应用的技术之一。你每天用手机面部解锁就在使用这项技术。</span>
+        <span class="en">Face recognition is one of CV's most widely used technologies. You use it daily when unlocking your phone with your face.</span>
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">Step 1</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">人脸检测</span><span class="en">Face Detection</span></h3>
+            <p><span class="zh">从照片或视频中找到所有人脸的位置。即使照片中有很多人，AI也能准确找到每张脸。</span><span class="en">Find all faces in a photo or video. Even in crowded scenes, AI can accurately locate every face.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Step 2</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">特征提取</span><span class="en">Feature Extraction</span></h3>
+            <p><span class="zh">分析脸部的关键特征：眼距、鼻子形状、嘴巴宽度等。把每张脸变成一组独特的数字特征（"脸部指纹"）。</span><span class="en">Analyze facial features: eye distance, nose shape, mouth width. Convert each face to unique numerical features (a "facial fingerprint").</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Step 3</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">比对匹配</span><span class="en">Compare & Match</span></h3>
+            <p><span class="zh">把提取的特征与数据库中的已知人脸进行比对。如果特征足够相似，就判断是同一个人。</span><span class="en">Compare extracted features against known faces in a database. If features are similar enough, it's identified as the same person.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-11-4">
+      <h2><span class="zh">11.4 自动驾驶中的视觉AI</span><span class="en">11.4 Visual AI in Self-Driving</span></h2>
+      <p>
+        <span class="zh">自动驾驶汽车是计算机视觉最复杂的应用之一。车辆需要实时"看懂"周围环境：</span>
+        <span class="en">Self-driving cars are among CV's most complex applications. Vehicles must "understand" their surroundings in real-time:</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">识别交通标志</span><span class="en">Recognize Signs</span></h4>
+          <p><span class="zh">限速标志、停车标志、红绿灯——AI必须在毫秒内准确识别并做出反应。</span><span class="en">Speed limits, stop signs, traffic lights — AI must recognize and react in milliseconds.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">检测行人和车辆</span><span class="en">Detect Pedestrians & Cars</span></h4>
+          <p><span class="zh">实时检测周围所有移动物体，预测它们的运动轨迹，避免碰撞。</span><span class="en">Real-time detection of all moving objects, predicting their trajectories to avoid collisions.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">理解车道线</span><span class="en">Understand Lane Lines</span></h4>
+          <p><span class="zh">识别车道标记，即使是褪色或部分遮挡的。确保汽车保持在正确的车道内。</span><span class="en">Identify lane markings, even faded or partially obscured ones. Ensure the car stays in the correct lane.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-warning">
+        <p><span class="zh"><strong>挑战：</strong>自动驾驶的CV系统必须在雨天、雾天、夜间等恶劣条件下也能正常工作。这比人类驾驶员面临的挑战更大，因为摄像头不像人眼那样适应性强。</span><span class="en"><strong>Challenge:</strong> Self-driving CV systems must work in rain, fog, and night conditions. This is harder than human driving, because cameras aren't as adaptive as human eyes.</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-11-5">
+      <h2><span class="zh">11.5 CV 在生活中的应用</span><span class="en">11.5 CV in Everyday Life</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">医学影像</span><span class="en">Medical Imaging</span></h4>
+          <p><span class="zh">AI分析X光片、CT扫描、MRI图像，帮助医生更快更准确地发现疾病。有些AI检测某些癌症的准确率已经超过了人类医生。</span><span class="en">AI analyzes X-rays, CT scans, MRI images, helping doctors detect diseases faster and more accurately. Some AI cancer detection accuracy exceeds human doctors.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">AR 滤镜</span><span class="en">AR Filters</span></h4>
+          <p><span class="zh">抖音和Instagram的特效滤镜——AI实时检测你的脸部特征，精确地叠加上猫耳朵、兔子鼻子等可爱效果。</span><span class="en">TikTok and Instagram effect filters — AI detects your facial features in real-time, precisely overlaying cat ears, bunny noses, and cute effects.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">OCR 文字识别</span><span class="en">OCR Text Recognition</span></h4>
+          <p><span class="zh">扫描纸质文件自动转文字。从古老的手写信到路牌上的文字，AI都能快速识别。翻译App的"拍照翻译"就用了这个技术。</span><span class="en">Scan paper documents to text automatically. From old handwritten letters to road signs, AI recognizes text quickly. Translation apps' "photo translate" uses this.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">智能安防</span><span class="en">Smart Security</span></h4>
+          <p><span class="zh">商场、机场的监控系统用CV自动检测异常行为：有人摔倒、遗留可疑包裹、拥挤踩踏风险等。</span><span class="en">Mall and airport surveillance uses CV to auto-detect anomalies: someone falling, suspicious packages, crowd crush risks, etc.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quiz-11">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson11">
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 计算机"看"到的图片本质上是什么？</span><span class="en"><strong>Q1.</strong> What does a computer fundamentally "see" in an image?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 和人类一样的画面</span><span class="en">A. The same view as humans</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 文字描述</span><span class="en">B. Text descriptions</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 一堆像素的RGB数字值</span><span class="en">C. A bunch of RGB pixel values</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 线条和形状</span><span class="en">D. Lines and shapes</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">计算机看到的图片就是一堆数字——每个像素由红(R)、绿(G)、蓝(B)三个数值组成。计算机视觉的任务是从这些数字中提取有意义的信息。</span><span class="en">Computers see images as numbers — each pixel has Red, Green, Blue values. Computer vision's task is extracting meaningful information from these numbers.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 哪个CV任务能精确到每个像素？</span><span class="en"><strong>Q2.</strong> Which CV task works at pixel-level precision?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 语义分割</span><span class="en">A. Semantic segmentation</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 图像分类</span><span class="en">B. Image classification</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 目标检测</span><span class="en">C. Object detection</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 姿态估计</span><span class="en">D. Pose estimation</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">语义分割标注图片中每一个像素属于什么类别，精确度最高。目标检测使用方框，图像分类只给出整体标签。</span><span class="en">Semantic segmentation labels every pixel's category — highest precision. Object detection uses boxes; classification gives only a whole-image label.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> 人脸识别的第二步是什么？</span><span class="en"><strong>Q3.</strong> What is the second step in face recognition?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 拍照</span><span class="en">A. Take a photo</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 提取脸部特征</span><span class="en">B. Extract facial features</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 比对数据库</span><span class="en">C. Compare with database</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 添加滤镜</span><span class="en">D. Add filters</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">人脸识别三步：1)检测人脸位置 2)提取脸部特征（生成"脸部指纹"） 3)与数据库比对匹配。</span><span class="en">Face recognition: 1) Detect face location 2) Extract facial features ("facial fingerprint") 3) Compare with database.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> 自动驾驶视觉系统面临的最大挑战之一是什么？</span><span class="en"><strong>Q4.</strong> What is one major challenge for self-driving vision systems?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 图片分辨率太高</span><span class="en">A. Image resolution is too high</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 颜色太多</span><span class="en">B. Too many colors</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 道路太直</span><span class="en">C. Roads are too straight</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 恶劣天气条件下的准确识别</span><span class="en">D. Accurate recognition in adverse weather</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">雨天、雾天、夜间等恶劣条件下，摄像头的视野受限，对CV系统的准确性是巨大挑战。</span><span class="en">In rain, fog, and night conditions, camera visibility is limited, posing huge challenges to CV system accuracy.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> 以下哪个不是计算机视觉的日常应用？</span><span class="en"><strong>Q5.</strong> Which is NOT a daily computer vision application?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 天气预报</span><span class="en">A. Weather forecasting</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 面部解锁手机</span><span class="en">B. Face unlock on phones</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 拍照翻译</span><span class="en">C. Photo translation</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. AR滤镜特效</span><span class="en">D. AR filter effects</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">天气预报主要依赖气象数据和数值模拟，不属于计算机视觉的典型应用。面部解锁、拍照翻译、AR滤镜都是CV技术。</span><span class="en">Weather forecasting mainly relies on meteorological data and numerical simulations, not a typical CV application. Face unlock, photo translation, and AR filters all use CV.</span></p>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson10.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson12.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

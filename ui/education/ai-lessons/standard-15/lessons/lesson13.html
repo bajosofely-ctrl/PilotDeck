@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第13课：AI伦理与偏见 | Lesson 13: AI Ethics & Bias">
+  <title>第13课：AI伦理与偏见 | Lesson 13: AI Ethics & Bias</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a><a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a><a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a><a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a><a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a><a href="lesson6.html"><span class="zh">6</span><span class="en">L6</span></a><a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a><a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a><a href="lesson9.html"><span class="zh">9</span><span class="en">L9</span></a><a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a><a href="lesson11.html"><span class="zh">11</span><span class="en">L11</span></a><a href="lesson12.html"><span class="zh">12</span><span class="en">L12</span></a>
+      <a href="lesson13.html" class="active"><span class="zh">13</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">14</span><span class="en">L14</span></a><a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 13 课</span><span class="en">Lesson 13</span></span>
+      <h1><span class="zh">AI 伦理与偏见</span><span class="en">AI Ethics &amp; Bias</span></h1>
+      <p class="subtitle">
+        <span class="zh">AI 也会犯错和歧视？理解人工智能的伦理挑战</span>
+        <span class="en">Can AI be wrong and discriminatory? Understanding AI's ethical challenges</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-13-1">
+      <h2><span class="zh">13.1 AI 中的偏见从何而来？</span><span class="en">13.1 Where Does AI Bias Come From?</span></h2>
+      <p>
+        <span class="zh">AI 本身没有偏见——但它的训练数据可能有。<strong>偏见的数据进去，偏见的结果出来</strong>（Garbage In, Garbage Out）。如果训练数据中存在性别、种族、年龄等偏见，AI就会"学到"这些偏见。</span>
+        <span class="en">AI itself has no bias — but its training data might. <strong>Biased data in, biased results out</strong> (Garbage In, Garbage Out). If training data contains gender, racial, or age biases, AI will "learn" these biases.</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">数据偏见</span><span class="en">Data Bias</span></h4>
+          <p><span class="zh">如果人脸识别系统主要用白人面孔训练，它识别深色皮肤的准确率就会低很多。真实案例：某些人脸识别系统对深色皮肤女性的错误率高达34%，而对浅色皮肤男性只有0.8%。</span><span class="en">If a face recognition system trains mostly on white faces, accuracy for darker skin tones drops significantly. Real case: some systems had 34% error for dark-skinned women vs 0.8% for light-skinned men.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">社会偏见</span><span class="en">Social Bias</span></h4>
+          <p><span class="zh">AI招聘系统曾经学会了"男性比女性更适合当程序员"的偏见——因为历史数据中程序员确实以男性为主。但这不代表女性不适合编程。</span><span class="en">AI hiring systems once learned the bias "men are better programmers than women" — because historical data showed more male programmers. But that doesn't mean women can't code.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">标签偏见</span><span class="en">Label Bias</span></h4>
+          <p><span class="zh">给数据打标签的人也有偏见。如果标注者认为"CEO都是男性"，他们标注的数据就会带有这种偏见，AI就会学到这个错误的规律。</span><span class="en">People who label data also have biases. If annotators assume "CEOs are male," their labeled data carries this bias, and AI learns this incorrect pattern.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">选择偏见</span><span class="en">Selection Bias</span></h4>
+          <p><span class="zh">训练数据可能只代表部分人群。用英文互联网数据训练的AI对英语文化的理解好，但可能完全不了解其他文化。</span><span class="en">Training data may only represent some groups. AI trained on English internet data understands English culture well but may completely miss other cultures.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-13-2">
+      <h2><span class="zh">13.2 真实的AI偏见事件</span><span class="en">13.2 Real AI Bias Incidents</span></h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">Google Photos 的种族错误</span><span class="en">Google Photos Racial Error</span></h3>
+            <p><span class="zh">Google Photos 的图像识别系统把黑人用户的照片标记为"大猩猩"。这是因为训练数据中深色皮肤的面部数据严重不足。Google 紧急修复了这个问题。</span><span class="en">Google Photos' image recognition labeled photos of Black users as "gorillas." This was because training data severely lacked dark-skinned facial data. Google urgently fixed this issue.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">亚马逊AI招聘歧视女性</span><span class="en">Amazon AI Hiring Discriminated Women</span></h3>
+            <p><span class="zh">亚马逊开发的AI招聘系统自动降低女性应聘者的评分。因为历史数据中科技公司员工以男性为主，AI错误地学会了"男性 = 更好的候选人"。亚马逊最终放弃了这个系统。</span><span class="en">Amazon's AI hiring system automatically downgraded female applicants. Since historical tech employees were mostly male, AI incorrectly learned "male = better candidate." Amazon eventually abandoned the system.</span></p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-card" role="button" tabindex="0">
+            <h3><span class="zh">医疗AI偏见</span><span class="en">Medical AI Bias</span></h3>
+            <p><span class="zh">用于预测患者健康风险的AI系统对黑人患者的关注度低于白人患者——因为训练数据基于"医疗花费"，而美国黑人的平均医疗花费因系统性原因低于白人。</span><span class="en">An AI predicting patient health risks gave less attention to Black patients — because training data was based on "healthcare spending," which was systematically lower for Black Americans.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-13-3">
+      <h2><span class="zh">13.3 AI 伦理的核心原则</span><span class="en">13.3 Core Principles of AI Ethics</span></h2>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">公平性</span><span class="en">Fairness</span></h4>
+          <p><span class="zh">AI 应该对所有人公平，不因种族、性别、年龄等因素区别对待。这需要多样化的训练数据和公平性测试。</span><span class="en">AI should be fair to everyone, not discriminating based on race, gender, age, etc. This requires diverse training data and fairness testing.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">透明性</span><span class="en">Transparency</span></h4>
+          <p><span class="zh">AI的决策过程应该可以解释。当AI拒绝你的贷款申请时，你有权知道原因，而不是面对一个"黑箱"。</span><span class="en">AI decision-making should be explainable. When AI denies your loan application, you deserve to know why, not face a "black box."</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">责任性</span><span class="en">Accountability</span></h4>
+          <p><span class="zh">AI犯错时谁负责？开发者、使用者、还是AI本身？需要明确的责任框架。目前的共识是：AI不能为自己的决定负责，人类必须承担最终责任。</span><span class="en">Who's responsible when AI errs? Developer, user, or AI? Clear accountability frameworks are needed. Current consensus: AI can't be responsible for its decisions — humans must bear ultimate responsibility.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">安全性</span><span class="en">Safety</span></h4>
+          <p><span class="zh">AI系统不应该对人类造成伤害。在医疗、交通等高风险领域，AI的安全性尤其重要。</span><span class="en">AI systems should not harm humans. In high-risk areas like healthcare and transportation, AI safety is especially critical.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-13-4">
+      <h2><span class="zh">13.4 可解释AI（XAI）</span><span class="en">13.4 Explainable AI (XAI)</span></h2>
+      <p>
+        <span class="zh">深度学习模型像一个"黑箱"——我们知道它给出了答案，但不知道它是怎么想的。<strong>可解释AI（XAI）</strong>试图打开这个黑箱：</span>
+        <span class="en">Deep learning models are like a "black box" — we know they give answers but don't know how they think. <strong>Explainable AI (XAI)</strong> tries to open this black box:</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">不可解释的AI</span><span class="en">Unexplainable AI</span></h4>
+          <p><span class="zh">"你的贷款被拒绝了。"</span><span class="en">"Your loan is denied."</span></p>
+          <p><span class="zh">（为什么？不知道。AI说了算。）</span><span class="en">(Why? Unknown. AI decided.)</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">可解释的AI</span><span class="en">Explainable AI</span></h4>
+          <p><span class="zh">"你的贷款被拒绝了，主要原因是：1)信用记录中有逾期；2)收入与贷款金额比例偏低。"</span><span class="en">"Your loan is denied. Main reasons: 1) Late payments in credit history; 2) Income-to-loan ratio is low."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-13-5">
+      <h2><span class="zh">13.5 你能做什么？</span><span class="en">13.5 What Can You Do?</span></h2>
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>作为AI时代的青少年，你可以：</strong></span><span class="en"><strong>As a teen in the AI era, you can:</strong></span></p>
+        <ul>
+          <li><p><span class="zh"><strong>保持批判思维：</strong>不要盲目相信AI的输出，特别是涉及人的判断时</span><span class="en"><strong>Think critically:</strong> Don't blindly trust AI outputs, especially when they involve judging people</span></p></li>
+          <li><p><span class="zh"><strong>了解偏见：</strong>知道AI可能存在偏见，理解偏见的来源和影响</span><span class="en"><strong>Understand bias:</strong> Know AI can be biased, understand where bias comes from and its impact</span></p></li>
+          <li><p><span class="zh"><strong>多元参与：</strong>未来如果你参与AI开发，确保团队多样化、数据多样化</span><span class="en"><strong>Diverse participation:</strong> If you build AI in the future, ensure diverse teams and diverse data</span></p></li>
+          <li><p><span class="zh"><strong>发声：</strong>当发现AI系统存在偏见或不公平时，勇于指出和报告</span><span class="en"><strong>Speak up:</strong> When you find biased or unfair AI systems, be brave enough to point it out and report it</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quiz-13">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson13">
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> AI偏见最主要的来源是什么？</span><span class="en"><strong>Q1.</strong> What is the main source of AI bias?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AI有自己的价值观</span><span class="en">A. AI has its own values</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 训练数据中存在偏见</span><span class="en">B. Bias exists in training data</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 电脑硬件有问题</span><span class="en">C. Computer hardware issues</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 网络连接不稳定</span><span class="en">D. Unstable internet connection</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">AI偏见主要来自训练数据——偏见的数据进去，偏见的结果出来（GIGO原则）。AI本身没有价值观或偏见。</span><span class="en">AI bias mainly comes from training data — biased data in, biased results out (GIGO principle). AI itself has no values or biases.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 亚马逊AI招聘系统的问题是什么？</span><span class="en"><strong>Q2.</strong> What was the problem with Amazon's AI hiring system?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 运行太慢</span><span class="en">A. Ran too slowly</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 不能处理简历</span><span class="en">B. Couldn't process resumes</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 自动降低女性应聘者的评分</span><span class="en">C. Automatically downgraded female applicants</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 只接受英文简历</span><span class="en">D. Only accepted English resumes</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">因为历史数据中科技公司员工以男性为主，AI学到了"男性更优秀"的错误偏见，自动给女性更低的评分。</span><span class="en">Since historical tech employees were mostly male, AI learned the false bias "men are better," automatically giving women lower scores.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> "可解释AI"(XAI)的目标是什么？</span><span class="en"><strong>Q3.</strong> What is the goal of "Explainable AI" (XAI)?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 让AI的决策过程可以被理解和解释</span><span class="en">A. Make AI's decision process understandable and explainable</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 让AI自己解释笑话</span><span class="en">B. Let AI explain jokes</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 让AI跑得更快</span><span class="en">C. Make AI run faster</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 让AI使用更少的数据</span><span class="en">D. Make AI use less data</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">XAI致力于打开AI的"黑箱"，让人们理解AI为什么做出某个决策，特别是在高风险领域（医疗、法律、金融）中。</span><span class="en">XAI aims to open AI's "black box," helping people understand why AI made a decision, especially in high-risk areas (healthcare, law, finance).</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> AI犯错时谁应该承担最终责任？</span><span class="en"><strong>Q4.</strong> Who should bear ultimate responsibility when AI makes mistakes?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AI自己</span><span class="en">A. AI itself</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 电脑硬件厂商</span><span class="en">B. Hardware manufacturer</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 互联网服务商</span><span class="en">C. Internet service provider</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 人类（开发者和使用者）</span><span class="en">D. Humans (developers and users)</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">当前共识是AI不能为自己的决定负责，人类必须承担最终责任——包括开发AI的公司和使用AI的个人或组织。</span><span class="en">Current consensus: AI can't be responsible for its decisions. Humans must bear ultimate responsibility — including companies developing AI and individuals/organizations using it.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> 面对AI偏见，青少年能做什么？</span><span class="en"><strong>Q5.</strong> What can teens do about AI bias?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 停止使用所有AI</span><span class="en">A. Stop using all AI</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 保持批判思维，发现偏见时勇于指出</span><span class="en">B. Think critically, speak up when bias is found</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 完全信任AI的判断</span><span class="en">C. Completely trust AI's judgment</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 忽略这个问题</span><span class="en">D. Ignore the issue</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">面对AI偏见，最重要的是保持批判思维，不盲目相信AI的输出，发现问题时勇于指出和报告。</span><span class="en">Facing AI bias, the most important thing is to think critically, don't blindly trust AI outputs, and be brave enough to report issues when found.</span></p>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson12.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson14.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

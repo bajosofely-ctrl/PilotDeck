@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第9课：Prompt工程与应用 | Lesson 9: Prompt Engineering & Applications">
+  <title>第9课：Prompt工程与应用 | Lesson 9: Prompt Engineering & Applications</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">1</span><span class="en">L1</span></a><a href="lesson2.html"><span class="zh">2</span><span class="en">L2</span></a><a href="lesson3.html"><span class="zh">3</span><span class="en">L3</span></a><a href="lesson4.html"><span class="zh">4</span><span class="en">L4</span></a><a href="lesson5.html"><span class="zh">5</span><span class="en">L5</span></a><a href="lesson6.html"><span class="zh">6</span><span class="en">L6</span></a><a href="lesson7.html"><span class="zh">7</span><span class="en">L7</span></a><a href="lesson8.html"><span class="zh">8</span><span class="en">L8</span></a>
+      <a href="lesson9.html" class="active"><span class="zh">9</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">10</span><span class="en">L10</span></a><a href="lesson11.html"><span class="zh">11</span><span class="en">L11</span></a><a href="lesson12.html"><span class="zh">12</span><span class="en">L12</span></a><a href="lesson13.html"><span class="zh">13</span><span class="en">L13</span></a><a href="lesson14.html"><span class="zh">14</span><span class="en">L14</span></a><a href="lesson15.html"><span class="zh">15</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 9 课</span><span class="en">Lesson 9</span></span>
+      <h1><span class="zh">Prompt 工程与应用</span><span class="en">Prompt Engineering &amp; Applications</span></h1>
+      <p class="subtitle">
+        <span class="zh">掌握与AI对话的艺术——学会写出更好的提示词！</span>
+        <span class="en">Master the art of talking to AI — learn to write better prompts!</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-9-1">
+      <h2><span class="zh">9.1 什么是 Prompt？</span><span class="en">9.1 What is a Prompt?</span></h2>
+      <p>
+        <span class="zh"><strong>Prompt</strong>（提示词）就是你给AI的指令或问题。就像跟一个很聪明但很"实在"的朋友说话——你问得越清楚、越具体，得到的答案就越好。Prompt 工程就是研究如何写出更有效提示词的技术。</span>
+        <span class="en">A <strong>prompt</strong> is the instruction or question you give to AI. It's like talking to a very smart but very "literal" friend — the clearer and more specific your question, the better the answer. Prompt engineering is the skill of writing more effective prompts.</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">差的提示词</span><span class="en">Poor Prompt</span></h4>
+          <p><span class="zh">"帮我写个东西"</span><span class="en">"Write me something"</span></p>
+          <p><span class="zh">太模糊了！AI不知道你想要什么类型、什么主题、多长、什么风格的内容。</span><span class="en">Too vague! AI doesn't know what type, topic, length, or style you want.</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">好的提示词</span><span class="en">Good Prompt</span></h4>
+          <p><span class="zh">"请用轻松幽默的口吻，为13岁学生写一篇300字的科普文章，主题是'为什么天空是蓝色的'"</span><span class="en">"In a fun, humorous tone, write a 300-word science article for 13-year-olds about 'why the sky is blue'"</span></p>
+          <p><span class="zh">明确了受众、字数、风格和主题。AI可以精准地给出你想要的内容。</span><span class="en">Specifies audience, length, tone, and topic. AI can deliver exactly what you want.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-9-2">
+      <h2><span class="zh">9.2 Prompt 写作的黄金法则</span><span class="en">9.2 Golden Rules of Prompt Writing</span></h2>
+      <p>
+        <span class="zh">记住这些法则，你的AI对话质量会大幅提升：</span>
+        <span class="en">Remember these rules to dramatically improve your AI conversations:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">1. 明确角色</span><span class="en">1. Define the Role</span></h4>
+          <p><span class="zh">"你是一位经验丰富的数学老师"——给AI一个身份，它会用那个角色的专业知识和语言风格来回答。</span><span class="en">"You are an experienced math teacher" — giving AI an identity makes it respond with that role's expertise and language style.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">2. 具体明确</span><span class="en">2. Be Specific</span></h4>
+          <p><span class="zh">说清楚你想要什么格式（列表/表格/段落）、多长、什么风格。越具体越好。</span><span class="en">State the format (list/table/paragraph), length, and style you want. The more specific, the better.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">3. 给出示例</span><span class="en">3. Provide Examples</span></h4>
+          <p><span class="zh">"按照这个格式回答：[示例]"——给AI一个参考样本，它能更准确地理解你的需求。</span><span class="en">"Answer in this format: [example]" — giving AI a sample helps it understand your needs more accurately.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">4. 分步提问</span><span class="en">4. Ask Step by Step</span></h4>
+          <p><span class="zh">复杂问题拆成小步骤："先分析问题，然后列出解决方案，最后推荐最佳方案并说明理由。"</span><span class="en">Break complex questions into steps: "First analyze the problem, then list solutions, finally recommend the best one with reasons."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-9-3">
+      <h2><span class="zh">9.3 高级 Prompt 技巧</span><span class="en">9.3 Advanced Prompt Techniques</span></h2>
+      <p>
+        <span class="zh">掌握了基础后，来学习一些进阶技巧：</span>
+        <span class="en">After mastering the basics, learn some advanced techniques:</span>
+      </p>
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">零样本提示</span><span class="en">Zero-Shot Prompting</span></h4>
+          <p><span class="zh">直接给任务，不提供任何示例。"把这段英文翻译成中文：Hello World"。适合简单任务。</span><span class="en">Give the task directly without examples. "Translate to Chinese: Hello World." Good for simple tasks.</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">少样本提示</span><span class="en">Few-Shot Prompting</span></h4>
+          <p><span class="zh">先给几个示例，再让AI完成任务。"开心→😊，伤心→😢，生气→？"AI就会理解模式并回答"😡"。</span><span class="en">Give a few examples first, then the task. "Happy→😊, Sad→😢, Angry→?" AI understands the pattern and answers "😡".</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">思维链（CoT）</span><span class="en">Chain of Thought (CoT)</span></h4>
+          <p><span class="zh">"请一步一步地思考"——这句神奇的话能让AI像人一样分步推理，大幅提高复杂问题的准确率。</span><span class="en">"Think step by step" — this magical phrase makes AI reason step-by-step like humans, greatly improving accuracy on complex problems.</span></p>
+        </div>
+      </div>
+      <div class="callout callout-tip">
+        <p><span class="zh"><strong>试一试：</strong>问AI一道数学题时加上"请一步一步思考"，对比不加这句话的回答，你会发现准确率显著提升！</span><span class="en"><strong>Try it:</strong> When asking AI a math problem, add "think step by step" and compare with answers without it. You'll see a significant accuracy improvement!</span></p>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-9-4">
+      <h2><span class="zh">9.4 实用 Prompt 模板</span><span class="en">9.4 Practical Prompt Templates</span></h2>
+      <p>
+        <span class="zh">这些模板可以直接使用，帮你更好地跟AI合作：</span>
+        <span class="en">These templates can be used directly to help you work better with AI:</span>
+      </p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h4><span class="zh">学习助手</span><span class="en">Study Helper</span></h4>
+          <p><span class="zh">"你是一位耐心的[学科]老师。我是初中生，请用简单易懂的语言解释[概念]，并举一个生活中的例子。"</span><span class="en">"You are a patient [subject] teacher. I'm a middle school student. Please explain [concept] in simple language with a real-life example."</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">写作助手</span><span class="en">Writing Helper</span></h4>
+          <p><span class="zh">"请帮我写一篇[类型]文章，主题是[话题]，字数[N]字左右，风格[正式/幽默/抒情]，目标读者是[描述]。"</span><span class="en">"Write a [type] article about [topic], roughly [N] words, in [formal/humorous/lyrical] style, for [audience description]."</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">代码助手</span><span class="en">Code Helper</span></h4>
+          <p><span class="zh">"用[编程语言]写一个[功能描述]的程序。要求：1)代码要有注释；2)包含错误处理；3)给出运行示例。"</span><span class="en">"Write a [function description] program in [language]. Requirements: 1) Add comments 2) Include error handling 3) Show example output."</span></p>
+        </div>
+        <div class="card">
+          <h4><span class="zh">辩论助手</span><span class="en">Debate Helper</span></h4>
+          <p><span class="zh">"关于[话题]，请分别从支持方和反对方的角度，各列出3个论点及论据，然后给出你的综合分析。"</span><span class="en">"About [topic], list 3 arguments with evidence from both supporting and opposing sides, then give your balanced analysis."</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-9-5">
+      <h2><span class="zh">9.5 Prompt 的注意事项</span><span class="en">9.5 Prompt Dos and Don'ts</span></h2>
+      <p>
+        <span class="zh">使用AI时，有一些重要的注意事项：</span>
+        <span class="en">When using AI, keep these important considerations in mind:</span>
+      </p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">应该做</span><span class="en">Do</span></h4>
+          <ul>
+            <li><span class="zh">核实AI给出的事实和数据</span><span class="en">Verify facts and data from AI</span></li>
+            <li><span class="zh">迭代优化你的提示词</span><span class="en">Iteratively refine your prompts</span></li>
+            <li><span class="zh">保护个人隐私信息</span><span class="en">Protect personal privacy</span></li>
+            <li><span class="zh">用AI辅助学习，而非替代思考</span><span class="en">Use AI to assist learning, not replace thinking</span></li>
+          </ul>
+        </div>
+        <div class="compare-col highlight-bad">
+          <h4><span class="zh">不应该做</span><span class="en">Don't</span></h4>
+          <ul>
+            <li><span class="zh">把AI的回答直接当作业交</span><span class="en">Submit AI answers directly as homework</span></li>
+            <li><span class="zh">向AI透露密码等敏感信息</span><span class="en">Share passwords or sensitive info with AI</span></li>
+            <li><span class="zh">完全依赖AI而不自己思考</span><span class="en">Rely entirely on AI without thinking yourself</span></li>
+            <li><span class="zh">用AI来做违法或不道德的事</span><span class="en">Use AI for illegal or unethical purposes</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="quiz-9">
+      <h2><span class="zh">小测验</span><span class="en">Quiz</span></h2>
+      <div class="quiz" data-quiz-id="lesson9">
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 什么是 Prompt？</span><span class="en"><strong>Q1.</strong> What is a prompt?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. AI的训练数据</span><span class="en">A. AI's training data</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 你给AI的指令或问题</span><span class="en">B. Your instruction or question to AI</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. AI的源代码</span><span class="en">C. AI's source code</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 一种编程语言</span><span class="en">D. A programming language</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">Prompt就是你给AI的指令或问题。写好Prompt是高效使用AI的关键技能。</span><span class="en">A prompt is the instruction or question you give to AI. Writing good prompts is a key skill for effective AI use.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> "请一步一步思考"这个技巧叫什么？</span><span class="en"><strong>Q2.</strong> What is the "think step by step" technique called?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 思维链（Chain of Thought）</span><span class="en">A. Chain of Thought (CoT)</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 零样本提示</span><span class="en">B. Zero-shot prompting</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 少样本提示</span><span class="en">C. Few-shot prompting</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 角色扮演</span><span class="en">D. Role-playing</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">思维链（Chain of Thought）让AI一步步推理，显著提高复杂问题的回答准确率。</span><span class="en">Chain of Thought (CoT) makes AI reason step by step, significantly improving accuracy on complex problems.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> 以下哪个是好的 Prompt 写法？</span><span class="en"><strong>Q3.</strong> Which is a good prompt technique?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 越短越好</span><span class="en">A. Shorter is always better</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 不需要说明格式</span><span class="en">B. No need to specify format</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 越模糊越好</span><span class="en">C. Vaguer is better</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 明确角色、格式和受众</span><span class="en">D. Define role, format, and audience</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">好的Prompt应该明确AI的角色、输出格式、目标受众等要素，让AI准确理解你的需求。</span><span class="en">Good prompts should define AI's role, output format, target audience, helping AI accurately understand your needs.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q4.</strong> 少样本提示（Few-Shot）的特点是什么？</span><span class="en"><strong>Q4.</strong> What characterizes few-shot prompting?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 不给任何指令</span><span class="en">A. Give no instructions</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 只说一个词</span><span class="en">B. Say only one word</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 先给几个示例，再让AI完成任务</span><span class="en">C. Give a few examples first, then assign the task</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 用特殊代码控制AI</span><span class="en">D. Control AI with special code</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">少样本提示通过提供几个输入→输出的示例，让AI理解模式后完成新任务。示例帮助AI更准确地理解你的需求。</span><span class="en">Few-shot prompting provides input→output examples so AI understands the pattern, then completes new tasks. Examples help AI understand your needs better.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q5.</strong> 使用AI时，以下哪项是不应该做的？</span><span class="en"><strong>Q5.</strong> Which should you NOT do when using AI?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 核实AI给出的事实</span><span class="en">A. Verify facts AI provides</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 把AI的回答直接当作业交</span><span class="en">B. Submit AI answers directly as homework</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 用AI辅助学习</span><span class="en">C. Use AI to assist learning</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 迭代优化提示词</span><span class="en">D. Iteratively improve prompts</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">把AI的回答直接当作业交是学术不诚信行为。正确做法是用AI辅助理解概念，然后用自己的话表达。</span><span class="en">Submitting AI answers as your own homework is academic dishonesty. The right approach is using AI to understand concepts, then expressing ideas in your own words.</span></p>
+        </div>
+        <div class="quiz-result"></div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson8.html"><span class="zh">← 上一课</span><span class="en">← Previous</span></a>
+      <a href="lesson10.html"><span class="zh">下一课 →</span><span class="en">Next →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第4课：数据：AI 的粮食 — 数据集、标签、训练集/测试集 | Lesson 4: Data: AI's Food">
+  <title>第4课：数据：AI 的粮食 | Lesson 4: Data: AI's Food</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo"><span class="zh">AI 探索之旅</span><span class="en">AI Explorer</span></a>
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html" class="active"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag"><span class="zh">第 4 课</span><span class="en">Lesson 4</span></span>
+      <h1><span class="zh">数据：AI 的粮食</span><span class="en">Data: AI's Food</span></h1>
+      <p class="subtitle"><span class="zh">没有数据，AI 就是一个"饿肚子"的学生——什么也学不会</span><span class="en">Without data, AI is a "starving" student — it can't learn anything</span></p>
+    </div>
+  </section>
+
+  <div class="content" id="main-content">
+
+    <section class="section reveal" id="section-4-1">
+      <h2><span class="zh">4.1 什么是数据集？</span><span class="en">4.1 What Is a Dataset?</span></h2>
+      <p><span class="zh">要训练 AI，首先需要大量的<strong>数据</strong>。这些数据的集合叫做<strong>数据集（Dataset）</strong>。你可以把数据集想象成一本教科书——AI 就是从这本"教科书"中学习知识的。</span><span class="en">To train AI, you first need lots of <strong>data</strong>. A collection of this data is called a <strong>dataset</strong>. Think of a dataset as a textbook — AI learns its knowledge from this "textbook."</span></p>
+      <p><span class="zh">比如，要教 AI 识别猫和狗，你需要准备一个包含成千上万张猫和狗图片的数据集。每张图片就是一个<strong>数据样本</strong>。数据集越大、越多样化，AI 学得就越好。</span><span class="en">For example, to teach AI to recognize cats and dogs, you need a dataset containing thousands of cat and dog images. Each image is a <strong>data sample</strong>. The larger and more diverse the dataset, the better AI learns.</span></p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V5.25a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg></div>
+          <h4><span class="zh">图像数据集</span><span class="en">Image Datasets</span></h4>
+          <p><span class="zh">ImageNet 包含超过 1400 万张图片，涵盖 2 万多个类别。它是推动计算机视觉发展的关键数据集。</span><span class="en">ImageNet contains over 14 million images across 20,000+ categories. It's a key dataset that drove computer vision progress.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></div>
+          <h4><span class="zh">文本数据集</span><span class="en">Text Datasets</span></h4>
+          <p><span class="zh">训练 ChatGPT 的数据集包含了互联网上数十亿个网页的文本内容，相当于数百万本书的信息量。</span><span class="en">The dataset used to train ChatGPT contains text from billions of web pages, equivalent to millions of books worth of information.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-4-2">
+      <h2><span class="zh">4.2 标签：给数据贴"名牌"</span><span class="en">4.2 Labels: Putting "Name Tags" on Data</span></h2>
+      <p><span class="zh">光有数据还不够——AI 还需要知道每个数据样本的<strong>正确答案</strong>。这个正确答案就叫做<strong>标签（Label）</strong>。</span><span class="en">Data alone isn't enough — AI also needs to know the <strong>correct answer</strong> for each data sample. This correct answer is called a <strong>label</strong>.</span></p>
+      <p><span class="zh">比如，你给 AI 看一张猫的图片，同时告诉它"这是猫"。这个"猫"就是这张图片的标签。通过大量带标签的数据，AI 就能学会自己判断新的图片是猫还是狗。</span><span class="en">For example, you show AI a cat picture and tell it "this is a cat." The word "cat" is the label for that image. Through many labeled examples, AI learns to judge whether new images are cats or dogs on its own.</span></p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">🏷️ 有标签的数据</span><span class="en">🏷️ Labeled Data</span></h4>
+          <p><span class="zh">每个数据样本都附带了正确答案。</span><span class="en">Each data sample comes with the correct answer.</span></p>
+          <ul>
+            <li><span class="zh">图片 → "这是猫" / "这是狗"</span><span class="en">Image → "This is a cat" / "This is a dog"</span></li>
+            <li><span class="zh">邮件 → "垃圾邮件" / "正常邮件"</span><span class="en">Email → "Spam" / "Not spam"</span></li>
+            <li><span class="zh">用于<strong>监督学习</strong></span><span class="en">Used for <strong>supervised learning</strong></span></li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <h4><span class="zh">📦 无标签的数据</span><span class="en">📦 Unlabeled Data</span></h4>
+          <p><span class="zh">只有原始数据，没有标注答案。</span><span class="en">Only raw data, no annotated answers.</span></p>
+          <ul>
+            <li><span class="zh">一堆没有分类的图片</span><span class="en">A bunch of uncategorized images</span></li>
+            <li><span class="zh">互联网上的海量文本</span><span class="en">Massive text from the internet</span></li>
+            <li><span class="zh">用于<strong>无监督学习</strong></span><span class="en">Used for <strong>unsupervised learning</strong></span></li>
+          </ul>
+        </div>
+      </div>
+      <p><span class="zh"><strong>趣味知识：</strong>给数据打标签是一项巨大的工程！ImageNet 数据集的标注工作动用了来自 167 个国家的近 5 万名工人，通过众包平台完成。这就是为什么高质量的标注数据如此珍贵。</span><span class="en"><strong>Fun fact:</strong> Labeling data is a massive undertaking! ImageNet's labeling work employed nearly 50,000 workers from 167 countries through crowdsourcing platforms. That's why high-quality labeled data is so precious.</span></p>
+    </section>
+
+    <section class="section reveal" id="section-4-3">
+      <h2><span class="zh">4.3 训练集与测试集</span><span class="en">4.3 Training Set & Test Set</span></h2>
+      <p><span class="zh">想象你正在准备期末考试。你会用课本和习题来<strong>学习</strong>（训练），然后用<strong>模拟考试</strong>来检验自己学得怎么样（测试）。AI 的学习过程也是一样的！</span><span class="en">Imagine you're preparing for a final exam. You use textbooks and practice problems to <strong>study</strong> (train), then use a <strong>mock exam</strong> to test how well you learned (test). AI's learning process works the same way!</span></p>
+      <div class="compare reveal">
+        <div class="compare-col highlight-good">
+          <h4><span class="zh">📚 训练集 (Training Set)</span><span class="en">📚 Training Set</span></h4>
+          <p><span class="zh">AI 用来<strong>学习</strong>的数据。通常占总数据的 70-80%。</span><span class="en">Data AI uses to <strong>learn</strong>. Usually 70-80% of total data.</span></p>
+          <ul>
+            <li><span class="zh">就像你的课本和练习题</span><span class="en">Like your textbook and practice problems</span></li>
+            <li><span class="zh">AI 反复学习这些数据，调整自己的"参数"</span><span class="en">AI studies this data repeatedly, adjusting its "parameters"</span></li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <h4><span class="zh">📝 测试集 (Test Set)</span><span class="en">📝 Test Set</span></h4>
+          <p><span class="zh">AI 用来<strong>考试</strong>的数据。通常占总数据的 20-30%。</span><span class="en">Data used to <strong>test</strong> AI. Usually 20-30% of total data.</span></p>
+          <ul>
+            <li><span class="zh">就像你的模拟考试</span><span class="en">Like your mock exam</span></li>
+            <li><span class="zh">AI 从未见过这些数据，用来检验真实水平</span><span class="en">AI has never seen this data — it tests real ability</span></li>
+          </ul>
+        </div>
+      </div>
+      <p><span class="zh"><strong>为什么要分开？</strong>如果你用考试原题来复习，当然能考满分——但你并没有真正学会。同样，如果 AI 用测试集来训练，它的成绩会虚高，在面对新数据时就会"翻车"。这叫做<strong>过拟合</strong>。</span><span class="en"><strong>Why split them?</strong> If you study using the exact exam questions, you'd score perfectly — but you haven't truly learned. Similarly, if AI trains on its test set, its scores would be inflated, and it would fail on new data. This is called <strong>overfitting</strong>.</span></p>
+    </section>
+
+    <section class="section reveal" id="section-4-4">
+      <h2><span class="zh">4.4 数据质量：垃圾进，垃圾出</span><span class="en">4.4 Data Quality: Garbage In, Garbage Out</span></h2>
+      <p><span class="zh">在 AI 领域有一句名言：<strong>"Garbage In, Garbage Out"</strong>（垃圾进，垃圾出）。意思是，如果你给 AI 喂的数据质量很差，那它学到的东西也一定很差。</span><span class="en">There's a famous saying in AI: <strong>"Garbage In, Garbage Out" (GIGO)</strong>. It means if you feed AI poor quality data, what it learns will also be poor.</span></p>
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg></div>
+          <h4><span class="zh">数据偏差</span><span class="en">Data Bias</span></h4>
+          <p><span class="zh">如果训练数据只包含白人面孔，AI 识别其他肤色的人脸时准确率会大幅下降。数据必须具有<strong>代表性</strong>。</span><span class="en">If training data only includes white faces, AI's accuracy drops significantly for other skin tones. Data must be <strong>representative</strong>.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h4><span class="zh">标签错误</span><span class="en">Label Errors</span></h4>
+          <p><span class="zh">如果把一张狗的图片标记为"猫"，AI 就会学到错误的知识。标签的<strong>准确性</strong>直接影响模型质量。</span><span class="en">If a dog image is labeled as "cat," AI learns the wrong thing. Label <strong>accuracy</strong> directly affects model quality.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
+          <h4><span class="zh">数据量不足</span><span class="en">Insufficient Data</span></h4>
+          <p><span class="zh">数据太少就像课本只有几页——AI 没有足够的例子来归纳出正确的规律。</span><span class="en">Too little data is like a textbook with only a few pages — AI doesn't have enough examples to find the right patterns.</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182"/></svg></div>
+          <h4><span class="zh">数据噪声</span><span class="en">Data Noise</span></h4>
+          <p><span class="zh">模糊的图片、错误的信息都是"噪声"。过多噪声会干扰 AI 的学习，就像在嘈杂环境中很难听清老师讲课。</span><span class="en">Blurry images, incorrect info are "noise." Too much noise disrupts learning, like trying to hear a teacher in a noisy room.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="section-4-5">
+      <h2><span class="zh">4.5 小测验</span><span class="en">4.5 Quiz</span></h2>
+      <p><span class="zh">让我们来检验一下你在本课中学到的知识！</span><span class="en">Let's test what you've learned in this lesson!</span></p>
+      <div class="quiz" data-quiz-id="lesson4">
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh"><strong>Q1.</strong> 在机器学习中，"标签"（Label）指的是什么？</span><span class="en"><strong>Q1.</strong> In machine learning, what does "label" refer to?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 数据的文件名</span><span class="en">A. The file name of the data</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 数据样本对应的正确答案</span><span class="en">B. The correct answer for a data sample</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 数据的存储位置</span><span class="en">C. The storage location of data</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. AI 的预测结果</span><span class="en">D. AI's prediction result</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">标签是人为给数据标注的正确答案。比如告诉 AI 一张图片是"猫"还是"狗"，这个分类就是标签。</span><span class="en">A label is the correct answer manually annotated for data. For example, telling AI an image is a "cat" or "dog" — this classification is the label.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh"><strong>Q2.</strong> 为什么需要把数据分成训练集和测试集？</span><span class="en"><strong>Q2.</strong> Why do we split data into training and test sets?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 为了节省存储空间</span><span class="en">A. To save storage space</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. 为了让训练速度更快</span><span class="en">B. To make training faster</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 为了用 AI 没见过的数据检验其真实水平</span><span class="en">C. To test AI's real ability with data it hasn't seen</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. 为了让数据更加安全</span><span class="en">D. To make data more secure</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">如果用训练过的数据来测试，AI 的成绩会虚高（过拟合）。测试集中的数据是 AI 从未见过的，才能真实反映它的能力。</span><span class="en">If we test with training data, AI's scores would be inflated (overfitting). Test set data is unseen by AI, giving a true measure of its ability.</span></p>
+        </div>
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh"><strong>Q3.</strong> "Garbage In, Garbage Out" 这句话强调了什么？</span><span class="en"><strong>Q3.</strong> What does "Garbage In, Garbage Out" emphasize?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A"><span class="zh">A. 数据质量对 AI 至关重要</span><span class="en">A. Data quality is crucial for AI</span></button>
+            <button class="quiz-option" data-value="B"><span class="zh">B. AI 需要处理垃圾分类</span><span class="en">B. AI needs to sort garbage</span></button>
+            <button class="quiz-option" data-value="C"><span class="zh">C. 数据越多越好</span><span class="en">C. More data is always better</span></button>
+            <button class="quiz-option" data-value="D"><span class="zh">D. AI 会产生很多垃圾数据</span><span class="en">D. AI generates lots of garbage data</span></button>
+          </div>
+          <p class="quiz-explanation hidden"><span class="zh">"垃圾进，垃圾出"意味着如果输入的数据质量很差，AI 学到的东西也必然很差。数据质量是 AI 的根基。</span><span class="en">"Garbage In, Garbage Out" means if input data is poor quality, what AI learns will also be poor. Data quality is AI's foundation.</span></p>
+        </div>
+        <div class="quiz-result hidden">
+          <p class="score"><span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span><span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span></p>
+          <p><span class="zh">完成测验！继续学习下一课吧。</span><span class="en">Quiz complete! Continue to the next lesson.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-nav-footer">
+      <a href="lesson3.html"><span class="zh">← 上一课：AI 发展简史</span><span class="en">← Previous: History of AI</span></a>
+      <a href="lesson5.html"><span class="zh">下一课：监督学习 →</span><span class="en">Next: Supervised Learning →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text"><span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span><span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span></p>
+  </footer>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

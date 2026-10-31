@@ -1,0 +1,483 @@
+{
+    "app": {
+        "title": "Opetettava kone",
+        "about": "Tietoa sovelluksesta",
+        "save": "Tallenna",
+        "load": "Avaa",
+        "language": "Kieli",
+        "reminder": "Muista tallentaa luokittelijasi.",
+        "models": {
+            "image": "Kuvat",
+            "pose": "Asennot",
+            "hand": "Eleet",
+            "speech": "Puhe"
+        },
+        "github": "GitHub",
+        "teachingMaterials": "Oppimateriaalit",
+        "selectModel": "Mitä haluat luokitella?",
+        "enableUSB": "Käytä USB-laitetta",
+        "subtitle": "Luo luokittelijoita omilla tiedoillasi ilman koodausta"
+    },
+    "save": {
+        "title": "Tallenna luokittelija",
+        "noModel": "Opeta luokittelija ensiksi.",
+        "message": "Tallenna luokittelija laitteellesi.",
+        "saveSamples": "Tallenna esimerkit",
+        "saveClassifier": "Tallenna luokittelija",
+        "saveBehaviours": "Tallenna toiminnot",
+        "name": "Name",
+        "actions": {
+            "save": "Tallenna",
+            "cancel": "Peruuta"
+        }
+    },
+    "load": {
+        "title": "Avaa",
+        "code": "Syötä jaettu koodi",
+        "actions": {
+            "openFile": "Avaa tiedosto",
+            "openCode": "Käytä koodi",
+            "cancel": "Peruuta"
+        }
+    },
+    "alignment": {
+        "aria": {
+            "left": "tasaa vasemmalle",
+            "center": "tasaa keskelle",
+            "right": "tasaa oikealle",
+            "align": "tekstin tasaus"
+        }
+    },
+    "fontsize": {
+        "aria": {
+            "title": "muuta tekstin kokoa",
+            "increase": "suurenna",
+            "decrease": "pienennä"
+        }
+    },
+    "trainingdata": {
+        "actions": {
+            "addClass": "Lisää luokka",
+            "webcam": "Webkamera",
+            "audio": "Mikrofoni",
+            "upload": "Lataa",
+            "datasets": "Datasetit",
+            "deleteClass": "Poista luokka",
+            "disableClass": "Poista luokka käytöstä",
+            "enableClass": "Ota luokka käyttöön",
+            "removeAll": "Poista kaikki tiedot",
+            "capture": "Pidä nappi pohjassa",
+            "fileCapture": "Pura",
+            "record": "Nauhoita",
+            "collaborate": "Tee yhteistyötä",
+            "cancel": "Peruuta",
+            "use": "Käytä ({{count}})",
+            "displayMore": "Näytä {{count}} kuvaa"
+        },
+        "labels": {
+            "title": "Opetusdata",
+            "addSamples": "Lisää kuvia",
+            "imageSamples": "{{count}} kuvaa",
+            "addAudioSamples": "Lisää ääninäytteitä",
+            "audioSamples": "{{count}} ääninäytettä",
+            "class": "Luokka",
+            "noiseClass": "Taustamelu",
+            "wait": "Otetaan kuvia...",
+            "stop": "Pysäytä",
+            "dropFiles": "tai vedä kuvia tähän nettisivuilta tai tiedostoista",
+            "dropAudioFiles": "tai vedä äänitiedostoja tähän nettisivuilta tai tiedostoista",
+            "needsMore": "Lisää opetusdataa tarvitaan",
+            "dropError": "Only images can be dropped here",
+            "dropAudioError": "Vain äänitiedostoja voi pudottaa tähän",
+            "emptyClass": "Tämä luokka on tyhjä.",
+            "qrMessage": "Voit lisätä kuvia puhelimella tai tabletilla. Laajenna QR-koodi napsauttamalla sitä.",
+            "disabled": "POISTETTU KÄYTÖSTÄ",
+            "selectDataset": "Valitse datasetti",
+            "selectTestData": "Valitse kuva",
+            "searchDataset": "Etsi datasetti",
+            "images": "kuvaa",
+            "selected": "valittu",
+            "loading": "Ladataan...",
+            "loadingDataset": "Ladataan kuvia {{loaded}}/{{total}}...",
+            "datasetLoadError": "Datasettiä ei voitu ladata. Yritä uudelleen."
+        },
+        "aria": {
+            "sample": "ladattu opetusdata",
+            "delete": "poista opetusdata",
+            "more": "Lisää asetuksia",
+            "close": "Sulje",
+            "classCard": "Opetusdata {{name}}lle"
+        }
+    },
+    "heatmap": {
+        "title": "Selitys",
+        "colorScaleHelp": "Väriasteikko näyttää, mihin kuvaan osiin malli keskittyy. Punainen = korkea tärkeys, Sininen = matala tärkeys.",
+        "noPoseDetected": "Ei asentoa",
+        "high": "Korkea",
+        "low": "Matala"
+    },
+    "underTheHood": {
+        "title": "Konepellin alla",
+        "visualization": "Visualisointi",
+        "statistics": "Mallin tilastot",
+        "transferLearning": "Siirto-oppiminen",
+        "on": "Päällä",
+        "off": "Pois päältä"
+    },
+    "charts": {
+        "accuracyPerClass": "Tarkkuus luokittain",
+        "accuracyPerClassHelp": "Näyttää, kuinka usein malli ennustaa kunkin luokan oikein testinäytteillä. 1,00 tarkoittaa, että kaikki tämän luokan testinäytteet menivät oikein.",
+        "confusionMatrix": "Sekaannusmatriisi",
+        "confusionMatrixHelp": "Rivit ovat oikeita luokkia ja sarakkeet mallin ennusteita. Vinorivin arvot ovat oikein, muut arvot ovat sekaannuksia.",
+        "accuracyPerEpoch": "Tarkkuus per epookki",
+        "accuracyPerEpochHelp": "Näyttää, miten ennustetarkkuus muuttuu harjoittelun aikana. Tarkkuus on välillä 0-1, jossa 1 on paras. Testitarkkuus käyttää testijoukon näytteitä, ei harjoitusjoukon näytteitä, joilla mallia päivitettiin.",
+        "lossPerEpoch": "Häviö per epookki",
+        "lossPerEpochHelp": "Näyttää mallin virheen harjoittelun aikana. Häviö alkaa arvosta 0 ja voi kasvaa, ja pienempi on parempi. Testihäviö käyttää testijoukon näytteitä, ei harjoitusjoukon näytteitä, joilla mallia päivitettiin.",
+        "class": "Luokka",
+        "accuracy": "Tarkkuus",
+        "testSamples": "# Testinäytteet",
+        "prediction": "Ennuste",
+        "actual": "Todellinen",
+        "predicted": "Ennustettu",
+        "count": "Määrä",
+        "acc": "tark.",
+        "testAcc": "testi tark.",
+        "loss": "Häviö",
+        "testLoss": "testi häviö",
+        "epochs": "Epookit",
+        "epoch": "Epookki",
+        "transferLearningMatrix": "Siirto-oppimismatriisi",
+        "transferLearningMatrixHelp": "Luokkakohtaiset ImageNet-käsiteprofiilit (luokittelijasta) ja miten nykyinen syöte vastaa niitä.",
+        "transferLearningGraph": "Siirto-oppimiskaavio",
+        "transferLearningGraphHelp": "Tämä kaavio näyttää, miten malli yhdistää nykyisen kuvasi aiemmin opittuihin luokkiin. Vasen puoli: nykyinen syöte ja ehdokasluokat. Oikea puoli: esikoulutetun mallin luokat. Paksummat viivat tarkoittavat vahvempaa osumaa.",
+        "transferLearningFlow": "Siirto-oppimisvirta",
+        "transferLearningUserClass": "Käyttäjäluokka",
+        "transferLearningCurrentInput": "Nykyinen syöte",
+        "transferLearningSimilarity": "Samankaltaisuus",
+        "transferLearningSimilarityHelp": "Kosinisamankaltaisuus vertaa nykyistä syötettä jokaiseen käyttäjäluokkaan käyttäen kaikkia 1000 ImageNet-todennäköisyyttä. Arvot ovat välillä 0-1, jossa 1 tarkoittaa samankaltaisinta.",
+        "transferLearningSamples": "{{count}} näytettä",
+        "transferLearningStages": "Siirto-oppimisen vaiheet",
+        "transferLearningStageConcepts": "Käsitteet",
+        "transferLearningStageConnections": "Yhteydet",
+        "transferLearningStageAdvanced": "Edistynyt",
+        "pretrainedConceptsTitle": "Mitä esikoulutettu malli tunnistaa",
+        "pretrainedConceptsHelp": "Nämä ovat tuttuja ImageNet-käsitteitä, joita esikoulutettu malli yhdistää nykyiseen syötteeseen. Suurempi % tarkoittaa vahvempaa vastaavuutta.",
+        "pretrainedModelLayers": "Esiopetettu malli",
+        "pretrainedModelSubtitle": "Tunnistaa ImageNet-käsitteitä",
+        "pretrainedSampleAlt": "{{label}} näyte {{index}}",
+        "transferLearningBarChart": "Testisyötteen samankaltaisuus",
+        "transferLearningBarChartHelp": "Esikoulutettu malli kuvaa nykyisen syötteen ja jokaisen opetetun luokan pitkänä ImageNet-käsitteiden pistelistana. Kosinisamankaltaisuus vertaa näiden kahden listan muotoa. Jos korkeat ja matalat pisteet osuvat samaan kohtaan, samankaltaisuus on suuri. Arvot ovat 0%-100%. Korkeampi pylväs tarkoittaa, että syöte näyttää enemmän kyseiseltä luokalta."
+    },
+    "training": {
+        "actions": {
+            "train": "Opeta luokittelija"
+        },
+        "labels": {
+            "title": "Opettaminen",
+            "addMore": "Lisää opetusdataa tai uusia luokkia",
+            "needsTraining": "Luokittelija tulee opettaa ensin",
+            "advanced": "Lisäasetukset",
+            "epochs": "Epochs",
+            "learningRate": "Learning Rate",
+            "batchSize": "Batch Size",
+            "loading": "Luokittelijaa ladataan",
+            "prepairing": "Valmistellaan esimerkkejä...",
+            "training": "Opetetaan luokittelijaa",
+            "complete": "Luokittelija opetettu"
+        },
+        "tooltips": {
+            "epochs": "Kuinka monta kertaa kutakin näytettä käytetään koulutukseen.",
+            "learningRate": "Tee tähän vain pieniä säätöjä, sen tulee olla alle 0,1.",
+            "batchSize": "Vaikuttaa harjoitteluun minimaalisesti. Se on koulutuksen jokaisessa iteraatiossa käytettyjen näytteiden lukumäärä."
+        }
+    },
+    "input": {
+        "labels": {
+            "title": "Syöte",
+            "webcam": "Webkamera",
+            "audio": "Mikrofoni",
+            "file": "Tiedosto",
+            "device": "Laite",
+            "dataset": "Aineisto",
+            "switchOn": "Päällä",
+            "switchOff": "Pois päältä",
+            "upload": "lataa tai pudota tiedosto tähän"
+        },
+        "aria": {
+            "switch": " Ota webkamera käytöön"
+        }
+    },
+    "model": {
+        "actions": {
+            "export": "Vie ulkoiseen työkaluun",
+            "clone": "Jaa kopio"
+        },
+        "labels": {
+            "title": "Luokittelija",
+            "mustTrain": "Sinun pitää opettaa luokittelija ensin",
+            "mustInput": "Sinun täytyy antaa syöte käyttääksesi luokittelijaa"
+        },
+        "aria": {
+            "more": "Lisää asetuksia"
+        }
+    },
+    "output": {
+        "labels": {
+            "title": "Tulos",
+            "deploy": "Esitä",
+            "serialdevice": "Sarjalaite",
+            "connect": "Yhdistä",
+            "disconnect": "Katkaise yhteys",
+            "connectSuccess": "Yhdistetty Sarjalaitteeseen",
+            "connectError": "Sarjalaitteen yhdistäminen epäonnistui. Varmista, ettei laite ole käytössä muualla, ja yritä uudelleen."
+        },
+        "aria": {
+            "volume": "Äänenvoimakkuus",
+            "image": "luokan {{index}} tulos",
+            "display": "tulos luokalle {{index}}",
+            "expand": "laajenna",
+            "serialdevice": "Sarjalaite"
+        }
+    },
+    "behaviours": {
+        "actions": {
+            "upload": "Lataa",
+            "dataset": "Aineisto",
+            "delete": "Poista",
+            "record": "Äänitä",
+            "stop": "Lopeta"
+        },
+        "labels": {
+            "title": "Toiminta:",
+            "message": "Teksti",
+            "link": "Linkki",
+            "linkError": "Linkkiä ei tueta",
+            "embedInfo": "Näytä videoita ja kuvia linkistä. Vain jotkin linkit toimivat, esimerkiksi YouTube, Vimeo, SoundCloud, videotiedostot, äänitiedostot tai kuvat.<br/><br/>Katso lisätietoja <l>react-player</l>-dokumentaatiosta.",
+            "voiceRecording": "Äänite",
+            "dropError": "Tähän voi pudottaa vai kuvia tai ääniä",
+            "loop": "Toista"
+        },
+        "aria": {
+            "message": "tuloksen teksti",
+            "image": "kuvan toiminto",
+            "sound": "Äänen toiminto",
+            "text": "tekstin toiminto",
+            "embed": "upotetun linkin toiminto",
+            "imageOutput": "Ladattu kuva",
+            "noImage": "kuvan paikkamerkki",
+            "stop": "Pysäytä",
+            "play": "aloita",
+            "behaviourCard": "toiminto {{name}}lle",
+            "loop": "Toista"
+        }
+    },
+    "stepper": {
+        "actions": {
+            "next": "Seuraava"
+        },
+        "aria": {
+            "step": "seuraava vaihe"
+        }
+    },
+    "webcam": {
+        "aria": {
+            "video": "webkameran syöte",
+            "flip": "Vaihda kameraa"
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "muokkaa otsikkoa",
+            "editTitleInput": "{{value}} muokkaa laatikkoa"
+        },
+        "labels": {
+            "titlePlaceholder": "Nimi"
+        }
+    },
+    "fontcolor": {
+        "aria": {
+            "title": "valitse fontin väri"
+        }
+    },
+    "share": {
+        "actions": {
+            "close": "Sulje",
+            "share": "Jaa",
+            "stopShare": "Lopeta jakaminen"
+        },
+        "labels": {
+            "title": "Jaa",
+            "includeSamples": "Liitä opetuskuvat mukaan",
+            "codeInstructions": "Anna muiden avata kopio luokittelijastasi alla olevan koodin avulla.",
+            "linkInstructions": "Kopioimalla linkin luokittelijaasi voi käyttää muissa sovelluksissa kuten <scratchLink>Scratch</scratchLink>. Linkki toimii niin kauan kuin tämä välilehti on auki, tai jos talletat projektin ja avaat sen myöhemmin uudelleen."
+        }
+    },
+    "datasets": {
+        "categories": {
+            "animals": "Eläimet",
+            "nature": "Luonto",
+            "colors": "Värit",
+            "fruits": "Hedelmät",
+            "human": "Ihminen",
+            "studyTools": "Opiskeluvälineet",
+            "recyclingMaterials": "Kierrätysmateriaalit",
+            "transportation": "Liikenne"
+        },
+        "cats": {
+            "name": "Kissat",
+            "description": "Kokoelma kissakuvia"
+        },
+        "dogs": {
+            "name": "Koirat",
+            "description": "Kokoelma koirakuvia"
+        },
+        "birds": {
+            "name": "Linnut",
+            "description": "Kokoelma lintukuvia"
+        },
+        "flowers": {
+            "name": "Kukat",
+            "description": "Kokoelma kukkakuvia"
+        },
+        "trees": {
+            "name": "Puut",
+            "description": "Kokoelma puukuvia"
+        },
+        "white": {
+            "name": "Valkoinen",
+            "description": "Kokoelma valkoisia kuvia"
+        },
+        "black": {
+            "name": "Musta",
+            "description": "Kokoelma mustia kuvia"
+        },
+        "gray": {
+            "name": "Harmaa",
+            "description": "Kokoelma harmaita kuvia"
+        },
+        "blue": {
+            "name": "Sininen",
+            "description": "Kokoelma sinisiä kuvia"
+        },
+        "green": {
+            "name": "Vihreä",
+            "description": "Kokoelma vihreitä kuvia"
+        },
+        "red": {
+            "name": "Punainen",
+            "description": "Kokoelma punaisia kuvia"
+        },
+        "pink": {
+            "name": "Vaaleanpunainen",
+            "description": "Kokoelma vaaleanpunaisia kuvia"
+        },
+        "orange": {
+            "name": "Oranssi",
+            "description": "Kokoelma oransseja kuvia"
+        },
+        "purple": {
+            "name": "Violetti",
+            "description": "Kokoelma violetteja kuvia"
+        },
+        "yellow": {
+            "name": "Keltainen",
+            "description": "Kokoelma keltaisia kuvia"
+        },
+        "apple": {
+            "name": "Omena",
+            "description": "Kokoelma omenakuvia"
+        },
+        "pear": {
+            "name": "Päärynä",
+            "description": "Kokoelma päärynäkuvia"
+        },
+        "orangeFruit": {
+            "name": "Appelsiini",
+            "description": "Kokoelma appelsiininkuvia"
+        },
+        "men": {
+            "name": "Miehet",
+            "description": "Kokoelma mieskuvia"
+        },
+        "women": {
+            "name": "Naiset",
+            "description": "Kokoelma naiskuvia"
+        },
+        "handPalm": {
+            "name": "Käämenkämmen",
+            "description": "Kokoelma kämmenkuvia"
+        },
+        "pencils": {
+            "name": "Lyijykynät",
+            "description": "Kokoelma lyijykynä kuvia"
+        },
+        "pens": {
+            "name": "Kynät",
+            "description": "Kokoelma kynä kuvia"
+        },
+        "humanPose": {
+            "name": "Ihmisen asento",
+            "description": "Kokoelma ihmisen asentokuvia"
+        },
+        "erasers": {
+            "name": "Pyyhekumit",
+            "description": "Kokoelma pyyhekumikuvia"
+        },
+        "batteries": {
+            "name": "Paristot",
+            "description": "Kokoelma paristokuvia"
+        },
+        "cardboard": {
+            "name": "Pahvi",
+            "description": "Kokoelma pahvikuvia"
+        },
+        "glass": {
+            "name": "Lasi",
+            "description": "Kokoelma lasikuvia"
+        },
+        "paper": {
+            "name": "Paperi",
+            "description": "Kokoelma paperikuvia"
+        },
+        "plastics": {
+            "name": "Muovit",
+            "description": "Kokoelma muovikuvia"
+        },
+        "airplanes": {
+            "name": "Lentokoneet",
+            "description": "Kokoelma lentokoneenkuvia"
+        },
+        "buses": {
+            "name": "Bussit",
+            "description": "Kokoelma bussikuvia"
+        },
+        "bicycles": {
+            "name": "Polkupyörät",
+            "description": "Kokoelma polkupyöräkuvia"
+        },
+        "cars": {
+            "name": "Autot",
+            "description": "Kokoelma autokuvia"
+        },
+        "mopeds": {
+            "name": "Mopedit",
+            "description": "Kokoelma mopedikuvia"
+        },
+        "motorcycles": {
+            "name": "Moottoripyörät",
+            "description": "Kokoelma moottoripyöräkuvia"
+        },
+        "pedestrians": {
+            "name": "Jalankulkijat",
+            "description": "Kokoelma jalankulkijakuvia"
+        },
+        "ships": {
+            "name": "Laivat",
+            "description": "Kokoelma laivakuvia"
+        },
+        "trains": {
+            "name": "Junat",
+            "description": "Kokoelma junakuvia"
+        }
+    }
+}

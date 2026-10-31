@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第9课：Prompt 工程实战——系统化 Prompt 设计与实战场景 | Lesson 9: Prompt Engineering Lab">
+  <title>第9课：Prompt 工程实战 | Lesson 9: Prompt Engineering Lab</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html" class="active"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language"><span class="zh">EN</span><span class="en">中文</span></button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero" id="main-content">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 9 课</span>
+        <span class="en">Lesson 9</span>
+      </span>
+      <h1>
+        <span class="zh">Prompt 工程实战</span>
+        <span class="en">Prompt Engineering Lab</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">系统化 Prompt 设计——角色、示例、格式，3 个实战场景</span>
+        <span class="en">Systematic prompt design—role, examples &amp; format with 3 practical scenarios</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <main class="content">
+
+    <!-- ===== Section 9.1: Learning Objectives ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.1 学习目标</span>
+        <span class="en">9.1 Learning Objectives</span>
+      </h2>
+
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 理解 Prompt Engineering 的核心原则</span>
+          <span class="en">✅ Understand core principles of prompt engineering</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 掌握角色设定、示例引导、格式控制三大技巧</span>
+          <span class="en">✅ Master three key techniques: role-setting, few-shot examples, format control</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 通过 3 个实战场景练习 Prompt 设计</span>
+          <span class="en">✅ Practice prompt design through 3 hands-on scenarios</span>
+        </li>
+        <li style="padding: var(--sp-xs) 0;">
+          <span class="zh">✅ 学会用 Python 调用 AI API 实现自动化</span>
+          <span class="en">✅ Learn to call AI APIs with Python for automation</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Section 9.2: Prompt Engineering Principles ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.2 Prompt 工程三大原则</span>
+        <span class="en">9.2 Three Principles of Prompt Engineering</span>
+      </h2>
+
+      <p>
+        <span class="zh">Prompt 就是你给 AI 的指令。写得好不好，直接决定了 AI 回答的质量。好的 Prompt 就像好的问题——越具体，答案越好。</span>
+        <span class="en">A prompt is your instruction to AI. How well it's written directly determines response quality. Good prompts are like good questions—the more specific, the better the answer.</span>
+      </p>
+
+      <div class="card-grid cols-3">
+        <div class="card">
+          <h3>
+            <span class="zh">🎭 角色设定</span>
+            <span class="en">🎭 Role Setting</span>
+          </h3>
+          <p>
+            <span class="zh">"你是一位资深 Python 导师"——告诉 AI 它应该扮演什么角色，决定回答的风格和深度。</span>
+            <span class="en">"You are a senior Python tutor"—tell AI what role to play, determining response style and depth.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">📝 示例引导</span>
+            <span class="en">📝 Few-shot Examples</span>
+          </h3>
+          <p>
+            <span class="zh">给 AI 1-3 个示例，让它理解你期望的输入输出格式。"所见即所得"。</span>
+            <span class="en">Give AI 1-3 examples to show expected input/output format. "What you show is what you get."</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="zh">📋 格式控制</span>
+            <span class="en">📋 Format Control</span>
+          </h3>
+          <p>
+            <span class="zh">明确要求输出格式——表格、列表、JSON、步骤化。结构化输出更易使用。</span>
+            <span class="en">Explicitly request output format—table, list, JSON, step-by-step. Structured output is more usable.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 9.3: Code Example ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.3 实验：用 Python 构建 Prompt 模板</span>
+        <span class="en">9.3 Experiment: Build Prompt Templates with Python</span>
+      </h2>
+
+      <p>
+        <span class="zh">用 Python 可以系统化地构建和管理 Prompt，实现批量处理和自动化。</span>
+        <span class="en">Python lets you systematically build and manage prompts for batch processing and automation.</span>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># Prompt 模板系统 / Prompt template system</span>
+
+<span class="kw">def</span> <span class="fn">build_prompt</span>(<span class="var">role</span>, <span class="var">task</span>, <span class="var">context</span><span class="op">=</span><span class="str">""</span>, <span class="var">format_req</span><span class="op">=</span><span class="str">""</span>, <span class="var">examples</span><span class="op">=</span><span class="str">""</span>):
+    <span class="str">"""构建结构化 Prompt / Build a structured prompt"""</span>
+    <span class="var">prompt</span> <span class="op">=</span> <span class="str">f"## 角色 / Role\n{role}\n\n"</span>
+    <span class="kw">if</span> <span class="var">context</span>:
+        <span class="var">prompt</span> <span class="op">+=</span> <span class="str">f"## 背景 / Context\n{context}\n\n"</span>
+    <span class="var">prompt</span> <span class="op">+=</span> <span class="str">f"## 任务 / Task\n{task}\n\n"</span>
+    <span class="kw">if</span> <span class="var">examples</span>:
+        <span class="var">prompt</span> <span class="op">+=</span> <span class="str">f"## 示例 / Examples\n{examples}\n\n"</span>
+    <span class="kw">if</span> <span class="var">format_req</span>:
+        <span class="var">prompt</span> <span class="op">+=</span> <span class="str">f"## 输出格式 / Output Format\n{format_req}\n"</span>
+    <span class="kw">return</span> <span class="var">prompt</span>
+
+<span class="cm"># 使用示例 / Usage example</span>
+<span class="var">prompt</span> <span class="op">=</span> <span class="fn">build_prompt</span>(
+    role<span class="op">=</span><span class="str">"你是一位经验丰富的 Python 编程导师"</span>,
+    task<span class="op">=</span><span class="str">"解释列表推导式（list comprehension）的用法"</span>,
+    context<span class="op">=</span><span class="str">"学生是初学者，刚学完基本循环"</span>,
+    format_req<span class="op">=</span><span class="str">"先给出简单解释，再给3个由易到难的代码示例"</span>,
+    examples<span class="op">=</span><span class="str">"输入: 解释for循环\n输出: for循环用于遍历序列..."</span>
+)
+<span class="fn">print</span>(<span class="var">prompt</span>)</code></pre>
+        <div class="code-output">
+          <span class="code-output-label"><span class="zh">输出：</span><span class="en">Output:</span></span>
+          <pre>## 角色 / Role
+你是一位经验丰富的 Python 编程导师
+
+## 背景 / Context
+学生是初学者，刚学完基本循环
+
+## 任务 / Task
+解释列表推导式（list comprehension）的用法
+
+## 示例 / Examples
+输入: 解释for循环
+输出: for循环用于遍历序列...
+
+## 输出格式 / Output Format
+先给出简单解释，再给3个由易到难的代码示例</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 9.4: Bad vs Good Prompts ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.4 对比：差 Prompt vs 好 Prompt</span>
+        <span class="en">9.4 Compare: Bad Prompt vs Good Prompt</span>
+      </h2>
+
+      <div class="compare">
+        <div class="compare-col">
+          <h4>
+            <span class="zh">❌ 差 Prompt</span>
+            <span class="en">❌ Bad Prompt</span>
+          </h4>
+          <p>
+            <span class="zh">"帮我写个程序"</span>
+            <span class="en">"Help me write a program"</span>
+          </p>
+        </div>
+        <div class="compare-col">
+          <h4>
+            <span class="zh">✅ 好 Prompt</span>
+            <span class="en">✅ Good Prompt</span>
+          </h4>
+          <p>
+            <span class="zh">"用 Python 写一个猜数字游戏：随机生成 1-100 的数字，用户猜测，给出'大了/小了'提示，最多 7 次机会。代码要有中文注释。"</span>
+            <span class="en">"Write a Python number guessing game: random number 1-100, user guesses with 'higher/lower' hints, max 7 attempts. Include comments."</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn"><span class="zh">复制</span><span class="en">Copy</span></button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># Prompt 质量评估工具 / Prompt quality checker</span>
+<span class="kw">def</span> <span class="fn">check_prompt_quality</span>(<span class="var">prompt</span>):
+    <span class="var">score</span> <span class="op">=</span> <span class="num">0</span>
+    <span class="var">feedback</span> <span class="op">=</span> []
+
+    <span class="kw">if</span> <span class="fn">len</span>(<span class="var">prompt</span>) <span class="op">></span> <span class="num">50</span>:
+        <span class="var">score</span> <span class="op">+=</span> <span class="num">2</span>
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"✅ 足够详细"</span>)
+    <span class="kw">else</span>:
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"❌ 太简短，需要更多细节"</span>)
+
+    <span class="var">role_words</span> <span class="op">=</span> [<span class="str">"作为"</span>, <span class="str">"你是"</span>, <span class="str">"扮演"</span>, <span class="str">"as a"</span>, <span class="str">"you are"</span>]
+    <span class="kw">if</span> <span class="fn">any</span>(<span class="var">w</span> <span class="kw">in</span> <span class="var">prompt</span>.<span class="fn">lower</span>() <span class="kw">for</span> <span class="var">w</span> <span class="kw">in</span> <span class="var">role_words</span>):
+        <span class="var">score</span> <span class="op">+=</span> <span class="num">2</span>
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"✅ 包含角色设定"</span>)
+    <span class="kw">else</span>:
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"💡 建议添加角色设定"</span>)
+
+    <span class="var">format_words</span> <span class="op">=</span> [<span class="str">"格式"</span>, <span class="str">"表格"</span>, <span class="str">"列表"</span>, <span class="str">"步骤"</span>, <span class="str">"format"</span>, <span class="str">"table"</span>, <span class="str">"list"</span>, <span class="str">"step"</span>]
+    <span class="kw">if</span> <span class="fn">any</span>(<span class="var">w</span> <span class="kw">in</span> <span class="var">prompt</span>.<span class="fn">lower</span>() <span class="kw">for</span> <span class="var">w</span> <span class="kw">in</span> <span class="var">format_words</span>):
+        <span class="var">score</span> <span class="op">+=</span> <span class="num">2</span>
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"✅ 指定了输出格式"</span>)
+    <span class="kw">else</span>:
+        <span class="var">feedback</span>.<span class="fn">append</span>(<span class="str">"💡 建议指定输出格式"</span>)
+
+    <span class="fn">print</span>(<span class="str">f"Prompt 质量评分: {score}/6"</span>)
+    <span class="kw">for</span> <span class="var">f</span> <span class="kw">in</span> <span class="var">feedback</span>:
+        <span class="fn">print</span>(<span class="str">f"  {f}"</span>)
+
+<span class="cm"># 测试 / Test</span>
+<span class="fn">check_prompt_quality</span>(<span class="str">"帮我写个程序"</span>)
+<span class="fn">print</span>()
+<span class="fn">check_prompt_quality</span>(<span class="str">"你是一位Python专家，请用列表和代码示例的格式，解释Python中的装饰器，适合初学者理解"</span>)</code></pre>
+        <div class="code-output">
+          <span class="code-output-label"><span class="zh">输出：</span><span class="en">Output:</span></span>
+          <pre>Prompt 质量评分: 0/6
+  ❌ 太简短，需要更多细节
+  💡 建议添加角色设定
+  💡 建议指定输出格式
+
+Prompt 质量评分: 6/6
+  ✅ 足够详细
+  ✅ 包含角色设定
+  ✅ 指定了输出格式</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 9.5: Prompt Challenges ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.5 实战挑战：3 个 Prompt 场景</span>
+        <span class="en">9.5 Hands-on: 3 Prompt Scenarios</span>
+      </h2>
+
+      <p>
+        <span class="zh">用你学到的技巧，为以下场景设计最佳 Prompt。先自己写，再看参考答案！</span>
+        <span class="en">Use what you've learned to design the best prompt for each scenario. Write yours first, then check the reference!</span>
+      </p>
+
+      <!-- Challenge 1 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">场景 1：代码调试助手</span>
+          <span class="en">Scenario 1: Code Debugging Assistant</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你写了一段 Python 代码但有 bug，想让 AI 帮你找出并修复问题。</span>
+            <span class="en">You wrote Python code with a bug and want AI to find and fix it.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here..."></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"你是一位经验丰富的 Python 调试专家。请检查以下代码，找出所有 bug，并按以下格式回答：1) 问题描述 2) 错误原因 3) 修复后的完整代码 4) 修改说明。代码如下：[粘贴代码]"</span>
+            <span class="en">"You are an experienced Python debugging expert. Review the following code, find all bugs, and respond in this format: 1) Problem description 2) Root cause 3) Fixed complete code 4) Explanation of changes. Code: [paste code]"</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>明确角色（调试专家）、任务（找 bug）、输出格式（4 步结构化）。</span>
+            <span class="en"><strong>Why better:</strong> Clear role (debug expert), task (find bugs), output format (4-step structured).</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Challenge 2 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">场景 2：学习笔记生成器</span>
+          <span class="en">Scenario 2: Study Notes Generator</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你想让 AI 帮你把一篇长文章整理成结构化的学习笔记。</span>
+            <span class="en">You want AI to turn a long article into structured study notes.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here..."></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"你是一位学习方法专家。请将以下文章整理成结构化笔记，包含：① 核心概念（用粗体标记） ② 关键要点（每点不超过2句话） ③ 知识点之间的关系图（用文字描述） ④ 3个帮助记忆的问题。文章内容：[粘贴文章]"</span>
+            <span class="en">"You are a study methods expert. Turn this article into structured notes with: ① Core concepts (bold) ② Key points (max 2 sentences each) ③ Concept relationships (text description) ④ 3 memory-aid questions. Article: [paste article]"</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>角色明确、输出结构清晰（4 个部分）、每部分有具体要求。</span>
+            <span class="en"><strong>Why better:</strong> Clear role, structured output (4 parts), specific requirements for each.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Challenge 3 -->
+      <div class="prompt-challenge">
+        <h3>
+          <span class="zh">场景 3：数据分析报告</span>
+          <span class="en">Scenario 3: Data Analysis Report</span>
+        </h3>
+        <div class="pc-task">
+          <p>
+            <span class="zh">你有一份班级考试成绩数据，想让 AI 帮你分析并生成报告。</span>
+            <span class="en">You have class exam data and want AI to analyze it and generate a report.</span>
+          </p>
+        </div>
+        <textarea class="pc-input" placeholder="在这里写你的Prompt / Write your prompt here..."></textarea>
+        <button class="pc-reveal-btn">
+          <span class="zh">查看参考答案</span>
+          <span class="en">Show Reference Answer</span>
+        </button>
+        <div class="pc-reference hidden">
+          <p class="pc-ref-label">
+            <span class="zh">参考 Prompt：</span>
+            <span class="en">Reference Prompt:</span>
+          </p>
+          <p class="pc-ref-prompt">
+            <span class="zh">"你是一位数据分析师。请分析以下考试成绩数据，生成一份报告，包含：1) 整体统计（平均分、最高分、最低分、标准差） 2) 各分数段人数分布 3) 需要关注的学生（低于60分） 4) 提升建议。请用表格和要点列表格式呈现。数据：[粘贴数据]"</span>
+            <span class="en">"You are a data analyst. Analyze this exam data and generate a report with: 1) Overall stats (mean, max, min, std) 2) Score distribution by range 3) Students needing attention (below 60) 4) Improvement suggestions. Use tables and bullet points. Data: [paste data]"</span>
+          </p>
+          <p class="pc-ref-explain">
+            <span class="zh"><strong>为什么更好：</strong>角色（数据分析师）、结构化任务（4 部分）、具体格式要求（表格+列表）。</span>
+            <span class="en"><strong>Why better:</strong> Role (data analyst), structured task (4 parts), specific format (tables + bullet points).</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 9.6: Quiz ===== -->
+    <section class="section reveal">
+      <h2>
+        <span class="zh">9.6 小测验</span>
+        <span class="en">9.6 Quiz</span>
+      </h2>
+
+      <div class="quiz" data-quiz-id="lab9">
+
+        <!-- Question 1 -->
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 以下哪个不是好 Prompt 的特征？</span>
+            <span class="en"><strong>Q1.</strong> Which is NOT a characteristic of a good prompt?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 明确角色设定</span>
+              <span class="en">A. Clear role setting</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 指定输出格式</span>
+              <span class="en">B. Specified output format</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 提供具体背景</span>
+              <span class="en">C. Specific context provided</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 越短越好</span>
+              <span class="en">D. Shorter is always better</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">好的 Prompt 需要足够的信息量——角色、背景、任务、格式。简短但缺乏关键信息的 Prompt 会导致回答不理想。</span>
+              <span class="en">Good prompts need sufficient info—role, context, task, format. Short prompts lacking key details lead to poor responses.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> "Few-shot" Prompt 是什么意思？</span>
+            <span class="en"><strong>Q2.</strong> What does "few-shot" prompting mean?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 只问一次</span>
+              <span class="en">A. Asking only once</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 给 AI 几个示例来引导输出</span>
+              <span class="en">B. Giving AI a few examples to guide output</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 用很少的数据训练</span>
+              <span class="en">C. Training with very little data</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 快速得到答案</span>
+              <span class="en">D. Getting quick answers</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Few-shot 是在 Prompt 中提供几个输入→输出的示例，让 AI 理解你期望的回答格式和风格。</span>
+              <span class="en">Few-shot means providing a few input→output examples in the prompt so AI understands your expected format and style.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 以下哪种场景最适合使用 Prompt 工程？</span>
+            <span class="en"><strong>Q3.</strong> Which scenario benefits most from prompt engineering?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 让 AI 按特定格式生成结构化内容</span>
+              <span class="en">A. Getting AI to generate structured content in a specific format</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 计算 1+1</span>
+              <span class="en">B. Calculating 1+1</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 查询今天的天气</span>
+              <span class="en">C. Checking today's weather</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 打开一个网页</span>
+              <span class="en">D. Opening a web page</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden">
+            <p>
+              <span class="zh">Prompt 工程在需要 AI 生成复杂、结构化内容时最有价值——明确的指令能显著提升输出质量。</span>
+              <span class="en">Prompt engineering is most valuable for complex, structured AI outputs—clear instructions significantly improve quality.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p>
+            <span class="zh">你的得分：<span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">3</span></span></span>
+            <span class="en">Your score: <span class="score"><span class="quiz-score">0</span> / <span class="quiz-total">3</span></span></span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ Lesson Nav Footer ============ -->
+    <div class="lesson-nav-footer">
+      <a href="lesson8.html">
+        <span class="zh">← 上一课：文本分析实验</span>
+        <span class="en">← Previous: Text Analysis Lab</span>
+      </a>
+      <a href="lesson10.html">
+        <span class="zh">下一课：毕业项目 →</span>
+        <span class="en">Next: Final Project →</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

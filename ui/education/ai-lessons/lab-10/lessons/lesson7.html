@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="实验7：推荐系统实验 | Lab 7: Recommendation System Lab">
+  <title>实验7：推荐系统实验 | Lab 7: Recommendation System Lab</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 实验室</span>
+      <span class="en">AI Lab</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">实验1</span><span class="en">Lab1</span></a>
+      <a href="lesson2.html"><span class="zh">实验2</span><span class="en">Lab2</span></a>
+      <a href="lesson3.html"><span class="zh">实验3</span><span class="en">Lab3</span></a>
+      <a href="lesson4.html"><span class="zh">实验4</span><span class="en">Lab4</span></a>
+      <a href="lesson5.html"><span class="zh">实验5</span><span class="en">Lab5</span></a>
+      <a href="lesson6.html"><span class="zh">实验6</span><span class="en">Lab6</span></a>
+      <a href="lesson7.html" class="active"><span class="zh">实验7</span><span class="en">Lab7</span></a>
+      <a href="lesson8.html"><span class="zh">实验8</span><span class="en">Lab8</span></a>
+      <a href="lesson9.html"><span class="zh">实验9</span><span class="en">Lab9</span></a>
+      <a href="lesson10.html"><span class="zh">实验10</span><span class="en">Lab10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">实验 7</span>
+        <span class="en">Lab 7</span>
+      </span>
+      <h1>
+        <span class="zh">推荐系统实验</span>
+        <span class="en">Recommendation System Lab</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">构建一个音乐推荐系统，像Spotify一样推荐歌曲</span>
+        <span class="en">Build a music recommender that suggests songs like Spotify</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 7.1 Lab Goal -->
+    <section class="section reveal" id="section-7-1">
+      <h2><span class="zh">7.1 实验目标</span><span class="en">7.1 Lab Goal</span></h2>
+      <p>
+        <span class="zh">在这个实验中，你将构建一个音乐推荐系统。你的系统会根据用户的喜好来推荐类似的歌曲——就像 Spotify、网易云音乐和 QQ 音乐的推荐功能一样。你会学习"协同过滤"和"基于内容的推荐"两种核心算法。</span>
+        <span class="en">In this lab, you'll build a music recommendation system. Your system will suggest similar songs based on user preferences — just like Spotify, NetEase Music, and QQ Music's recommendation features. You'll learn two core algorithms: "Collaborative Filtering" and "Content-Based Recommendation."</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">A</div>
+          <h3><span class="zh">协同过滤</span><span class="en">Collaborative Filtering</span></h3>
+          <p><span class="zh">"喜欢这首歌的人也喜欢那首歌"</span><span class="en">"People who liked this song also liked that song"</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">B</div>
+          <h3><span class="zh">基于内容</span><span class="en">Content-Based</span></h3>
+          <p><span class="zh">"这首歌和你喜欢的歌风格相似"</span><span class="en">"This song has a similar style to songs you like"</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7.2 Background -->
+    <section class="section reveal" id="section-7-2">
+      <h2><span class="zh">7.2 背景知识</span><span class="en">7.2 Background</span></h2>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>推荐系统无处不在：</strong>你在 B站 看到的"推荐视频"、淘宝上的"猜你喜欢"、抖音的"为你推荐" —— 这些背后都是推荐系统在工作。据统计，Netflix 上 80% 的观看内容来自推荐系统，而不是用户自己搜索。</span>
+          <span class="en"><strong>Recommendation systems are everywhere:</strong> The "Recommended" videos on YouTube, "You might also like" on Amazon, and TikTok's "For You" feed — these all run on recommendation systems. Netflix reports that 80% of content watched comes from their recommendation system, not user searches.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh"><strong>相似度</strong>是推荐系统的核心概念。我们通过计算两首歌（或两个用户）之间的"距离"来判断它们有多相似。常用的方法叫做"余弦相似度"——它衡量两个向量之间的角度，角度越小越相似。</span>
+        <span class="en"><strong>Similarity</strong> is the core concept in recommendation systems. We calculate the "distance" between two songs (or two users) to determine how similar they are. A common method is "cosine similarity" — it measures the angle between two vectors; the smaller the angle, the more similar they are.</span>
+      </p>
+
+      <div class="compare">
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">协同过滤</span><span class="en">Collaborative Filtering</span></h3>
+          <p><span class="zh">优点：能发现意想不到的推荐<br>原理：基于用户行为相似度</span><span class="en">Advantage: Discovers unexpected recommendations<br>How: Based on user behavior similarity</span></p>
+        </div>
+        <div class="compare-col highlight-good">
+          <h3><span class="zh">基于内容</span><span class="en">Content-Based</span></h3>
+          <p><span class="zh">优点：不需要其他用户数据<br>原理：基于物品属性相似度</span><span class="en">Advantage: Doesn't need other users' data<br>How: Based on item attribute similarity</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7.3 Hands-On -->
+    <section class="section reveal" id="section-7-3">
+      <h2><span class="zh">7.3 动手实验</span><span class="en">7.3 Hands-On</span></h2>
+
+      <h3><span class="zh">步骤 1：创建音乐数据集</span><span class="en">Step 1: Create a Music Dataset</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="kw">import</span> <span class="var">pandas</span> <span class="kw">as</span> <span class="var">pd</span>
+<span class="kw">import</span> <span class="var">numpy</span> <span class="kw">as</span> <span class="var">np</span>
+
+<span class="cm"># 创建音乐数据集 / Create a music dataset</span>
+<span class="var">songs</span> <span class="op">=</span> <span class="var">pd</span>.<span class="fn">DataFrame</span>({
+    <span class="str">&quot;title&quot;</span>: [<span class="str">&quot;Shape of You&quot;</span>, <span class="str">&quot;Blinding Lights&quot;</span>, <span class="str">&quot;Bohemian Rhapsody&quot;</span>,
+              <span class="str">&quot;Bad Guy&quot;</span>, <span class="str">&quot;Someone Like You&quot;</span>, <span class="str">&quot;Starboy&quot;</span>,
+              <span class="str">&quot;Hotel California&quot;</span>, <span class="str">&quot;Levitating&quot;</span>, <span class="str">&quot;Smells Like Teen Spirit&quot;</span>,
+              <span class="str">&quot;Happy&quot;</span>, <span class="str">&quot;Rolling in the Deep&quot;</span>, <span class="str">&quot;Uptown Funk&quot;</span>],
+    <span class="str">&quot;artist&quot;</span>: [<span class="str">&quot;Ed Sheeran&quot;</span>, <span class="str">&quot;The Weeknd&quot;</span>, <span class="str">&quot;Queen&quot;</span>,
+               <span class="str">&quot;Billie Eilish&quot;</span>, <span class="str">&quot;Adele&quot;</span>, <span class="str">&quot;The Weeknd&quot;</span>,
+               <span class="str">&quot;Eagles&quot;</span>, <span class="str">&quot;Dua Lipa&quot;</span>, <span class="str">&quot;Nirvana&quot;</span>,
+               <span class="str">&quot;Pharrell&quot;</span>, <span class="str">&quot;Adele&quot;</span>, <span class="str">&quot;Bruno Mars&quot;</span>],
+    <span class="str">&quot;genre&quot;</span>: [<span class="str">&quot;Pop&quot;</span>, <span class="str">&quot;Synth-pop&quot;</span>, <span class="str">&quot;Rock&quot;</span>,
+              <span class="str">&quot;Electropop&quot;</span>, <span class="str">&quot;Ballad&quot;</span>, <span class="str">&quot;Synth-pop&quot;</span>,
+              <span class="str">&quot;Rock&quot;</span>, <span class="str">&quot;Dance-pop&quot;</span>, <span class="str">&quot;Grunge&quot;</span>,
+              <span class="str">&quot;Pop&quot;</span>, <span class="str">&quot;Pop-rock&quot;</span>, <span class="str">&quot;Funk&quot;</span>],
+    <span class="str">&quot;energy&quot;</span>: [<span class="num">0.8</span>, <span class="num">0.7</span>, <span class="num">0.9</span>, <span class="num">0.4</span>, <span class="num">0.3</span>, <span class="num">0.6</span>, <span class="num">0.5</span>, <span class="num">0.8</span>, <span class="num">0.9</span>, <span class="num">0.9</span>, <span class="num">0.7</span>, <span class="num">0.9</span>],
+    <span class="str">&quot;danceability&quot;</span>: [<span class="num">0.8</span>, <span class="num">0.5</span>, <span class="num">0.4</span>, <span class="num">0.7</span>, <span class="num">0.2</span>, <span class="num">0.6</span>, <span class="num">0.3</span>, <span class="num">0.9</span>, <span class="num">0.5</span>, <span class="num">0.8</span>, <span class="num">0.5</span>, <span class="num">0.9</span>],
+    <span class="str">&quot;mood&quot;</span>: [<span class="num">0.8</span>, <span class="num">0.5</span>, <span class="num">0.6</span>, <span class="num">0.3</span>, <span class="num">0.2</span>, <span class="num">0.4</span>, <span class="num">0.4</span>, <span class="num">0.9</span>, <span class="num">0.3</span>, <span class="num">1.0</span>, <span class="num">0.4</span>, <span class="num">0.9</span>]
+})
+
+<span class="fn">print</span>(<span class="str">&quot;Our Music Library:&quot;</span>)
+<span class="fn">print</span>(<span class="var">songs</span>[[<span class="str">&quot;title&quot;</span>, <span class="str">&quot;artist&quot;</span>, <span class="str">&quot;genre&quot;</span>]].<span class="fn">to_string</span>(<span class="var">index</span><span class="op">=</span><span class="kw">False</span>))</code></pre>
+      </div>
+
+      <h3><span class="zh">步骤 2：基于内容的推荐</span><span class="en">Step 2: Content-Based Recommendation</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="kw">from</span> <span class="var">sklearn</span>.<span class="var">metrics</span>.<span class="var">pairwise</span> <span class="kw">import</span> <span class="var">cosine_similarity</span>
+
+<span class="cm"># 安装 sklearn / Install sklearn (usually pre-installed)</span>
+<span class="cm"># !pip install scikit-learn</span>
+
+<span class="cm"># 用音乐特征计算相似度</span>
+<span class="cm"># Calculate similarity using music features</span>
+<span class="var">features</span> <span class="op">=</span> <span class="var">songs</span>[[<span class="str">&quot;energy&quot;</span>, <span class="str">&quot;danceability&quot;</span>, <span class="str">&quot;mood&quot;</span>]].<span class="var">values</span>
+<span class="var">similarity_matrix</span> <span class="op">=</span> <span class="fn">cosine_similarity</span>(<span class="var">features</span>)
+
+<span class="kw">def</span> <span class="fn">recommend_by_content</span>(<span class="var">song_title</span>, <span class="var">n</span><span class="op">=</span><span class="num">3</span>):
+    <span class="str">&quot;&quot;&quot;Recommend songs based on musical features&quot;&quot;&quot;</span>
+    <span class="var">idx</span> <span class="op">=</span> <span class="var">songs</span>[<span class="var">songs</span>[<span class="str">&quot;title&quot;</span>] <span class="op">==</span> <span class="var">song_title</span>].<span class="var">index</span>[<span class="num">0</span>]
+    <span class="var">scores</span> <span class="op">=</span> <span class="fn">list</span>(<span class="fn">enumerate</span>(<span class="var">similarity_matrix</span>[<span class="var">idx</span>]))
+    <span class="var">scores</span> <span class="op">=</span> <span class="fn">sorted</span>(<span class="var">scores</span>, <span class="var">key</span><span class="op">=</span><span class="kw">lambda</span> <span class="var">x</span>: <span class="var">x</span>[<span class="num">1</span>], <span class="var">reverse</span><span class="op">=</span><span class="kw">True</span>)
+
+    <span class="fn">print</span>(<span class="str">f&quot;\nBecause you liked &#x27;{song_title}&#x27;, you might also like:\n&quot;</span>)
+    <span class="kw">for</span> <span class="var">i</span>, (<span class="var">song_idx</span>, <span class="var">score</span>) <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">scores</span>[<span class="num">1</span>:<span class="var">n</span><span class="op">+</span><span class="num">1</span>], <span class="num">1</span>):
+        <span class="var">song</span> <span class="op">=</span> <span class="var">songs</span>.<span class="var">iloc</span>[<span class="var">song_idx</span>]
+        <span class="fn">print</span>(<span class="str">f&quot;  {i}. {song[&#x27;title&#x27;]} by {song[&#x27;artist&#x27;]}&quot;</span>)
+        <span class="fn">print</span>(<span class="str">f&quot;     Genre: {song[&#x27;genre&#x27;]} | Similarity: {score:.0%}&quot;</span>)
+
+<span class="cm"># 测试推荐 / Test recommendations</span>
+<span class="fn">recommend_by_content</span>(<span class="str">&quot;Shape of You&quot;</span>)
+<span class="fn">recommend_by_content</span>(<span class="str">&quot;Bohemian Rhapsody&quot;</span>)
+<span class="fn">recommend_by_content</span>(<span class="str">&quot;Someone Like You&quot;</span>)</code></pre>
+      </div>
+
+      <h3><span class="zh">步骤 3：协同过滤推荐</span><span class="en">Step 3: Collaborative Filtering Recommendation</span></h3>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python</span>
+          <button class="code-copy-btn">
+            <span class="zh">复制</span>
+            <span class="en">Copy</span>
+          </button>
+        </div>
+        <pre class="code-pre"><code><span class="cm"># 创建用户评分数据 / Create user rating data</span>
+<span class="var">ratings</span> <span class="op">=</span> <span class="var">pd</span>.<span class="fn">DataFrame</span>({
+    <span class="str">&quot;User&quot;</span>: [<span class="str">&quot;Alice&quot;</span>, <span class="str">&quot;Alice&quot;</span>, <span class="str">&quot;Alice&quot;</span>, <span class="str">&quot;Bob&quot;</span>, <span class="str">&quot;Bob&quot;</span>, <span class="str">&quot;Bob&quot;</span>,
+             <span class="str">&quot;Carol&quot;</span>, <span class="str">&quot;Carol&quot;</span>, <span class="str">&quot;Carol&quot;</span>, <span class="str">&quot;Dave&quot;</span>, <span class="str">&quot;Dave&quot;</span>, <span class="str">&quot;Dave&quot;</span>],
+    <span class="str">&quot;Song&quot;</span>: [<span class="str">&quot;Shape of You&quot;</span>, <span class="str">&quot;Levitating&quot;</span>, <span class="str">&quot;Happy&quot;</span>,
+             <span class="str">&quot;Shape of You&quot;</span>, <span class="str">&quot;Uptown Funk&quot;</span>, <span class="str">&quot;Happy&quot;</span>,
+             <span class="str">&quot;Bohemian Rhapsody&quot;</span>, <span class="str">&quot;Hotel California&quot;</span>, <span class="str">&quot;Smells Like Teen Spirit&quot;</span>,
+             <span class="str">&quot;Bohemian Rhapsody&quot;</span>, <span class="str">&quot;Blinding Lights&quot;</span>, <span class="str">&quot;Smells Like Teen Spirit&quot;</span>],
+    <span class="str">&quot;Rating&quot;</span>: [<span class="num">5</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">5</span>, <span class="num">3</span>, <span class="num">4</span>]
+})
+
+<span class="cm"># 创建用户-歌曲评分矩阵</span>
+<span class="cm"># Create a user-song rating matrix</span>
+<span class="var">rating_matrix</span> <span class="op">=</span> <span class="var">ratings</span>.<span class="fn">pivot_table</span>(<span class="var">index</span><span class="op">=</span><span class="str">&quot;User&quot;</span>, <span class="var">columns</span><span class="op">=</span><span class="str">&quot;Song&quot;</span>, <span class="var">values</span><span class="op">=</span><span class="str">&quot;Rating&quot;</span>).<span class="fn">fillna</span>(<span class="num">0</span>)
+<span class="fn">print</span>(<span class="str">&quot;User-Song Rating Matrix:&quot;</span>)
+<span class="fn">print</span>(<span class="var">rating_matrix</span>)
+
+<span class="cm"># 计算用户之间的相似度</span>
+<span class="cm"># Calculate similarity between users</span>
+<span class="var">user_similarity</span> <span class="op">=</span> <span class="fn">cosine_similarity</span>(<span class="var">rating_matrix</span>)
+<span class="var">user_sim_df</span> <span class="op">=</span> <span class="var">pd</span>.<span class="fn">DataFrame</span>(<span class="var">user_similarity</span>,
+                           <span class="var">index</span><span class="op">=</span><span class="var">rating_matrix</span>.<span class="var">index</span>,
+                           <span class="var">columns</span><span class="op">=</span><span class="var">rating_matrix</span>.<span class="var">index</span>)
+
+<span class="kw">def</span> <span class="fn">recommend_collaborative</span>(<span class="var">user</span>, <span class="var">n</span><span class="op">=</span><span class="num">3</span>):
+    <span class="str">&quot;&quot;&quot;Recommend songs based on similar users&#x27; tastes&quot;&quot;&quot;</span>
+    <span class="var">similar_users</span> <span class="op">=</span> <span class="var">user_sim_df</span>[<span class="var">user</span>].<span class="fn">sort_values</span>(<span class="var">ascending</span><span class="op">=</span><span class="kw">False</span>).<span class="var">index</span>[<span class="num">1</span>:]
+    <span class="var">user_rated</span> <span class="op">=</span> <span class="fn">set</span>(<span class="var">ratings</span>[<span class="var">ratings</span>[<span class="str">&quot;User&quot;</span>] <span class="op">==</span> <span class="var">user</span>][<span class="str">&quot;Song&quot;</span>])
+
+    <span class="var">recommendations</span> <span class="op">=</span> []
+    <span class="kw">for</span> <span class="var">sim_user</span> <span class="kw">in</span> <span class="var">similar_users</span>:
+        <span class="var">sim_user_songs</span> <span class="op">=</span> <span class="var">ratings</span>[<span class="var">ratings</span>[<span class="str">&quot;User&quot;</span>] <span class="op">==</span> <span class="var">sim_user</span>]
+        <span class="kw">for</span> <span class="var">_</span>, <span class="var">row</span> <span class="kw">in</span> <span class="var">sim_user_songs</span>.<span class="fn">iterrows</span>():
+            <span class="kw">if</span> <span class="var">row</span>[<span class="str">&quot;Song&quot;</span>] <span class="kw">not</span> <span class="kw">in</span> <span class="var">user_rated</span> <span class="kw">and</span> <span class="var">row</span>[<span class="str">&quot;Rating&quot;</span>] <span class="op">&gt;=</span> <span class="num">4</span>:
+                <span class="var">recommendations</span>.<span class="fn">append</span>((<span class="var">row</span>[<span class="str">&quot;Song&quot;</span>], <span class="var">row</span>[<span class="str">&quot;Rating&quot;</span>], <span class="var">sim_user</span>))
+
+    <span class="fn">print</span>(<span class="str">f&quot;\nRecommendations for {user} (based on similar users):\n&quot;</span>)
+    <span class="var">seen</span> <span class="op">=</span> <span class="fn">set</span>()
+    <span class="var">count</span> <span class="op">=</span> <span class="num">0</span>
+    <span class="kw">for</span> <span class="var">song</span>, <span class="var">rating</span>, <span class="var">from_user</span> <span class="kw">in</span> <span class="var">recommendations</span>:
+        <span class="kw">if</span> <span class="var">song</span> <span class="kw">not</span> <span class="kw">in</span> <span class="var">seen</span> <span class="kw">and</span> <span class="var">count</span> <span class="op">&lt;</span> <span class="var">n</span>:
+            <span class="fn">print</span>(<span class="str">f&quot;  {count+1}. {song} (liked by {from_user})&quot;</span>)
+            <span class="var">seen</span>.<span class="fn">add</span>(<span class="var">song</span>)
+            <span class="var">count</span> <span class="op">+=</span> <span class="num">1</span>
+
+<span class="fn">recommend_collaborative</span>(<span class="str">&quot;Alice&quot;</span>)
+<span class="fn">recommend_collaborative</span>(<span class="str">&quot;Carol&quot;</span>)</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>思考：</strong>Alice 喜欢流行和舞曲，Bob 和她品味相似。所以系统会推荐 Bob 喜欢但 Alice 还没听过的歌。这就是"协同过滤"的魔力！</span>
+          <span class="en"><strong>Think:</strong> Alice likes pop and dance music, and Bob has similar taste. So the system recommends songs Bob likes that Alice hasn't heard yet. That's the magic of collaborative filtering!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 7.4 Challenge -->
+    <section class="section reveal" id="section-7-4">
+      <h2><span class="zh">7.4 挑战任务</span><span class="en">7.4 Challenge</span></h2>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：扩展歌曲库</span><span class="en">Challenge A: Expand the Library</span></h3>
+          <p><span class="zh">添加你最喜欢的 10 首歌到数据集中，为每首歌设定 energy、danceability 和 mood 分数。然后测试推荐系统推荐的歌曲是否符合你的口味。</span><span class="en">Add your 10 favorite songs to the dataset with energy, danceability, and mood scores. Then test if the recommendations match your taste.</span></p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：混合推荐</span><span class="en">Challenge B: Hybrid Recommender</span></h3>
+          <p><span class="zh">结合内容推荐和协同过滤，创建一个"混合推荐系统"。给每种方法分配权重（比如 60% 内容 + 40% 协同），看看推荐质量有没有提升。</span><span class="en">Combine content-based and collaborative filtering into a "hybrid recommender." Assign weights (like 60% content + 40% collaborative) and see if recommendation quality improves.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-7">
+      <h2><span class="zh">实验检查</span><span class="en">Lab Check</span></h2>
+      <div class="quiz" data-quiz-id="lab7">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. Netflix 上大约多少比例的观看内容来自推荐系统？</span><span class="en">1. What percentage of Netflix viewing comes from recommendations?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">20%</span>
+              <span class="en">20%</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">80%</span>
+              <span class="en">80%</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">50%</span>
+              <span class="en">50%</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">10%</span>
+              <span class="en">10%</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">Netflix 报告说约 80% 的观看内容是通过推荐系统发现的，而不是用户主动搜索。</span><span class="en">Netflix reports that about 80% of content watched is discovered through their recommendation system, not user searches.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">2. 协同过滤推荐的基本思路是什么？</span><span class="en">2. What is the basic idea behind collaborative filtering?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">品味相似的用户会喜欢相似的内容</span>
+              <span class="en">Users with similar tastes will like similar content</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">推荐最新发布的歌曲</span>
+              <span class="en">Recommend the newest released songs</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">推荐最热门的歌曲</span>
+              <span class="en">Recommend the most popular songs</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">随机推荐歌曲</span>
+              <span class="en">Recommend songs randomly</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">协同过滤的核心思路是：如果两个用户在过去喜欢了类似的东西，那么他们未来也可能喜欢类似的东西。</span><span class="en">Collaborative filtering's core idea: if two users liked similar things in the past, they'll likely enjoy similar things in the future.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">3. 余弦相似度衡量的是什么？</span><span class="en">3. What does cosine similarity measure?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">两个数字的差</span>
+              <span class="en">The difference between two numbers</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">两点之间的距离</span>
+              <span class="en">The distance between two points</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">两个向量之间的角度</span>
+              <span class="en">The angle between two vectors</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">数据集的大小</span>
+              <span class="en">The size of a dataset</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">余弦相似度衡量两个向量之间的角度。角度越小（值越接近 1），两个向量越相似。</span><span class="en">Cosine similarity measures the angle between two vectors. The smaller the angle (closer to 1), the more similar they are.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 基于内容的推荐不需要什么？</span><span class="en">4. What does content-based recommendation NOT need?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">歌曲特征数据</span>
+              <span class="en">Song feature data</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">用户的喜好历史</span>
+              <span class="en">User's preference history</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">相似度计算</span>
+              <span class="en">Similarity calculation</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">其他用户的数据</span>
+              <span class="en">Other users' data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">基于内容的推荐只分析物品本身的属性特征，不需要其他用户的行为数据。</span><span class="en">Content-based recommendation only analyzes items' attribute features — it doesn't need other users' behavioral data.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. 混合推荐系统的优点是什么？</span><span class="en">5. What is the advantage of a hybrid recommendation system?</span></p>
+          <div class="quiz-options">
+                      <button class="quiz-option" data-value="A">
+              <span class="zh">代码更简单</span>
+              <span class="en">Simpler code</span>
+            </button>
+                      <button class="quiz-option" data-value="B">
+              <span class="zh">结合多种方法的优势，推荐更准确</span>
+              <span class="en">Combines strengths of multiple methods for more accurate recommendations</span>
+            </button>
+                      <button class="quiz-option" data-value="C">
+              <span class="zh">运行速度更快</span>
+              <span class="en">Runs faster</span>
+            </button>
+                      <button class="quiz-option" data-value="D">
+              <span class="zh">需要更少的数据</span>
+              <span class="en">Requires less data</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">混合推荐系统结合了多种推荐方法（如协同过滤和基于内容）的优势，通常能获得比单一方法更好的推荐效果。</span><span class="en">Hybrid systems combine strengths of multiple methods (like collaborative filtering and content-based), typically producing better recommendations than any single approach.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson6.html"><span class="zh">← 上一个实验</span><span class="en">← Previous Lab</span></a>
+      <a href="lesson8.html"><span class="zh">下一个实验 →</span><span class="en">Next Lab →</span></a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{
+    "deploy": {
+        "actions": {
+            "copy": "Kopiera",
+            "close": "Stäng"
+        },
+        "labels": {
+            "notFound": "Klassificeraren hittas inte.",
+            "dropHere": "Släpp bilden här",
+            "errorInfo": "Denna sida existerar endast om du håller klassificerarn öppen i en flik i webbläsaren. Det kan också finnas säkerhetsbegränsningar som gör att den inte kan hittas.",
+            "share": "Dela till andra enheter",
+            "qrExpand": "Click the QR code to expand it.",
+            "noWebcam": "Camera access is required for classifier sharing.",
+            "switch": "Aktivera källa för inmatning"
+        }
+    },
+    "collect": {
+        "samplePrompt": "Ta foto eller ladda upp bilder här.",
+        "actions": {
+            "upload": "Ladda upp"
+        },
+        "sampleCount": "{{räkna}} prover",
+        "connecting": "Ansluter...",
+        "disconnected": "Frånkopplad",
+        "failed": "Misslyckades",
+        "failedMessage": "Denna klassificerare kunde inte nås från din enhet",
+        "dropError": "Endast bilder kan släppas här",
+        "relayWarning": "Din data skickas genom vår server. Du kanske vill använda en annan WiFi anslutning för att undvika detta."
+    },
+    "about": {
+        "back": "Tillbaka",
+        "title": "Generation AI",
+        "privacyTitle": "Integritetsmeddelande"
+    },
+    "settings": {
+        "title": "Inställningar",
+        "actions": {
+            "save": "Spara",
+            "reset": "Återställ",
+            "cancel": "Avbryt"
+        },
+        "labels": {
+            "language": "Språk",
+            "model": "Modell",
+            "variant": "Gränssnittsvariant",
+            "advanced": "Avancerad"
+        },
+        "values": {
+            "models": ["Bild (MobileNet)", "Pose (PoseNet)", "Gest (MediaPipe)", "Tal (SpeechCommands)"],
+            "variants": ["Allmän användning", "Klassrum"]
+        }
+    },
+    "widget": {
+        "aria": {
+            "editTitle": "redigera rubrik",
+            "editTitleInput": "{{värde}} redigera låda"
+        },
+        "labels": {
+            "titlePlaceholder": "Namn"
+        }
+    },
+    "feedback": {
+        "button": "Ge feedback",
+        "title": "Ge oss feedback!",
+        "ratingTitle": "Hur var din upplevelse av det här verktyget överlag?",
+        "ratingVeryDissatisfied": "Mycket missnöjd",
+        "ratingVerySatisfied": "Mycket nöjd",
+        "recommendTitle": "Hur sannolikt är det att du skulle rekommendera det här verktyget till andra?",
+        "recommendVeryUnlikely": "Mycket osannolikt",
+        "recommendVeryLikely": "Mycket sannolikt",
+        "experienceTitle": "Berätta om din upplevelse.",
+        "close": "Stäng",
+        "send": "Skicka feedback",
+        "error": "Hoppsan!",
+        "errorMessage": "Vi kunde inte skicka din feedback. Försök igen senare.",
+        "thankYou": "Tack för din feedback!"
+    },
+    "clock": {
+        "hours": "tim",
+        "minutes": "min",
+        "seconds": "sek"
+    },
+    "aria": {
+        "close": "Stäng",
+        "stop": "Stoppa",
+        "play": "Spela upp"
+    }
+}

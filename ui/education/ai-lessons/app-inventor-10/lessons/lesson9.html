@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第9课：开发 + 调试 | Lesson 9: Build + Debug">
+  <title>第9课：开发 + 调试 | Lesson 9: Build + Debug</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI App 创造营</span>
+      <span class="en">AI App Studio</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html" class="active"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 9 课</span>
+        <span class="en">Lesson 9</span>
+      </span>
+      <h1>
+        <span class="zh">开发 + 调试</span>
+        <span class="en">Build + Debug</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">全力开发你的 AI App，学习调试技巧</span>
+        <span class="en">Full-speed development of your AI App, learn debugging techniques</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content" id="main-content">
+
+    <!-- Section 9.1 Lesson Goal -->
+    <section class="section reveal" id="section-9-1">
+      <h2><span class="zh">9.1 课程目标</span><span class="en">9.1 Lesson Goal</span></h2>
+      <p>
+        <span class="zh">在前面的课程中，你已经学会了 App Inventor 的基础操作、API 调用、AI 聊天、图像识别、语音功能和 UI 设计。今天是<strong>全力开发日</strong>！你将把所有知识综合运用，完成你的 AI App 项目，同时学习专业开发者都在用的<strong>调试技巧</strong>，让你的 App 又稳又好用。</span>
+        <span class="en">In previous lessons, you learned App Inventor basics, API calls, AI chat, image recognition, voice features, and UI design. Today is <strong>full-speed build day</strong>! You'll combine everything you've learned to complete your AI App project while learning <strong>debugging techniques</strong> that professional developers use every day to make your App stable and polished.</span>
+      </p>
+
+      <div class="card-grid cols-4 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">开发流程</span><span class="en">Dev Workflow</span></h3>
+          <p><span class="zh">掌握高效的开发循环</span><span class="en">Master an efficient development cycle</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">调试技巧</span><span class="en">Debug Skills</span></h3>
+          <p><span class="zh">学会找到并修复 Bug</span><span class="en">Learn to find and fix bugs</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">测试策略</span><span class="en">Test Strategy</span></h3>
+          <p><span class="zh">系统地测试你的 App</span><span class="en">Systematically test your App</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">UI 打磨</span><span class="en">UI Polish</span></h3>
+          <p><span class="zh">让你的 App 看起来更专业</span><span class="en">Make your App look professional</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9.2 Development Workflow -->
+    <section class="section reveal" id="section-9-2">
+      <h2><span class="zh">9.2 开发工作流</span><span class="en">9.2 Development Workflow</span></h2>
+
+      <p>
+        <span class="zh">专业开发者不会一口气把整个 App 写完。他们遵循一个<strong>循环流程</strong>，每次只做一小步，确保每一步都能正常工作后再继续。这就像搭积木——一块一块稳稳地搭上去，而不是一次性堆一大堆然后祈祷它不会倒。</span>
+        <span class="en">Professional developers don't build an entire App in one go. They follow a <strong>cyclical workflow</strong>, taking one small step at a time and making sure each step works before moving on. It's like building with LEGO — you place one brick at a time steadily, instead of stacking a huge pile and hoping it doesn't collapse.</span>
+      </p>
+
+      <div class="card-grid cols-5 reveal-stagger">
+        <div class="card icon-card">
+          <div class="card-icon">1</div>
+          <h3><span class="zh">计划</span><span class="en">Plan</span></h3>
+          <p><span class="zh">决定下一个要实现的功能是什么</span><span class="en">Decide what feature to build next</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">2</div>
+          <h3><span class="zh">搭建</span><span class="en">Build</span></h3>
+          <p><span class="zh">在 App Inventor 中实现这个功能</span><span class="en">Implement the feature in App Inventor</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">3</div>
+          <h3><span class="zh">测试</span><span class="en">Test</span></h3>
+          <p><span class="zh">在手机上运行，看看是否正常</span><span class="en">Run it on your phone to see if it works</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">4</div>
+          <h3><span class="zh">修复</span><span class="en">Fix</span></h3>
+          <p><span class="zh">找到问题并修复它</span><span class="en">Find the problem and fix it</span></p>
+        </div>
+        <div class="card icon-card">
+          <div class="card-icon">5</div>
+          <h3><span class="zh">重复</span><span class="en">Repeat</span></h3>
+          <p><span class="zh">回到第 1 步，开始下一个功能</span><span class="en">Go back to step 1, start the next feature</span></p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>黄金法则：每次只做一件事！</strong><br><br>不要同时添加 3 个功能。先完成一个功能，测试通过后再开始下一个。这样当出现 Bug 时，你就能很快知道是哪个新功能引起的问题。<br><br><strong>举例：</strong><br>1. 先做"拍照"功能 → 测试 → 通过<br>2. 再做"调用 AI 识别" → 测试 → 通过<br>3. 最后做"显示结果" → 测试 → 通过<br><br>如果你一口气全做完再测试，发现不工作了，你就不知道是拍照有问题、API 调用有问题、还是显示有问题了。</span>
+          <span class="en"><strong>Golden Rule: Do ONE thing at a time!</strong><br><br>Don't add 3 features simultaneously. Complete one feature, test it, and only then start the next. This way, when a bug appears, you'll quickly know which new feature caused it.<br><br><strong>Example:</strong><br>1. Build the "take photo" feature → test → pass<br>2. Then build "call AI recognition" → test → pass<br>3. Finally build "display results" → test → pass<br><br>If you build everything at once and then test, and it doesn't work, you won't know if the problem is with the camera, the API call, or the display.</span>
+        </p>
+      </div>
+
+      <p>
+        <span class="zh">在开发过程中，建议你在纸上或笔记本上列一个<strong>功能清单</strong>（Feature List），每完成一个就打个勾。这样你可以清楚地看到进度，也不会忘记要做什么。</span>
+        <span class="en">During development, we recommend keeping a <strong>feature checklist</strong> on paper or in a notebook. Check off each feature as you complete it. This way you can clearly see your progress and won't forget anything.</span>
+      </p>
+    </section>
+
+    <!-- Section 9.3 Common Bugs & Debugging -->
+    <section class="section reveal" id="section-9-3">
+      <h2><span class="zh">9.3 常见错误与调试</span><span class="en">9.3 Common Bugs &amp; Debugging</span></h2>
+
+      <p>
+        <span class="zh">Bug（程序错误）是开发过程中完全正常的事情——即使是最厉害的程序员也会遇到 Bug！关键是学会<strong>如何快速找到并修复它们</strong>。下面是使用 App Inventor + AI API 时最常见的 5 种错误，以及解决方法：</span>
+        <span class="en">Bugs are a completely normal part of development — even the best programmers encounter them! The key is learning <strong>how to quickly find and fix them</strong>. Here are the 5 most common errors when using App Inventor + AI APIs, along with solutions:</span>
+      </p>
+
+      <div class="card-grid cols-1 reveal-stagger">
+
+        <div class="card">
+          <h3><span class="zh">Bug #1：API 调用返回错误</span><span class="en">Bug #1: API Call Returns Error</span></h3>
+          <p>
+            <span class="zh"><strong>现象：</strong>你的 App 调用 API 后没有收到正确的结果，而是得到了一个错误信息，比如 <code>Error 1101</code> 或 <code>responseCode: 401</code>。<br><br><strong>常见原因：</strong><br>- API 的 URL 地址写错了（多了一个字母或少了一个斜杠）<br>- 请求头（Headers）缺少了必要的信息，比如 <code>Content-Type</code> 或 <code>Authorization</code><br>- 请求方法用错了（应该用 POST 却用了 GET）<br><br><strong>解决方法：</strong><br>1. 仔细对比你的 URL 和 API 文档中的 URL，一个字符一个字符地检查<br>2. 确保 Headers 中包含 <code>Content-Type: application/json</code> 和正确的 <code>Authorization: Bearer sk-xxx...</code><br>3. 检查你使用的请求方法（GET/POST）是否和 API 文档一致</span>
+            <span class="en"><strong>Symptom:</strong> Your App calls the API but doesn't receive the correct result. Instead, you get an error message like <code>Error 1101</code> or <code>responseCode: 401</code>.<br><br><strong>Common Causes:</strong><br>- The API URL is wrong (an extra letter or a missing slash)<br>- Required headers are missing, like <code>Content-Type</code> or <code>Authorization</code><br>- Wrong request method (using GET instead of POST)<br><br><strong>Solution:</strong><br>1. Carefully compare your URL with the API documentation character by character<br>2. Make sure Headers include <code>Content-Type: application/json</code> and the correct <code>Authorization: Bearer sk-xxx...</code><br>3. Check that your request method (GET/POST) matches the API documentation</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">Bug #2：JSON 解析失败</span><span class="en">Bug #2: JSON Parsing Fails</span></h3>
+          <p>
+            <span class="zh"><strong>现象：</strong>API 返回了数据，但你的 App 无法正确读取其中的内容，显示空白或者报错。<br><br><strong>常见原因：</strong><br>- JSON 路径（Path）写错了。比如数据在 <code>choices[0].message.content</code>，但你写成了 <code>choices.message.content</code>（忘记了 <code>[0]</code>）<br>- API 返回的 JSON 结构和你预期的不一样<br><br><strong>解决方法：</strong><br>1. 先用 Notifier 把 API 返回的原始数据完整显示出来，看看 JSON 的真实结构<br>2. 使用 <code>select list item</code> 积木块正确地访问 JSON 中的数组元素<br>3. 逐层解析——先取最外层，再取第二层，一步一步深入</span>
+            <span class="en"><strong>Symptom:</strong> The API returns data, but your App can't read the content correctly — it shows blank or throws an error.<br><br><strong>Common Causes:</strong><br>- The JSON path is wrong. For example, the data is at <code>choices[0].message.content</code>, but you wrote <code>choices.message.content</code> (forgot <code>[0]</code>)<br>- The API's actual JSON structure is different from what you expected<br><br><strong>Solution:</strong><br>1. First use a Notifier to display the raw API response so you can see the actual JSON structure<br>2. Use the <code>select list item</code> block to correctly access array elements in the JSON<br>3. Parse layer by layer — get the outermost layer first, then the second layer, step by step</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">Bug #3：App 在手机上闪退</span><span class="en">Bug #3: App Crashes on Phone</span></h3>
+          <p>
+            <span class="zh"><strong>现象：</strong>App 在手机上打开后突然关闭，或者某个功能执行时闪退。<br><br><strong>常见原因：</strong><br>- 缺少必要的权限（比如使用相机但没有请求相机权限）<br>- 尝试访问一个不存在的组件或变量<br>- 内存不足（比如加载了一张特别大的图片）<br><br><strong>解决方法：</strong><br>1. 在 Designer 视图中检查你是否添加了所有需要的组件（Camera、Web 等）<br>2. 确保在 Screen1 的属性中设置了正确的权限<br>3. 在使用变量前，先确认变量已经被初始化（赋予了初始值）<br>4. 图片大小尽量控制在 1MB 以内</span>
+            <span class="en"><strong>Symptom:</strong> The App suddenly closes after opening on your phone, or crashes when executing a certain function.<br><br><strong>Common Causes:</strong><br>- Missing required permissions (e.g., using the camera without requesting camera permission)<br>- Trying to access a component or variable that doesn't exist<br>- Out of memory (e.g., loading a very large image)<br><br><strong>Solution:</strong><br>1. In the Designer view, check that you've added all required components (Camera, Web, etc.)<br>2. Make sure you've set the correct permissions in Screen1's properties<br>3. Before using a variable, make sure it has been initialized (given a starting value)<br>4. Keep image sizes under 1MB whenever possible</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">Bug #4：API Key 过期或被限流</span><span class="en">Bug #4: API Key Expired or Rate Limited</span></h3>
+          <p>
+            <span class="zh"><strong>现象：</strong>你的 App 之前一直能正常调用 API，但突然不工作了。API 返回 <code>429 Too Many Requests</code> 或 <code>401 Unauthorized</code>。<br><br><strong>常见原因：</strong><br>- API Key 已经过期或被禁用了<br>- 你在短时间内调用 API 次数太多，触发了限流<br>- 免费额度已经用完<br><br><strong>解决方法：</strong><br>1. 登录 API 提供商的网站，检查你的 API Key 是否仍然有效<br>2. 查看你的用量统计，看看是否超出了限制<br>3. 如果是限流，等几分钟后再试<br>4. 在 App 中添加错误处理——当收到错误时显示友好的提示信息，而不是直接崩溃</span>
+            <span class="en"><strong>Symptom:</strong> Your App used to call the API just fine, but suddenly stopped working. The API returns <code>429 Too Many Requests</code> or <code>401 Unauthorized</code>.<br><br><strong>Common Causes:</strong><br>- The API Key has expired or been disabled<br>- You made too many API calls in a short period, triggering rate limiting<br>- Your free quota has been used up<br><br><strong>Solution:</strong><br>1. Log into the API provider's website and check if your API Key is still valid<br>2. Check your usage statistics to see if you've exceeded the limit<br>3. If it's rate limiting, wait a few minutes and try again<br>4. Add error handling in your App — show a friendly message to the user when an error occurs instead of crashing</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">Bug #5：图片太大，API 无法处理</span><span class="en">Bug #5: Image Too Large for API</span></h3>
+          <p>
+            <span class="zh"><strong>现象：</strong>你的 App 发送图片给 AI API 进行识别，但 API 返回错误或者超时。<br><br><strong>常见原因：</strong><br>- 手机拍的照片通常有 3-10MB，很多 API 有文件大小限制<br>- 图片转换成 Base64 编码后会变得更大（约增加 33%）<br>- 网络速度慢时，大文件传输容易超时<br><br><strong>解决方法：</strong><br>1. 在发送前压缩图片——使用 App Inventor 的 <code>Canvas</code> 组件来缩小图片尺寸<br>2. 将图片的宽度和高度限制在 1024 像素以内<br>3. 如果 API 支持 URL 方式传图，可以先把图片上传到云存储，再把 URL 传给 API<br>4. 增加 Web 组件的超时时间设置</span>
+            <span class="en"><strong>Symptom:</strong> Your App sends an image to the AI API for recognition, but the API returns an error or times out.<br><br><strong>Common Causes:</strong><br>- Phone photos are usually 3-10MB, and many APIs have file size limits<br>- Converting images to Base64 encoding makes them even larger (~33% increase)<br>- Large files easily time out on slow networks<br><br><strong>Solution:</strong><br>1. Compress the image before sending — use App Inventor's <code>Canvas</code> component to resize the image<br>2. Limit image width and height to 1024 pixels<br>3. If the API supports URL-based images, upload the image to cloud storage first, then send the URL to the API<br>4. Increase the Web component's timeout setting</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 9.4 Debugging Tips -->
+    <section class="section reveal" id="section-9-4">
+      <h2><span class="zh">9.4 调试技巧</span><span class="en">9.4 Debugging Tips</span></h2>
+
+      <p>
+        <span class="zh">找 Bug 就像当侦探一样——你需要收集线索、分析证据、缩小范围，最终找到"罪犯"。这里有 5 个超实用的调试技巧：</span>
+        <span class="en">Finding bugs is like being a detective — you need to collect clues, analyze evidence, narrow down suspects, and ultimately catch the "culprit." Here are 5 super practical debugging tips:</span>
+      </p>
+
+      <div class="card-grid cols-1 reveal-stagger">
+
+        <div class="card">
+          <h3><span class="zh">技巧 1：使用 "Do it" 功能</span><span class="en">Tip 1: Use the "Do It" Feature</span></h3>
+          <p>
+            <span class="zh">在 App Inventor 的 Blocks 编辑器中，当你的手机已经通过 AI Companion 连接时，你可以<strong>右键点击</strong>任何一个积木块，然后选择 <strong>"Do it"</strong>。这会立即执行这个积木块，并在旁边显示结果。<br><br>这是一个非常强大的功能！比如，你可以右键点击 <code>get global variable</code> 积木块来查看变量当前的值，或者右键点击一个数学运算积木块来看看计算结果是否正确。<br><br><strong>使用场景：</strong>当你不确定某个积木块是否产出了正确的值时，"Do it" 可以让你立即看到答案。</span>
+            <span class="en">In App Inventor's Blocks editor, when your phone is connected via AI Companion, you can <strong>right-click</strong> any block and select <strong>"Do It."</strong> This immediately executes that block and shows the result right next to it.<br><br>This is an incredibly powerful feature! For example, you can right-click a <code>get global variable</code> block to see the variable's current value, or right-click a math block to check if the calculation is correct.<br><br><strong>When to use it:</strong> Whenever you're unsure if a block is producing the correct value, "Do It" lets you see the answer immediately.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">技巧 2：添加 Notifier 显示调试信息</span><span class="en">Tip 2: Add Notifier for Debug Messages</span></h3>
+          <p>
+            <span class="zh">在 Designer 视图中，从 <strong>User Interface</strong> 面板拖入一个 <strong>Notifier</strong> 组件。然后在 Blocks 视图中，你可以在程序的关键位置添加 <code>call Notifier1.ShowAlert</code> 积木块来显示调试信息。<br><br><strong>举例：</strong><br>- 在调用 API 之前，显示请求数据：<code>Notifier1.ShowAlert("发送的数据: " + requestBody)</code><br>- 在收到 API 回复后，显示原始返回内容：<code>Notifier1.ShowAlert("收到: " + responseContent)</code><br>- 在发生错误时，显示错误详情：<code>Notifier1.ShowAlert("错误: " + errorMessage)</code><br><br><strong>记住：</strong>调试完成后，记得删除或禁用这些调试用的 Notifier 积木块，否则用户在使用你的 App 时会看到这些技术信息。</span>
+            <span class="en">In the Designer view, drag a <strong>Notifier</strong> component from the <strong>User Interface</strong> palette. Then in the Blocks view, add <code>call Notifier1.ShowAlert</code> blocks at key points in your program to display debug information.<br><br><strong>Examples:</strong><br>- Before calling the API, show the request data: <code>Notifier1.ShowAlert("Sending: " + requestBody)</code><br>- After receiving the API response, show the raw content: <code>Notifier1.ShowAlert("Received: " + responseContent)</code><br>- When an error occurs, show error details: <code>Notifier1.ShowAlert("Error: " + errorMessage)</code><br><br><strong>Remember:</strong> After debugging, remove or disable these debug Notifier blocks, or your users will see technical messages when using your App.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">技巧 3：先用小数据测试</span><span class="en">Tip 3: Test with Small Inputs First</span></h3>
+          <p>
+            <span class="zh">在测试 AI 功能时，不要一上来就用很复杂的输入。先用<strong>最简单、最短的输入</strong>来测试，确认基本功能正常后再逐步增加复杂度。<br><br><strong>举例：</strong><br>- 测试 AI 聊天：先发送 "Hi"，看看能不能收到回复<br>- 测试图片识别：先用一张很小的、很清晰的图片<br>- 测试语音识别：先说一个简单的单词，比如 "Hello"<br><br>如果简单的输入就出错了，那问题一定在基础设置上（URL、Key、Headers），不需要往复杂的地方想。</span>
+            <span class="en">When testing AI features, don't start with complex inputs. Start with the <strong>simplest, shortest inputs</strong> first, confirm basic functionality works, and then gradually increase complexity.<br><br><strong>Examples:</strong><br>- Testing AI chat: Send "Hi" first, see if you get a reply<br>- Testing image recognition: Start with a small, clear image<br>- Testing speech recognition: Say a simple word like "Hello" first<br><br>If simple inputs already cause errors, the problem is definitely in the basic setup (URL, Key, Headers) — no need to look for complex issues.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">技巧 4：在浏览器中单独测试 API</span><span class="en">Tip 4: Test API Separately in a Browser</span></h3>
+          <p>
+            <span class="zh">如果你不确定是 App 的问题还是 API 的问题，可以先在<strong>浏览器中单独测试 API</strong>。使用像 <strong>Hoppscotch</strong>（hoppscotch.io）这样的在线工具，手动输入 URL、Headers 和请求体来测试 API。<br><br>如果在浏览器中 API 能正常返回结果，那说明问题在你的 App Inventor 积木块上。如果浏览器中也返回错误，那说明 API 本身有问题（URL 不对、Key 无效等）。<br><br>这种方法叫做<strong>"隔离测试"</strong>——通过分别测试不同的部分，来缩小问题的范围。</span>
+            <span class="en">If you're not sure whether the problem is with your App or the API, <strong>test the API separately in a browser</strong>. Use an online tool like <strong>Hoppscotch</strong> (hoppscotch.io) to manually enter the URL, Headers, and request body to test the API.<br><br>If the API returns correct results in the browser, then the problem is in your App Inventor blocks. If the browser also returns an error, then the API itself has an issue (wrong URL, invalid Key, etc.).<br><br>This method is called <strong>"isolation testing"</strong> — by testing different parts separately, you narrow down where the problem is.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3><span class="zh">技巧 5：认真阅读错误信息</span><span class="en">Tip 5: Read Error Messages Carefully</span></h3>
+          <p>
+            <span class="zh">很多同学看到错误信息就慌了，直接跳过不看。但其实<strong>错误信息就是答案的线索</strong>！养成仔细阅读错误信息的习惯。<br><br><strong>常见错误代码的含义：</strong><br>- <code>400 Bad Request</code> = 你发送的数据格式不对<br>- <code>401 Unauthorized</code> = API Key 错误或缺失<br>- <code>403 Forbidden</code> = 没有权限访问这个 API<br>- <code>404 Not Found</code> = URL 地址写错了<br>- <code>429 Too Many Requests</code> = 调用太频繁，被限流了<br>- <code>500 Internal Server Error</code> = API 服务器出了问题（不是你的错！）<br><br>把错误信息看作你的朋友，它在告诉你哪里出了问题。</span>
+            <span class="en">Many students panic when they see error messages and skip right past them. But <strong>error messages are clues to the answer</strong>! Make a habit of reading error messages carefully.<br><br><strong>Common error code meanings:</strong><br>- <code>400 Bad Request</code> = Your request data format is wrong<br>- <code>401 Unauthorized</code> = API Key is wrong or missing<br>- <code>403 Forbidden</code> = No permission to access this API<br>- <code>404 Not Found</code> = URL address is wrong<br>- <code>429 Too Many Requests</code> = Too many calls, rate limited<br>- <code>500 Internal Server Error</code> = API server has a problem (not your fault!)<br><br>Think of error messages as your friend — they're telling you what went wrong.</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 9.5 UI Polish -->
+    <section class="section reveal" id="section-9-5">
+      <h2><span class="zh">9.5 UI 打磨</span><span class="en">9.5 UI Polish</span></h2>
+
+      <p>
+        <span class="zh">一个优秀的 App 不仅功能要好用，界面也要看起来舒服、专业。在你的 App 基本功能都完成后，花一些时间来打磨 UI（用户界面），让你的 App 从"能用"变成"好用又好看"。</span>
+        <span class="en">A great App isn't just functional — it should also look polished and professional. After your App's core features are working, spend some time polishing the UI (User Interface) to transform your App from "works" to "works beautifully."</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">统一颜色和间距</span><span class="en">Consistent Colors &amp; Spacing</span></h3>
+          <p>
+            <span class="zh">选择 2-3 种主要颜色，在整个 App 中统一使用。比如按钮都用蓝色、标题都用深灰色、背景用浅色。组件之间留出统一的间距，不要有的地方挤在一起，有的地方空一大片。<br><br><strong>小技巧：</strong>在 App Inventor 中，你可以使用 <code>HorizontalArrangement</code> 和 <code>VerticalArrangement</code> 来精确控制布局和间距。</span>
+            <span class="en">Choose 2-3 main colors and use them consistently throughout your App. For example, buttons in blue, titles in dark gray, backgrounds in a light color. Keep consistent spacing between components — don't have some areas crammed together and others with huge gaps.<br><br><strong>Pro tip:</strong> In App Inventor, use <code>HorizontalArrangement</code> and <code>VerticalArrangement</code> to precisely control layout and spacing.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">加载指示器</span><span class="en">Loading Indicators</span></h3>
+          <p>
+            <span class="zh">当你的 App 正在等待 API 回复时，用户可能会以为 App 卡住了。添加一个<strong>加载提示</strong>来告诉用户"正在处理中"。<br><br><strong>实现方法：</strong><br>1. 添加一个 Label，文字设为"正在思考中..."<br>2. 默认设置 Visible = false（不可见）<br>3. 在发送 API 请求前，设置 Visible = true（显示）<br>4. 在收到 API 回复后，设置 Visible = false（隐藏）</span>
+            <span class="en">When your App is waiting for an API response, users might think the App is frozen. Add a <strong>loading indicator</strong> to tell users "processing...".<br><br><strong>How to implement:</strong><br>1. Add a Label with text "Thinking..."<br>2. Set Visible = false (hidden) by default<br>3. Before sending the API request, set Visible = true (show)<br>4. After receiving the API response, set Visible = false (hide)</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">用户友好的错误提示</span><span class="en">User-Friendly Error Messages</span></h3>
+          <p>
+            <span class="zh">当 API 调用失败时，不要给用户显示 <code>Error 401 Unauthorized</code> 这样的技术信息。用<strong>通俗易懂的语言</strong>告诉用户发生了什么，以及他们可以做什么。<br><br><strong>好的错误提示示例：</strong><br>- "网络连接似乎有问题，请检查 Wi-Fi 后重试。"<br>- "AI 小助手暂时忙不过来了，请稍后再试。"<br>- "请拍一张更清晰的照片，这样 AI 才能更好地识别。"</span>
+            <span class="en">When an API call fails, don't show users technical messages like <code>Error 401 Unauthorized</code>. Use <strong>plain language</strong> to tell them what happened and what they can do.<br><br><strong>Good error message examples:</strong><br>- "There seems to be a network issue. Please check your Wi-Fi and try again."<br>- "The AI assistant is a bit busy right now. Please try again in a moment."<br>- "Please take a clearer photo so the AI can recognize it better."</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">App 图标设计</span><span class="en">App Icon Design</span></h3>
+          <p>
+            <span class="zh">一个好看的图标能让你的 App 更有吸引力。你可以使用免费的在线工具来设计图标：<br><br><strong>推荐工具：</strong><br>- <strong>Canva</strong>（canva.com）：超简单的在线设计工具<br>- <strong>Figma</strong>（figma.com）：专业设计工具，免费版够用<br><br><strong>图标设计建议：</strong><br>- 尺寸：512 x 512 像素<br>- 使用简单的图形，不要太复杂<br>- 选择和你的 App 颜色一致的配色<br>- 在 App Inventor 的 Screen1 属性中设置 <code>Icon</code></span>
+            <span class="en">A good-looking icon makes your App more attractive. Use free online tools to design your icon:<br><br><strong>Recommended tools:</strong><br>- <strong>Canva</strong> (canva.com): Super easy online design tool<br>- <strong>Figma</strong> (figma.com): Professional design tool, free version is enough<br><br><strong>Icon design tips:</strong><br>- Size: 512 x 512 pixels<br>- Use simple shapes, don't overcomplicate it<br>- Choose colors that match your App's theme<br>- Set it in App Inventor via Screen1's <code>Icon</code> property</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9.6 Development Time -->
+    <section class="section reveal" id="section-9-6">
+      <h2><span class="zh">9.6 开发时间</span><span class="en">9.6 Development Time</span></h2>
+
+      <p>
+        <span class="zh">现在是你大展身手的时候了！这节课的主要时间留给你来<strong>开发和完善你的 AI App 项目</strong>。老师会在教室里巡视，随时帮助你解决问题。<br><br>在开始开发之前，先检查下面的清单，确保你的项目在正确的方向上。</span>
+        <span class="en">Now it's your time to shine! The main part of this lesson is dedicated to <strong>developing and refining your AI App project</strong>. Your teacher will be walking around the classroom, ready to help you solve any problems.<br><br>Before you start building, check the list below to make sure your project is on the right track.</span>
+      </p>
+
+      <div class="callout callout-info">
+        <p>
+          <span class="zh"><strong>开发检查清单：</strong><br><br>
+            &#9744; <strong>核心功能完成</strong> — App 的主要 AI 功能可以正常工作<br>
+            &#9744; <strong>API 调用稳定</strong> — API 调用能正确返回结果，并处理了错误情况<br>
+            &#9744; <strong>UI 布局合理</strong> — 界面整洁美观，按钮和文字的位置合理<br>
+            &#9744; <strong>加载状态</strong> — 等待 API 回复时有加载提示<br>
+            &#9744; <strong>错误处理</strong> — 当出错时显示友好的提示信息<br>
+            &#9744; <strong>在手机上测试</strong> — 用真实手机测试所有功能<br>
+            &#9744; <strong>请别人测试</strong> — 让同学或老师试用你的 App，收集反馈<br>
+            &#9744; <strong>App 图标</strong> — 设计并设置了 App 图标<br>
+            &#9744; <strong>App 名称</strong> — 给你的 App 起了一个好记的名字
+          </span>
+          <span class="en"><strong>Development Checklist:</strong><br><br>
+            &#9744; <strong>Core features complete</strong> — App's main AI functionality works correctly<br>
+            &#9744; <strong>Stable API calls</strong> — API calls return correct results and handle errors<br>
+            &#9744; <strong>Clean UI layout</strong> — Interface is neat, buttons and text are well-positioned<br>
+            &#9744; <strong>Loading states</strong> — Show loading indicator while waiting for API response<br>
+            &#9744; <strong>Error handling</strong> — Display friendly error messages when something goes wrong<br>
+            &#9744; <strong>Phone testing</strong> — Test all features on a real phone<br>
+            &#9744; <strong>Peer testing</strong> — Have a classmate or teacher try your App and collect feedback<br>
+            &#9744; <strong>App icon</strong> — Design and set your App icon<br>
+            &#9744; <strong>App name</strong> — Give your App a memorable name
+          </span>
+        </p>
+      </div>
+
+      <div class="callout callout-tip">
+        <p>
+          <span class="zh"><strong>时间管理建议：</strong><br><br>如果你还有很多功能没完成，先专注于<strong>最核心的功能</strong>。一个只有一个功能但做得很好的 App，远比一个有十个功能但都半成品的 App 要好。<br><br>如果你的核心功能已经完成了，那就把时间花在打磨 UI、添加加载状态和错误处理上。这些看似小细节的东西，能让你的 App 质量提升好几个档次！</span>
+          <span class="en"><strong>Time Management Tip:</strong><br><br>If you still have many features left to build, focus on the <strong>most essential feature</strong>. An App with one feature done well is far better than an App with ten half-finished features.<br><br>If your core features are already working, spend your time polishing the UI, adding loading states, and handling errors. These seemingly small details can dramatically improve your App's quality!</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 9.7 Challenge -->
+    <section class="section reveal" id="section-9-7">
+      <h2><span class="zh">9.7 挑战任务</span><span class="en">9.7 Challenge</span></h2>
+
+      <p>
+        <span class="zh">在今天的开发过程中，完成以下两个挑战任务：</span>
+        <span class="en">During today's development session, complete these two challenge tasks:</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card">
+          <h3><span class="zh">挑战 A：修复 3 个 Bug</span><span class="en">Challenge A: Fix 3 Bugs</span></h3>
+          <p>
+            <span class="zh">在你的 App 中找到并修复<strong>至少 3 个 Bug</strong>。每修复一个 Bug，在你的笔记本上记录下来：<br><br>1. <strong>Bug 描述：</strong>出了什么问题？<br>2. <strong>原因：</strong>为什么会出这个问题？<br>3. <strong>解决方法：</strong>你是怎么修复的？<br><br>这种记录习惯在真实的软件开发中叫做 <strong>"Bug Log"（Bug 日志）</strong>，是非常重要的专业技能。</span>
+            <span class="en">Find and fix <strong>at least 3 bugs</strong> in your App. For each bug you fix, record in your notebook:<br><br>1. <strong>Bug description:</strong> What went wrong?<br>2. <strong>Root cause:</strong> Why did it happen?<br>3. <strong>Fix:</strong> How did you solve it?<br><br>This recording habit is called a <strong>"Bug Log"</strong> in real-world software development — it's an important professional skill.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3><span class="zh">挑战 B：用户测试</span><span class="en">Challenge B: User Testing</span></h3>
+          <p>
+            <span class="zh">找一位<strong>同学、老师或家长</strong>来测试你的 App。在他们使用时，观察以下几点：<br><br>1. 他们能不能<strong>不需要你的帮助</strong>就知道怎么用？<br>2. 他们在哪里<strong>犹豫了</strong>或者<strong>按错了</strong>？<br>3. 他们觉得<strong>哪里做得好</strong>，<strong>哪里需要改进</strong>？<br><br>收集至少 3 条反馈，并根据反馈改进你的 App。这就是真实世界中的<strong>"用户测试"（User Testing）</strong>过程。</span>
+            <span class="en">Find a <strong>classmate, teacher, or parent</strong> to test your App. While they're using it, observe:<br><br>1. Can they figure out how to use it <strong>without your help</strong>?<br>2. Where did they <strong>hesitate</strong> or <strong>tap the wrong thing</strong>?<br>3. What do they think <strong>works well</strong> and <strong>needs improvement</strong>?<br><br>Collect at least 3 pieces of feedback and improve your App based on them. This is the real-world process of <strong>"User Testing."</strong></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section class="section reveal" id="quiz-9">
+      <h2><span class="zh">课堂测验</span><span class="en">Lesson Quiz</span></h2>
+      <div class="quiz" data-quiz-id="app9">
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">1. 专业开发者推荐的开发流程是什么？</span><span class="en">1. What is the development workflow recommended by professional developers?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">一次性写完所有代码，最后再测试</span>
+              <span class="en">Write all the code at once, then test at the end</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">计划 → 搭建 → 测试 → 修复 → 重复</span>
+              <span class="en">Plan → Build → Test → Fix → Repeat</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">先设计完美的 UI，再写逻辑</span>
+              <span class="en">Design the perfect UI first, then write the logic</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">直接复制别人的代码，改改就行</span>
+              <span class="en">Just copy someone else's code and modify it</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">专业开发者遵循"计划 → 搭建 → 测试 → 修复 → 重复"的循环流程，每次只完成一个小功能，确保它正常工作后再继续下一个。</span><span class="en">Professional developers follow the "Plan → Build → Test → Fix → Repeat" cycle, completing one small feature at a time and making sure it works before moving on.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="A">
+          <p class="quiz-prompt"><span class="zh">2. 当你的 API 调用返回 <code>401 Unauthorized</code> 错误时，最可能的原因是什么？</span><span class="en">2. When your API call returns a <code>401 Unauthorized</code> error, what is the most likely cause?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">API Key 错误或缺失</span>
+              <span class="en">API Key is wrong or missing</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">网络连接断开了</span>
+              <span class="en">Network connection is lost</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">手机内存不够</span>
+              <span class="en">Phone memory is insufficient</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">图片太大了</span>
+              <span class="en">Image is too large</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh"><code>401 Unauthorized</code> 表示认证失败。最常见的原因是 API Key 写错了、过期了或者在请求头中缺少 Authorization 字段。</span><span class="en"><code>401 Unauthorized</code> means authentication failed. The most common cause is that the API Key is wrong, expired, or the Authorization header is missing from the request.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt"><span class="zh">3. App Inventor 中的 "Do it" 功能有什么作用？</span><span class="en">3. What does the "Do It" feature in App Inventor do?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">自动修复所有 Bug</span>
+              <span class="en">Automatically fixes all bugs</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">把 App 下载到手机上</span>
+              <span class="en">Downloads the App to your phone</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">立即执行选中的积木块并显示结果</span>
+              <span class="en">Immediately executes the selected block and shows the result</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">删除选中的积木块</span>
+              <span class="en">Deletes the selected block</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">"Do it" 功能可以在手机连接 AI Companion 时，右键点击任何积木块来立即执行它，并在旁边显示结果。这对于检查变量值和调试非常有用。</span><span class="en">The "Do It" feature lets you right-click any block while connected to AI Companion to immediately execute it and display the result. This is very useful for checking variable values and debugging.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt"><span class="zh">4. 当你的 App 等待 API 回复时，应该怎么做来提升用户体验？</span><span class="en">4. What should you do to improve user experience while your App waits for an API response?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">什么都不做，让用户等着</span>
+              <span class="en">Do nothing, let the user wait</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">禁用所有按钮，让用户无法操作</span>
+              <span class="en">Disable all buttons so the user can't do anything</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">显示 API 的技术错误代码</span>
+              <span class="en">Show the API's technical error code</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">显示一个加载提示，告诉用户正在处理中</span>
+              <span class="en">Show a loading indicator telling the user it's processing</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">当 App 等待 API 回复时，应该显示加载提示（如"正在思考中..."），让用户知道 App 正在工作，而不是卡住了。这是良好用户体验的基本做法。</span><span class="en">When waiting for an API response, show a loading indicator (like "Thinking...") so users know the App is working, not frozen. This is a fundamental practice for good user experience.</span></div>
+        </div>
+
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt"><span class="zh">5. "隔离测试"是什么意思？</span><span class="en">5. What does "isolation testing" mean?</span></p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">在没有网络的情况下测试 App</span>
+              <span class="en">Testing the App without internet</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">分别测试不同的部分，来缩小问题的范围</span>
+              <span class="en">Testing different parts separately to narrow down the problem</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">一个人独自测试，不让别人看</span>
+              <span class="en">Testing alone without letting others see</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">只测试 App 的界面，不测试功能</span>
+              <span class="en">Only testing the App's interface, not its functionality</span>
+            </button>
+          </div>
+          <div class="quiz-explanation hidden"><span class="zh">"隔离测试"是指分别测试程序的不同部分（比如先在浏览器中单独测试 API，再测试 App 的积木块），通过排除法来确定问题出在哪里。</span><span class="en">"Isolation testing" means testing different parts of your program separately (e.g., testing the API in a browser first, then testing your App blocks), using the process of elimination to determine where the problem lies.</span></div>
+        </div>
+
+        <div class="quiz-result hidden"></div>
+
+      </div>
+    </section>
+
+    <!-- Lesson Navigation Footer -->
+    <div class="lesson-nav-footer">
+      <a href="lesson8.html">
+        <span class="zh">&larr; 上一课：设计思维</span>
+        <span class="en">&larr; Previous: Design Thinking</span>
+      </a>
+      <a href="lesson10.html">
+        <span class="zh">下一课：Demo Day &rarr;</span>
+        <span class="en">Next: Demo Day &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

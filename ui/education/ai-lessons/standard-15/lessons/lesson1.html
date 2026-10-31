@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第1课：AI 就在你身边 — 日常AI应用 | Lesson 1: AI Is All Around You">
+  <title>第1课：AI 就在你身边 | Lesson 1: AI Is All Around You</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link"><span class="zh">跳到主要内容</span><span class="en">Skip to main content</span></a>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav">
+    <a href="../../index.html" class="nav-portal" title="All Courses">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+      <span class="zh">全部课程</span>
+      <span class="en">Courses</span>
+    </a>
+    <a href="../index.html" class="nav-logo">
+      <span class="zh">AI 探索之旅</span>
+      <span class="en">AI Explorer</span>
+    </a>
+
+    <div class="nav-lessons">
+      <a href="lesson1.html" class="active"><span class="zh">第1课</span><span class="en">L1</span></a>
+      <a href="lesson2.html"><span class="zh">第2课</span><span class="en">L2</span></a>
+      <a href="lesson3.html"><span class="zh">第3课</span><span class="en">L3</span></a>
+      <a href="lesson4.html"><span class="zh">第4课</span><span class="en">L4</span></a>
+      <a href="lesson5.html"><span class="zh">第5课</span><span class="en">L5</span></a>
+      <a href="lesson6.html"><span class="zh">第6课</span><span class="en">L6</span></a>
+      <a href="lesson7.html"><span class="zh">第7课</span><span class="en">L7</span></a>
+      <a href="lesson8.html"><span class="zh">第8课</span><span class="en">L8</span></a>
+      <a href="lesson9.html"><span class="zh">第9课</span><span class="en">L9</span></a>
+      <a href="lesson10.html"><span class="zh">第10课</span><span class="en">L10</span></a>
+      <a href="lesson11.html"><span class="zh">第11课</span><span class="en">L11</span></a>
+      <a href="lesson12.html"><span class="zh">第12课</span><span class="en">L12</span></a>
+      <a href="lesson13.html"><span class="zh">第13课</span><span class="en">L13</span></a>
+      <a href="lesson14.html"><span class="zh">第14课</span><span class="en">L14</span></a>
+      <a href="lesson15.html"><span class="zh">第15课</span><span class="en">L15</span></a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" aria-label="Switch language">
+        <span class="zh">EN</span>
+        <span class="en">中文</span>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ============ Hero Section ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="lesson-tag">
+        <span class="zh">第 1 课</span>
+        <span class="en">Lesson 1</span>
+      </span>
+      <h1>
+        <span class="zh">AI 就在你身边</span>
+        <span class="en">AI Is All Around You</span>
+      </h1>
+      <p class="subtitle">
+        <span class="zh">推荐算法、人脸识别、语音助手、自动驾驶——AI 早已融入你的日常生活</span>
+        <span class="en">Recommendation algorithms, face recognition, voice assistants, self-driving — AI is already part of your daily life</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Main Content ============ -->
+  <div class="content" id="main-content">
+
+    <!-- ── Section 1.1 ── -->
+    <section class="section reveal" id="section-1-1">
+      <h2>
+        <span class="zh">1.1 早上好，AI！</span>
+        <span class="en">1.1 Good Morning, AI!</span>
+      </h2>
+      <p>
+        <span class="zh">想象一下你的一天：早上醒来，用<strong>人脸识别</strong>解锁手机；打开短视频App，<strong>推荐算法</strong>为你推送感兴趣的内容；对着手机说"今天天气怎么样"，<strong>语音助手</strong>立刻回答你。这一切的背后，都是人工智能在默默工作。</span>
+        <span class="en">Imagine your day: You wake up and unlock your phone with <strong>face recognition</strong>; open a video app and the <strong>recommendation algorithm</strong> feeds you content you'll love; ask your phone "What's the weather today?" and the <strong>voice assistant</strong> answers instantly. Behind all of this, AI is working silently.</span>
+      </p>
+      <p>
+        <span class="zh">你可能觉得 AI 是科幻电影里才有的东西，但事实是，AI 已经像水和电一样融入了我们的生活。让我们一起来看看，你每天都在使用哪些 AI 技术吧！</span>
+        <span class="en">You might think AI is something from sci-fi movies, but the truth is, AI has become as integrated into our lives as water and electricity. Let's explore what AI technologies you use every single day!</span>
+      </p>
+    </section>
+
+    <!-- ── Section 1.2 ── -->
+    <section class="section reveal" id="section-1-2">
+      <h2>
+        <span class="zh">1.2 推荐算法：比你更懂你</span>
+        <span class="en">1.2 Recommendation Algorithms: They Know You Better Than You</span>
+      </h2>
+      <p>
+        <span class="zh">你有没有想过，为什么抖音、B站、小红书总能推荐你喜欢的内容？这就是<strong>推荐算法</strong>的魔力。</span>
+        <span class="en">Have you ever wondered why TikTok, YouTube, or Instagram always seem to recommend content you love? That's the magic of <strong>recommendation algorithms</strong>.</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">记录你的行为</span>
+            <span class="en">Tracking Your Behavior</span>
+          </h4>
+          <p>
+            <span class="zh">AI 会记住你看了哪些视频、点了哪些赞、停留了多久，从而建立一个"你的兴趣模型"。</span>
+            <span class="en">AI remembers which videos you watch, what you like, and how long you stay, building a "model of your interests."</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">找到"相似的人"</span>
+            <span class="en">Finding "Similar People"</span>
+          </h4>
+          <p>
+            <span class="zh">AI 还会找到跟你兴趣相似的其他用户，把他们喜欢的内容推荐给你——这叫<strong>协同过滤</strong>。</span>
+            <span class="en">AI also finds other users with similar interests and recommends what they like to you — this is called <strong>collaborative filtering</strong>.</span>
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh"><strong>想一想：</strong>推荐算法让我们更容易找到好内容，但也可能让我们陷入"信息茧房"——只看到自己喜欢的东西，看不到不同的观点。你觉得这是好事还是坏事？</span>
+        <span class="en"><strong>Think about it:</strong> Recommendation algorithms help us find great content, but they can also trap us in a "filter bubble" — only seeing what we already like, missing different perspectives. Do you think this is a good thing or a bad thing?</span>
+      </p>
+    </section>
+
+    <!-- ── Section 1.3 ── -->
+    <section class="section reveal" id="section-1-3">
+      <h2>
+        <span class="zh">1.3 人脸识别与语音助手</span>
+        <span class="en">1.3 Face Recognition & Voice Assistants</span>
+      </h2>
+      <p>
+        <span class="zh">每次你用脸解锁手机，背后发生了什么？</span>
+        <span class="en">Every time you unlock your phone with your face, what happens behind the scenes?</span>
+      </p>
+
+      <div class="card-grid cols-2 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">人脸识别三步曲</span>
+            <span class="en">Face Recognition in 3 Steps</span>
+          </h4>
+          <p>
+            <span class="zh"><strong>1. 检测</strong>：找到图像中的人脸位置<br><strong>2. 提取</strong>：分析眼睛、鼻子、嘴巴等特征点<br><strong>3. 匹配</strong>：与已存储的人脸数据进行对比</span>
+            <span class="en"><strong>1. Detect</strong>: Find the face location in the image<br><strong>2. Extract</strong>: Analyze feature points like eyes, nose, mouth<br><strong>3. Match</strong>: Compare with stored facial data</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">语音助手如何工作</span>
+            <span class="en">How Voice Assistants Work</span>
+          </h4>
+          <p>
+            <span class="zh"><strong>1. 语音识别</strong>：把你说的话转成文字<br><strong>2. 自然语言理解</strong>：理解你的意图<br><strong>3. 生成回答</strong>：用语音合成技术回复你</span>
+            <span class="en"><strong>1. Speech Recognition</strong>: Convert your speech to text<br><strong>2. NLU</strong>: Understand your intent<br><strong>3. Generate Response</strong>: Reply using speech synthesis</span>
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">从 Siri 到小爱同学，从 Alexa 到天猫精灵，语音助手已经能理解复杂的指令、控制智能家居、甚至跟你聊天。随着大语言模型的发展，它们正变得越来越"聪明"。</span>
+        <span class="en">From Siri to Alexa, from Google Assistant to smart speakers, voice assistants can now understand complex commands, control smart homes, and even chat with you. With the development of large language models, they're getting "smarter" every day.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 1.4 ── -->
+    <section class="section reveal" id="section-1-4">
+      <h2>
+        <span class="zh">1.4 自动驾驶：AI 的终极挑战</span>
+        <span class="en">1.4 Self-Driving: AI's Ultimate Challenge</span>
+      </h2>
+      <p>
+        <span class="zh">自动驾驶被认为是 AI 最具挑战性的应用之一。一辆自动驾驶汽车需要同时完成多项 AI 任务：</span>
+        <span class="en">Self-driving is considered one of AI's most challenging applications. An autonomous vehicle must perform multiple AI tasks simultaneously:</span>
+      </p>
+
+      <div class="card-grid cols-3 reveal-stagger">
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">感知环境</span>
+            <span class="en">Perceive</span>
+          </h4>
+          <p>
+            <span class="zh">用摄像头和雷达识别路上的车辆、行人、交通标志</span>
+            <span class="en">Use cameras and radar to detect vehicles, pedestrians, and traffic signs</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+          </div>
+          <h4>
+            <span class="zh">做出决策</span>
+            <span class="en">Decide</span>
+          </h4>
+          <p>
+            <span class="zh">判断是加速、减速还是转弯，预测其他车辆的行为</span>
+            <span class="en">Decide to accelerate, brake, or turn, and predict other vehicles' behavior</span>
+          </p>
+        </div>
+
+        <div class="card icon-card">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+          </div>
+          <h4>
+            <span class="zh">执行操作</span>
+            <span class="en">Execute</span>
+          </h4>
+          <p>
+            <span class="zh">控制方向盘、油门和刹车，精确到毫秒级响应</span>
+            <span class="en">Control steering, throttle, and brakes with millisecond-level response</span>
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <span class="zh">自动驾驶分为 L1 到 L5 共五个等级。目前大多数量产车处于 L2（辅助驾驶）水平，特斯拉、华为、小鹏等公司正在向 L3-L4 迈进。完全无人驾驶（L5）仍然是未来的目标。</span>
+        <span class="en">Self-driving is classified into 5 levels (L1-L5). Most production cars are at L2 (assisted driving). Companies like Tesla, Waymo, and others are pushing toward L3-L4. Fully autonomous driving (L5) remains a future goal.</span>
+      </p>
+    </section>
+
+    <!-- ── Section 1.5: Quiz ── -->
+    <section class="section reveal" id="section-1-5">
+      <h2>
+        <span class="zh">1.5 小测验</span>
+        <span class="en">1.5 Quiz</span>
+      </h2>
+      <p>
+        <span class="zh">让我们来检验一下你在本课中学到的知识！</span>
+        <span class="en">Let's test what you've learned in this lesson!</span>
+      </p>
+
+      <div class="quiz" data-quiz-id="lesson1">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-correct="B">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q1.</strong> 短视频平台为你推荐感兴趣的内容，主要依靠什么技术？</span>
+            <span class="en"><strong>Q1.</strong> What technology do video platforms mainly use to recommend content you like?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 人脸识别</span>
+              <span class="en">A. Face recognition</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 推荐算法</span>
+              <span class="en">B. Recommendation algorithms</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 自动驾驶</span>
+              <span class="en">C. Self-driving</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 语音识别</span>
+              <span class="en">D. Speech recognition</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">推荐算法通过分析你的浏览行为和兴趣偏好，为你精准推送感兴趣的内容。</span>
+            <span class="en">Recommendation algorithms analyze your browsing behavior and interest preferences to precisely push content you'll enjoy.</span>
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-correct="C">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q2.</strong> 人脸识别的正确步骤顺序是什么？</span>
+            <span class="en"><strong>Q2.</strong> What is the correct order of face recognition steps?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. 匹配 → 提取 → 检测</span>
+              <span class="en">A. Match → Extract → Detect</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. 提取 → 检测 → 匹配</span>
+              <span class="en">B. Extract → Detect → Match</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. 检测 → 提取 → 匹配</span>
+              <span class="en">C. Detect → Extract → Match</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. 检测 → 匹配 → 提取</span>
+              <span class="en">D. Detect → Match → Extract</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">人脸识别的三个步骤是：先检测（找到人脸位置），再提取（分析特征点），最后匹配（与已有数据对比）。</span>
+            <span class="en">The three steps are: Detect (find face location), Extract (analyze feature points), then Match (compare with stored data).</span>
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-correct="D">
+          <p class="quiz-prompt">
+            <span class="zh"><strong>Q3.</strong> 目前大多数量产自动驾驶汽车处于哪个等级？</span>
+            <span class="en"><strong>Q3.</strong> What level are most production self-driving cars at currently?</span>
+          </p>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="A">
+              <span class="zh">A. L4（高度自动化）</span>
+              <span class="en">A. L4 (High automation)</span>
+            </button>
+            <button class="quiz-option" data-value="B">
+              <span class="zh">B. L5（完全自动化）</span>
+              <span class="en">B. L5 (Full automation)</span>
+            </button>
+            <button class="quiz-option" data-value="C">
+              <span class="zh">C. L3（有条件自动化）</span>
+              <span class="en">C. L3 (Conditional automation)</span>
+            </button>
+            <button class="quiz-option" data-value="D">
+              <span class="zh">D. L2（辅助驾驶）</span>
+              <span class="en">D. L2 (Assisted driving)</span>
+            </button>
+          </div>
+          <p class="quiz-explanation hidden">
+            <span class="zh">目前大多数量产车处于 L2 辅助驾驶水平，驾驶员仍需时刻关注路况并随时准备接管。</span>
+            <span class="en">Most production cars are at L2 assisted driving, where drivers must still pay attention and be ready to take over at any time.</span>
+          </p>
+        </div>
+
+        <!-- Quiz Result -->
+        <div class="quiz-result hidden">
+          <p class="score">
+            <span class="zh">你答对了 <span class="quiz-score">0</span> / <span class="quiz-total">3</span> 题！</span>
+            <span class="en">You got <span class="quiz-score">0</span> / <span class="quiz-total">3</span> correct!</span>
+          </p>
+          <p>
+            <span class="zh">完成测验！继续学习下一课吧。</span>
+            <span class="en">Quiz complete! Continue to the next lesson.</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Lesson Navigation Footer ── -->
+    <div class="lesson-nav-footer">
+      <span></span>
+      <a href="lesson2.html">
+        <span class="zh">下一课：什么是人工智能 →</span>
+        <span class="en">Next: What Is AI? →</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <p class="footer-text">
+      <span class="zh">&copy; 2025 AI 探索之旅 &mdash; 专为青少年打造的人工智能课程</span>
+      <span class="en">&copy; 2025 AI Explorer &mdash; An AI course designed for teens</span>
+    </p>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

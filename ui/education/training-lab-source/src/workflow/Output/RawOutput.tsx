@@ -1,0 +1,115 @@
+import React from 'react';
+import { BehaviourType } from '../Behaviour/Behaviour';
+import AudioPlayer from './AudioPlayer';
+import Embedding from './Embedding';
+import style from './Output.module.css';
+import { useVariant } from '../../util/variant';
+import { useTranslation } from 'react-i18next';
+import SerialUSBWriter from './SerialUSBWriter';
+import { useAtom } from 'jotai';
+import { serialWriterInstance } from '@genaitm/state';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useTabActive } from '../../util/useTabActive';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import { getContrastingColour } from '../../util/colour';
+
+interface Props extends React.PropsWithChildren {
+    scaleFactor: number;
+    behaviours: BehaviourType[];
+    predicted: number;
+    volume: number;
+    error?: string;
+}
+
+export default function RawOutput({ scaleFactor, behaviours, predicted, volume, error, children }: Props) {
+    const { namespace } = useVariant();
+    const { t } = useTranslation(namespace);
+    const isActive = useTabActive();
+    const [serialUSBWriter, ] = useAtom(serialWriterInstance);
+    const currentBehaviour = predicted < behaviours.length ? behaviours[predicted] : null;
+    const hasImage = !!currentBehaviour?.image || !!currentBehaviour?.text;
+    const hasAudio = !!currentBehaviour?.image || !!currentBehaviour?.text || !!currentBehaviour?.audio;
+    // eslint-disable-next-line no-restricted-globals
+    const realScaleFactor = screen.width < 400 * scaleFactor ? screen.width / 400 : scaleFactor;
+
+    return (
+        <div
+            style={{
+                width: `${Math.floor(400 * realScaleFactor)}px`,
+                height: `${Math.floor(350 * realScaleFactor)}px`,
+            }}
+        >
+            <div
+                aria-label={t('output.aria.display', { index: predicted + 1 })}
+                className={style.container}
+                style={{
+                    transform: `scale(${realScaleFactor})`,
+                }}
+            >
+                {error && (
+                    <>
+                        <SentimentVeryDissatisfiedIcon className={style.errorIcon} />
+                        <span className={style.errorMessage}>{error}</span>
+                    </>
+                )}
+                {!error && (behaviours.length === 0 || predicted < 0) && <CircularProgress />}
+                {!error &&
+                    behaviours.map((behaviour, ix) => (
+                        <React.Fragment key={ix}>
+                            {behaviour?.image && (
+                                <img
+                                    aria-hidden={ix !== predicted}
+                                    data-testid="image-output"
+                                    src={behaviour.image.uri}
+                                    alt={t('output.aria.image', { index: predicted + 1 })}
+                                    style={{ display: ix === predicted ? 'initial' : 'none' }}
+                                />
+                            )}
+                            {behaviour?.audio && (
+                                <AudioPlayer
+                                    showIcon={!hasImage}
+                                    volume={volume / 100}
+                                    uri={behaviour.audio.uri}
+                                    play={ix === predicted && isActive}
+                                    loop={behaviour.audio.loop}
+                                />
+                            )}
+                            {behaviour?.embed && (
+                                <Embedding
+                                    show={ix === predicted}
+                                    volume={volume / 100}
+                                    url={behaviour.embed.url}
+                                />
+                            )}
+                            {serialUSBWriter!= null && (
+                                <SerialUSBWriter
+                                    showIcon={!hasAudio}
+                                    predicted={predicted}
+                                    show={ix === predicted}
+                                />
+                            )}
+                            {behaviour?.text && (
+                                <p
+                                    className={style.textOverlay}
+                                    data-testid="text-output"
+                                    style={{
+                                        fontSize: `${behaviour.text.size || 30}pt`,
+                                        display: ix === predicted ? 'initial' : 'none',
+                                        color: behaviour.text.color || '#000000',
+                                        left: behaviour.text.align === 'left' ? 0 : undefined,
+                                        right: behaviour.text.align === 'right' ? 0 : undefined,
+                                        textAlign: behaviour.text.align || 'center',
+                                        backgroundColor: getContrastingColour(behaviour.text.color || '#000000'),
+                                    }}
+                                    aria-hidden={ix !== predicted}
+                                >
+                                    {behaviour.text.text}
+                                </p>
+                            )}
+                        </React.Fragment>
+                    ))}
+                {children}
+            </div>
+        </div>
+    );
+}

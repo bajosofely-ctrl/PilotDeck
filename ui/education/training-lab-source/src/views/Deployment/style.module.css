@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background: #222;
+    position: relative;
+}
+
+.container > :first-child {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dropContainer {
+    composes: container;
+}
+
+.dropContainer > :first-child {
+    opacity: 0.4;
+}
+
+.dropInfo {
+    position: absolute;
+    font-size: 20pt;
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+.barContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    flex-grow: 1;
+}
+
+.volumeContainer {
+    display: flex;
+    color: white;
+    width: 100px;
+    max-width: 250px;
+    flex-grow: 2;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 58px;
+}
+
+.inputContainer canvas {
+    width: 58px;
+    height: 58px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.errorInfo {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.5rem;
+    max-width: 40%;
+}
+
+.qrcode {
+    background: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.shareText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 700px) {
+    .qrcode {
+        padding: 0.5rem;
+    }
+    .shareText :global .MuiAlert-standard {
+        display: none;
+    }
+}
+
+.qrclose {
+    align-self: flex-start;
+    margin-left: auto;
+}

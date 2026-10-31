@@ -1,0 +1,279 @@
+@value primary from "@genai-fi/base/css/colours.module.css";
+
+.listContainer {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.dropSuggest {
+    color: primary;
+    display: flex;
+    align-items: center;
+    min-height: 58px;
+    box-sizing: border-box;
+    padding: 0;
+    font-size: 11pt;
+    text-align: center;
+    background: transparent;
+    position: relative;
+    top: -1rem;
+}
+
+.dropSuggestAnimated {
+    composes: dropSuggest;
+    animation: drop 2s 1;
+}
+
+@keyframes drop {
+    0% {
+        background: transparent;
+    }
+
+    60% {
+        background: transparent;
+    }
+
+    65% {
+        background: #e8f0fe;
+    }
+
+    95% {
+        background: #e8f0fe;
+    }
+}
+
+.dropSample {
+    color: primary;
+    width: 58px;
+    height: 58px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    border: 1px dashed primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: grow 0.2s ease-in-out;
+    background: #e8f0fe;
+}
+
+@keyframes grow {
+    0% {
+        width: 0px;
+        opacity: 0;
+    }
+
+    100% {
+        width: 58px;
+        opacity: 100%;
+    }
+}
+
+.samplelist {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    max-width: 400px;
+    padding: 1rem;
+    justify-content: start;
+    align-content: start;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: scroll;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.samplelistLarge {
+    composes: samplelist;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.samplelistSmall {
+    composes: samplelist;
+    flex-wrap: nowrap;
+}
+
+.samplesLabel {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: #444;
+}
+
+.sample {
+    overflow: hidden;
+    height: 58px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+}
+
+/*.sample button {
+    padding: 5px 8px;
+    flex-direction: column;
+}
+
+.sample button :global .MuiButton-startIcon {
+    margin: 0;
+}*/
+
+.sampleImage {
+    composes: sample;
+    width: 58px;
+    height: 58px;
+}
+
+.sampleImage > button {
+    opacity: 0;
+}
+
+.sampleImage:hover > button {
+    opacity: 1;
+}
+
+.sampleImage > button:focus {
+    opacity: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.containerSmall {
+    composes: container;
+}
+
+.containerLarge {
+    composes: container;
+    height: 400px;
+}
+
+.buttoncontainer {
+    margin: 1rem;
+}
+
+.webcamwindow {
+    background: #e8f0fe;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.webcamcontainer {
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.webcamcontainer canvas {
+    width: 224px;
+    height: 224px;
+}
+
+.webcamcontainer span {
+    max-width: 224px;
+    max-height: 224px;
+}
+
+.webcamheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.webcamheader > h2 {
+    font-size: 12pt;
+    color: primary;
+    font-weight: bold;
+    margin: 0.2rem;
+}
+
+.webcambuttoncontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.formfield {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+}
+
+.shareBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #bbb;
+    gap: 0.3rem;
+}
+
+.shareBox :global .MuiPaper-root {
+    margin: 0 0.5rem;
+    width: 180px;
+}
+
+.disabledBadge {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: #e03838;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    z-index: 10;
+    pointer-events: none;
+    filter: saturate(1);
+}
+
+.disabledBadge > svg {
+    font-size: 1.4rem;
+}
+
+.disabledClass {
+    position: relative;
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.disabledClass .sampleImage {
+    filter: grayscale(100%);
+}
+
+.menuDivider {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: white;
+}
