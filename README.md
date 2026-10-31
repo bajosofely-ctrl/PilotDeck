@@ -3,7 +3,8 @@
 本仓库保存截至 2026-10-31 的定制开发版本，包含 Windows 客户端、独立管理后台、
 账号和充值兑换码、模型渠道与 Token 计费、学习模块、邮件设置及管理员单会话登录。
 
-- 客户端安装包：参见本仓库的 [发行版](https://gitee.com/jiang-guofa/pilot-deck/releases)。
+- Windows 客户端：[下载完整安装包](https://github.com/bajosofely-ctrl/PilotDeck/releases/download/v0.1.0-cloud-20261031/PilotDeck-0.1.0-win-x64-setup.exe)，下载后双击安装，无需分卷或解压。
+- 版本说明与校验文件：[GitHub Releases](https://github.com/bajosofely-ctrl/PilotDeck/releases)。
 - 后台启动与配置：[ui/platform/README.md](ui/platform/README.md)。
 - Windows 构建：[docs/windows-managed-client.md](docs/windows-managed-client.md)。
 - 这是基于 OpenBMB/PilotDeck 的修改版本，保留原项目及第三方模块的许可证和来源说明。
